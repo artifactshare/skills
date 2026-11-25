@@ -10,9 +10,9 @@ AI 特有の装飾過多（AI スロップ）を構造的に排除し、その�
 - **DADS Agent Skills ライブショーケース**：https://c3t9kij22u.artifactshare.link/
   - ビジネス向け 3 本（KPI ダッシュボード / 社内ルール・制度ガイド / 社内 MTG スライド）＋開発向け 3 本（PR レビューガイド / 動く業務 UI モック / 技術発表スライド）を 1 画面で操作し、公式 7 色パレットをリアルタイムに切り替えられます。
 
-## インストール
+## インストール・対応ツール
 
-### `npx skills`（Claude Code / Codex / Cursor / Antigravity 等）
+### 1. ローカル AI ツール（Claude Code / Codex / GitHub Copilot / Cursor / Gemini CLI / Antigravity）
 
 ```sh
 npx skills add artifactshare/skills
@@ -27,11 +27,23 @@ npx skills add artifactshare/skills@dads-slides
 npx skills add artifactshare/skills@dads-mockup
 ```
 
-### Claude Code Plugin Marketplace
+- **Claude Code Plugin Marketplace**：`/plugin marketplace add artifactshare/skills`
+- **GitHub Copilot（VS Code / Visual Studio / JetBrains / CLI）**：`.github/skills/`・`~/.copilot/skills/`・`.claude/skills/`・`.agents/skills/` に対応しているため、上記 `npx skills add` でそのまま利用できます。
 
-```text
-/plugin marketplace add artifactshare/skills
-```
+### 2. Web / クラウド AI（`gemini.google.com` / Microsoft 365 Copilot / Gemini in Chrome / Claude.ai）
+
+ローカルの Node.js を実行できない Web / クラウド AI 向けに、**スクリプト不要（`.js` ゼロ）・Markdown テンプレート同梱の `.zip` パッケージ** を [GitHub Releases](https://github.com/artifactshare/skills/releases/latest) で配布しています。
+
+- **おすすめ（4 種全部入り）**：`dads-all-in-one-web.zip`（1 パックでドキュメント・ダッシュボード・スライド・UI モックのすべてを生成可能）
+- **個別版**：`dads-doc-web.zip` / `dads-dashboard-web.zip` / `dads-slides-web.zip` / `dads-mockup-web.zip`
+
+| サービス | 導入手順 |
+|---|---|
+| **`gemini.google.com`（Skills）** | 左メニュー「カスタマイズ（Customize）」→「Skills」→「作成 / アップロード」から `.zip` をアップロード。チャットで `/` や `@`、または「DADS で〜」と呼び出し（生成 HTML は **Canvas** で即プレビュー可能）。 |
+| **`gemini.google.com`（Gems）** | `.zip` を展開し、`SKILL.md` を「指示」に貼り、`references/*.md` を「知識」に添付して保存。**Google Drive 経由で共有リンクを発行**すれば社内全員がインストール不要で利用できます。 |
+| **Gemini in Chrome** | `chrome://skills` から展開したフォルダをインポート（実行スクリプトを含まないため制限に抵触しません）。 |
+| **Microsoft 365 Copilot / Copilot Studio** | エージェント設定の Skills から `.zip` パッケージをアップロードして利用できます。 |
+| **Claude.ai（Web）** | Projects のカスタム指示・ナレッジ、または Skills に `.zip` / 展開ファイルをアップロードして利用できます。 |
 
 ## 同梱スキル一覧
 
@@ -54,6 +66,7 @@ npx skills add artifactshare/skills@dads-mockup
 ```sh
 npm run sync:official   # デジタル庁公式 3 資産を vendor/ へ同期
 npm run build:skills    # 全 4 スキルを自己完結パッケージへビルド
+npm run build:web       # Web / クラウド AI 向けスクリプトなし .zip を dist/web-skills/ へ生成
 npm run build:samples   # サンプル HTML を生成
 npm run validate        # ドリフト検証 + ユニットテスト
 ```

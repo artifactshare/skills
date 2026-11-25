@@ -8,6 +8,7 @@
   "scripts": {
     "sync:official": "node scripts/sync-official.mjs",
     "build:skills": "node scripts/build-skills.mjs",
+    "build:web": "node scripts/build-web-skills.mjs",
     "build:samples": "node scripts/build-samples.mjs",
     "test": "node --test tests/*.test.mjs",
     "validate": "node scripts/build-skills.mjs --check && node --test tests/*.test.mjs"

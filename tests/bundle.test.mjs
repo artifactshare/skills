@@ -115,3 +115,27 @@ test('doc bundler injects scroll-spy TOC runtime and supports all 7 palettes', (
     fs.rmSync(tmpDir, { recursive: true, force: true });
   }
 });
+
+test('web skill builder produces valid script-free zip archives with root SKILL.md', () => {
+  execFileSync('node', [path.join(rootDir, 'scripts', 'build-web-skills.mjs')], { stdio: 'pipe' });
+  const webDir = path.join(rootDir, 'dist', 'web-skills');
+  const expected = [
+    'dads-all-in-one-web.zip',
+    'dads-doc-web.zip',
+    'dads-dashboard-web.zip',
+    'dads-slides-web.zip',
+    'dads-mockup-web.zip',
+  ];
+  for (const zipName of expected) {
+    const zipPath = path.join(webDir, zipName);
+    assert.ok(fs.existsSync(zipPath), `Missing web zip: ${zipName}`);
+    const listing = execFileSync('unzip', ['-Z1', zipPath], { encoding: 'utf8' })
+      .trim()
+      .split('\n');
+    assert.ok(listing.includes('SKILL.md'), `${zipName} must have SKILL.md at root`);
+    for (const entry of listing) {
+      assert.doesNotMatch(entry, /\.(js|mjs|cjs|py|sh)$/i, `${zipName} must not contain script: ${entry}`);
+      assert.doesNotMatch(entry, /\.DS_Store|__MACOSX/, `${zipName} must not contain OS metadata: ${entry}`);
+    }
+  }
+});
