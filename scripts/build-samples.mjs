@@ -15,6 +15,7 @@ function bundle(skillName, args) {
 const docOut = path.join(rootDir, 'samples', 'doc', 'sample-doc.html');
 const dashOut = path.join(rootDir, 'samples', 'dashboard', 'sample-dashboard.html');
 const slidesOut = path.join(rootDir, 'samples', 'slides', 'sample-slides.html');
+const bizSlidesOut = path.join(rootDir, 'samples', 'slides', 'sample-biz-slides.html');
 const mockupOut = path.join(rootDir, 'samples', 'mockup', 'sample-mockup.html');
 
 bundle('dads-doc', [
@@ -58,6 +59,19 @@ bundle('dads-slides', [
   slidesOut,
 ]);
 
+bundle('dads-slides', [
+  '--type',
+  'slides',
+  '--palette',
+  'cyan',
+  '--title',
+  'Q4 事業振り返りと Q1 重点施策のご提案',
+  '--input',
+  path.join(rootDir, 'samples', 'slides', 'body-biz-slides.html'),
+  '--output',
+  bizSlidesOut,
+]);
+
 bundle('dads-mockup', [
   '--type',
   'mockup',
@@ -79,6 +93,7 @@ fs.mkdirSync(showcaseDist, { recursive: true });
 fs.copyFileSync(docOut, path.join(showcaseDist, 'doc.html'));
 fs.copyFileSync(dashOut, path.join(showcaseDist, 'dashboard.html'));
 fs.copyFileSync(slidesOut, path.join(showcaseDist, 'slides.html'));
+fs.copyFileSync(bizSlidesOut, path.join(showcaseDist, 'biz-slides.html'));
 fs.copyFileSync(mockupOut, path.join(showcaseDist, 'mockup.html'));
 
 bundle('dads-mockup', [
