@@ -109,7 +109,7 @@ test('doc bundler injects scroll-spy TOC runtime and supports all 7 palettes', (
       { stdio: 'pipe' },
     );
     const html = fs.readFileSync(outPath, 'utf8');
-    assert.match(html, /IntersectionObserver/);
+    assert.match(html, /updateFromScroll/);
     assert.match(html, /data-palette="orange"/);
   } finally {
     fs.rmSync(tmpDir, { recursive: true, force: true });

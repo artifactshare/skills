@@ -211,20 +211,62 @@ const DOC_TOC_RUNTIME_JS = `
     });
   };
 
-  const observer = new IntersectionObserver(
-    (entries) => {
-      const visible = entries
-        .filter((e) => e.isIntersecting)
-        .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
-      if (visible[0]?.target?.id) {
-        setActive(visible[0].target.id);
-      }
-    },
-    { rootMargin: '-12% 0px -70% 0px', threshold: 0 },
-  );
+  let clickLockUntil = 0;
+  allLinks.forEach((a) => {
+    a.addEventListener('click', () => {
+      const targetId = a.dataset.tocTarget;
+      if (!targetId) return;
+      clickLockUntil = Date.now() + 500;
+      setActive(targetId);
+      if (mobile.open) mobile.open = false;
+    });
+  });
 
-  headings.forEach((h) => observer.observe(h));
-  setActive(headings[0].id);
+  const updateFromScroll = () => {
+    if (Date.now() < clickLockUntil) return;
+    const nearBottom = window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 8;
+    if (nearBottom) {
+      setActive(headings[headings.length - 1].id);
+      return;
+    }
+    let current = headings[0].id;
+    for (const h of headings) {
+      if (h.getBoundingClientRect().top <= 140) {
+        current = h.id;
+      } else {
+        break;
+      }
+    }
+    setActive(current);
+  };
+
+  let ticking = false;
+  window.addEventListener(
+    'scroll',
+    () => {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        ticking = false;
+        updateFromScroll();
+      });
+    },
+    { passive: true },
+  );
+  window.addEventListener('hashchange', () => {
+    const id = location.hash.replace(/^#/, '');
+    if (id && headings.some((h) => h.id === id)) {
+      clickLockUntil = Date.now() + 500;
+      setActive(id);
+    }
+  });
+
+  const initialHash = location.hash.replace(/^#/, '');
+  if (initialHash && headings.some((h) => h.id === initialHash)) {
+    setActive(initialHash);
+  } else {
+    updateFromScroll();
+  }
 })();
 `.trim();
 
