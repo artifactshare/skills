@@ -139,3 +139,36 @@ test('web skill builder produces valid script-free zip archives with root SKILL.
     }
   }
 });
+
+test('distributed skills and showcase runtime contain no security scanner triggers or iframes', () => {
+  const forbidden = /\b(innerHTML|outerHTML|postMessage|eval|child_process)\b|new\s+Function\s*\(|addEventListener\s*\(\s*['"]message['"]|\bfetch\s*\(/;
+  const targets = [];
+
+  const walk = (dir) => {
+    for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+      const full = path.join(dir, entry.name);
+      if (entry.isDirectory()) walk(full);
+      else if (/\.(js|mjs|cjs|html)$/i.test(entry.name)) targets.push(full);
+    }
+  };
+
+  walk(path.join(rootDir, 'src'));
+  walk(path.join(rootDir, 'skills'));
+  targets.push(path.join(rootDir, 'samples', 'showcase', 'showcase.js'));
+
+  for (const filePath of targets) {
+    const text = fs.readFileSync(filePath, 'utf8');
+    const match = text.match(forbidden);
+    assert.equal(
+      match,
+      null,
+      `Forbidden security-scanner pattern "${match?.[0]}" found in ${path.relative(rootDir, filePath)}`,
+    );
+  }
+
+  const showcaseDist = path.join(rootDir, 'samples', 'showcase', 'dist', 'index.html');
+  if (fs.existsSync(showcaseDist)) {
+    const html = fs.readFileSync(showcaseDist, 'utf8');
+    assert.doesNotMatch(html, /<iframe\b/i, 'Showcase must not contain <iframe> (blocked by Artifact Share CSP)');
+  }
+});
