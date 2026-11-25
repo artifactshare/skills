@@ -3354,6 +3354,59 @@ body { background: var(--color-neutral-white); overflow: hidden; }
 .showcase-slide-surface .dads-slide { width: min(100%, 1040px); }
 .showcase-slide-surface .dads-slide-progress-bar { position: static; }
 .showcase-slide-surface .dads-slide-nav { position: static; }
+.showcase-dialog {
+  width: min(640px, calc(100vw - 24px));
+  max-height: calc(100dvh - 32px);
+  padding: 0;
+  border: 1px solid var(--color-neutral-solid-gray-200);
+  border-radius: var(--border-radius-12);
+  background: var(--color-neutral-white);
+  color: var(--color-neutral-solid-gray-900);
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.22);
+  overflow: hidden;
+}
+.showcase-dialog::backdrop { background: rgba(0, 0, 0, 0.48); }
+.showcase-dialog[open] { display: flex; flex-direction: column; }
+.showcase-dialog-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 18px 20px 14px;
+  border-bottom: 1px solid var(--color-neutral-solid-gray-200);
+  flex-shrink: 0;
+}
+.showcase-dialog-body {
+  padding: 16px 20px 20px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.showcase-dialog-card {
+  background: #f8f8fb;
+  border: 1px solid var(--color-neutral-solid-gray-200);
+  border-radius: var(--border-radius-8);
+  padding: 14px 16px;
+}
+.showcase-cmd-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.showcase-cmd-box {
+  flex: 1 1 220px;
+  min-width: 0;
+  overflow-x: auto;
+  background: var(--color-neutral-white);
+  border: 1px solid var(--color-neutral-solid-gray-300);
+  border-radius: var(--border-radius-8);
+  padding: 6px 10px;
+  font-size: var(--font-size-14);
+  color: var(--color-neutral-black);
+  white-space: nowrap;
+}
 
 @media (max-width: 768px) {
   html, body { max-width: 100%; overflow-x: clip; }
@@ -3365,6 +3418,7 @@ body { background: var(--color-neutral-white); overflow: hidden; }
   .showcase-stage-body { overflow-y: visible !important; }
   .showcase-header { width: 100%; max-width: 100%; min-width: 0; box-sizing: border-box; padding: 8px 12px !important; gap: 8px; flex-wrap: nowrap !important; }
   .showcase-header .dads-mock-brand { min-width: 0; font-size: var(--font-size-14) !important; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .showcase-header .dads-mock-brand > span:first-child { overflow: hidden; text-overflow: ellipsis; }
   .showcase-brand-badge,
   .showcase-install-label,
   .showcase-install-code,
@@ -3422,30 +3476,100 @@ body { background: var(--color-neutral-white); overflow: hidden; }
       <span class="dads-badge dads-badge--primary showcase-brand-badge">DADS 完全準拠パック</span>
     </div>
     <div class="showcase-header-actions" style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap">
-      <span class="showcase-install-label" style="font-size: var(--font-size-14); font-weight: 700; color: var(--color-neutral-solid-gray-600)">
-        スキルをインストール:
-      </span>
-      <code
-        id="install-cmd"
-        class="showcase-install-code"
-        style="
-          background: var(--color-neutral-solid-gray-50);
-          border: 1px solid var(--color-neutral-solid-gray-200);
-          padding: 4px 10px;
-          border-radius: var(--border-radius-8);
-          font-size: var(--font-size-14);
-          color: var(--color-neutral-solid-gray-900);
-        "
-        >npx skills add artifactshare/skills</code
-      >
-      <button type="button" class="dads-button" data-size="xs" data-type="solid-fill" id="copy-install-btn">
-        コピー
+      <button type="button" class="dads-button" data-size="xs" data-type="solid-fill" id="open-install-btn">
+        スキルを導入
       </button>
       <a class="dads-button" data-size="xs" data-type="outline" href="https://github.com/artifactshare/skills" target="_blank" rel="noopener">
         GitHub
       </a>
     </div>
   </header>
+
+  <dialog id="install-dialog" class="showcase-dialog" aria-labelledby="install-dialog-title">
+    <div class="showcase-dialog-head">
+      <div>
+        <h2 id="install-dialog-title" style="margin: 0; font-size: var(--font-size-20); color: var(--color-neutral-black)">
+          DADS スキルの導入方法
+        </h2>
+        <p style="margin: 4px 0 0; font-size: var(--font-size-14); color: var(--color-neutral-solid-gray-600)">
+          お使いの AI ツールに合わせて、コマンドまたは .zip で導入できます。
+        </p>
+      </div>
+      <button type="button" class="dads-button" data-size="xs" data-type="outline" id="close-install-btn" aria-label="閉じる">
+        閉じる
+      </button>
+    </div>
+
+    <div class="showcase-dialog-body">
+      <section class="showcase-dialog-card">
+        <div style="display: flex; align-items: center; justify-content: space-between; gap: 8px; flex-wrap: wrap; margin-bottom: 8px">
+          <h3 style="margin: 0; font-size: var(--font-size-16); color: var(--color-neutral-black)">
+            1. ローカル AI ツール（コマンド導入）
+          </h3>
+          <span class="dads-badge dads-badge--primary">推奨</span>
+        </div>
+        <p style="margin: 0 0 10px; font-size: var(--font-size-14); color: var(--color-neutral-solid-gray-700)">
+          Claude Code / Codex / GitHub Copilot / Cursor / Gemini CLI / Antigravity 対応。AI ツールに実行を頼み、再起動すると使えます。
+        </p>
+        <div class="showcase-cmd-row">
+          <code id="install-cmd" class="showcase-cmd-box">npx skills add artifactshare/skills</code>
+          <button type="button" class="dads-button" data-size="xs" data-type="solid-fill" id="copy-install-btn">
+            コピー
+          </button>
+        </div>
+      </section>
+
+      <section class="showcase-dialog-card">
+        <div style="display: flex; align-items: center; justify-content: space-between; gap: 8px; flex-wrap: wrap; margin-bottom: 8px">
+          <h3 style="margin: 0; font-size: var(--font-size-16); color: var(--color-neutral-black)">
+            2. Web / クラウド AI（.zip アップロード）
+          </h3>
+          <span class="dads-badge">スクリプトなし・40KB</span>
+        </div>
+        <p style="margin: 0 0 10px; font-size: var(--font-size-14); color: var(--color-neutral-solid-gray-700)">
+          gemini.google.com（Skills / Gems）・Gemini in Chrome・Microsoft 365 Copilot / Copilot Studio・Claude.ai 対応。
+        </p>
+        <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px">
+          <a
+            class="dads-button"
+            data-size="xs"
+            data-type="solid-fill"
+            href="https://github.com/artifactshare/skills/releases/latest/download/dads-all-in-one-web.zip"
+            target="_blank"
+            rel="noopener"
+          >
+            4 種全部入り .zip をダウンロード
+          </a>
+          <a
+            class="dads-button"
+            data-size="xs"
+            data-type="outline"
+            href="https://github.com/artifactshare/skills/releases/latest"
+            target="_blank"
+            rel="noopener"
+          >
+            個別版を見る
+          </a>
+        </div>
+        <ul style="margin: 0; padding-left: 18px; font-size: var(--font-size-14); color: var(--color-neutral-solid-gray-700); line-height: 1.6">
+          <li><strong>Gemini</strong>: 左メニュー「カスタマイズ」→「Skills」から .zip をアップロード（Gems は展開して指示・知識に添付）</li>
+          <li><strong>Microsoft 365 Copilot</strong>: エージェント設定の Skills から .zip をアップロード</li>
+          <li><strong>Claude.ai</strong>: Projects または Skills にアップロード</li>
+        </ul>
+      </section>
+
+      <section class="showcase-dialog-card" style="background: var(--color-key-50); border-color: var(--color-key-200)">
+        <h3 style="margin: 0 0 6px; font-size: var(--font-size-14); color: var(--color-key-900)">
+          導入後の頼み方（例）
+        </h3>
+        <ul style="margin: 0; padding-left: 18px; font-size: var(--font-size-14); color: var(--color-neutral-solid-gray-800); line-height: 1.6">
+          <li>「この議事録を DADS でドキュメントにして」</li>
+          <li>「この CSV から DADS で KPI ダッシュボードを作って」</li>
+          <li>「この企画書を DADS で 5 枚のスライドにまとめて」</li>
+        </ul>
+      </section>
+    </div>
+  </dialog>
 
   <div
     class="showcase-toolbar"
@@ -4552,6 +4676,9 @@ body { background: var(--color-neutral-white); overflow: hidden; }
   const paletteBtns = Array.from(document.querySelectorAll('[data-switch-palette]'));
   const copyBtn = document.getElementById('copy-install-btn');
   const installCmd = document.getElementById('install-cmd');
+  const installDialog = document.getElementById('install-dialog');
+  const openInstallBtn = document.getElementById('open-install-btn');
+  const closeInstallBtn = document.getElementById('close-install-btn');
 
   let activeDemo = 'dashboard';
   let isExpanded = false;
@@ -4615,6 +4742,18 @@ body { background: var(--color-neutral-white); overflow: hidden; }
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && isExpanded) {
       setExpanded(false);
+    }
+  });
+
+  openInstallBtn?.addEventListener('click', () => {
+    installDialog?.showModal();
+  });
+  closeInstallBtn?.addEventListener('click', () => {
+    installDialog?.close();
+  });
+  installDialog?.addEventListener('click', (e) => {
+    if (e.target === installDialog) {
+      installDialog.close();
     }
   });
 

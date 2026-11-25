@@ -9,6 +9,9 @@
   const paletteBtns = Array.from(document.querySelectorAll('[data-switch-palette]'));
   const copyBtn = document.getElementById('copy-install-btn');
   const installCmd = document.getElementById('install-cmd');
+  const installDialog = document.getElementById('install-dialog');
+  const openInstallBtn = document.getElementById('open-install-btn');
+  const closeInstallBtn = document.getElementById('close-install-btn');
 
   let activeDemo = 'dashboard';
   let isExpanded = false;
@@ -72,6 +75,18 @@
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && isExpanded) {
       setExpanded(false);
+    }
+  });
+
+  openInstallBtn?.addEventListener('click', () => {
+    installDialog?.showModal();
+  });
+  closeInstallBtn?.addEventListener('click', () => {
+    installDialog?.close();
+  });
+  installDialog?.addEventListener('click', (e) => {
+    if (e.target === installDialog) {
+      installDialog.close();
     }
   });
 
