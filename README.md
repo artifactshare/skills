@@ -53,6 +53,14 @@ npm run build:samples   # サンプル HTML を生成
 npm run validate        # ドリフト検証 + ユニットテスト
 ```
 
-## ライセンス
+## 謝辞・出典・ライセンス（デジタル庁デザインシステムへのリスペクト）
 
-MIT License（[LICENSE](LICENSE)）。デジタル庁が MIT ライセンスで公開する公式トークンおよび HTML コンポーネント資産を含みます。
+本リポジトリの `dads-*` スキルパックは、デジタル庁がオープンに公開・保守されている以下の優れたデザイン資産とガイドラインに深く敬意を表し、それぞれのライセンスに従って利用・同梱しています。アクセシブルで読みやすい日本語 Web の基盤を整備・公開してくださったデジタル庁および関係者の皆さまに感謝いたします。
+
+- **[@digital-go-jp/design-tokens](https://www.npmjs.com/package/@digital-go-jp/design-tokens)**（v2.1.0）— MIT License（`vendor/dads-design-tokens/LICENSE` 同梱）
+- **[digital-go-jp/design-system-example-components-html](https://github.com/digital-go-jp/design-system-example-components-html)**（全 43 コンポーネント）— MIT License（`vendor/dads-components/LICENSE` 同梱）
+- **[digital-go-jp/policy-dashboard-assets](https://github.com/digital-go-jp/policy-dashboard-assets)**（「ダッシュボードデザインの実践ガイドブック」および 2026 年版 7 色デザインテンプレート）
+
+> 本リポジトリは Artifact Share が公開する独立したオープンソースプロジェクトであり、デジタル庁の公式提供・推奨物ではありません。
+
+本リポジトリ独自のコード・ドキュメント・スキル定義は **MIT License**（[LICENSE](LICENSE)）のもとで公開しています。
