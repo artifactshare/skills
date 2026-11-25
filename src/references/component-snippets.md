@@ -106,11 +106,14 @@ Always wrap `.dads-table__table` inside `.dads-table`. Add `data-num` on numeric
 ## Accordion (`accordion`)
 
 ```html
-<details class="dads-accordion__item-details">
-  <summary class="dads-accordion__item-summary">
-    <span class="dads-accordion__item-header">よくある質問のタイトル</span>
+<details class="dads-accordion">
+  <summary class="dads-accordion__summary">
+    <span class="dads-accordion__icon" aria-hidden="true">
+      <svg width="20" height="20" viewBox="0 0 24 24"><path d="M12 17.1 3 8l1.4-1.4 7.6 7.6 7.6-7.6L21 8z" fill="currentcolor" /></svg>
+    </span>
+    よくある質問のタイトル
   </summary>
-  <div class="dads-accordion__item-content">
+  <div class="dads-accordion__content">
     <p>回答の本文をここに記述します。</p>
   </div>
 </details>

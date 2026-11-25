@@ -13,6 +13,7 @@ function bundle(skillName, args) {
 }
 
 const docOut = path.join(rootDir, 'samples', 'doc', 'sample-doc.html');
+const policyOut = path.join(rootDir, 'samples', 'doc', 'sample-policy-guide.html');
 const dashOut = path.join(rootDir, 'samples', 'dashboard', 'sample-dashboard.html');
 const slidesOut = path.join(rootDir, 'samples', 'slides', 'sample-slides.html');
 const bizSlidesOut = path.join(rootDir, 'samples', 'slides', 'sample-biz-slides.html');
@@ -29,6 +30,19 @@ bundle('dads-doc', [
   path.join(rootDir, 'samples', 'doc', 'body-doc.html'),
   '--output',
   docOut,
+]);
+
+bundle('dads-doc', [
+  '--type',
+  'doc',
+  '--palette',
+  'blue',
+  '--title',
+  '生成 AI ツール利用ガイドライン（2026 年改訂版）',
+  '--input',
+  path.join(rootDir, 'samples', 'doc', 'body-policy-guide.html'),
+  '--output',
+  policyOut,
 ]);
 
 bundle('dads-dashboard', [
@@ -91,6 +105,7 @@ bundle('dads-mockup', [
 const showcaseDist = path.join(rootDir, 'samples', 'showcase', 'dist');
 fs.mkdirSync(showcaseDist, { recursive: true });
 fs.copyFileSync(docOut, path.join(showcaseDist, 'doc.html'));
+fs.copyFileSync(policyOut, path.join(showcaseDist, 'policy-guide.html'));
 fs.copyFileSync(dashOut, path.join(showcaseDist, 'dashboard.html'));
 fs.copyFileSync(slidesOut, path.join(showcaseDist, 'slides.html'));
 fs.copyFileSync(bizSlidesOut, path.join(showcaseDist, 'biz-slides.html'));

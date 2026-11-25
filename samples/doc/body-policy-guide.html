@@ -1,0 +1,136 @@
+<main class="dads-doc">
+  <header class="dads-doc-header">
+    <div class="dads-doc-kicker">
+      <span class="dads-badge dads-badge--primary">社内ルール・制度ガイド</span>
+      <span class="dads-badge dads-badge--success">全社員対象・2026 年改訂版</span>
+    </div>
+    <h1>生成 AI ツール利用ガイドライン</h1>
+    <p class="dads-doc-lead">
+      業務で生成 AI ツールを安全かつ効果的に活用するための承認済みツール一覧、データ入力ルール、申請手順、よくある質問をまとめました。
+    </p>
+    <dl class="dads-meta-grid">
+      <div><dt>施行日</dt><dd>2026-11-01</dd></div>
+      <div><dt>所管部署</dt><dd>情報システム部・法務部</dd></div>
+      <div><dt>適用範囲</dt><dd>全役員・正社員・業務委託</dd></div>
+      <div><dt>問い合わせ</dt><dd><code>#it-ai-support</code></dd></div>
+    </dl>
+  </header>
+
+  <section class="dads-section">
+    <h2>1. 基本方針（まず守る 3 原則）</h2>
+    <div class="dads-callout">
+      <p class="dads-callout-title">業務活用を積極的に推奨します（法人契約ツールのみ利用可）</p>
+      <p>
+        学習オプトアウトが契約上保証された法人アカウントに限り、社内資料の作成・調査・コーディング支援への積極的な活用を推奨します。
+        一方、個人アカウント（無料版含む）への業務データ入力は禁止です。
+      </p>
+    </div>
+    <div class="dads-callout dads-callout--error">
+      <p class="dads-callout-title">入力禁止データ（法人契約ツールでも入力不可）</p>
+      <p>
+        顧客の個人情報（氏名・住所・電話番号・メールアドレス等）、クレジットカード情報、未公表の決算数値、システムの本番認証情報（API キー・パスワード）は、いかなる AI ツールにも入力しないでください。
+      </p>
+    </div>
+  </section>
+
+  <section class="dads-section">
+    <h2>2. 承認済みツールとデータ区分</h2>
+    <div class="dads-table-wrap">
+      <table class="dads-doc-table">
+        <thead>
+          <tr>
+            <th>ツール名</th>
+            <th>対象者</th>
+            <th>社内機密の入力</th>
+            <th>利用申請</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Claude Enterprise / Claude Code</strong></td>
+            <td>全社員・開発者</td>
+            <td><span class="dads-badge dads-badge--success">可（個人情報除く）</span></td>
+            <td>ポータルから申請（即時発行）</td>
+          </tr>
+          <tr>
+            <td><strong>ChatGPT Enterprise</strong></td>
+            <td>全社員</td>
+            <td><span class="dads-badge dads-badge--success">可（個人情報除く）</span></td>
+            <td>入社時自動付与</td>
+          </tr>
+          <tr>
+            <td><strong>Artifact Share（社内共有）</strong></td>
+            <td>全社員</td>
+            <td><span class="dads-badge dads-badge--success">可（ワークスペース限定）</span></td>
+            <td>Google SSO で即時ログイン</td>
+          </tr>
+          <tr>
+            <td><strong>個人契約・無料版 AI サービス</strong></td>
+            <td>—</td>
+            <td><span class="dads-badge dads-badge--error">全面禁止</span></td>
+            <td>業務利用不可</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="dads-section">
+    <h2>3. 利用開始・新規ツール導入の手順</h2>
+    <ol class="dads-steps">
+      <li><strong>利用申請ポータルから申請</strong>：希望ツール・部署・月額見込みを入力して送信する（月 5,000 円以下は上長承認のみで即時決裁）。</li>
+      <li><strong>SSO 連携・アカウント有効化</strong>：承認後 1 営業日以内に情シスより招待メールが届くため、社内 Google アカウントでログインする。</li>
+      <li><strong>成果物の共有・確認</strong>：AI が作成した社内資料やレポートは、リンク露出を防ぐため社内限定ワークスペース上で共有し、最終責任者が内容を確認する。</li>
+    </ol>
+  </section>
+
+  <section class="dads-section">
+    <h2>4. よくある質問（FAQ）</h2>
+    <details class="dads-accordion">
+      <summary class="dads-accordion__summary">
+        <span class="dads-accordion__icon" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24"><path d="M12 17.1 3 8l1.4-1.4 7.6 7.6 7.6-7.6L21 8z" fill="currentcolor" /></svg>
+        </span>
+        会議の録音文字起こしを AI に要約させてもよいですか？
+      </summary>
+      <div class="dads-accordion__content">
+        <p>
+          法人契約ツール（Claude / ChatGPT Enterprise）であれば可能です。ただし、採用面接や人事評価、顧客の個人情報が含まれる会議ログは、氏名を匿名化してから入力してください。
+        </p>
+      </div>
+    </details>
+
+    <details class="dads-accordion">
+      <summary class="dads-accordion__summary">
+        <span class="dads-accordion__icon" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24"><path d="M12 17.1 3 8l1.4-1.4 7.6 7.6 7.6-7.6L21 8z" fill="currentcolor" /></svg>
+        </span>
+        AI が生成したコードや文章の著作権・確認責任はどうなりますか？
+      </summary>
+      <div class="dads-accordion__content">
+        <p>
+          社外公開する文章・コード・デザインは、必ず担当者またはレビュアーが事実関係・ライセンス・第三者権利侵害の有無を目視確認したうえで公開してください。
+        </p>
+      </div>
+    </details>
+
+    <details class="dads-accordion">
+      <summary class="dads-accordion__summary">
+        <span class="dads-accordion__icon" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24"><path d="M12 17.1 3 8l1.4-1.4 7.6 7.6 7.6-7.6L21 8z" fill="currentcolor" /></svg>
+        </span>
+        リストにない新しい AI ツールを業務で試したい場合は？
+      </summary>
+      <div class="dads-accordion__content">
+        <p>
+          <code>#it-ai-support</code> にてツール名と用途を相談してください。情シス・法務で学習オプトアウト条件とデータ保管先を確認し、通常 3 営業日以内に可否を回答します。
+        </p>
+      </div>
+    </details>
+  </section>
+
+  <footer class="dads-doc-footer">
+    <span>社内規程番号：IT-AI-2026-04</span>
+    <span>dads-doc / Digital Agency Design System 準拠</span>
+  </footer>
+</main>
