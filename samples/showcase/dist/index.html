@@ -607,6 +607,166 @@ table :is(td, th)[data-num] {
   color: var(--dads-error);
 }
 
+/* Official DADS component: accordion/accordion.css */
+.dads-accordion {
+  --_icon-size: calc(20 / 16 * 1rem);
+  border-bottom: 1px solid var(--color-neutral-solid-gray-420);
+}
+
+@media (min-width: 48rem) {
+  .dads-accordion {
+    --_icon-size: calc(32 / 16 * 1rem);
+  }
+}
+
+.dads-accordion__summary {
+  position: relative;
+  display: block;
+  padding: calc(8 / 16 * 1rem) calc(8 / 16 * 1rem) calc(8 / 16 * 1rem)
+    calc(var(--_icon-size) + 0.75rem);
+  color: var(--color-neutral-solid-gray-800);
+  font-weight: normal;
+  font-size: calc(16 / 16 * 1rem);
+  line-height: 1.7;
+  font-family: var(--font-family-sans);
+  letter-spacing: 0.02em;
+  cursor: default;
+}
+
+.dads-accordion__summary::marker {
+  content: "";
+}
+
+.dads-accordion__summary::-webkit-details-marker {
+  display: none;
+}
+
+@media (min-width: 48rem) {
+  .dads-accordion__summary {
+    padding: calc(16 / 16 * 1rem) calc(16 / 16 * 1rem) calc(16 / 16 * 1rem)
+      calc(var(--_icon-size) + calc(20 / 16 * 1rem));
+    font-size: calc(18 / 16 * 1rem);
+    line-height: 1.6;
+  }
+}
+
+@media (hover: hover) {
+  .dads-accordion__summary:hover:not(:focus-visible) {
+    background-color: var(--color-neutral-solid-gray-50);
+  }
+}
+
+.dads-accordion__summary:focus-visible {
+  outline: calc(4 / 16 * 1rem) solid var(--color-neutral-black);
+  outline-offset: calc(2 / 16 * 1rem);
+  border-radius: calc(4 / 16 * 1rem);
+  background-color: var(--color-primitive-yellow-300);
+  box-shadow: 0 0 0 calc(2 / 16 * 1rem) var(--color-primitive-yellow-300);
+}
+
+.dads-accordion__icon {
+  position: absolute;
+  top: calc(8 / 16 * 1rem);
+  left: calc(2 / 16 * 1rem);
+  margin-top: calc((1lh - var(--_icon-size)) / 2);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  width: var(--_icon-size);
+  height: var(--_icon-size);
+  border-radius: 50%;
+  border: 1px solid currentcolor;
+  background-color: var(--color-neutral-white);
+  color: var(--color-key-1000);
+}
+
+@media (min-width: 48rem) {
+  .dads-accordion__icon {
+    top: calc(14 / 16 * 1rem);
+    left: calc(6 / 16 * 1rem);
+  }
+}
+
+.dads-accordion[open] .dads-accordion__icon {
+  transform: rotate(180deg);
+}
+
+@media (hover: hover) {
+  .dads-accordion__summary:hover .dads-accordion__icon {
+    outline: calc(2 / 16 * 1rem) solid currentcolor;
+  }
+}
+
+.dads-accordion__icon-svg {
+  margin-top: calc(2 / 16 * 1rem);
+  width: calc(16 / 16 * 1rem);
+  height: calc(16 / 16 * 1rem);
+  pointer-events: none;
+}
+
+@media (min-width: 48rem) {
+  .dads-accordion__icon-svg {
+    width: auto;
+    height: auto;
+  }
+}
+
+.dads-accordion__summary :is(h1, h2, h3, h4, h5, h6) {
+  margin: 0;
+  font: inherit;
+}
+
+.dads-accordion__content {
+  padding: calc(16 / 16 * 1rem) calc(8 / 16 * 1rem) calc(16 / 16 * 1rem)
+    calc(var(--_icon-size) + 0.75rem);
+}
+
+@media (min-width: 48rem) {
+  .dads-accordion__content {
+    padding: calc(24 / 16 * 1rem) calc(16 / 16 * 1rem) calc(24 / 16 * 1rem)
+      calc(var(--_icon-size) + 1.25rem);
+  }
+}
+
+.dads-accordion__back-link:any-link {
+  display: flex;
+  align-items: flex-start;
+  gap: calc(6 / 16 * 1rem);
+  width: fit-content;
+  color: var(--color-primitive-blue-1000);
+  text-decoration: underline;
+  text-decoration-thickness: calc(1 / 16 * 1rem);
+  text-underline-offset: calc(3 / 16 * 1rem);
+  text-spacing-trim: trim-start;
+}
+
+@media (hover: hover) {
+  .dads-accordion__back-link:hover {
+    color: var(--color-primitive-blue-900);
+    text-decoration-thickness: calc(3 / 16 * 1rem);
+  }
+}
+
+.dads-accordion__back-link:active {
+  color: var(--color-primitive-orange-800);
+  text-decoration-thickness: calc(1 / 16 * 1rem);
+}
+
+.dads-accordion__back-link:focus-visible {
+  outline: calc(4 / 16 * 1rem) solid var(--color-neutral-black);
+  outline-offset: calc(2 / 16 * 1rem);
+  border-radius: calc(4 / 16 * 1rem);
+  background-color: var(--color-primitive-yellow-300);
+  box-shadow: 0 0 0 calc(2 / 16 * 1rem) var(--color-primitive-yellow-300);
+}
+
+.dads-accordion__back-link-icon {
+  margin-top: calc((1lh - 24 / 16 * 1rem) / 2);
+  flex-shrink: 0;
+}
+
+
 /* Official DADS component: button/button.css */
 .dads-button {
   --button-color: var(--color-key-900);
@@ -810,6 +970,1214 @@ table :is(td, th)[data-num] {
   flex-shrink: 0;
 }
 
+
+/* Official DADS component: checkbox/checkbox.css */
+.dads-checkbox {
+  display: flex;
+  align-items: baseline;
+  gap: var(--_gap);
+  width: fit-content;
+}
+
+.dads-checkbox:has(.dads-checkbox__label:not(:empty)) {
+  padding-top: calc(8 / 16 * 1rem);
+  padding-bottom: calc(8 / 16 * 1rem);
+}
+
+.dads-checkbox[data-size="sm"] {
+  --_gap: calc(4 / 16 * 1rem);
+  --_checkbox-size: calc(24 / 16 * 1rem);
+  --_checkbox-border-width: calc(2 / 16 * 1rem);
+  --_checkbox-scale: 1;
+  --_checkbox-baseline-offset: calc(3 / 16 * 1rem);
+  --_label-font-size: calc(16 / 16 * 1rem);
+}
+
+.dads-checkbox[data-size="md"] {
+  --_gap: calc(8 / 16 * 1rem);
+  --_checkbox-size: calc(32 / 16 * 1rem);
+  --_checkbox-border-width: calc(2 / 16 * 1rem);
+  --_checkbox-scale: calc(20 / 14);
+  --_checkbox-baseline-offset: calc(6 / 16 * 1rem);
+  --_label-font-size: calc(16 / 16 * 1rem);
+}
+
+.dads-checkbox[data-size="lg"] {
+  --_gap: calc(8 / 16 * 1rem);
+  --_checkbox-size: calc(44 / 16 * 1rem);
+  --_checkbox-border-width: calc(3 / 16 * 1rem);
+  --_checkbox-scale: calc(27 / 14);
+  --_checkbox-baseline-offset: calc(10 / 16 * 1rem);
+  --_label-font-size: calc(17 / 16 * 1rem);
+}
+
+.dads-checkbox__checkbox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  width: var(--_checkbox-size);
+  height: var(--_checkbox-size);
+  border-radius: 12.5%;
+}
+
+.dads-checkbox__checkbox:not(:only-child) {
+  position: relative;
+  top: var(--_checkbox-baseline-offset);
+  margin-top: calc(-1 * var(--_checkbox-baseline-offset));
+  margin-bottom: var(--_checkbox-baseline-offset);
+}
+
+@media (hover: hover) {
+  .dads-checkbox__checkbox:has(
+    :not(:focus, :disabled, [aria-disabled="true"]):hover
+  ) {
+    background-color: var(--color-neutral-solid-gray-420);
+  }
+}
+
+.dads-checkbox__input {
+  --_base-color: var(--color-neutral-white);
+  --_accent-color: var(--color-key-900);
+  --_accent-hover-color: var(--color-key-1100);
+  --_border-color: var(--color-neutral-solid-gray-600);
+  --_border-hover-color: var(--color-neutral-black);
+  --_check-color: var(--color-neutral-white);
+
+  margin: 0;
+  appearance: none;
+  width: 75%;
+  height: 75%;
+  border-radius: calc(2 / 18 * 100%);
+  background-color: var(--_base-color);
+  background-clip: padding-box;
+  border: var(--_checkbox-border-width) solid var(--_border-color);
+}
+
+.dads-checkbox__input:focus {
+  outline: calc(4 / 16 * 1rem) solid var(--color-neutral-black);
+  outline-offset: calc(2 / 16 * 1rem);
+  box-shadow: 0 0 0 calc(2 / 16 * 1rem) var(--color-primitive-yellow-300);
+}
+
+@media (hover: hover) {
+  .dads-checkbox__input:not(:disabled, [aria-disabled="true"]):hover {
+    border-color: var(--_border-hover-color);
+  }
+}
+
+.dads-checkbox__input:is(:checked, :indeterminate) {
+  border-color: var(--_accent-color);
+  background-color: var(--_accent-color);
+}
+
+@media (hover: hover) {
+  .dads-checkbox__input:is(:checked, :indeterminate):not(
+    :disabled,
+    [aria-disabled="true"]
+  ):hover {
+    border-color: var(--_accent-hover-color);
+    background-color: var(--_accent-hover-color);
+  }
+}
+
+.dads-checkbox__input::before {
+  display: none;
+  width: calc(14 / 16 * 1rem);
+  height: calc(14 / 16 * 1rem);
+  background-color: var(--_check-color);
+  transform-origin: left top;
+  transform: scale(var(--_checkbox-scale, 1));
+  content: "";
+}
+
+.dads-checkbox__input:checked::before {
+  display: block;
+  clip-path: path(
+    "M5.6,11.2L12.65,4.15L11.25,2.75L5.6,8.4L2.75,5.55L1.35,6.95L5.6,11.2Z"
+  );
+}
+
+.dads-checkbox__input:indeterminate::before {
+  display: block;
+  clip-path: path("M2,6h10v2H2Z");
+}
+
+.dads-checkbox__input[aria-invalid="true"] {
+  --_accent-color: var(--color-semantic-error-1);
+  --_accent-hover-color: var(--color-primitive-red-1000);
+  --_border-color: var(--color-semantic-error-1);
+  --_border-hover-color: var(--color-primitive-red-1000);
+}
+
+.dads-checkbox__input:is(:disabled, [aria-disabled="true"]) {
+  --_base-color: var(--color-neutral-solid-gray-50);
+  --_accent-color: var(--color-neutral-solid-gray-300);
+  --_accent-hover-color: var(--color-neutral-solid-gray-300);
+  --_border-color: var(--color-neutral-solid-gray-300);
+  --_border-hover-color: var(--color-neutral-solid-gray-300);
+}
+
+@media (forced-colors: active) {
+  .dads-checkbox__input,
+  .dads-checkbox__input[aria-invalid="true"] {
+    --_accent-color: Highlight;
+    --_accent-hover-color: Highlight;
+    --_border-color: ButtonText;
+    --_border-hover-color: ButtonText;
+    --_check-color: HighlightText;
+  }
+
+  .dads-checkbox__input:is(:disabled, [aria-disabled="true"]) {
+    --_accent-color: GrayText;
+    --_accent-hover-color: GrayText;
+    --_border-color: GrayText;
+    --_border-hover-color: GrayText;
+    --_check-color: Canvas;
+  }
+}
+
+.dads-checkbox__label {
+  color: var(--color-neutral-solid-gray-800);
+  font-weight: normal;
+  font-size: var(--_label-font-size);
+  line-height: 1.3;
+  font-family: var(--font-family-sans);
+  letter-spacing: 0;
+}
+
+
+/* Official DADS component: form-control-label/form-control-label.css */
+.dads-form-control-label {
+  margin: 0;
+  display: grid;
+  grid-template: "label" auto "support-text" auto "field" auto / auto;
+  column-gap: calc(24 / 16 * 1rem);
+  border: 0;
+  padding: 0;
+  color: var(--color-neutral-solid-gray-800);
+  overflow-wrap: anywhere;
+  font-weight: normal;
+  font-size: calc(16 / 16 * 1rem);
+  line-height: 1.7;
+  font-family: var(--font-family-sans);
+  letter-spacing: 0.02em;
+}
+
+.dads-form-control-label[data-size="sm"] {
+  row-gap: calc(4 / 16 * 1rem);
+}
+
+.dads-form-control-label[data-size="md"] {
+  row-gap: calc(8 / 16 * 1rem);
+}
+
+.dads-form-control-label[data-size="lg"] {
+  row-gap: calc(8 / 16 * 1rem);
+}
+
+@media (min-width: 48rem) {
+  .dads-form-control-label[data-direction="horizontal"] {
+    grid-template: "label field field" auto "support-text field field" 1fr / 1fr 1fr 1fr;
+    justify-content: start;
+    align-items: baseline;
+  }
+}
+
+.dads-form-control-label__legend {
+  display: contents;
+}
+
+.dads-form-control-label__label {
+  grid-area: label;
+  justify-self: start;
+  padding: 0;
+  font-weight: bold;
+}
+
+.dads-form-control-label[data-size="sm"] .dads-form-control-label__label {
+  font-size: calc(16 / 16 * 1rem);
+}
+
+.dads-form-control-label[data-size="md"] .dads-form-control-label__label {
+  font-size: calc(17 / 16 * 1rem);
+}
+
+.dads-form-control-label[data-size="lg"] .dads-form-control-label__label {
+  font-size: calc(18 / 16 * 1rem);
+}
+
+.dads-form-control-label__requirement {
+  margin-left: calc(4 / 16 * 1rem);
+  font-weight: normal;
+  font-size: calc(16 / 16 * 1rem);
+}
+
+.dads-form-control-label__requirement[data-required="true"] {
+  color: var(--color-semantic-error-1);
+}
+
+.dads-form-control-label__requirement::before {
+  content: " ";
+}
+
+.dads-form-control-label__status {
+  margin-left: calc(4 / 16 * 1rem);
+  display: inline-block;
+  outline: 1px solid transparent;
+  border-radius: calc(8 / 16 * 1rem);
+  background-color: var(--color-neutral-solid-gray-536);
+  padding: calc(8 / 16 * 1rem);
+  color: var(--color-neutral-white);
+  font-weight: normal;
+  font-size: calc(16 / 16 * 1rem);
+  line-height: 1;
+  letter-spacing: 0.02em;
+}
+
+.dads-form-control-label__support-text {
+  grid-area: support-text;
+  margin-top: 0;
+  margin-bottom: 0;
+  color: var(--color-neutral-solid-gray-600);
+}
+
+.dads-form-control-label__field .dads-form-control-label__support-text {
+  margin-bottom: calc(8 / 16 * 1rem);
+}
+
+.dads-form-control-label__field {
+  grid-area: field;
+  min-width: 0;
+}
+
+.dads-form-control-label__error-text {
+  margin-bottom: 0;
+  color: var(--color-semantic-error-1);
+  line-height: 1.3;
+  letter-spacing: 0;
+}
+
+.dads-form-control-label[data-size="sm"] .dads-form-control-label__error-text {
+  margin-top: calc(4 / 16 * 1rem);
+}
+
+.dads-form-control-label[data-size="md"] .dads-form-control-label__error-text {
+  margin-top: calc(8 / 16 * 1rem);
+}
+
+.dads-form-control-label[data-size="lg"] .dads-form-control-label__error-text {
+  margin-top: calc(8 / 16 * 1rem);
+}
+
+
+/* Official DADS component: input-text/input-text.css */
+.dads-input-text {
+  display: block;
+  color: var(--color-neutral-solid-gray-800);
+  font-weight: normal;
+  font-size: calc(16 / 16 * 1rem);
+  line-height: 1.7;
+  font-family: var(--font-family-sans);
+  letter-spacing: 0.02em;
+}
+
+.dads-input-text__input {
+  box-sizing: border-box;
+  max-width: 100%;
+  border: 1px solid var(--color-neutral-solid-gray-600);
+  background-color: var(--color-neutral-white);
+  padding: calc(12 / 16 * 1rem) calc(16 / 16 * 1rem);
+  border-radius: calc(8 / 16 * 1rem);
+  color: var(--color-neutral-solid-gray-900);
+  font: inherit;
+  line-height: 1;
+}
+
+.dads-input-text__input[data-size="sm"] {
+  height: 2.5rem;
+}
+
+.dads-input-text__input[data-size="md"] {
+  height: 3rem;
+}
+
+.dads-input-text__input[data-size="lg"] {
+  height: 3.5rem;
+}
+
+.dads-input-text__input:read-only:not(:disabled) {
+  border-style: dashed;
+}
+
+.dads-input-text__input:focus-visible {
+  outline: calc(4 / 16 * 1rem) solid var(--color-neutral-black);
+  outline-offset: calc(2 / 16 * 1rem);
+  box-shadow: 0 0 0 calc(2 / 16 * 1rem) var(--color-primitive-yellow-300);
+}
+
+@media (hover: hover) {
+  .dads-input-text__input:not(:read-only):hover {
+    border-color: var(--color-neutral-black);
+  }
+}
+
+.dads-input-text__input:is(:user-invalid, [aria-invalid="true"]) {
+  border-color: var(--color-semantic-error-1);
+}
+
+@media (hover: hover) {
+  .dads-input-text__input:is(:user-invalid, [aria-invalid="true"]):hover {
+    border-color: var(--color-primitive-red-1000);
+  }
+}
+
+.dads-input-text__input:is(:disabled, [aria-disabled="true"]),
+.dads-input-text__input:is(:disabled, [aria-disabled="true"]):hover {
+  border-color: var(--color-neutral-solid-gray-300);
+  background-color: var(--color-neutral-solid-gray-50);
+  color: var(--color-neutral-solid-gray-420);
+}
+
+@media (forced-colors: active) {
+  .dads-input-text__input[aria-disabled="true"],
+  .dads-input-text__input[aria-disabled="true"]:hover {
+    border-color: GrayText;
+    color: GrayText;
+  }
+}
+
+.dads-input-text__error-text {
+  margin: calc(8 / 16 * 1rem) 0 0 0;
+  display: block;
+  color: var(--color-semantic-error-1);
+}
+
+
+/* Official DADS component: notification-banner/notification-banner.css */
+.dads-notification-banner {
+  --_base-color: var(--color-primitive-blue-900);
+  --_color-chip-color: var(--color-primitive-blue-900);
+  display: grid;
+  grid-template-columns: calc(24 / 16 * 1rem) 1fr auto;
+  grid-template-rows: minmax(calc(36 / 16 * 1rem), auto);
+  border: solid var(--_base-color);
+  background-color: var(--color-neutral-white);
+  padding-top: calc(8 / 16 * 1rem);
+  padding-right: calc(16 / 16 * 1rem);
+  padding-bottom: calc(24 / 16 * 1rem);
+  padding-left: calc(16 / 16 * 1rem);
+  gap: calc(16 / 16 * 1rem);
+  color: var(--color-neutral-solid-gray-800);
+  font-weight: normal;
+  font-size: calc(16 / 16 * 1rem);
+  line-height: 1.7;
+  font-family: var(--font-family-sans);
+  letter-spacing: 0.02em;
+}
+
+.dads-notification-banner[data-style="standard"] {
+  border-radius: calc(12 / 16 * 1rem);
+  border-width: calc(3 / 16 * 1rem);
+}
+
+.dads-notification-banner[data-style="color-chip"] {
+  border-width: calc(2 / 16 * 1rem);
+  padding-left: calc(24 / 16 * 1rem);
+  box-shadow: inset calc(8 / 16 * 1rem) 0 0 0 var(--_color-chip-color);
+}
+
+@media (min-width: 48rem) {
+  .dads-notification-banner {
+    grid-template-columns: calc(36 / 16 * 1rem) 1fr auto;
+    padding-top: calc(24 / 16 * 1rem);
+    padding-right: calc(24 / 16 * 1rem);
+    padding-bottom: calc(32 / 16 * 1rem);
+    padding-left: calc(24 / 16 * 1rem);
+    column-gap: calc(24 / 16 * 1rem);
+  }
+
+  .dads-notification-banner[data-style="color-chip"] {
+    padding-left: calc(40 / 16 * 1rem);
+    box-shadow: inset calc(16 / 16 * 1rem) 0 0 0 var(--_color-chip-color);
+  }
+}
+
+.dads-notification-banner[data-type="success"] {
+  --_base-color: var(--color-semantic-success-2);
+  --_color-chip-color: var(--color-semantic-success-2);
+}
+
+.dads-notification-banner[data-type="error"] {
+  --_base-color: var(--color-semantic-error-1);
+  --_color-chip-color: var(--color-semantic-error-1);
+}
+
+.dads-notification-banner[data-type="warning"] {
+  --_base-color: var(--color-semantic-warning-yellow-2);
+  --_color-chip-color: var(--color-primitive-yellow-400);
+}
+
+.dads-notification-banner[data-type="info-1"] {
+  --_base-color: var(--color-primitive-blue-900);
+  --_color-chip-color: var(--color-primitive-blue-900);
+}
+
+.dads-notification-banner[data-type="info-2"] {
+  --_base-color: var(--color-neutral-solid-gray-536);
+  --_color-chip-color: var(--color-neutral-solid-gray-536);
+}
+
+.dads-notification-banner__icon {
+  justify-self: center;
+  width: calc(28 / 16 * 1rem);
+  height: calc(28 / 16 * 1rem);
+  max-width: none;
+  max-height: none;
+  padding-top: calc(3 / 16 * 1rem);
+  color: var(--_base-color);
+}
+
+@media (min-width: 48rem) {
+  .dads-notification-banner__icon {
+    margin-top: calc(-4 / 16 * 1rem);
+    margin-bottom: calc(-4 / 16 * 1rem);
+    width: calc(44 / 16 * 1rem);
+    height: calc(44 / 16 * 1rem);
+    padding: 0;
+  }
+}
+
+@media (forced-colors: active) {
+  .dads-notification-banner__icon {
+    color: currentcolor;
+  }
+}
+
+.dads-notification-banner__heading {
+  grid-column: span 2;
+  margin-top: 0;
+  margin-bottom: 0;
+  display: grid;
+  grid-template-columns: inherit;
+  gap: inherit;
+}
+
+.dads-notification-banner__heading-text {
+  padding-top: calc(3 / 16 * 1rem);
+  color: var(--color-neutral-solid-gray-900);
+  font-weight: bold;
+  font-size: calc(17 / 16 * 1rem);
+  line-height: 1.7;
+  letter-spacing: 0.02em;
+}
+
+@media (min-width: 48rem) {
+  .dads-notification-banner__heading-text {
+    padding-top: calc(2 / 16 * 1rem);
+    font-size: calc(20 / 16 * 1rem);
+    line-height: 1.5;
+  }
+}
+
+.dads-notification-banner__close {
+  margin-right: calc(-12 / 16 * 1rem);
+  display: flex;
+  align-self: start;
+  align-items: center;
+  column-gap: calc(4 / 16 * 1rem);
+  background: transparent;
+  border-radius: calc(8 / 16 * 1rem);
+  border: 0;
+  padding-top: calc(4 / 16 * 1rem);
+  padding-right: calc(12 / 16 * 1rem);
+  padding-bottom: calc(6 / 16 * 1rem);
+  padding-left: calc(12 / 16 * 1rem);
+  color: var(--color-neutral-solid-gray-900);
+  font: inherit;
+  line-height: 1;
+  letter-spacing: inherit;
+}
+
+@media (hover: hover) {
+  .dads-notification-banner__close:hover {
+    background-color: var(--color-neutral-solid-gray-50);
+    text-decoration: underline;
+    text-decoration-thickness: calc(1 / 16 * 1rem);
+    text-underline-offset: calc(3 / 16 * 1rem);
+  }
+}
+
+.dads-notification-banner__close:focus-visible {
+  outline: calc(4 / 16 * 1rem) solid var(--color-neutral-black);
+  outline-offset: calc(2 / 16 * 1rem);
+  background-color: var(--color-primitive-yellow-300);
+  box-shadow: 0 0 0 calc(2 / 16 * 1rem) var(--color-primitive-yellow-300);
+}
+
+.dads-notification-banner__close-icon {
+  margin-top: calc(2 / 16 * 1rem);
+  width: calc(24 / 16 * 1rem);
+  height: calc(24 / 16 * 1rem);
+}
+
+.dads-notification-banner__mobile-close {
+  margin-top: calc(4 / 16 * 1rem);
+  border: 0;
+  border-radius: calc(4 / 16 * 1rem);
+  background: transparent;
+  padding: 0;
+  color: var(--color-neutral-black);
+  touch-action: manipulation;
+}
+
+@media (hover: hover) {
+  .dads-notification-banner__mobile-close:hover {
+    outline: 1px solid;
+    background-color: var(--color-neutral-solid-gray-50);
+  }
+}
+
+.dads-notification-banner__mobile-close:focus-visible {
+  outline: calc(4 / 16 * 1rem) solid var(--color-neutral-black);
+  outline-offset: calc(2 / 16 * 1rem);
+  background-color: var(--color-primitive-yellow-300);
+  box-shadow: 0 0 0 calc(2 / 16 * 1rem) var(--color-primitive-yellow-300);
+}
+
+.dads-notification-banner__mobile-close-icon {
+  display: block;
+  width: calc(44 / 16 * 1rem);
+  height: calc(44 / 16 * 1rem);
+}
+
+.dads-notification-banner__body {
+  margin-top: calc(-4 / 16 * 1rem);
+  display: grid;
+  row-gap: calc(8 / 16 * 1rem);
+  grid-column: 1 / 4;
+  color: var(--color-neutral-solid-gray-800);
+}
+
+@media (min-width: 48rem) {
+  .dads-notification-banner__body {
+    margin-top: 0;
+    grid-column: 2 / 4;
+  }
+}
+
+.dads-notification-banner__body > * {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.dads-notification-banner__timestamp time {
+  text-autospace: normal;
+}
+
+.dads-notification-banner__actions {
+  margin-bottom: calc(-8 / 16 * 1rem);
+  display: grid;
+  gap: calc(8 / 16 * 1rem);
+  grid-column: 1 / 4;
+}
+
+@media (min-width: 48rem) {
+  .dads-notification-banner__actions {
+    grid-auto-flow: column;
+    gap: calc(16 / 16 * 1rem);
+    grid-column: 2 / 4;
+    justify-content: end;
+  }
+}
+
+.dads-notification-banner .dads-button {
+  width: auto;
+}
+
+.dads-notification-banner[data-type="success"] .dads-button {
+  --button-color: var(--color-semantic-success-2);
+  --button-hover-color: var(--color-primitive-green-1000);
+  --button-active-color: var(--color-primitive-green-1200);
+  --button-outline-hover-bg-color: var(--color-primitive-green-200);
+  --button-outline-active-bg-color: var(--color-primitive-green-300);
+}
+
+.dads-notification-banner[data-type="error"] .dads-button {
+  --button-color: var(--color-semantic-error-1);
+  --button-hover-color: var(--color-primitive-red-1000);
+  --button-active-color: var(--color-primitive-red-1200);
+  --button-outline-hover-bg-color: var(--color-primitive-red-200);
+  --button-outline-active-bg-color: var(--color-primitive-red-300);
+}
+
+.dads-notification-banner[data-type="warning"] .dads-button {
+  --button-color: var(--color-semantic-warning-yellow-2);
+  --button-hover-color: var(--color-primitive-yellow-1000);
+  --button-active-color: var(--color-primitive-yellow-1200);
+  --button-outline-hover-bg-color: var(--color-primitive-yellow-200);
+  --button-outline-active-bg-color: var(--color-primitive-yellow-300);
+}
+
+.dads-notification-banner[data-type="info-1"] .dads-button {
+  --button-color: var(--color-primitive-blue-900);
+  --button-hover-color: var(--color-primitive-blue-1000);
+  --button-active-color: var(--color-primitive-blue-1200);
+  --button-outline-hover-bg-color: var(--color-primitive-blue-200);
+  --button-outline-active-bg-color: var(--color-primitive-blue-300);
+}
+
+.dads-notification-banner[data-type="info-2"] .dads-button {
+  --button-color: var(--color-neutral-solid-gray-800);
+  --button-hover-color: var(--color-neutral-solid-gray-900);
+  --button-active-color: var(--color-neutral-black);
+  --button-outline-hover-bg-color: var(--color-neutral-solid-gray-200);
+  --button-outline-active-bg-color: var(--color-neutral-solid-gray-300);
+}
+
+
+/* Official DADS component: select/select.css */
+.dads-select {
+  display: block;
+  color: var(--color-neutral-solid-gray-800);
+  font-weight: normal;
+  font-size: calc(16 / 16 * 1rem);
+  line-height: 1.7;
+  font-family: var(--font-family-sans);
+  letter-spacing: 0.02em;
+}
+
+.dads-select__control {
+  position: relative;
+  display: block;
+  width: fit-content;
+  max-width: 100%;
+}
+
+.dads-select__select {
+  display: inline-block;
+  max-width: 100%;
+  vertical-align: baseline;
+  box-sizing: border-box;
+  border-radius: calc(8 / 16 * 1rem);
+  border: 1px solid var(--color-neutral-solid-gray-600);
+  background-color: var(--color-neutral-white);
+  padding-right: calc(40 / 16 * 1rem);
+  padding-left: calc(16 / 16 * 1rem);
+  color: inherit;
+  font: inherit;
+  line-height: 1;
+  letter-spacing: inherit;
+  appearance: none;
+}
+
+.dads-select__select[data-size="sm"] {
+  height: calc(40 / 16 * 1rem);
+}
+
+.dads-select__select[data-size="md"] {
+  height: calc(48 / 16 * 1rem);
+}
+
+.dads-select__select[data-size="lg"] {
+  height: calc(56 / 16 * 1rem);
+}
+
+.dads-select__select:focus-visible {
+  outline: calc(4 / 16 * 1rem) solid var(--color-neutral-black);
+  outline-offset: calc(2 / 16 * 1rem);
+  box-shadow: 0 0 0 calc(2 / 16 * 1rem) var(--color-primitive-yellow-300);
+}
+
+@media (hover: hover) {
+  .dads-select__select:hover {
+    border-color: var(--color-neutral-black);
+  }
+}
+
+.dads-select__select:is(:user-invalid, [aria-invalid="true"]) {
+  border-color: var(--color-semantic-error-1);
+}
+
+@media (hover: hover) {
+  .dads-select__select:is(:user-invalid, [aria-invalid="true"]):hover {
+    border-color: var(--color-primitive-red-1000);
+  }
+}
+
+.dads-select__select:is(:disabled, [aria-disabled="true"]),
+.dads-select__select:is(:disabled, [aria-disabled="true"]):hover {
+  border: 1px solid var(--color-neutral-solid-gray-300);
+  background-color: var(--color-neutral-solid-gray-50);
+  color: var(--color-neutral-solid-gray-420);
+}
+
+@media (forced-colors: active) {
+  .dads-select__select {
+    color: ButtonText;
+    border-color: ButtonText;
+  }
+
+  .dads-select__select[aria-disabled="true"],
+  .dads-select__select[aria-disabled="true"]:hover {
+    border-color: GrayText;
+    color: GrayText;
+  }
+}
+
+.dads-select__chevron {
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  right: calc(16 / 16 * 1rem);
+  bottom: 0;
+  margin-top: auto;
+  margin-bottom: auto;
+  width: calc(16 / 16 * 1rem);
+  height: calc(16 / 16 * 1rem);
+}
+
+.dads-select__select:disabled + .dads-select__chevron {
+  color: var(--color-neutral-solid-gray-420);
+}
+
+@media (forced-colors: active) {
+  .dads-select__chevron {
+    color: ButtonText;
+  }
+
+  .dads-select__select:disabled + .dads-select__chevron {
+    color: GrayText;
+  }
+}
+
+.dads-select__error-text {
+  margin: calc(8 / 16 * 1rem) 0 0 0;
+  display: block;
+  color: var(--color-semantic-error-1);
+}
+
+
+/* Official DADS component: table/table.css */
+.dads-table {
+  --_border-color: var(--color-neutral-solid-gray-420);
+  --_padding: calc(20 / 16 * 1rem) calc(16 / 16 * 1rem);
+  margin: 0;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  row-gap: calc(16 / 16 * 1rem);
+  color: var(--color-neutral-solid-gray-800);
+  font-weight: normal;
+  font-size: calc(16 / 16 * 1rem);
+  line-height: 1.7;
+  font-family: var(--font-family-sans);
+  letter-spacing: 0.02em;
+}
+
+.dads-table[data-size="dense"] {
+  --_padding: calc(12 / 16 * 1rem) calc(16 / 16 * 1rem);
+  line-height: 1.3;
+}
+
+.dads-table__caption {
+  font-weight: bold;
+  font-size: calc(17 / 16 * 1rem);
+}
+
+.dads-table__table {
+  border-collapse: collapse;
+}
+
+.dads-table__table :is(td, th) {
+  padding: var(--_padding);
+  text-align: left;
+  vertical-align: baseline;
+}
+
+.dads-table__table th {
+  font-weight: bold;
+}
+
+.dads-table__col-header {
+  --_border-color: var(--color-neutral-solid-gray-500);
+  background-color: var(--color-neutral-solid-gray-100);
+  color: var(--color-neutral-solid-gray-900);
+}
+
+.dads-table__row-header {
+  --_border-color: var(--color-neutral-solid-gray-500);
+  background-color: var(--color-neutral-solid-gray-100);
+  color: var(--color-neutral-solid-gray-900);
+}
+
+/* Stripe */
+
+.dads-table[data-row-stripe] {
+  --_border-color: var(--color-neutral-solid-gray-500);
+}
+
+.dads-table[data-row-stripe] tr:nth-child(even) {
+  background-color: var(--color-neutral-solid-gray-50);
+}
+
+/* Hover highlight */
+
+.dads-table[data-row-hover-highlight] {
+  --_border-color: var(--color-neutral-solid-gray-500);
+}
+
+@media (hover: hover) {
+  .dads-table[data-row-hover-highlight] tr:hover {
+    background-color: var(--color-key-50);
+  }
+}
+
+/* With checkbox */
+
+.dads-table[data-selectable] {
+  --_border-color: var(--color-neutral-solid-gray-500);
+}
+
+.dads-table[data-selectable] tr:has(:checked) :where(td, th) {
+  background:
+    linear-gradient(#fff, #fff) top / 100% 1px no-repeat,
+    linear-gradient(90deg, #fff, #fff) left / var(--_gap-x, 0) 100% no-repeat,
+    var(--color-key-100);
+  background-origin: padding-box;
+}
+
+.dads-table [data-border=""] :is(td, th):first-child,
+.dads-table [data-border~="left"] :is(td, th):first-child,
+.dads-table [data-cell-border=""] :is(td, th),
+.dads-table [data-cell-border~="left"] :is(td, th),
+.dads-table [data-cell-border~="right"] :is(td, th) + :is(td, th),
+.dads-table [data-border=""]:is(td, th),
+.dads-table [data-border~="left"]:is(td, th),
+.dads-table [data-border=""] + :is(td, th),
+.dads-table [data-border~="right"] + :is(td, th) {
+  --_gap-x: 1px;
+}
+
+@supports (selector(:has(.x))) {
+  .dads-table td:has(.dads-checkbox:only-child, .dads-radio:only-child),
+  .dads-table th:has(.dads-checkbox:only-child, .dads-radio:only-child) {
+    position: relative;
+    box-sizing: border-box;
+    width: calc(40 / 16 * 1rem);
+    padding: 0;
+  }
+
+  .dads-table td > :is(.dads-checkbox:only-child, .dads-radio:only-child),
+  .dads-table th > :is(.dads-checkbox:only-child, .dads-radio:only-child) {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    justify-content: center;
+    width: auto;
+    padding-top: calc(10 / 16 * 1rem);
+  }
+}
+
+/* Sort and action */
+
+.dads-table__sort-header {
+  --_border-color: var(--color-neutral-solid-gray-500);
+  background-color: var(--color-neutral-solid-gray-100);
+  padding: calc(12 / 16 * 1rem) calc(16 / 16 * 1rem);
+  color: var(--color-neutral-solid-gray-900);
+}
+
+.dads-table[data-size="dense"] .dads-table__sort-header {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.dads-table__sort-inner {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  column-gap: calc(4 / 16 * 1rem);
+}
+
+.dads-table__sort-label {
+  display: flex;
+  align-items: start;
+  gap: calc(4 / 16 * 1rem);
+  padding-top: calc(8 / 16 * 1rem);
+  padding-bottom: calc(8 / 16 * 1rem);
+}
+
+.dads-table[data-size="dense"] .dads-table__sort-label {
+  padding-top: calc(11 / 16 * 1rem);
+  padding-bottom: calc(11 / 16 * 1rem);
+}
+
+.dads-table__sort-button {
+  display: inline-flex;
+  align-items: start;
+  column-gap: calc(4 / 16 * 1rem);
+  border: 0;
+  background-color: transparent;
+  padding: 0;
+  color: inherit;
+  text-align: left;
+  font: inherit;
+  letter-spacing: inherit;
+  text-decoration: underline;
+  text-underline-offset: calc(3 / 16 * 1rem);
+}
+
+.dads-table__sort-button:hover {
+  text-decoration-thickness: calc(3 / 16 * 1rem);
+}
+
+.dads-table__sort-button:focus-visible {
+  outline: calc(4 / 16 * 1rem) solid var(--color-neutral-black);
+  outline-offset: calc(2 / 16 * 1rem);
+  border-radius: calc(4 / 16 * 1rem);
+  background-color: var(--color-primitive-yellow-300);
+  box-shadow: 0 0 0 calc(2 / 16 * 1rem) var(--color-primitive-yellow-300);
+}
+
+.dads-table__sort-icon {
+  flex-shrink: 0;
+  padding-top: calc(2 / 16 * 1rem);
+}
+
+.dads-table[data-size="dense"] .dads-table__sort-icon {
+  margin-top: calc(-2 / 16 * 1rem);
+  padding-top: 0;
+}
+
+.dads-table__sort-svg {
+  display: block;
+  width: calc(24 / 16 * 1rem);
+  height: calc(24 / 16 * 1rem);
+}
+
+.dads-table__action {
+  margin-right: calc(-16 / 16 * 1rem);
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: calc(44 / 16 * 1rem);
+  height: calc(44 / 16 * 1rem);
+  border-radius: calc(4 / 16 * 1rem);
+  border: 0;
+  background-color: transparent;
+  padding: 0;
+  color: inherit;
+}
+
+.dads-table__action:focus-visible {
+  outline: calc(4 / 16 * 1rem) solid var(--color-neutral-black);
+  outline-offset: calc(2 / 16 * 1rem);
+  border-radius: calc(4 / 16 * 1rem);
+  background-color: var(--color-primitive-yellow-300);
+  box-shadow: 0 0 0 calc(2 / 16 * 1rem) var(--color-primitive-yellow-300);
+}
+
+.dads-table__action-svg {
+  display: block;
+  width: calc(24 / 16 * 1rem);
+  height: calc(24 / 16 * 1rem);
+}
+
+/* Utilities */
+
+.dads-table [data-width="full"] {
+  width: 100%;
+}
+
+.dads-table [data-layout="fixed"] {
+  table-layout: fixed;
+}
+
+.dads-table [data-cell-border=""] :where(td, th) {
+  border: 1px solid var(--_border-color);
+}
+
+.dads-table [data-cell-border~="top"] :where(td, th) {
+  border-top: 1px solid var(--_border-color);
+}
+
+.dads-table [data-cell-border~="right"] :where(td, th) {
+  border-right: 1px solid var(--_border-color);
+}
+
+.dads-table [data-cell-border~="bottom"] :where(td, th) {
+  border-bottom: 1px solid var(--_border-color);
+}
+
+.dads-table [data-cell-border~="left"] :where(td, th) {
+  border-left: 1px solid var(--_border-color);
+}
+
+/* Header cell's black border should take precedence over [data-cell-border] */
+:last-of-type > .dads-table__col-header,
+:last-of-type > .dads-table__sort-header {
+  border-bottom: 1px solid var(--color-neutral-black);
+}
+.dads-table__row-header:last-of-type {
+  border-right: 1px solid var(--color-neutral-black);
+}
+
+.dads-table [data-border=""] {
+  border: 1px solid var(--_border-color);
+}
+
+.dads-table [data-border~="top"] {
+  border-top: 1px solid var(--_border-color);
+}
+
+.dads-table [data-border~="right"] {
+  border-right: 1px solid var(--_border-color);
+}
+
+.dads-table [data-border~="bottom"] {
+  border-bottom: 1px solid var(--_border-color);
+}
+
+.dads-table [data-border~="left"] {
+  border-left: 1px solid var(--_border-color);
+}
+
+.dads-table [data-border="hidden"] {
+  border-style: hidden;
+}
+
+.dads-table [data-border~="top-hidden"] {
+  border-top-style: hidden;
+}
+
+.dads-table [data-border~="right-hidden"] {
+  border-right-style: hidden;
+}
+
+.dads-table [data-border~="bottom-hidden"] {
+  border-bottom-style: hidden;
+}
+
+.dads-table [data-border~="left-hidden"] {
+  border-left-style: hidden;
+}
+
+.dads-table [data-bg="white"] {
+  background-color: var(--color-neutral-white);
+}
+
+.dads-table [data-bg="solid-gray-50"] {
+  --_border-color: var(--color-neutral-solid-gray-500);
+  background-color: var(--color-neutral-solid-gray-50);
+}
+
+.dads-table [data-bg="solid-gray-100"] {
+  --_border-color: var(--color-neutral-solid-gray-500);
+  background-color: var(--color-neutral-solid-gray-100);
+}
+
+.dads-table [data-bg="transparent"] {
+  background-color: transparent;
+}
+
+
+/* Official DADS component: textarea/textarea.css */
+.dads-textarea {
+  display: block;
+  color: var(--color-neutral-solid-gray-800);
+  font-weight: normal;
+  font-size: calc(16 / 16 * 1rem);
+  line-height: 1.7;
+  font-family: var(--font-family-sans);
+  letter-spacing: 0.02em;
+}
+
+/* テキストの1行目が正しくベースラインとして認識されないSafariへの対応 */
+.dads-textarea::before {
+  margin-bottom: calc(-16 / 16 * 1rem);
+  display: block;
+  height: 0;
+  padding-top: calc(16 / 16 * 1rem);
+  content: "\200B";
+}
+
+.dads-textarea__textarea {
+  display: block;
+  box-sizing: border-box;
+  max-width: 100%;
+  border: 1px solid var(--color-neutral-solid-gray-600);
+  background-color: var(--color-neutral-white);
+  padding: calc(16 / 16 * 1rem);
+  border-radius: calc(8 / 16 * 1rem);
+  color: var(--color-neutral-solid-gray-900);
+  font: inherit;
+  resize: vertical;
+}
+
+.dads-textarea__textarea:read-only:not(:disabled) {
+  border-style: dashed;
+}
+
+.dads-textarea__textarea:focus-visible {
+  outline: calc(4 / 16 * 1rem) solid var(--color-neutral-black);
+  outline-offset: calc(2 / 16 * 1rem);
+  box-shadow: 0 0 0 calc(2 / 16 * 1rem) var(--color-primitive-yellow-300);
+}
+
+@media (hover: hover) {
+  .dads-textarea__textarea:not(:read-only):hover {
+    border-color: var(--color-neutral-black);
+  }
+}
+
+.dads-textarea__textarea:is(:user-invalid, [aria-invalid="true"]) {
+  border-color: var(--color-semantic-error-1);
+}
+
+@media (hover: hover) {
+  .dads-textarea__textarea:is(:user-invalid, [aria-invalid="true"]):hover {
+    border-color: var(--color-primitive-red-1000);
+  }
+}
+
+.dads-textarea__textarea:is(:disabled, [aria-disabled="true"]),
+.dads-textarea__textarea:is(:disabled, [aria-disabled="true"]):hover {
+  border-color: var(--color-neutral-solid-gray-300);
+  background-color: var(--color-neutral-solid-gray-50);
+  color: var(--color-neutral-solid-gray-420);
+  resize: none;
+}
+
+@media (forced-colors: active) {
+  .dads-textarea__textarea[aria-disabled="true"],
+  .dads-textarea__textarea[aria-disabled="true"]:hover {
+    border-color: GrayText;
+    color: GrayText;
+  }
+}
+
+.dads-textarea__error-text {
+  margin: calc(8 / 16 * 1rem) 0 0 0;
+  display: block;
+  color: var(--color-semantic-error-1);
+}
+
+.dads-textarea__counter {
+  display: block;
+  margin-top: calc(8 / 16 * 1rem);
+  color: var(--color-neutral-solid-gray-600);
+  font-size: calc(16 / 16 * 1rem);
+  line-height: 1;
+  letter-spacing: 0.02em;
+}
+
+.dads-textarea__counter[data-exceeded] {
+  color: var(--color-semantic-error-1);
+}
+
 /* ==========================================================================
    dads-mockup: Interactive Business App & Form UI Mockup Shell
    Designed to pair seamlessly with all 43 official DADS HTML components.
@@ -950,6 +2318,976 @@ body {
   }
 }
 
+/* Project / Team Theme Override */
+/* ==========================================================================
+   dads-doc: Japanese Business & Technical Document Layout + Scroll-Spy TOC
+   ========================================================================== */
+
+.dads-doc-layout {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 40px 20px 80px;
+  display: grid;
+  grid-template-columns: minmax(0, 840px) 240px;
+  gap: 32px;
+  align-items: start;
+  justify-content: center;
+}
+
+.dads-doc-layout .dads-doc {
+  max-width: none;
+  margin: 0;
+  padding: 0;
+}
+
+.dads-doc {
+  max-width: 840px;
+  margin: 0 auto;
+  padding: 40px 20px 80px;
+}
+
+.dads-toc {
+  position: sticky;
+  top: 24px;
+  background: var(--dads-bg-surface);
+  border: 1px solid var(--dads-border);
+  border-radius: var(--border-radius-8);
+  padding: 16px;
+  font-size: var(--font-size-14);
+  line-height: var(--line-height-150);
+}
+
+.dads-toc-title {
+  margin: 0 0 10px;
+  font-size: var(--font-size-14);
+  font-weight: var(--font-weight-700);
+  color: var(--dads-text-strong);
+}
+
+.dads-toc-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.dads-toc-link {
+  display: block;
+  padding: 6px 10px;
+  border-radius: var(--border-radius-6);
+  color: var(--dads-text-muted);
+  text-decoration: none;
+  transition:
+    background-color 0.15s ease,
+    color 0.15s ease;
+}
+
+.dads-toc-link:hover {
+  background: var(--dads-bg-control);
+  color: var(--dads-text-strong);
+}
+
+.dads-toc-link.is-active {
+  background: var(--color-key-50);
+  color: var(--color-key-900);
+  font-weight: var(--font-weight-700);
+}
+
+.dads-toc-mobile {
+  display: none;
+  margin-bottom: 20px;
+  border: 1px solid var(--dads-border);
+  border-radius: var(--border-radius-8);
+  background: var(--dads-bg-surface);
+}
+
+.dads-toc-mobile > summary {
+  padding: 12px 16px;
+  font-weight: var(--font-weight-700);
+  color: var(--dads-text-strong);
+  cursor: pointer;
+}
+
+.dads-toc-mobile > div {
+  padding: 0 16px 14px;
+  border-top: 1px solid var(--dads-border);
+}
+
+.dads-section h2[id] {
+  scroll-margin-top: 24px;
+}
+
+.dads-doc-header {
+  background: var(--dads-bg-surface);
+  border: 1px solid var(--dads-border);
+  border-radius: var(--border-radius-12);
+  padding: 28px 32px;
+  margin-bottom: 28px;
+}
+
+.dads-doc-kicker {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.dads-doc-header h1 {
+  margin: 0 0 12px;
+  font-size: clamp(var(--font-size-22), 2.6vw, var(--font-size-28));
+  line-height: var(--line-height-140);
+  font-weight: var(--font-weight-700);
+  color: var(--dads-text-strong);
+}
+
+.dads-doc-lead {
+  margin: 0 0 18px;
+  color: var(--dads-text-muted);
+  font-size: var(--font-size-16);
+}
+
+.dads-meta-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 12px 16px;
+  padding-top: 16px;
+  border-top: 1px solid var(--dads-border);
+  margin: 0;
+  font-size: var(--font-size-14);
+}
+
+.dads-meta-grid dt {
+  color: var(--dads-text-muted);
+  font-weight: var(--font-weight-700);
+  margin-bottom: 2px;
+}
+
+.dads-meta-grid dd {
+  margin: 0;
+  color: var(--dads-text-strong);
+  font-weight: var(--font-weight-700);
+}
+
+.dads-section {
+  background: var(--dads-bg-surface);
+  border: 1px solid var(--dads-border);
+  border-radius: var(--border-radius-8);
+  padding: 24px 32px;
+  margin-bottom: 20px;
+}
+
+.dads-section h2 {
+  margin: 0 0 16px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--color-key-100);
+  font-size: var(--font-size-22);
+  line-height: var(--line-height-150);
+  font-weight: var(--font-weight-700);
+  color: var(--dads-text-strong);
+}
+
+.dads-section h3 {
+  margin: 24px 0 10px;
+  font-size: var(--font-size-18);
+  line-height: var(--line-height-150);
+  font-weight: var(--font-weight-700);
+  color: var(--dads-text-strong);
+}
+
+.dads-section p {
+  margin: 0 0 14px;
+}
+
+.dads-section ul,
+.dads-section ol {
+  margin: 0 0 14px;
+  padding-left: 1.4em;
+}
+
+.dads-section li {
+  margin-bottom: 6px;
+}
+
+/* DADS Official Standard Notification Banner (white bg + 3px border + 12px radius) */
+.dads-callout {
+  border: 3px solid var(--color-key-900);
+  background: var(--color-neutral-white);
+  border-radius: var(--border-radius-12);
+  padding: 18px 22px;
+  margin: 16px 0;
+}
+
+.dads-callout--success {
+  border-color: var(--dads-success);
+}
+
+.dads-callout--warning {
+  border-color: var(--dads-warning-vivid);
+}
+
+.dads-callout--error {
+  border-color: var(--dads-error-vivid);
+}
+
+.dads-callout-title {
+  font-weight: var(--font-weight-700);
+  font-size: var(--font-size-16);
+  margin: 0 0 6px;
+  color: var(--dads-text-strong);
+}
+
+.dads-callout p:last-child {
+  margin-bottom: 0;
+}
+
+.dads-table-wrap {
+  overflow-x: auto;
+  margin: 16px 0;
+}
+
+.dads-doc-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--font-size-14);
+  line-height: var(--line-height-160);
+}
+
+.dads-doc-table th,
+.dads-doc-table td {
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--color-neutral-solid-gray-420);
+  text-align: left;
+  vertical-align: top;
+}
+
+.dads-doc-table thead th {
+  background: var(--color-neutral-solid-gray-100);
+  color: var(--color-neutral-solid-gray-900);
+  font-weight: var(--font-weight-700);
+  border-bottom: 1px solid var(--color-neutral-solid-gray-500);
+  white-space: nowrap;
+}
+
+.dads-doc-table tbody tr:hover {
+  background: var(--dads-bg-subtle);
+}
+
+.dads-doc-table .is-recommended {
+  background: var(--color-key-50);
+}
+
+.dads-steps {
+  list-style: none;
+  padding: 0;
+  margin: 16px 0;
+  counter-reset: step;
+}
+
+.dads-steps > li {
+  counter-increment: step;
+  position: relative;
+  padding: 12px 16px 12px 54px;
+  border: 1px solid var(--dads-border);
+  border-radius: var(--border-radius-8);
+  margin-bottom: 10px;
+  background: var(--dads-bg-surface);
+}
+
+.dads-steps > li::before {
+  content: counter(step);
+  position: absolute;
+  left: 14px;
+  top: 12px;
+  width: 28px;
+  height: 28px;
+  border-radius: var(--border-radius-full);
+  background: var(--color-key-900);
+  color: var(--dads-text-inverse);
+  font-size: var(--font-size-14);
+  font-weight: var(--font-weight-700);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+pre {
+  background: var(--color-neutral-solid-gray-900);
+  color: var(--color-neutral-solid-gray-50);
+  padding: 14px 16px;
+  border-radius: var(--border-radius-8);
+  overflow-x: auto;
+  font-size: var(--font-size-14);
+  line-height: var(--line-height-160);
+}
+
+:not(pre) > code {
+  background: var(--dads-bg-control);
+  padding: 2px 6px;
+  border-radius: var(--border-radius-4);
+  font-size: 0.9em;
+}
+
+.dads-doc-footer {
+  margin-top: 28px;
+  padding-top: 16px;
+  border-top: 1px solid var(--dads-border);
+  font-size: var(--font-size-14);
+  color: var(--dads-text-muted);
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+@media (max-width: 1080px) {
+  .dads-doc-layout {
+    grid-template-columns: minmax(0, 840px);
+    padding: 24px 16px 64px;
+  }
+  .dads-toc {
+    display: none;
+  }
+  .dads-toc-mobile {
+    display: block;
+  }
+}
+
+@media (max-width: 640px) {
+  .dads-doc,
+  .dads-doc-layout {
+    padding: 16px 12px 48px;
+  }
+  .dads-doc-header,
+  .dads-section {
+    padding: 20px 16px;
+  }
+}
+
+@media print {
+  body {
+    background: var(--color-neutral-white);
+    font-size: 11pt;
+    line-height: var(--line-height-160);
+  }
+  .dads-doc,
+  .dads-doc-layout {
+    display: block;
+    max-width: none;
+    padding: 0;
+  }
+  .dads-toc,
+  .dads-toc-mobile {
+    display: none !important;
+  }
+  .dads-doc-header,
+  .dads-section {
+    border-color: var(--color-neutral-solid-gray-200);
+    box-shadow: none;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+}
+
+
+/* ==========================================================================
+   dads-dashboard: Digital Agency Dashboard Practice Guidebook (2026 JSON)
+   - Page background:      #FFFFFF
+   - Visual/Card surface:  #F8F8FB (borderless, radius 12px)
+   - Control/Slicer area:  #F1F1F4 (items #FFFFFF, outline #949494)
+   - KPI value:            36px #000000, good = --dads-kpi-good, bad = --dads-kpi-bad
+   - Table:                header #F1F1F4, cells #FFFFFF, grid #E6E6E6
+   - Charts:               Horizontal bar, Vertical column, Stacked bar, SVG Line
+   ========================================================================== */
+
+body {
+  background: var(--color-neutral-white);
+}
+
+.dads-dash {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 24px 24px 56px;
+}
+
+.dads-dash-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+  padding-bottom: 16px;
+  margin-bottom: 20px;
+  border-bottom: 2px solid var(--color-key-900);
+}
+
+.dads-dash-header h1 {
+  margin: 6px 0 0;
+  font-size: clamp(var(--font-size-20), 2.4vw, var(--font-size-26));
+  line-height: var(--line-height-130);
+  font-weight: var(--font-weight-700);
+  color: var(--color-neutral-black);
+}
+
+.dads-dash-meta {
+  font-size: var(--font-size-14);
+  color: #626264;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+}
+
+.dads-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+  background: #f1f1f4;
+  padding: 12px 16px;
+  border-radius: var(--border-radius-12);
+  margin-bottom: 20px;
+}
+
+.dads-control-label {
+  font-size: var(--font-size-14);
+  font-weight: var(--font-weight-700);
+  color: var(--color-neutral-black);
+  margin-right: 4px;
+}
+
+.dads-filter-btn {
+  appearance: none;
+  border: 1px solid var(--color-neutral-solid-gray-420);
+  background: var(--color-neutral-white);
+  color: var(--color-neutral-black);
+  font-family: inherit;
+  font-size: var(--font-size-14);
+  font-weight: var(--font-weight-700);
+  padding: 6px 14px;
+  border-radius: var(--border-radius-6);
+  cursor: pointer;
+}
+
+.dads-filter-btn[aria-pressed='true'],
+.dads-filter-btn.is-active {
+  background: var(--color-key-900);
+  border-color: var(--color-key-900);
+  color: var(--color-neutral-white);
+}
+
+.dads-kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.dads-kpi-card {
+  background: #f8f8fb;
+  border-radius: var(--border-radius-12);
+  padding: 18px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.dads-kpi-card--highlight {
+  background: var(--color-key-50);
+}
+
+.dads-kpi-label {
+  font-size: var(--font-size-14);
+  font-weight: var(--font-weight-700);
+  color: var(--color-neutral-black);
+}
+
+.dads-kpi-value {
+  font-size: var(--font-size-36);
+  font-weight: var(--font-weight-700);
+  line-height: var(--line-height-120);
+  color: var(--color-neutral-black);
+  font-variant-numeric: tabular-nums;
+}
+
+.dads-kpi-unit {
+  font-size: var(--font-size-16);
+  font-weight: var(--font-weight-700);
+  color: #626264;
+  margin-left: 4px;
+}
+
+.dads-kpi-delta {
+  font-size: var(--font-size-14);
+  font-weight: var(--font-weight-700);
+  font-variant-numeric: tabular-nums;
+}
+
+.dads-kpi-delta--up {
+  color: var(--dads-kpi-good);
+}
+
+.dads-kpi-delta--down {
+  color: var(--dads-kpi-bad);
+}
+
+.dads-kpi-delta--flat {
+  color: #626264;
+}
+
+.dads-panel-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.dads-panel {
+  grid-column: span 12;
+  background: #f8f8fb;
+  border-radius: var(--border-radius-12);
+  padding: 20px 22px;
+}
+
+.dads-panel--6 {
+  grid-column: span 6;
+}
+
+.dads-panel--7 {
+  grid-column: span 7;
+}
+
+.dads-panel--5 {
+  grid-column: span 5;
+}
+
+.dads-panel-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.dads-panel-head h2 {
+  margin: 0;
+  font-size: var(--font-size-18);
+  line-height: var(--line-height-140);
+  font-weight: var(--font-weight-700);
+  color: var(--color-neutral-black);
+}
+
+.dads-panel-note {
+  font-size: var(--font-size-14);
+  color: #626264;
+}
+
+/* 1. Horizontal Bar Chart */
+.dads-bars {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.dads-bar-row {
+  display: grid;
+  grid-template-columns: 150px 1fr 80px;
+  align-items: center;
+  gap: 12px;
+  font-size: var(--font-size-14);
+}
+
+.dads-bar-label {
+  font-weight: var(--font-weight-700);
+  color: var(--color-neutral-black);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.dads-bar-track {
+  height: 16px;
+  background: var(--color-neutral-solid-gray-100);
+  border-radius: var(--border-radius-4);
+  overflow: hidden;
+}
+
+.dads-bar-fill {
+  height: 100%;
+  background: var(--dads-chart-1);
+  border-radius: var(--border-radius-4);
+}
+
+.dads-bar-fill--secondary {
+  background: var(--dads-chart-3);
+}
+
+.dads-bar-fill--neutral {
+  background: var(--dads-chart-neutral);
+}
+
+.dads-bar-fill--highlight {
+  background: var(--dads-chart-6);
+}
+
+.dads-bar-val {
+  font-weight: var(--font-weight-700);
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+  color: var(--color-neutral-black);
+}
+
+/* 2. Stacked 100% Bar Chart */
+.dads-stacked-bar {
+  display: flex;
+  height: 24px;
+  border-radius: var(--border-radius-4);
+  overflow: hidden;
+  background: var(--color-neutral-solid-gray-100);
+}
+
+.dads-stacked-seg {
+  height: 100%;
+}
+
+.dads-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 18px;
+  margin-top: 12px;
+  font-size: var(--font-size-14);
+  color: var(--color-neutral-black);
+}
+
+.dads-legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.dads-legend-swatch {
+  width: 12px;
+  height: 12px;
+  border-radius: 2px;
+  display: inline-block;
+}
+
+/* 3. SVG Line / Column Chart Wrapper */
+.dads-svg-chart {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.dads-svg-chart .grid-line {
+  stroke: #e6e6e6;
+  stroke-width: 1;
+}
+
+.dads-svg-chart .axis-label {
+  fill: var(--color-neutral-black);
+  font-size: 11px;
+  font-family: var(--dads-font-sans);
+}
+
+.dads-svg-chart .series-line-1 {
+  fill: none;
+  stroke: var(--dads-chart-1);
+  stroke-width: 2.5;
+}
+
+.dads-svg-chart .series-line-2 {
+  fill: none;
+  stroke: var(--dads-chart-3);
+  stroke-width: 2;
+  stroke-dasharray: 5 4;
+}
+
+/* Official tableEx styling */
+.dads-table-wrap {
+  overflow-x: auto;
+  border-radius: var(--border-radius-6);
+}
+
+.dads-dash-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--font-size-14);
+  background: var(--color-neutral-white);
+}
+
+.dads-dash-table th,
+.dads-dash-table td {
+  padding: 10px 12px;
+  border: 1px solid var(--color-neutral-solid-gray-100);
+  text-align: left;
+  color: var(--color-neutral-black);
+}
+
+.dads-dash-table thead th {
+  background: #f1f1f4;
+  font-weight: var(--font-weight-700);
+  white-space: nowrap;
+}
+
+.dads-footnote {
+  font-size: var(--font-size-14);
+  color: #626264;
+  margin-top: 12px;
+}
+
+@media (max-width: 900px) {
+  .dads-panel--6,
+  .dads-panel--7,
+  .dads-panel--5 {
+    grid-column: span 12;
+  }
+}
+
+@media print {
+  body {
+    background: var(--color-neutral-white);
+  }
+  .dads-controls {
+    display: none;
+  }
+  .dads-panel,
+  .dads-kpi-card {
+    break-inside: avoid;
+  }
+}
+
+
+/* ==========================================================================
+   dads-slides: 16:9 Accessible Presentation Slides (Zero-dependency)
+   ========================================================================== */
+
+
+
+.dads-deck {
+  position: relative;
+  width: 100%; min-height: calc(100dvh - 180px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 24px 64px;
+}
+
+.dads-slide {
+  display: none;
+  width: min(100%, calc((100vh - 88px) * 16 / 9));
+  aspect-ratio: 16 / 9;
+  background: var(--dads-bg-surface);
+  border-radius: var(--border-radius-12);
+  padding: 44px 52px;
+  box-shadow: var(--elevation-6);
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+  border: 1px solid var(--dads-border);
+}
+
+.dads-slide.is-active {
+  display: flex;
+}
+
+.dads-slide--cover {
+  background: var(--color-key-900);
+  color: var(--dads-text-inverse);
+  border: none;
+  justify-content: center;
+  gap: 20px;
+}
+
+.dads-slide--cover h1 {
+  color: var(--dads-text-inverse);
+  font-size: clamp(var(--font-size-28), 4.2vw, var(--font-size-48));
+  line-height: var(--line-height-130);
+  margin: 0;
+}
+
+.dads-slide--cover .dads-slide-sub {
+  color: rgba(255, 255, 255, 0.88);
+  font-size: clamp(var(--font-size-16), 2vw, var(--font-size-22));
+  margin: 0;
+}
+
+.dads-slide-head {
+  margin-bottom: 16px;
+}
+
+.dads-slide h2 {
+  margin: 0;
+  font-size: clamp(var(--font-size-20), 2.8vw, var(--font-size-32));
+  line-height: var(--line-height-130);
+  color: var(--dads-text-strong);
+}
+
+.dads-slide-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 16px;
+  font-size: clamp(var(--font-size-14), 1.55vw, var(--font-size-20));
+  line-height: var(--line-height-160);
+}
+
+.dads-slide-cols {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  align-items: start;
+}
+
+.dads-slide-cols--3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.dads-slide-card {
+  background: var(--dads-bg-page);
+  border: 1px solid var(--dads-border);
+  border-radius: var(--border-radius-8);
+  padding: 20px 24px;
+}
+
+.dads-slide-card--accent {
+  background: var(--color-key-50);
+  border-color: var(--color-key-200);
+}
+
+.dads-slide-card h3 {
+  margin: 0 0 8px;
+  font-size: clamp(var(--font-size-16), 1.6vw, var(--font-size-20));
+  color: var(--dads-text-strong);
+}
+
+.dads-slide-card p {
+  margin: 0;
+  font-size: clamp(var(--font-size-14), 1.35vw, var(--font-size-17));
+}
+
+.dads-slide-stat {
+  font-size: clamp(var(--font-size-28), 4vw, var(--font-size-48));
+  font-weight: var(--font-weight-700);
+  color: var(--color-key-900);
+  line-height: var(--line-height-120);
+  font-variant-numeric: tabular-nums;
+}
+
+.dads-slide-foot {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 12px;
+  border-top: 1px solid var(--dads-border);
+  font-size: var(--font-size-14);
+  color: var(--dads-text-muted);
+}
+
+.dads-slide-nav {
+  position: relative;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 48px;
+  background: rgba(26, 26, 26, 0.94);
+  color: var(--color-neutral-white);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  font-size: var(--font-size-14);
+}
+
+.dads-slide-nav-btns {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.dads-slide-nav button {
+  appearance: none;
+  border: 1px solid var(--color-neutral-solid-gray-600);
+  background: var(--color-neutral-solid-gray-800);
+  color: var(--color-neutral-white);
+  padding: 5px 12px;
+  border-radius: var(--border-radius-4);
+  font-family: inherit;
+  font-size: var(--font-size-14);
+  cursor: pointer;
+}
+
+.dads-slide-nav button:hover {
+  background: var(--color-neutral-solid-gray-700);
+}
+
+.dads-slide-progress-bar {
+  position: relative;
+  left: 0;
+  right: 0;
+  bottom: 48px;
+  height: 3px;
+  background: var(--color-neutral-solid-gray-800);
+}
+
+.dads-slide-progress-fill {
+  height: 100%;
+  width: 0;
+  background: var(--color-key-600);
+  transition: width 0.2s ease;
+}
+
+@media (max-width: 960px) {
+  .dads-slide {
+    padding: 24px 28px;
+  }
+  .dads-slide-card {
+    padding: 14px 16px;
+  }
+}
+
+@media print {
+  @page {
+    size: 16in 9in;
+    margin: 0;
+  }
+  body {
+    background: var(--color-neutral-white);
+    overflow: visible;
+  }
+  .dads-deck {
+    display: block;
+    width: auto;
+    height: auto;
+    padding: 0;
+  }
+  .dads-slide {
+    display: flex !important;
+    width: 16in;
+    height: 9in;
+    border-radius: 0;
+    box-shadow: none;
+    break-after: page;
+    page-break-after: always;
+  }
+  .dads-slide-nav,
+  .dads-slide-progress-bar {
+    display: none;
+  }
+}
+
+
+
+body { background: var(--color-neutral-white); overflow: hidden; }
+.showcase-doc-surface { background: #f8f8fb; min-height: 100%; }
+.showcase-slide-surface { background: var(--color-neutral-solid-gray-900); min-height: 100%; display: flex; flex-direction: column; }
+.showcase-slide-surface .dads-deck { flex: 1; padding: 24px; height: auto; }
+.showcase-slide-surface .dads-slide { width: min(100%, 1040px); }
+.showcase-slide-surface .dads-slide-progress-bar { position: static; }
+.showcase-slide-surface .dads-slide-nav { position: static; }
 
     </style>
   </head>
@@ -982,23 +3320,10 @@ body {
         "
         >npx skills add artifactshare/skills</code
       >
-      <button
-        type="button"
-        class="dads-button"
-        data-size="xs"
-        data-type="solid-fill"
-        id="copy-install-btn"
-      >
+      <button type="button" class="dads-button" data-size="xs" data-type="solid-fill" id="copy-install-btn">
         コピー
       </button>
-      <a
-        class="dads-button"
-        data-size="xs"
-        data-type="outline"
-        href="https://github.com/artifactshare/skills"
-        target="_blank"
-        rel="noopener"
-      >
+      <a class="dads-button" data-size="xs" data-type="outline" href="https://github.com/artifactshare/skills" target="_blank" rel="noopener">
         GitHub
       </a>
     </div>
@@ -1020,34 +3345,20 @@ body {
     <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px 16px" role="group" aria-label="デモ切替">
       <div style="display: inline-flex; flex-wrap: wrap; align-items: center; gap: 6px">
         <span style="font-size: var(--font-size-14); font-weight: 700; color: var(--color-neutral-solid-gray-600)">ビジネス:</span>
-        <button type="button" class="dads-button" data-size="xs" data-type="solid-fill" data-demo="dashboard" data-file="./dashboard.html">
-          KPI ダッシュボード
-        </button>
-        <button type="button" class="dads-button" data-size="xs" data-type="outline" data-demo="policy-guide" data-file="./policy-guide.html">
-          社内ルール・制度ガイド
-        </button>
-        <button type="button" class="dads-button" data-size="xs" data-type="outline" data-demo="biz-slides" data-file="./biz-slides.html">
-          社内 MTG スライド
-        </button>
+        <button type="button" class="dads-button" data-size="xs" data-type="solid-fill" data-demo="dashboard">KPI ダッシュボード</button>
+        <button type="button" class="dads-button" data-size="xs" data-type="outline" data-demo="policy-guide">社内ルール・制度ガイド</button>
+        <button type="button" class="dads-button" data-size="xs" data-type="outline" data-demo="biz-slides">社内 MTG スライド</button>
       </div>
       <div style="display: inline-flex; flex-wrap: wrap; align-items: center; gap: 6px">
         <span style="font-size: var(--font-size-14); font-weight: 700; color: var(--color-neutral-solid-gray-600)">開発:</span>
-        <button type="button" class="dads-button" data-size="xs" data-type="outline" data-demo="pr-review" data-file="./pr-review.html">
-          PR レビューガイド
-        </button>
-        <button type="button" class="dads-button" data-size="xs" data-type="outline" data-demo="mockup" data-file="./mockup.html">
-          動く業務 UI モック
-        </button>
-        <button type="button" class="dads-button" data-size="xs" data-type="outline" data-demo="slides" data-file="./slides.html">
-          技術発表スライド
-        </button>
+        <button type="button" class="dads-button" data-size="xs" data-type="outline" data-demo="pr-review">PR レビューガイド</button>
+        <button type="button" class="dads-button" data-size="xs" data-type="outline" data-demo="mockup">動く業務 UI モック</button>
+        <button type="button" class="dads-button" data-size="xs" data-type="outline" data-demo="slides">技術発表スライド</button>
       </div>
     </div>
 
     <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 6px">
-      <span style="font-size: var(--font-size-14); font-weight: 700; color: var(--color-neutral-black); margin-right: 2px">
-        7 色:
-      </span>
+      <span style="font-size: var(--font-size-14); font-weight: 700; color: var(--color-neutral-black); margin-right: 2px">7 色:</span>
       <button type="button" class="dads-badge dads-badge--primary" data-switch-palette="blue" style="cursor: pointer">Blue</button>
       <button type="button" class="dads-badge" data-switch-palette="light-blue" style="cursor: pointer">Light Blue</button>
       <button type="button" class="dads-badge" data-switch-palette="cyan" style="cursor: pointer">Cyan</button>
@@ -1055,16 +3366,7 @@ body {
       <button type="button" class="dads-badge" data-switch-palette="orange" style="cursor: pointer">Orange</button>
       <button type="button" class="dads-badge" data-switch-palette="red" style="cursor: pointer">Red</button>
       <button type="button" class="dads-badge" data-switch-palette="solid-gray" style="cursor: pointer">Gray</button>
-      <button
-        type="button"
-        id="fullscreen-btn"
-        class="dads-button"
-        data-size="xs"
-        data-type="outline"
-        style="margin-left: 6px"
-      >
-        全画面
-      </button>
+      <button type="button" id="fullscreen-btn" class="dads-button" data-size="xs" data-type="outline" style="margin-left: 6px">全画面</button>
     </div>
   </div>
 
@@ -1087,26 +3389,908 @@ body {
       "
     >
       <span>全画面プレビュー（Esc キーで終了）</span>
-      <button
-        type="button"
-        id="fullscreen-exit-btn"
-        class="dads-button"
-        data-size="xs"
-        data-type="outline"
-        style="background: #ffffff; color: #000000"
-      >
+      <button type="button" id="fullscreen-exit-btn" class="dads-button" data-size="xs" data-type="outline" style="background: #ffffff; color: #000000">
         全画面を閉じる
       </button>
     </div>
-    <iframe
-      id="showcase-frame"
-      src="./dashboard.html"
-      title="DADS Agent Skills ライブプレビュー"
-      style="width: 100%; height: 100%; flex: 1 1 auto; border: 0; display: block"
-    ></iframe>
+
+    <div id="showcase-stage-body" style="flex: 1 1 auto; min-height: 0; overflow-y: auto">
+      <div data-demo-panel="dashboard"><main class="dads-dash">
+  <header class="dads-dash-header">
+    <div>
+      <h1>プロダクト活用・グロース進捗ダッシュボード（2026 年 11 月）</h1>
+    </div>
+    <div class="dads-dash-meta">
+      <span class="dads-badge dads-badge--primary">月次 KPI 定点モニター</span>
+      <span>集計期間: 2026-11-01 〜 2026-11-25</span>
+      <span>更新: 2026-11-25 18:00 JST</span>
+    </div>
+  </header>
+
+  <div class="dads-controls" role="group" aria-label="セグメント切替">
+    <span class="dads-control-label">表示セグメント</span>
+    <button type="button" class="dads-filter-btn is-active" aria-pressed="true" data-seg="all">全社合計</button>
+    <button type="button" class="dads-filter-btn" aria-pressed="false" data-seg="dev">開発・技術部門</button>
+    <button type="button" class="dads-filter-btn" aria-pressed="false" data-seg="biz">事業・CS 部門</button>
+  </div>
+
+  <section class="dads-kpi-grid" aria-label="主要指標">
+    <article class="dads-kpi-card dads-kpi-card--highlight">
+      <span class="dads-kpi-label">月間アクティブ投稿者数</span>
+      <div class="dads-kpi-value" data-kpi="posters">48<span class="dads-kpi-unit">人</span></div>
+      <span class="dads-kpi-delta dads-kpi-delta--up" data-delta="posters">前月比 +17.1% ▲</span>
+    </article>
+    <article class="dads-kpi-card">
+      <span class="dads-kpi-label">新規作成ドキュメント数</span>
+      <div class="dads-kpi-value" data-kpi="docs">312<span class="dads-kpi-unit">件</span></div>
+      <span class="dads-kpi-delta dads-kpi-delta--up" data-delta="docs">前月比 +9.5% ▲</span>
+    </article>
+    <article class="dads-kpi-card">
+      <span class="dads-kpi-label">同一 URL 更新率</span>
+      <div class="dads-kpi-value" data-kpi="rev">64.2<span class="dads-kpi-unit">%</span></div>
+      <span class="dads-kpi-delta dads-kpi-delta--up" data-delta="rev">前月比 +4.8pt ▲</span>
+    </article>
+    <article class="dads-kpi-card">
+      <span class="dads-kpi-label">未閲覧率（作成 7 日後）</span>
+      <div class="dads-kpi-value" data-kpi="unseen">11.4<span class="dads-kpi-unit">%</span></div>
+      <span class="dads-kpi-delta dads-kpi-delta--down" data-delta="unseen">前月比 +1.2pt ▲（要改善）</span>
+    </article>
+  </section>
+
+  <section class="dads-panel-grid">
+    <article class="dads-panel dads-panel--6">
+      <div class="dads-panel-head">
+        <h2>用途別 作成件数内訳</h2>
+        <span class="dads-panel-note">上位 5 カテゴリ（件数降順）</span>
+      </div>
+      <div class="dads-bars">
+        <div class="dads-bar-row">
+          <span class="dads-bar-label">設計・案の比較</span>
+          <div class="dads-bar-track"><div class="dads-bar-fill" style="width: 100%"></div></div>
+          <span class="dads-bar-val">118 件</span>
+        </div>
+        <div class="dads-bar-row">
+          <span class="dads-bar-label">KPI・分析レポート</span>
+          <div class="dads-bar-track"><div class="dads-bar-fill" style="width: 78%"></div></div>
+          <span class="dads-bar-val">92 件</span>
+        </div>
+        <div class="dads-bar-row">
+          <span class="dads-bar-label">社内ガイド・手順</span>
+          <div class="dads-bar-track"><div class="dads-bar-fill dads-bar-fill--secondary" style="width: 46%"></div></div>
+          <span class="dads-bar-val">54 件</span>
+        </div>
+        <div class="dads-bar-row">
+          <span class="dads-bar-label">UI モック・試作</span>
+          <div class="dads-bar-track"><div class="dads-bar-fill dads-bar-fill--secondary" style="width: 27%"></div></div>
+          <span class="dads-bar-val">32 件</span>
+        </div>
+        <div class="dads-bar-row">
+          <span class="dads-bar-label">議事録・その他</span>
+          <div class="dads-bar-track"><div class="dads-bar-fill dads-bar-fill--neutral" style="width: 14%"></div></div>
+          <span class="dads-bar-val">16 件</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="dads-panel dads-panel--6">
+      <div class="dads-panel-head">
+        <h2>月次 作成件数トレンド（原点 0 基準）</h2>
+        <span class="dads-panel-note">6〜11 月推移</span>
+      </div>
+      <svg class="dads-svg-chart" viewBox="0 0 520 190" role="img" aria-label="6月から11月の月次作成件数トレンド">
+        <line class="grid-line" x1="40" y1="20" x2="500" y2="20" />
+        <line class="grid-line" x1="40" y1="65" x2="500" y2="65" />
+        <line class="grid-line" x1="40" y1="110" x2="500" y2="110" />
+        <line class="grid-line" x1="40" y1="155" x2="500" y2="155" />
+        <text class="axis-label" x="32" y="24" text-anchor="end">360</text>
+        <text class="axis-label" x="32" y="69" text-anchor="end">240</text>
+        <text class="axis-label" x="32" y="114" text-anchor="end">120</text>
+        <text class="axis-label" x="32" y="159" text-anchor="end">0</text>
+        <polyline class="series-line-1" points="60,126 144,108 228,84 312,68 396,52 480,38" />
+        <circle cx="60" cy="126" r="4" fill="var(--dads-chart-1)" />
+        <circle cx="144" cy="108" r="4" fill="var(--dads-chart-1)" />
+        <circle cx="228" cy="84" r="4" fill="var(--dads-chart-1)" />
+        <circle cx="312" cy="68" r="4" fill="var(--dads-chart-1)" />
+        <circle cx="396" cy="52" r="4" fill="var(--dads-chart-1)" />
+        <circle cx="480" cy="38" r="4" fill="var(--dads-chart-1)" />
+        <text class="axis-label" x="60" y="176" text-anchor="middle">6月</text>
+        <text class="axis-label" x="144" y="176" text-anchor="middle">7月</text>
+        <text class="axis-label" x="228" y="176" text-anchor="middle">8月</text>
+        <text class="axis-label" x="312" y="176" text-anchor="middle">9月</text>
+        <text class="axis-label" x="396" y="176" text-anchor="middle">10月</text>
+        <text class="axis-label" x="480" y="176" text-anchor="middle">11月</text>
+      </svg>
+    </article>
+
+    <article class="dads-panel">
+      <div class="dads-panel-head">
+        <h2>閲覧上位ドキュメント</h2>
+        <span class="dads-panel-note">今月の累計閲覧数・更新回数</span>
+      </div>
+      <div class="dads-table-wrap">
+        <table class="dads-dash-table">
+          <thead>
+            <tr>
+              <th>タイトル</th>
+              <th>カテゴリ</th>
+              <th data-num>バージョン数</th>
+              <th data-num>累計閲覧数</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>全社 KPI 定点モニター</td>
+              <td>KPI・分析レポート</td>
+              <td data-num>v29</td>
+              <td data-num>248</td>
+            </tr>
+            <tr>
+              <td>1Password オンボーディングガイド</td>
+              <td>社内ガイド・手順</td>
+              <td data-num>v3</td>
+              <td data-num>192</td>
+            </tr>
+            <tr>
+              <td>Q4 開発ロードマップ</td>
+              <td>設計・案の比較</td>
+              <td data-num>v18</td>
+              <td data-num>164</td>
+            </tr>
+            <tr>
+              <td>新料金プラン比較案</td>
+              <td>設計・案の比較</td>
+              <td data-num>v12</td>
+              <td data-num>139</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </article>
+  </section>
+
+  <p class="dads-footnote">
+    出典：サンプル集計データ（デジタル庁「ダッシュボードデザインの実践ガイドブック」2026 年版 7 色パレット準拠）
+  </p>
+</main>
+</div>
+      <div data-demo-panel="policy-guide" class="showcase-doc-surface" hidden><main class="dads-doc">
+  <header class="dads-doc-header">
+    <div class="dads-doc-kicker">
+      <span class="dads-badge dads-badge--primary">社内ルール・制度ガイド</span>
+      <span class="dads-badge dads-badge--success">全社員対象・2026 年改訂版</span>
+    </div>
+    <h1>生成 AI ツール利用ガイドライン</h1>
+    <p class="dads-doc-lead">
+      業務で生成 AI ツールを安全かつ効果的に活用するための承認済みツール一覧、データ入力ルール、申請手順、よくある質問をまとめました。
+    </p>
+    <dl class="dads-meta-grid">
+      <div><dt>施行日</dt><dd>2026-11-01</dd></div>
+      <div><dt>所管部署</dt><dd>情報システム部・法務部</dd></div>
+      <div><dt>適用範囲</dt><dd>全役員・正社員・業務委託</dd></div>
+      <div><dt>問い合わせ</dt><dd><code>#it-ai-support</code></dd></div>
+    </dl>
+  </header>
+
+  <section class="dads-section">
+    <h2>1. 基本方針（まず守る 3 原則）</h2>
+    <div class="dads-callout">
+      <p class="dads-callout-title">業務活用を積極的に推奨します（法人契約ツールのみ利用可）</p>
+      <p>
+        学習オプトアウトが契約上保証された法人アカウントに限り、社内資料の作成・調査・コーディング支援への積極的な活用を推奨します。
+        一方、個人アカウント（無料版含む）への業務データ入力は禁止です。
+      </p>
+    </div>
+    <div class="dads-callout dads-callout--error">
+      <p class="dads-callout-title">入力禁止データ（法人契約ツールでも入力不可）</p>
+      <p>
+        顧客の個人情報（氏名・住所・電話番号・メールアドレス等）、クレジットカード情報、未公表の決算数値、システムの本番認証情報（API キー・パスワード）は、いかなる AI ツールにも入力しないでください。
+      </p>
+    </div>
+  </section>
+
+  <section class="dads-section">
+    <h2>2. 承認済みツールとデータ区分</h2>
+    <div class="dads-table-wrap">
+      <table class="dads-doc-table">
+        <thead>
+          <tr>
+            <th>ツール名</th>
+            <th>対象者</th>
+            <th>社内機密の入力</th>
+            <th>利用申請</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Claude Enterprise / Claude Code</strong></td>
+            <td>全社員・開発者</td>
+            <td><span class="dads-badge dads-badge--success">可（個人情報除く）</span></td>
+            <td>ポータルから申請（即時発行）</td>
+          </tr>
+          <tr>
+            <td><strong>ChatGPT Enterprise</strong></td>
+            <td>全社員</td>
+            <td><span class="dads-badge dads-badge--success">可（個人情報除く）</span></td>
+            <td>入社時自動付与</td>
+          </tr>
+          <tr>
+            <td><strong>Artifact Share（社内共有）</strong></td>
+            <td>全社員</td>
+            <td><span class="dads-badge dads-badge--success">可（ワークスペース限定）</span></td>
+            <td>Google SSO で即時ログイン</td>
+          </tr>
+          <tr>
+            <td><strong>個人契約・無料版 AI サービス</strong></td>
+            <td>—</td>
+            <td><span class="dads-badge dads-badge--error">全面禁止</span></td>
+            <td>業務利用不可</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="dads-section">
+    <h2>3. 利用開始・新規ツール導入の手順</h2>
+    <ol class="dads-steps">
+      <li><strong>利用申請ポータルから申請</strong>：希望ツール・部署・月額見込みを入力して送信する（月 5,000 円以下は上長承認のみで即時決裁）。</li>
+      <li><strong>SSO 連携・アカウント有効化</strong>：承認後 1 営業日以内に情シスより招待メールが届くため、社内 Google アカウントでログインする。</li>
+      <li><strong>成果物の共有・確認</strong>：AI が作成した社内資料やレポートは、リンク露出を防ぐため社内限定ワークスペース上で共有し、最終責任者が内容を確認する。</li>
+    </ol>
+  </section>
+
+  <section class="dads-section">
+    <h2>4. よくある質問（FAQ）</h2>
+    <details class="dads-accordion">
+      <summary class="dads-accordion__summary">
+        <span class="dads-accordion__icon" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24"><path d="M12 17.1 3 8l1.4-1.4 7.6 7.6 7.6-7.6L21 8z" fill="currentcolor" /></svg>
+        </span>
+        会議の録音文字起こしを AI に要約させてもよいですか？
+      </summary>
+      <div class="dads-accordion__content">
+        <p>
+          法人契約ツール（Claude / ChatGPT Enterprise）であれば可能です。ただし、採用面接や人事評価、顧客の個人情報が含まれる会議ログは、氏名を匿名化してから入力してください。
+        </p>
+      </div>
+    </details>
+
+    <details class="dads-accordion">
+      <summary class="dads-accordion__summary">
+        <span class="dads-accordion__icon" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24"><path d="M12 17.1 3 8l1.4-1.4 7.6 7.6 7.6-7.6L21 8z" fill="currentcolor" /></svg>
+        </span>
+        AI が生成したコードや文章の著作権・確認責任はどうなりますか？
+      </summary>
+      <div class="dads-accordion__content">
+        <p>
+          社外公開する文章・コード・デザインは、必ず担当者またはレビュアーが事実関係・ライセンス・第三者権利侵害の有無を目視確認したうえで公開してください。
+        </p>
+      </div>
+    </details>
+
+    <details class="dads-accordion">
+      <summary class="dads-accordion__summary">
+        <span class="dads-accordion__icon" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24"><path d="M12 17.1 3 8l1.4-1.4 7.6 7.6 7.6-7.6L21 8z" fill="currentcolor" /></svg>
+        </span>
+        リストにない新しい AI ツールを業務で試したい場合は？
+      </summary>
+      <div class="dads-accordion__content">
+        <p>
+          <code>#it-ai-support</code> にてツール名と用途を相談してください。情シス・法務で学習オプトアウト条件とデータ保管先を確認し、通常 3 営業日以内に可否を回答します。
+        </p>
+      </div>
+    </details>
+  </section>
+
+  <footer class="dads-doc-footer">
+    <span>社内規程番号：IT-AI-2026-04</span>
+    <span>dads-doc / Digital Agency Design System 準拠</span>
+  </footer>
+</main>
+</div>
+      <div data-demo-panel="biz-slides" class="showcase-slide-surface" hidden><main class="dads-deck" aria-label="社内定例・Q1 施策提案スライド">
+  <section class="dads-slide dads-slide--cover is-active">
+    <h1>Q4 事業振り返りと<br />Q1 重点施策のご提案</h1>
+    <p class="dads-slide-sub">月次経営会議・事業部定例資料｜プロダクト推進部（2026 年 11 月）</p>
+  </section>
+
+  <section class="dads-slide">
+    <div class="dads-slide-head">
+      <h2>Q4 は利用定着が進んだ一方、新規流入の鈍化が最大の課題</h2>
+    </div>
+    <div class="dads-slide-body">
+      <div class="dads-slide-cols dads-slide-cols--3">
+        <div class="dads-slide-card dads-slide-card--accent">
+          <h3>継続利用ワークスペース</h3>
+          <div class="dads-slide-stat">64.2%</div>
+          <p>同一 URL での更新率が前四半期比 +8.4pt 上昇。導入済みチームの定着は好調。</p>
+        </div>
+        <div class="dads-slide-card">
+          <h3>月間新規登録</h3>
+          <div class="dads-slide-stat">68 件</div>
+          <p>10 月ピーク（84 件）から 11 月は減速。既存の紹介・記事チャネルが天井に近い。</p>
+        </div>
+        <div class="dads-slide-card">
+          <h3>有料転換率</h3>
+          <div class="dads-slide-stat">0.5%</div>
+          <p>Free プランで十分足りるため、チーム導入へ引き上げる決定打が不足している。</p>
+        </div>
+      </div>
+    </div>
+    <footer class="dads-slide-foot">
+      <span>Q4 事業振り返りと Q1 重点施策のご提案</span>
+      <span>2</span>
+    </footer>
+  </section>
+
+  <section class="dads-slide">
+    <div class="dads-slide-head">
+      <h2>Q1 は「作成ツール配布」と「チーム標準テーマ」の 2 軸で突破する</h2>
+    </div>
+    <div class="dads-slide-body">
+      <div class="dads-slide-cols">
+        <div class="dads-slide-card dads-slide-card--accent">
+          <h3>施策 1：無料作成スキルの OSS 公開（新規獲得）</h3>
+          <p>
+            共有の前段である「資料作成フェーズ」に入り込む。デジタル庁デザインシステム準拠の無料スキルを配布し、実物デモ URL から新規流入を生む。
+          </p>
+        </div>
+        <div class="dads-slide-card">
+          <h3>施策 2：プロジェクト標準テーマ機能（有料転換）</h3>
+          <p>
+            自社カラー・ロゴを 1 回設定すれば全員の AI 成果物が統一される仕組みを提供し、Free から Team プランへ上げる明確な理由を作る。
+          </p>
+        </div>
+      </div>
+    </div>
+    <footer class="dads-slide-foot">
+      <span>Q4 事業振り返りと Q1 重点施策のご提案</span>
+      <span>3</span>
+    </footer>
+  </section>
+
+  <section class="dads-slide">
+    <div class="dads-slide-head">
+      <h2>3 か月の実行計画と撤退・投資判断ゲート</h2>
+    </div>
+    <div class="dads-slide-body">
+      <table style="width: 100%; border-collapse: collapse; font-size: 16px">
+        <thead>
+          <tr style="background: var(--color-neutral-solid-gray-100)">
+            <th style="padding: 12px; text-align: left; border-bottom: 2px solid var(--color-neutral-solid-gray-500)">時期</th>
+            <th style="padding: 12px; text-align: left; border-bottom: 2px solid var(--color-neutral-solid-gray-500)">マイルストーン</th>
+            <th style="padding: 12px; text-align: left; border-bottom: 2px solid var(--color-neutral-solid-gray-500)">判断基準（KPI）</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="padding: 12px; border-bottom: 1px solid var(--color-neutral-solid-gray-200)"><strong>12 月</strong></td>
+            <td style="padding: 12px; border-bottom: 1px solid var(--color-neutral-solid-gray-200)">OSS スキル公開・ライブショーケース発信</td>
+            <td style="padding: 12px; border-bottom: 1px solid var(--color-neutral-solid-gray-200)">ショーケース経由の新規 WS +30 件 / 社外利用報告</td>
+          </tr>
+          <tr style="background: var(--color-key-50)">
+            <td style="padding: 12px; border-bottom: 1px solid var(--color-neutral-solid-gray-200)"><strong>1 月</strong></td>
+            <td style="padding: 12px; border-bottom: 1px solid var(--color-neutral-solid-gray-200)">既存顧客での実務運用・CLI 連携改善</td>
+            <td style="padding: 12px; border-bottom: 1px solid var(--color-neutral-solid-gray-200)">初回投稿率 50% 以上・継続利用フィードバック回収</td>
+          </tr>
+          <tr>
+            <td style="padding: 12px; border-bottom: 1px solid var(--color-neutral-solid-gray-200)"><strong>2 月</strong></td>
+            <td style="padding: 12px; border-bottom: 1px solid var(--color-neutral-solid-gray-200)">プロジェクト標準テーマの Team プラン提供</td>
+            <td style="padding: 12px; border-bottom: 1px solid var(--color-neutral-solid-gray-200)">社外 Team 契約 2 件以上の新規獲得</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <footer class="dads-slide-foot">
+      <span>Q4 事業振り返りと Q1 重点施策のご提案</span>
+      <span>4</span>
+    </footer>
+  </section>
+
+  <section class="dads-slide">
+    <div class="dads-slide-head">
+      <h2>本日の会議で承認いただきたい事項（2 点）</h2>
+    </div>
+    <div class="dads-slide-body">
+      <div class="dads-slide-cols">
+        <div class="dads-slide-card dads-slide-card--accent">
+          <h3>1. 12 月の OSS 公開・発信の承認</h3>
+          <p>MIT ライセンスでの公開と、ライブショーケース URL の一般公開（顧客固有データを含まない汎用サンプル構成）。</p>
+        </div>
+        <div class="dads-slide-card">
+          <h3>2. 1 月以降の本体開発優先度</h3>
+          <p>12 月の反応および先行導入チームでの実務評価を確認したうえで、1 月初旬に本体テーマ機能の着手可否を最終判断する。</p>
+        </div>
+      </div>
+    </div>
+    <footer class="dads-slide-foot">
+      <span>Q4 事業振り返りと Q1 重点施策のご提案</span>
+      <span>5</span>
+    </footer>
+  </section>
+</main>
+
+<div class="dads-slide-progress-bar">
+  <div class="dads-slide-progress-fill" data-slide-progress></div>
+</div>
+<nav class="dads-slide-nav" aria-label="スライド操作">
+  <span>← → / Space で移動・ブラウザ印刷でそのまま PDF 化</span>
+  <div class="dads-slide-nav-btns">
+    <button type="button" data-slide-prev>前へ</button>
+    <span data-slide-counter>1 / 5</span>
+    <button type="button" data-slide-next>次へ</button>
+  </div>
+</nav>
+</div>
+      <div data-demo-panel="pr-review" class="showcase-doc-surface" hidden><main class="dads-doc">
+  <header class="dads-doc-header">
+    <div class="dads-doc-kicker">
+      <span class="dads-badge dads-badge--primary">PR レビューガイド</span>
+      <span class="dads-badge dads-badge--warning">34 ファイル変更・AI 生成 PR</span>
+    </div>
+    <h1>決済 Webhook リトライと冪等性キーの導入</h1>
+    <p class="dads-doc-lead">
+      外部決済プロバイダからの重複通知による二重計上を防ぐため、冪等性キーによる排他制御と指数バックオフのリトライ処理を追加しました。レビュアーが 3 分で要所を確認できるよう、影響範囲と優先確認ファイルを整理しています。
+    </p>
+    <dl class="dads-meta-grid">
+      <div><dt>PR / ブランチ</dt><dd><code>#418</code> / <code>feat/webhook-idempotency</code></dd></div>
+      <div><dt>変更規模</dt><dd>34 files (+842 / -196)</dd></div>
+      <div><dt>破壊的変更</dt><dd>なし（マイグレーション追記のみ）</dd></div>
+      <div><dt>CI / テスト</dt><dd>全 128 件パス（追加テスト 19 件）</dd></div>
+    </dl>
+  </header>
+
+  <section class="dads-section">
+    <h2>1. 30 秒サマリ（どこを重点的に見るか）</h2>
+    <div class="dads-callout">
+      <p class="dads-callout-title">レビュアーへの確認依頼：全 34 ファイル中、核となる 4 ファイルだけ先に確認してください</p>
+      <p>
+        変更ファイル数が多いのは型定義・テストフィクスチャ・生成コードの追従（26 ファイル）によるものです。
+        ビジネスロジックと障害時挙動に関わるのは <strong>マイグレーション（1 件）</strong>・<strong>冪等性ガード（2 件）</strong>・<strong>リトライ設定（1 件）</strong> の計 4 ファイルです。
+      </p>
+    </div>
+  </section>
+
+  <section class="dads-section">
+    <h2>2. 挙動の変化（Before / After）</h2>
+    <div class="dads-table-wrap">
+      <table class="dads-doc-table">
+        <thead>
+          <tr>
+            <th>シナリオ</th>
+            <th>変更前（Before）</th>
+            <th class="is-recommended">変更後（After）</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>同一イベントの重複受信</strong></td>
+            <td>処理が 2 回走り、売上レコードが二重登録される</td>
+            <td class="is-recommended"><code>event_id</code> の UNIQUE 制約で 2 回目を安全にスキップ（HTTP 200 返却）</td>
+          </tr>
+          <tr>
+            <td><strong>一時的な DB タイムアウト</strong></td>
+            <td>即座に 500 応答し、手動再実行が必要</td>
+            <td class="is-recommended">最大 5 回まで指数バックオフで自動リトライ、超過時は DLQ へ退避</td>
+          </tr>
+          <tr>
+            <td><strong>署名検証エラー</strong></td>
+            <td>エラーログのみで監視アラートなし</td>
+            <td class="is-recommended">構造化ログ＋メトリクス加算（即時アラート対象）</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="dads-section">
+    <h2>3. 変更ファイル分類とレビュー優先度</h2>
+    <div class="dads-table-wrap">
+      <table class="dads-doc-table">
+        <thead>
+          <tr>
+            <th>領域</th>
+            <th data-num>件数</th>
+            <th>対象ファイル</th>
+            <th>優先度</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>DB マイグレーション</strong></td>
+            <td data-num>1</td>
+            <td><code>migrations/0042_webhook_idempotency.sql</code></td>
+            <td><span class="dads-badge dads-badge--error">最優先</span></td>
+          </tr>
+          <tr>
+            <td><strong>冪等性ガード・排他制御</strong></td>
+            <td data-num>2</td>
+            <td><code>services/billing/idempotency.ts</code>, <code>routes/webhooks/stripe.ts</code></td>
+            <td><span class="dads-badge dads-badge--error">最優先</span></td>
+          </tr>
+          <tr>
+            <td><strong>リトライ・DLQ 設定</strong></td>
+            <td data-num>1</td>
+            <td><code>workers/webhook-consumer.ts</code></td>
+            <td><span class="dads-badge dads-badge--warning">高</span></td>
+          </tr>
+          <tr>
+            <td><strong>結合テスト・障害注入テスト</strong></td>
+            <td data-num>11</td>
+            <td><code>tests/billing/webhook-*.test.ts</code></td>
+            <td><span class="dads-badge dads-badge--primary">中</span></td>
+          </tr>
+          <tr>
+            <td><strong>型生成・フィクスチャ追従</strong></td>
+            <td data-num>19</td>
+            <td><code>types/db.generated.ts</code>, <code>fixtures/*.json</code></td>
+            <td><span class="dads-badge dads-badge--success">CI 確認</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="dads-section">
+    <h2>4. リスク・レビュー確認ステップ</h2>
+    <div class="dads-callout dads-callout--warning">
+      <p class="dads-callout-title">確認してほしいエッジケース：処理中クラッシュ時の再実行</p>
+      <p>
+        ステータスが <code>processing</code> のまま 5 分以上経過したレコードは、次回リトライ時にロックを奪取して再処理する設計にしています。
+        5 分という閾値が決済プロバイダの再送間隔に対して妥当かご意見ください。
+      </p>
+    </div>
+    <ol class="dads-steps">
+      <li><strong>SQL のロック影響を確認</strong>：<code>0042_webhook_idempotency.sql</code> が新規テーブル追加のみで既存テーブルにロックをかけないことを確認する。</li>
+      <li><strong>冪等性キーのスコープを確認</strong>：<code>(provider, event_id)</code> の複合 UNIQUE が想定通りの粒度になっているか確認する。</li>
+      <li><strong>ロールバック手順を確認</strong>：機能フラグ <code>ENABLE_WEBHOOK_IDEMPOTENCY</code> を <code>false</code> に戻すだけで旧経路へ即時切り戻し可能。</li>
+    </ol>
+  </section>
+
+  <footer class="dads-doc-footer">
+    <span>PR #418 Review Brief — Generated by dads-doc skill</span>
+    <span>Digital Agency Design System 準拠</span>
+  </footer>
+</main>
+</div>
+      <div data-demo-panel="mockup" hidden><div class="dads-mock-shell">
+  <header class="dads-mock-topbar">
+    <div class="dads-mock-brand">
+      <span>社内 AI ツール・予算申請ポータル</span>
+      <span class="dads-badge dads-badge--primary">UI モック（操作可能）</span>
+    </div>
+    <p class="dads-mock-banner-note">Digital Agency Design System 公式フォームコンポーネント構成</p>
+  </header>
+
+  <main class="dads-mock-main">
+    <div class="dads-mock-page-head">
+      <h1>利用申請・承認管理</h1>
+      <span class="dads-badge dads-badge--success" data-mock-count>登録済み 3 件</span>
+    </div>
+
+    <div
+      class="dads-notification-banner"
+      data-style="standard"
+      data-type="info-1"
+      id="mock-feedback"
+      role="status"
+      aria-live="polite"
+      hidden
+      style="margin-bottom: 20px"
+    >
+      <h2 class="dads-notification-banner__heading">
+        <svg class="dads-notification-banner__icon" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="12" cy="12" r="10" fill="currentcolor" />
+          <path d="M11 7h2v6h-2zm0 8h2v2h-2z" fill="#ffffff" />
+        </svg>
+        <span class="dads-notification-banner__heading-text" id="mock-feedback-text"></span>
+      </h2>
+    </div>
+
+    <div class="dads-mock-tabs" role="tablist" aria-label="画面切替">
+      <button
+        type="button"
+        class="dads-mock-tab"
+        role="tab"
+        aria-selected="true"
+        aria-controls="panel-form"
+        id="tab-form"
+      >
+        新規申請フォーム
+      </button>
+      <button
+        type="button"
+        class="dads-mock-tab"
+        role="tab"
+        aria-selected="false"
+        aria-controls="panel-list"
+        id="tab-list"
+      >
+        申請一覧（承認待ち・完了）
+      </button>
+    </div>
+
+    <section class="dads-mock-tabpanel" id="panel-form" role="tabpanel" aria-labelledby="tab-form">
+      <form class="dads-mock-panel" id="mock-request-form" novalidate>
+        <div class="dads-mock-form-grid">
+          <div class="dads-form-control-label" data-size="md">
+            <label class="dads-form-control-label__label" for="req-tool">
+              利用希望ツール名
+              <span class="dads-form-control-label__requirement" data-required="true">※必須</span>
+            </label>
+            <p class="dads-form-control-label__support-text">例：Claude Team / Artifact Share Team</p>
+            <span class="dads-input-text">
+              <input
+                class="dads-input-text__input"
+                id="req-tool"
+                name="tool"
+                type="text"
+                data-size="md"
+                placeholder="ツール名を入力"
+                required
+              />
+            </span>
+          </div>
+
+          <div class="dads-form-control-label" data-size="md">
+            <label class="dads-form-control-label__label" for="req-dept">
+              申請部署
+              <span class="dads-form-control-label__requirement" data-required="true">※必須</span>
+            </label>
+            <p class="dads-form-control-label__support-text">予算負担元となる部署を選択</p>
+            <span class="dads-select">
+              <span class="dads-select__control">
+                <select class="dads-select__select" id="req-dept" name="dept" data-size="md">
+                  <option value="プロダクト開発部">プロダクト開発部</option>
+                  <option value="グロース・マーケ部">グロース・マーケ部</option>
+                  <option value="CS・オペレーション部">CS・オペレーション部</option>
+                  <option value="コーポレート管理部">コーポレート管理部</option>
+                </select>
+                <svg class="dads-select__chevron" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M12 17.1 3 8l1.4-1.4 7.6 7.6 7.6-7.6L21 8z" fill="currentcolor" />
+                </svg>
+              </span>
+            </span>
+          </div>
+
+          <div class="dads-form-control-label" data-size="md">
+            <label class="dads-form-control-label__label" for="req-budget">
+              月額見込み（税込・円）
+              <span class="dads-form-control-label__requirement" data-required="true">※必須</span>
+            </label>
+            <p class="dads-form-control-label__support-text">月 5,000 円以下は上長承認のみで即時決裁</p>
+            <span class="dads-input-text">
+              <input
+                class="dads-input-text__input"
+                id="req-budget"
+                name="budget"
+                type="number"
+                data-size="md"
+                value="4950"
+                min="0"
+                required
+              />
+            </span>
+          </div>
+
+          <div class="dads-form-control-label" data-size="md">
+            <label class="dads-form-control-label__label" for="req-owner">
+              申請者名
+              <span class="dads-form-control-label__requirement" data-required="true">※必須</span>
+            </label>
+            <p class="dads-form-control-label__support-text">社内アカウント氏名</p>
+            <span class="dads-input-text">
+              <input
+                class="dads-input-text__input"
+                id="req-owner"
+                name="owner"
+                type="text"
+                data-size="md"
+                value="山田 太郎"
+                required
+              />
+            </span>
+          </div>
+
+          <div class="dads-form-control-label dads-mock-form-full" data-size="md">
+            <label class="dads-form-control-label__label" for="req-purpose">
+              利用目的・期待する効果
+            </label>
+            <p class="dads-form-control-label__support-text">対象業務と削減見込み工数などを簡潔に記入</p>
+            <span class="dads-textarea">
+              <textarea
+                class="dads-textarea__textarea"
+                id="req-purpose"
+                name="purpose"
+                rows="4"
+                placeholder="例：AI が作成した分析レポートと UI モックを社内限定 URL で共有し、確認工数を削減する。"
+              ></textarea>
+            </span>
+          </div>
+
+          <div class="dads-mock-form-full">
+            <label class="dads-checkbox" data-size="md">
+              <span class="dads-checkbox__checkbox">
+                <input class="dads-checkbox__input" type="checkbox" id="req-policy" checked />
+              </span>
+              <span class="dads-checkbox__label">
+                社外秘データ入力ルールおよび学習オプトアウト設定を確認済み
+              </span>
+            </label>
+          </div>
+        </div>
+
+        <div class="dads-mock-actions">
+          <button type="reset" class="dads-button" data-size="md" data-type="outline">
+            入力をクリア
+          </button>
+          <button type="submit" class="dads-button" data-size="md" data-type="solid-fill">
+            申請を登録する
+          </button>
+        </div>
+      </form>
+    </section>
+
+    <section class="dads-mock-tabpanel" id="panel-list" role="tabpanel" aria-labelledby="tab-list" hidden>
+      <div class="dads-mock-panel">
+        <div class="dads-table" data-size="dense" data-row-hover-highlight style="width: 100%">
+          <table class="dads-table__table" style="width: 100%" data-cell-border="bottom">
+            <thead>
+              <tr>
+                <th class="dads-table__col-header">ツール名</th>
+                <th class="dads-table__col-header">申請部署</th>
+                <th class="dads-table__col-header">申請者</th>
+                <th class="dads-table__col-header" data-num>月額（税込）</th>
+                <th class="dads-table__col-header">ステータス</th>
+              </tr>
+            </thead>
+            <tbody id="mock-list-body">
+              <tr>
+                <td>Artifact Share Team</td>
+                <td>プロダクト開発部</td>
+                <td>佐藤 健</td>
+                <td data-num>¥4,950</td>
+                <td><span class="dads-badge dads-badge--success">承認済み</span></td>
+              </tr>
+              <tr>
+                <td>Claude Team（5 席追加）</td>
+                <td>グロース・マーケ部</td>
+                <td>鈴木 花子</td>
+                <td data-num>¥22,000</td>
+                <td><span class="dads-badge dads-badge--warning">決裁待ち</span></td>
+              </tr>
+              <tr>
+                <td>Linear Standard</td>
+                <td>プロダクト開発部</td>
+                <td>高橋 誠</td>
+                <td data-num>¥14,400</td>
+                <td><span class="dads-badge dads-badge--success">承認済み</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+  </main>
+</div>
+</div>
+      <div data-demo-panel="slides" class="showcase-slide-surface" hidden><main class="dads-deck" aria-label="技術発表スライド">
+  <section class="dads-slide dads-slide--cover is-active">
+    <h1>AI エージェントが作る社内資料を、<br />デザインシステムで統一する</h1>
+    <p class="dads-slide-sub">デジタル庁デザインシステム × 単一 HTML バンドルによる実務ワークフロー（2026-11-25）</p>
+  </section>
+
+  <section class="dads-slide">
+    <div class="dads-slide-head">
+      <h2>AI に HTML 資料を作らせると、毎回「見た目」と「共有」で詰まる</h2>
+    </div>
+    <div class="dads-slide-body">
+      <div class="dads-slide-cols dads-slide-cols--3">
+        <div class="dads-slide-card">
+          <h3>デザインがブレる</h3>
+          <p>紫グラデや派手な装飾など AI 特有の見た目が混ざり、そのまま社内会議に出しづらい。</p>
+        </div>
+        <div class="dads-slide-card">
+          <h3>CSS でトークン消費</h3>
+          <p>毎回 400 行以上のスタイルを書き直すため、生成が遅く、修正時にレイアウトが崩れる。</p>
+        </div>
+        <div class="dads-slide-card">
+          <h3>共有先が決まらない</h3>
+          <p>ローカル HTML のまま埋もれるか、テキストだけ貼り直して表現力が失われる。</p>
+        </div>
+      </div>
+    </div>
+    <footer class="dads-slide-foot">
+      <span>AI エージェントが作る社内資料をデザインシステムで統一する</span>
+      <span>2</span>
+    </footer>
+  </section>
+
+  <section class="dads-slide">
+    <div class="dads-slide-head">
+      <h2>AI には「本文構造」だけを書かせ、公式 DADS 資産を自動バンドルする</h2>
+    </div>
+    <div class="dads-slide-body">
+      <div class="dads-slide-cols">
+        <div class="dads-slide-card">
+          <h3>Before：毎回ゼロから生成</h3>
+          <p>プロンプトで配色・余白・印刷対応を毎回指示しても、担当者やモデルによって品質がバラつく。</p>
+        </div>
+        <div class="dads-slide-card dads-slide-card--accent">
+          <h3>After：DADS スキル＋ツリーシェイク</h3>
+          <p>公式トークン全量と 43 コンポーネントから使用分だけを自動抽出し、ゼロ依存の単一 HTML へ結合する。</p>
+        </div>
+      </div>
+    </div>
+    <footer class="dads-slide-foot">
+      <span>AI エージェントが作る社内資料をデザインシステムで統一する</span>
+      <span>3</span>
+    </footer>
+  </section>
+
+  <section class="dads-slide">
+    <div class="dads-slide-head">
+      <h2>4 つのスキルで「文書・ダッシュボード・スライド・UI モック」を網羅</h2>
+    </div>
+    <div class="dads-slide-body">
+      <div class="dads-slide-cols">
+        <div class="dads-slide-card">
+          <h3>dads-doc / dads-slides</h3>
+          <p>技術検討、PR 説明、社内マニュアル、議事録（スクロール連動目次付き）と 16:9 発表スライド。</p>
+        </div>
+        <div class="dads-slide-card dads-slide-card--accent">
+          <h3>dads-dashboard / dads-mockup</h3>
+          <p>公式 2026 年版 7 色 KPI ダッシュボードと、フォーム全 43 種を使った操作可能な業務画面 UI モック。</p>
+        </div>
+      </div>
+    </div>
+    <footer class="dads-slide-foot">
+      <span>AI エージェントが作る社内資料をデザインシステムで統一する</span>
+      <span>4</span>
+    </footer>
+  </section>
+
+  <section class="dads-slide">
+    <div class="dads-slide-head">
+      <h2>1 回のテーマ設定で、チーム全員の AI 成果物を同じ品質に揃える</h2>
+    </div>
+    <div class="dads-slide-body">
+      <div class="dads-slide-cols">
+        <div class="dads-slide-card dads-slide-card--accent">
+          <h3>7 色パレット＋自社テーマ</h3>
+          <div class="dads-slide-stat">43 Components</div>
+          <p>デジタル庁公式トークンを土台に、プロジェクト単位のカラーとルールで全員の資料品質を底上げする。</p>
+        </div>
+        <div class="dads-slide-card">
+          <h3>同じ URL で育て続ける</h3>
+          <p>生成した単一 HTML はローカルでも動き、Artifact Share と繋げばデプロイなしで社内共有・バージョン更新できる。</p>
+        </div>
+      </div>
+    </div>
+    <footer class="dads-slide-foot">
+      <span>AI エージェントが作る社内資料をデザインシステムで統一する</span>
+      <span>5</span>
+    </footer>
+  </section>
+</main>
+
+<div class="dads-slide-progress-bar">
+  <div class="dads-slide-progress-fill" data-slide-progress></div>
+</div>
+<nav class="dads-slide-nav" aria-label="スライド操作">
+  <span>← → / Space で移動・ブラウザ印刷でそのまま PDF 化</span>
+  <div class="dads-slide-nav-btns">
+    <button type="button" data-slide-prev>前へ</button>
+    <span data-slide-counter>1 / 5</span>
+    <button type="button" data-slide-next>次へ</button>
+  </div>
+</nav>
+</div>
+    </div>
   </div>
 </div>
-
     <script>
 (() => { const p = new URLSearchParams(location.search).get('palette'); if (p && ['blue','light-blue','cyan','green','orange','red','solid-gray'].includes(p)) { document.documentElement.setAttribute('data-palette', p); } })();
 
@@ -1132,40 +4316,160 @@ body {
 })();
 
 (() => {
+  const data = {
+    all: {
+      posters: ['48', '前月比 +17.1% ▲'],
+      docs: ['312', '前月比 +9.5% ▲'],
+      rev: ['64.2', '前月比 +4.8pt ▲'],
+      unseen: ['11.4', '前月比 +1.2pt ▲（要改善）'],
+    },
+    dev: {
+      posters: ['21', '前月比 +23.5% ▲'],
+      docs: ['168', '前月比 +12.0% ▲'],
+      rev: ['71.4', '前月比 +6.1pt ▲'],
+      unseen: ['8.3', '前月比 -1.5pt ▼（改善）'],
+    },
+    biz: {
+      posters: ['27', '前月比 +12.5% ▲'],
+      docs: ['144', '前月比 +6.7% ▲'],
+      rev: ['55.6', '前月比 +3.2pt ▲'],
+      unseen: ['15.0', '前月比 +3.4pt ▲（要改善）'],
+    },
+  };
+
+  const buttons = document.querySelectorAll('[data-seg]');
+  buttons.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const seg = btn.getAttribute('data-seg');
+      const row = data[seg];
+      if (!row) return;
+      buttons.forEach((b) => {
+        const active = b === btn;
+        b.classList.toggle('is-active', active);
+        b.setAttribute('aria-pressed', active ? 'true' : 'false');
+      });
+      Object.entries(row).forEach(([key, [val, delta]]) => {
+        const valEl = document.querySelector(`[data-kpi="${key}"]`);
+        const deltaEl = document.querySelector(`[data-delta="${key}"]`);
+        if (valEl) {
+          const unitEl = valEl.querySelector('.dads-kpi-unit');
+          valEl.textContent = val;
+          if (unitEl) valEl.appendChild(unitEl);
+        }
+        if (deltaEl) deltaEl.textContent = delta;
+      });
+    });
+  });
+})();
+
+
+(() => {
+  const form = document.getElementById('mock-request-form');
+  const tbody = document.getElementById('mock-list-body');
+  const feedback = document.getElementById('mock-feedback');
+  const feedbackText = document.getElementById('mock-feedback-text');
+  const countBadge = document.querySelector('[data-mock-count]');
+  const tabList = document.getElementById('tab-list');
+
+  if (!form || !tbody) return;
+
+  const makeCell = (text, isNum = false) => {
+    const td = document.createElement('td');
+    td.textContent = text;
+    if (isNum) td.setAttribute('data-num', '');
+    return td;
+  };
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const tool = document.getElementById('req-tool')?.value.trim();
+    const dept = document.getElementById('req-dept')?.value || '';
+    const budget = Number(document.getElementById('req-budget')?.value || 0);
+    const owner = document.getElementById('req-owner')?.value.trim();
+
+    if (!tool || !owner) {
+      feedback.hidden = false;
+      feedback.setAttribute('data-type', 'error');
+      feedbackText.textContent = '必須項目（ツール名・申請者名）を入力してください。';
+      return;
+    }
+
+    const tr = document.createElement('tr');
+    tr.appendChild(makeCell(tool));
+    tr.appendChild(makeCell(dept));
+    tr.appendChild(makeCell(owner));
+    tr.appendChild(makeCell(`¥${budget.toLocaleString('ja-JP')}`, true));
+
+    const statusTd = document.createElement('td');
+    const badge = document.createElement('span');
+    const autoApprove = budget <= 5000;
+    badge.className = autoApprove ? 'dads-badge dads-badge--success' : 'dads-badge dads-badge--warning';
+    badge.textContent = autoApprove ? '少額枠・即時承認' : '決裁待ち';
+    statusTd.appendChild(badge);
+    tr.appendChild(statusTd);
+
+    tbody.prepend(tr);
+
+    if (countBadge) {
+      countBadge.textContent = `登録済み ${tbody.querySelectorAll('tr').length} 件`;
+    }
+    feedback.hidden = false;
+    feedback.setAttribute('data-type', 'info-1');
+    feedbackText.textContent = `「${tool}」（¥${budget.toLocaleString('ja-JP')}/月）を申請一覧に登録しました。`;
+    form.reset();
+    tabList?.click();
+  });
+})();
+
+
+(() => {
   const stage = document.getElementById('showcase-stage');
-  const frame = document.getElementById('showcase-frame');
+  const stageBody = document.getElementById('showcase-stage-body');
   const fsBtn = document.getElementById('fullscreen-btn');
   const fsExitBtn = document.getElementById('fullscreen-exit-btn');
   const fsBar = document.getElementById('showcase-fs-bar');
   const demoBtns = Array.from(document.querySelectorAll('[data-demo]'));
+  const demoPanels = Array.from(document.querySelectorAll('[data-demo-panel]'));
   const paletteBtns = Array.from(document.querySelectorAll('[data-switch-palette]'));
   const copyBtn = document.getElementById('copy-install-btn');
   const installCmd = document.getElementById('install-cmd');
 
-  let currentFile = './dashboard.html';
-  let currentPalette = 'blue';
+  let activeDemo = 'dashboard';
   let isExpanded = false;
 
-  const loadFrame = () => {
-    if (!frame) return;
-    frame.setAttribute('src', `${currentFile}?palette=${encodeURIComponent(currentPalette)}`);
+  const showDemo = (name) => {
+    activeDemo = name;
+    demoBtns.forEach((b) => {
+      b.setAttribute('data-type', b.getAttribute('data-demo') === name ? 'solid-fill' : 'outline');
+    });
+    demoPanels.forEach((panel) => {
+      panel.hidden = panel.getAttribute('data-demo-panel') !== name;
+    });
+    if (stageBody) {
+      stageBody.scrollTop = 0;
+    }
   };
 
-  const applyPaletteToFrame = () => {
-    try {
-      const docEl = frame?.contentDocument?.documentElement;
-      if (docEl) {
-        docEl.setAttribute('data-palette', currentPalette);
-        return;
-      }
-    } catch {
-      // fallback to query parameter reload when contentDocument is inaccessible
-    }
-    loadFrame();
-  };
+  demoBtns.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const name = btn.getAttribute('data-demo');
+      if (name) showDemo(name);
+    });
+  });
+
+  paletteBtns.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const p = btn.getAttribute('data-switch-palette');
+      if (!p) return;
+      document.documentElement.setAttribute('data-palette', p);
+      paletteBtns.forEach((b) => {
+        b.classList.toggle('dads-badge--primary', b === btn);
+      });
+    });
+  });
 
   const setExpanded = (expand) => {
-    if (!stage || !frame || !fsBar) return;
+    if (!stage || !fsBar) return;
     isExpanded = expand;
     if (expand) {
       stage.style.position = 'fixed';
@@ -1190,31 +4494,6 @@ body {
     }
   });
 
-  demoBtns.forEach((btn) => {
-    btn.addEventListener('click', () => {
-      const file = btn.getAttribute('data-file');
-      if (!file) return;
-      currentFile = file;
-      demoBtns.forEach((b) => {
-        b.setAttribute('data-type', b === btn ? 'solid-fill' : 'outline');
-      });
-      loadFrame();
-    });
-  });
-
-  paletteBtns.forEach((btn) => {
-    btn.addEventListener('click', () => {
-      const p = btn.getAttribute('data-switch-palette');
-      if (!p) return;
-      currentPalette = p;
-      document.documentElement.setAttribute('data-palette', p);
-      paletteBtns.forEach((b) => {
-        b.classList.toggle('dads-badge--primary', b === btn);
-      });
-      applyPaletteToFrame();
-    });
-  });
-
   copyBtn?.addEventListener('click', async () => {
     const text = installCmd?.textContent?.trim() || 'npx skills add artifactshare/skills';
     try {
@@ -1228,6 +4507,136 @@ body {
       // clipboard unavailable
     }
   });
+
+  // Scoped scroll-spy TOC for each embedded dads-doc panel
+  document.querySelectorAll('[data-demo-panel] main.dads-doc').forEach((doc, docIdx) => {
+    const headings = Array.from(doc.querySelectorAll('.dads-section > h2'));
+    if (headings.length < 2) return;
+
+    headings.forEach((h, i) => {
+      h.id = `doc-${docIdx + 1}-sec-${i + 1}`;
+    });
+
+    const buildList = () => {
+      const ul = document.createElement('ul');
+      ul.className = 'dads-toc-list';
+      headings.forEach((h) => {
+        const li = document.createElement('li');
+        const a = document.createElement('a');
+        a.className = 'dads-toc-link';
+        a.href = '#' + h.id;
+        a.textContent = h.textContent?.trim() || '';
+        a.dataset.tocTarget = h.id;
+        li.appendChild(a);
+        ul.appendChild(li);
+      });
+      return ul;
+    };
+
+    const wrapper = document.createElement('div');
+    wrapper.className = 'dads-doc-layout';
+    doc.parentNode.insertBefore(wrapper, doc);
+    wrapper.appendChild(doc);
+
+    const aside = document.createElement('aside');
+    aside.className = 'dads-toc';
+    aside.setAttribute('aria-label', '目次');
+    const title = document.createElement('p');
+    title.className = 'dads-toc-title';
+    title.textContent = '目次';
+    aside.appendChild(title);
+    aside.appendChild(buildList());
+    wrapper.appendChild(aside);
+
+    const links = Array.from(wrapper.querySelectorAll('[data-toc-target]'));
+    const setActive = (id) => {
+      links.forEach((a) => {
+        const active = a.dataset.tocTarget === id;
+        a.classList.toggle('is-active', active);
+        if (active) a.setAttribute('aria-current', 'location');
+        else a.removeAttribute('aria-current');
+      });
+    };
+
+    let clickLockUntil = 0;
+    links.forEach((a) => {
+      a.addEventListener('click', (e) => {
+        e.preventDefault();
+        const targetId = a.dataset.tocTarget;
+        const targetEl = targetId ? document.getElementById(targetId) : null;
+        if (!targetId || !targetEl || !stageBody) return;
+        clickLockUntil = Date.now() + 500;
+        setActive(targetId);
+        const top =
+          targetEl.getBoundingClientRect().top -
+          stageBody.getBoundingClientRect().top +
+          stageBody.scrollTop -
+          20;
+        stageBody.scrollTo({ top, behavior: 'smooth' });
+      });
+    });
+
+    stageBody?.addEventListener(
+      'scroll',
+      () => {
+        if (Date.now() < clickLockUntil || wrapper.closest('[hidden]')) return;
+        const nearBottom =
+          stageBody.scrollTop + stageBody.clientHeight >= stageBody.scrollHeight - 8;
+        if (nearBottom) {
+          setActive(headings[headings.length - 1].id);
+          return;
+        }
+        const stageTop = stageBody.getBoundingClientRect().top;
+        let current = headings[0].id;
+        for (const h of headings) {
+          if (h.getBoundingClientRect().top - stageTop <= 140) {
+            current = h.id;
+          } else {
+            break;
+          }
+        }
+        setActive(current);
+      },
+      { passive: true },
+    );
+
+    setActive(headings[0].id);
+  });
+
+  // Scoped slide deck controllers for each embedded slides panel
+  document.querySelectorAll('[data-demo-panel]').forEach((panel) => {
+    const slides = Array.from(panel.querySelectorAll('.dads-slide'));
+    if (!slides.length) return;
+    let idx = 0;
+    const counter = panel.querySelector('[data-slide-counter]');
+    const progress = panel.querySelector('[data-slide-progress]');
+
+    const update = (next) => {
+      idx = Math.max(0, Math.min(slides.length - 1, next));
+      slides.forEach((el, i) => {
+        el.classList.toggle('is-active', i === idx);
+        el.setAttribute('aria-hidden', i === idx ? 'false' : 'true');
+      });
+      if (counter) counter.textContent = `${idx + 1} / ${slides.length}`;
+      if (progress) progress.style.width = `${((idx + 1) / slides.length) * 100}%`;
+    };
+
+    panel.querySelector('[data-slide-prev]')?.addEventListener('click', () => update(idx - 1));
+    panel.querySelector('[data-slide-next]')?.addEventListener('click', () => update(idx + 1));
+    document.addEventListener('keydown', (e) => {
+      if (panel.hidden) return;
+      if (['ArrowRight', 'PageDown'].includes(e.key)) {
+        e.preventDefault();
+        update(idx + 1);
+      } else if (['ArrowLeft', 'PageUp'].includes(e.key)) {
+        e.preventDefault();
+        update(idx - 1);
+      }
+    });
+    update(0);
+  });
+
+  showDemo(activeDemo);
 })();
 
     </script>
