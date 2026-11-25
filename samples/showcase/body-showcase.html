@@ -37,17 +37,15 @@
           公式トークン全量（v2.1.0）・公式 HTML コンポーネント全 43 種・2026 年版ダッシュボード 7 色テーマを単一 HTML へ自動バンドル。下のタブで 4 種類の実物をそのまま操作できます。
         </p>
       </div>
-      <a
-        id="open-standalone"
+      <button
+        type="button"
+        id="fullscreen-btn"
         class="dads-button"
         data-size="sm"
         data-type="outline"
-        href="./dashboard.html"
-        target="_blank"
-        rel="noopener"
       >
-        全画面で開く
-      </a>
+        全画面で見る
+      </button>
     </div>
 
     <div
@@ -93,6 +91,7 @@
     </div>
 
     <div
+      id="showcase-stage"
       style="
         border: 1px solid var(--color-neutral-solid-gray-200);
         border-radius: var(--border-radius-12);
@@ -100,6 +99,31 @@
         background: var(--color-neutral-white);
       "
     >
+      <div
+        id="showcase-fs-bar"
+        hidden
+        style="
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          padding: 8px 16px;
+          background: var(--color-neutral-solid-gray-900);
+          color: var(--color-neutral-white);
+          font-size: var(--font-size-14);
+        "
+      >
+        <span id="showcase-fs-title">全画面プレビュー（Esc キーで終了）</span>
+        <button
+          type="button"
+          id="fullscreen-exit-btn"
+          class="dads-button"
+          data-size="xs"
+          data-type="outline"
+          style="background: #ffffff; color: #000000"
+        >
+          全画面を閉じる
+        </button>
+      </div>
       <iframe
         id="showcase-frame"
         src="./dashboard.html"

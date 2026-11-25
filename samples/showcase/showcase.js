@@ -1,12 +1,16 @@
 (() => {
+  const stage = document.getElementById('showcase-stage');
   const frame = document.getElementById('showcase-frame');
-  const openLink = document.getElementById('open-standalone');
+  const fsBtn = document.getElementById('fullscreen-btn');
+  const fsExitBtn = document.getElementById('fullscreen-exit-btn');
+  const fsBar = document.getElementById('showcase-fs-bar');
   const demoBtns = Array.from(document.querySelectorAll('[data-demo]'));
   const paletteBtns = Array.from(document.querySelectorAll('[data-switch-palette]'));
   const copyBtn = document.getElementById('copy-install-btn');
   const installCmd = document.getElementById('install-cmd');
 
   let currentPalette = 'green';
+  let isExpanded = false;
 
   const applyPaletteToFrame = () => {
     frame?.contentWindow?.postMessage({ type: 'dads:set-palette', palette: currentPalette }, '*');
@@ -20,6 +24,46 @@
     }
   };
 
+  const setExpanded = (expand) => {
+    if (!stage || !frame || !fsBar) return;
+    isExpanded = expand;
+    if (expand) {
+      stage.style.position = 'fixed';
+      stage.style.inset = '0';
+      stage.style.zIndex = '9999';
+      stage.style.borderRadius = '0';
+      stage.style.border = '0';
+      stage.style.display = 'flex';
+      stage.style.flexDirection = 'column';
+      fsBar.hidden = false;
+      frame.style.height = '100%';
+      frame.style.flex = '1';
+      document.body.style.overflow = 'hidden';
+      fsExitBtn?.focus();
+    } else {
+      stage.style.position = '';
+      stage.style.inset = '';
+      stage.style.zIndex = '';
+      stage.style.borderRadius = 'var(--border-radius-12)';
+      stage.style.border = '1px solid var(--color-neutral-solid-gray-200)';
+      stage.style.display = '';
+      stage.style.flexDirection = '';
+      fsBar.hidden = true;
+      frame.style.height = '760px';
+      frame.style.flex = '';
+      document.body.style.overflow = '';
+      fsBtn?.focus();
+    }
+  };
+
+  fsBtn?.addEventListener('click', () => setExpanded(true));
+  fsExitBtn?.addEventListener('click', () => setExpanded(false));
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && isExpanded) {
+      setExpanded(false);
+    }
+  });
+
   frame?.addEventListener('load', applyPaletteToFrame);
 
   demoBtns.forEach((btn) => {
@@ -30,7 +74,6 @@
         b.setAttribute('data-type', b === btn ? 'solid-fill' : 'outline');
       });
       frame.setAttribute('src', file);
-      openLink?.setAttribute('href', file);
     });
   });
 
