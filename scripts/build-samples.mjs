@@ -13,6 +13,7 @@ function bundle(skillName, args) {
 }
 
 const docOut = path.join(rootDir, 'samples', 'doc', 'sample-doc.html');
+const prReviewOut = path.join(rootDir, 'samples', 'doc', 'sample-pr-review.html');
 const policyOut = path.join(rootDir, 'samples', 'doc', 'sample-policy-guide.html');
 const dashOut = path.join(rootDir, 'samples', 'dashboard', 'sample-dashboard.html');
 const slidesOut = path.join(rootDir, 'samples', 'slides', 'sample-slides.html');
@@ -30,6 +31,19 @@ bundle('dads-doc', [
   path.join(rootDir, 'samples', 'doc', 'body-doc.html'),
   '--output',
   docOut,
+]);
+
+bundle('dads-doc', [
+  '--type',
+  'doc',
+  '--palette',
+  'blue',
+  '--title',
+  'PR #418 レビューガイド：決済 Webhook リトライと冪等性キーの導入',
+  '--input',
+  path.join(rootDir, 'samples', 'doc', 'body-pr-review.html'),
+  '--output',
+  prReviewOut,
 ]);
 
 bundle('dads-doc', [
@@ -105,6 +119,7 @@ bundle('dads-mockup', [
 const showcaseDist = path.join(rootDir, 'samples', 'showcase', 'dist');
 fs.mkdirSync(showcaseDist, { recursive: true });
 fs.copyFileSync(docOut, path.join(showcaseDist, 'doc.html'));
+fs.copyFileSync(prReviewOut, path.join(showcaseDist, 'pr-review.html'));
 fs.copyFileSync(policyOut, path.join(showcaseDist, 'policy-guide.html'));
 fs.copyFileSync(dashOut, path.join(showcaseDist, 'dashboard.html'));
 fs.copyFileSync(slidesOut, path.join(showcaseDist, 'slides.html'));
