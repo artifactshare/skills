@@ -1,14 +1,14 @@
 {
-  "name": "artifactshare-dads-skills",
+  "name": "artifactshare-skills",
   "owner": {
     "name": "Artifact Share",
     "url": "https://artifactshare.com"
   },
   "plugins": [
     {
-      "name": "dads-skills",
+      "name": "artifactshare-skills",
       "source": "./",
-      "description": "Generate accessible, unslop single-file HTML documents, KPI dashboards, 16:9 slides, and interactive UI mockups based on Japan's Digital Agency Design System (DADS) and Dashboard Practice Guidebook."
+      "description": "Official Artifact Share Agent Skills — generate accessible, unslop single-file HTML documents, KPI dashboards, 16:9 slides, and interactive UI mockups based on Japan's Digital Agency Design System (DADS) and Dashboard Practice Guidebook."
     }
   ]
 }

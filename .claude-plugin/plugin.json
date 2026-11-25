@@ -1,7 +1,7 @@
 {
-  "name": "dads-skills",
+  "name": "artifactshare-skills",
   "version": "1.0.0",
-  "description": "Official Digital Agency Design System (DADS) & Dashboard Practice Guidebook Agent Skills for generating accessible, unslop single-file HTML documents, dashboards, slides, and interactive UI mockups.",
+  "description": "Official Artifact Share Agent Skills — starting with complete Digital Agency Design System (DADS) & Dashboard Practice Guidebook skills for generating accessible, unslop single-file HTML documents, dashboards, slides, and interactive UI mockups.",
   "author": {
     "name": "Artifact Share",
     "url": "https://artifactshare.com"

@@ -1,6 +1,7 @@
-# DADS Agent Skills (`@artifactshare/dads-skills`)
+# Artifact Share Agent Skills (`artifactshare/skills`)
 
-デジタル庁デザインシステム（DADS）公式トークン（`@digital-go-jp/design-tokens@2.1.0`）、公式 HTML コンポーネント全 43 種（`design-system-example-components-html`）、および「ダッシュボードデザインの実践ガイドブック」2026 年版 7 色テーマに完全準拠した、AI エージェント向けの単一 HTML 生成スキル群です。
+[Artifact Share](https://artifactshare.com) が提供する公式 Agent Skills コレクションです。
+第 1 弾として、デジタル庁デザインシステム（DADS）公式トークン（`@digital-go-jp/design-tokens@2.1.0`）、公式 HTML コンポーネント全 43 種（`design-system-example-components-html`）、および「ダッシュボードデザインの実践ガイドブック」2026 年版 7 色テーマに完全準拠した、日本実務向け HTML 生成スキルパック（`dads-*`）を収録しています。
 
 AI 特有の装飾過多（AI スロップ）を構造的に排除し、そのまま会議・レビュー・全社共有に出せる日本語のドキュメント・ダッシュボード・スライド・動く UI モックをゼロ依存の単一 HTML として生成します。
 
@@ -9,22 +10,22 @@ AI 特有の装飾過多（AI スロップ）を構造的に排除し、その�
 ### `npx skills`（Claude Code / Codex / Cursor / Antigravity 等）
 
 ```sh
-npx skills add artifactshare/dads-skills
+npx skills add artifactshare/skills
 ```
 
 特定のスキルだけ導入する場合：
 
 ```sh
-npx skills add artifactshare/dads-skills@dads-doc
-npx skills add artifactshare/dads-skills@dads-dashboard
-npx skills add artifactshare/dads-skills@dads-slides
-npx skills add artifactshare/dads-skills@dads-mockup
+npx skills add artifactshare/skills@dads-doc
+npx skills add artifactshare/skills@dads-dashboard
+npx skills add artifactshare/skills@dads-slides
+npx skills add artifactshare/skills@dads-mockup
 ```
 
 ### Claude Code Plugin Marketplace
 
 ```text
-/plugin marketplace add artifactshare/dads-skills
+/plugin marketplace add artifactshare/skills
 ```
 
 ## 同梱スキル一覧

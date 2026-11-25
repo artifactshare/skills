@@ -1,10 +1,10 @@
 {
-  "name": "@artifactshare/dads-skills",
+  "name": "@artifactshare/skills",
   "version": "1.0.0",
   "private": false,
   "type": "module",
   "license": "MIT",
-  "description": "Official Digital Agency Design System (DADS) & Dashboard Practice Guidebook Agent Skills for generating accessible, unslop single-file HTML documents, dashboards, slides, and UI mockups.",
+  "description": "Official Artifact Share Agent Skills — starting with complete Digital Agency Design System (DADS) & Dashboard Practice Guidebook skills for accessible, unslop single-file HTML.",
   "scripts": {
     "sync:official": "node scripts/sync-official.mjs",
     "build:skills": "node scripts/build-skills.mjs",
