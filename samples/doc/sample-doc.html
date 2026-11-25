@@ -1077,6 +1077,8 @@ pre {
 </main>
 
     <script>
+window.addEventListener('message', (e) => { if (e.data && e.data.type === 'dads:set-palette' && typeof e.data.palette === 'string') { document.documentElement.setAttribute('data-palette', e.data.palette); } });
+
 (() => {
   const doc = document.querySelector('main.dads-doc');
   if (!doc) return;

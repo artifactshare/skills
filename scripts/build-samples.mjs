@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 import { execFileSync } from 'node:child_process';
+import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -11,6 +12,11 @@ function bundle(skillName, args) {
   execFileSync('node', [bundler, ...args], { stdio: 'inherit' });
 }
 
+const docOut = path.join(rootDir, 'samples', 'doc', 'sample-doc.html');
+const dashOut = path.join(rootDir, 'samples', 'dashboard', 'sample-dashboard.html');
+const slidesOut = path.join(rootDir, 'samples', 'slides', 'sample-slides.html');
+const mockupOut = path.join(rootDir, 'samples', 'mockup', 'sample-mockup.html');
+
 bundle('dads-doc', [
   '--type',
   'doc',
@@ -21,7 +27,7 @@ bundle('dads-doc', [
   '--input',
   path.join(rootDir, 'samples', 'doc', 'body-doc.html'),
   '--output',
-  path.join(rootDir, 'samples', 'doc', 'sample-doc.html'),
+  docOut,
 ]);
 
 bundle('dads-dashboard', [
@@ -36,7 +42,7 @@ bundle('dads-dashboard', [
   '--script',
   path.join(rootDir, 'samples', 'dashboard', 'dashboard-filter.js'),
   '--output',
-  path.join(rootDir, 'samples', 'dashboard', 'sample-dashboard.html'),
+  dashOut,
 ]);
 
 bundle('dads-slides', [
@@ -49,7 +55,7 @@ bundle('dads-slides', [
   '--input',
   path.join(rootDir, 'samples', 'slides', 'body-slides.html'),
   '--output',
-  path.join(rootDir, 'samples', 'slides', 'sample-slides.html'),
+  slidesOut,
 ]);
 
 bundle('dads-mockup', [
@@ -64,5 +70,28 @@ bundle('dads-mockup', [
   '--script',
   path.join(rootDir, 'samples', 'mockup', 'mockup-behavior.js'),
   '--output',
-  path.join(rootDir, 'samples', 'mockup', 'sample-mockup.html'),
+  mockupOut,
+]);
+
+// Assemble single-URL static site showcase (ready for `as upload samples/showcase/dist`)
+const showcaseDist = path.join(rootDir, 'samples', 'showcase', 'dist');
+fs.mkdirSync(showcaseDist, { recursive: true });
+fs.copyFileSync(docOut, path.join(showcaseDist, 'doc.html'));
+fs.copyFileSync(dashOut, path.join(showcaseDist, 'dashboard.html'));
+fs.copyFileSync(slidesOut, path.join(showcaseDist, 'slides.html'));
+fs.copyFileSync(mockupOut, path.join(showcaseDist, 'mockup.html'));
+
+bundle('dads-mockup', [
+  '--type',
+  'mockup',
+  '--palette',
+  'blue',
+  '--title',
+  'Artifact Share Agent Skills — DADS ライブショーケース',
+  '--input',
+  path.join(rootDir, 'samples', 'showcase', 'body-showcase.html'),
+  '--script',
+  path.join(rootDir, 'samples', 'showcase', 'showcase.js'),
+  '--output',
+  path.join(showcaseDist, 'index.html'),
 ]);

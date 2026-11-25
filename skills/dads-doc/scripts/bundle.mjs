@@ -398,7 +398,9 @@ function main() {
     console.warn(`[anti-slop] ${w}`);
   }
 
-  const scripts = [];
+  const scripts = [
+    `window.addEventListener('message', (e) => { if (e.data && e.data.type === 'dads:set-palette' && typeof e.data.palette === 'string') { document.documentElement.setAttribute('data-palette', e.data.palette); } });`,
+  ];
   if (args.type === 'doc') scripts.push(DOC_TOC_RUNTIME_JS);
   if (args.type === 'slides') scripts.push(SLIDE_RUNTIME_JS);
   if (args.type === 'mockup') scripts.push(MOCKUP_TABS_RUNTIME_JS);
