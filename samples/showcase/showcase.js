@@ -24,6 +24,11 @@
     if (stageBody) {
       stageBody.scrollTop = 0;
     }
+    if (window.innerWidth <= 768) {
+      window.scrollTo(0, 0);
+      document.documentElement.scrollTop = 0;
+      document.body.scrollTop = 0;
+    }
   };
 
   demoBtns.forEach((btn) => {
