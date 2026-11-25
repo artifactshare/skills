@@ -1,0 +1,111 @@
+<main class="dads-deck" aria-label="技術発表スライド">
+  <section class="dads-slide dads-slide--cover is-active">
+    <h1>AI エージェントが作る社内資料を、<br />デザインシステムで統一する</h1>
+    <p class="dads-slide-sub">デジタル庁デザインシステム × 単一 HTML バンドルによる実務ワークフロー（2026-11-25）</p>
+  </section>
+
+  <section class="dads-slide">
+    <div class="dads-slide-head">
+      <h2>AI に HTML 資料を作らせると、毎回「見た目」と「共有」で詰まる</h2>
+    </div>
+    <div class="dads-slide-body">
+      <div class="dads-slide-cols dads-slide-cols--3">
+        <div class="dads-slide-card">
+          <h3>デザインがブレる</h3>
+          <p>紫グラデや派手な装飾など AI 特有の見た目が混ざり、そのまま社内会議に出しづらい。</p>
+        </div>
+        <div class="dads-slide-card">
+          <h3>CSS でトークン消費</h3>
+          <p>毎回 400 行以上のスタイルを書き直すため、生成が遅く、修正時にレイアウトが崩れる。</p>
+        </div>
+        <div class="dads-slide-card">
+          <h3>共有先が決まらない</h3>
+          <p>ローカル HTML のまま埋もれるか、テキストだけ貼り直して表現力が失われる。</p>
+        </div>
+      </div>
+    </div>
+    <footer class="dads-slide-foot">
+      <span>AI エージェントが作る社内資料をデザインシステムで統一する</span>
+      <span>2</span>
+    </footer>
+  </section>
+
+  <section class="dads-slide">
+    <div class="dads-slide-head">
+      <h2>AI には「本文構造」だけを書かせ、公式 DADS 資産を自動バンドルする</h2>
+    </div>
+    <div class="dads-slide-body">
+      <div class="dads-slide-cols">
+        <div class="dads-slide-card">
+          <h3>Before：毎回ゼロから生成</h3>
+          <p>プロンプトで配色・余白・印刷対応を毎回指示しても、担当者やモデルによって品質がバラつく。</p>
+        </div>
+        <div class="dads-slide-card dads-slide-card--accent">
+          <h3>After：DADS スキル＋ツリーシェイク</h3>
+          <p>公式トークン全量と 43 コンポーネントから使用分だけを自動抽出し、ゼロ依存の単一 HTML へ結合する。</p>
+        </div>
+      </div>
+    </div>
+    <footer class="dads-slide-foot">
+      <span>AI エージェントが作る社内資料をデザインシステムで統一する</span>
+      <span>3</span>
+    </footer>
+  </section>
+
+  <section class="dads-slide">
+    <div class="dads-slide-head">
+      <h2>4 つのスキルで「文書・ダッシュボード・スライド・UI モック」を網羅</h2>
+    </div>
+    <div class="dads-slide-body">
+      <div class="dads-slide-cols">
+        <div class="dads-slide-card">
+          <h3>dads-doc / dads-slides</h3>
+          <p>技術検討、PR 説明、社内マニュアル、議事録（スクロール連動目次付き）と 16:9 発表スライド。</p>
+        </div>
+        <div class="dads-slide-card dads-slide-card--accent">
+          <h3>dads-dashboard / dads-mockup</h3>
+          <p>公式 2026 年版 7 色 KPI ダッシュボードと、フォーム全 43 種を使った操作可能な業務画面 UI モック。</p>
+        </div>
+      </div>
+    </div>
+    <footer class="dads-slide-foot">
+      <span>AI エージェントが作る社内資料をデザインシステムで統一する</span>
+      <span>4</span>
+    </footer>
+  </section>
+
+  <section class="dads-slide">
+    <div class="dads-slide-head">
+      <h2>1 回のテーマ設定で、チーム全員の AI 成果物を同じ品質に揃える</h2>
+    </div>
+    <div class="dads-slide-body">
+      <div class="dads-slide-cols">
+        <div class="dads-slide-card dads-slide-card--accent">
+          <h3>7 色パレット＋自社テーマ</h3>
+          <div class="dads-slide-stat">43 Components</div>
+          <p>デジタル庁公式トークンを土台に、プロジェクト単位のカラーとルールで全員の資料品質を底上げする。</p>
+        </div>
+        <div class="dads-slide-card">
+          <h3>同じ URL で育て続ける</h3>
+          <p>生成した単一 HTML はローカルでも動き、Artifact Share と繋げばデプロイなしで社内共有・バージョン更新できる。</p>
+        </div>
+      </div>
+    </div>
+    <footer class="dads-slide-foot">
+      <span>AI エージェントが作る社内資料をデザインシステムで統一する</span>
+      <span>5</span>
+    </footer>
+  </section>
+</main>
+
+<div class="dads-slide-progress-bar">
+  <div class="dads-slide-progress-fill" data-slide-progress></div>
+</div>
+<nav class="dads-slide-nav" aria-label="スライド操作">
+  <span>← → / Space で移動・ブラウザ印刷でそのまま PDF 化</span>
+  <div class="dads-slide-nav-btns">
+    <button type="button" data-slide-prev>前へ</button>
+    <span data-slide-counter>1 / 5</span>
+    <button type="button" data-slide-next>次へ</button>
+  </div>
+</nav>

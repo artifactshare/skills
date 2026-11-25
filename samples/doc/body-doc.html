@@ -1,0 +1,92 @@
+<main class="dads-doc">
+  <header class="dads-doc-header">
+    <div class="dads-doc-kicker">
+      <span class="dads-badge dads-badge--primary">技術検討レポート</span>
+      <span class="dads-badge dads-badge--warning">レビュー依頼中</span>
+    </div>
+    <h1>社内ドキュメント全文検索基盤の選定</h1>
+    <p class="dads-doc-lead">
+      増加する HTML / Markdown 成果物を安全かつ低原価で横断検索するための基盤を比較検討し、推奨案を整理しました。
+    </p>
+    <dl class="dads-meta-grid">
+      <div><dt>作成日</dt><dd>2026-11-25</dd></div>
+      <div><dt>作成者</dt><dd>プラットフォーム開発チーム</dd></div>
+      <div><dt>判断期限</dt><dd>2026-11-28（金）</dd></div>
+      <div><dt>対象読者</dt><dd>開発・EM・事業責任者</dd></div>
+    </dl>
+  </header>
+
+  <section class="dads-section">
+    <h2>1. 結論とお願いしたい判断</h2>
+    <div class="dads-callout">
+      <p class="dads-callout-title">推奨：案 A（既存 DB 連動のワークスペース分離インデックス）を採用する</p>
+      <p>
+        追加の外部 SaaS 契約やデータ同期の運用負荷を増やさず、閲覧権限の境界を保ったまま月額原価をほぼゼロに抑えられます。
+        本方針で実装へ進んでよいか、11/28 までにコメントでご判断ください。
+      </p>
+    </div>
+  </section>
+
+  <section class="dads-section">
+    <h2>2. 比較マトリクス</h2>
+    <div class="dads-table-wrap">
+      <table class="dads-doc-table">
+        <thead>
+          <tr>
+            <th>評価軸</th>
+            <th class="is-recommended">案 A：内蔵インデックス（推奨）</th>
+            <th>案 B：外部検索 SaaS</th>
+            <th>案 C：DB LIKE 検索</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>月額原価（100社規模）</strong></td>
+            <td class="is-recommended" data-num>約 ¥1,200</td>
+            <td data-num>約 ¥45,000〜</td>
+            <td data-num>約 ¥800</td>
+          </tr>
+          <tr>
+            <td><strong>権限境界の担保</strong></td>
+            <td class="is-recommended"><span class="dads-badge dads-badge--success">高い</span> 同一境界内で完結</td>
+            <td><span class="dads-badge dads-badge--warning">要注意</span> 同期ズレ対策が必要</td>
+            <td><span class="dads-badge dads-badge--success">高い</span></td>
+          </tr>
+          <tr>
+            <td><strong>検索速度（10万件）</strong></td>
+            <td class="is-recommended">50ms 未満</td>
+            <td>30ms 未満</td>
+            <td>1,500ms 以上（実用困難）</td>
+          </tr>
+          <tr>
+            <td><strong>運用・監視負荷</strong></td>
+            <td class="is-recommended">既存監視に統合</td>
+            <td>別障害点・鍵管理が増加</td>
+            <td>なし</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="dads-section">
+    <h2>3. リスクと移行ステップ</h2>
+    <div class="dads-callout dads-callout--warning">
+      <p class="dads-callout-title">想定リスク：大口顧客でのインデックス肥大</p>
+      <p>
+        1 社あたりの保存件数が想定の 10 倍に達した場合、単一シャードの上限に近づく可能性があります。
+        日次でサイズを計測し、上限 50% 到達時点でパーティション分割へ切り替える運用とします。
+      </p>
+    </div>
+    <ol class="dads-steps">
+      <li><strong>差分トリガーの導入</strong>：変更があったワークスペースのみ索引を更新し、休眠領域の計算コストをゼロにする。</li>
+      <li><strong>権限フィルタの事前適用</strong>：検索時の読み込み行数を 1 回あたり約 50 行以下に抑制する。</li>
+      <li><strong>段階ロールアウト</strong>：自社ワークスペースで 1 週間検証後、全ワークスペースへ展開する。</li>
+    </ol>
+  </section>
+
+  <footer class="dads-doc-footer">
+    <span>Sample Document — dads-doc skill</span>
+    <span>Digital Agency Design System 準拠フォーマット</span>
+  </footer>
+</main>

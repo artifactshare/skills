@@ -1,0 +1,128 @@
+{
+  "blue": {
+    "name": "Digital Agency Dashboard Design Template Blue",
+    "dataColors": [
+      "#0017C1",
+      "#3460FB",
+      "#7096F8",
+      "#C5D7FB",
+      "#E8F1FE",
+      "#FE3939",
+      "#FFBBBB",
+      "#F8F8FB"
+    ],
+    "kpiStatus": {
+      "good": "#0017C1",
+      "neutral": "#000000",
+      "bad": "#CE0000"
+    }
+  },
+  "cyan": {
+    "name": "Digital Agency Dashboard Design Template Cyan",
+    "dataColors": [
+      "#006F83",
+      "#00A3BF",
+      "#2BC8E4",
+      "#99F2FF",
+      "#E9F7F9",
+      "#666666",
+      "#CCCCCC",
+      "#F8F8FB"
+    ],
+    "kpiStatus": {
+      "good": "#006F83",
+      "neutral": "#000000",
+      "bad": "#CE0000"
+    }
+  },
+  "green": {
+    "name": "Digital Agency Dashboard Design Template Green",
+    "dataColors": [
+      "#115A36",
+      "#259D63",
+      "#51B883",
+      "#9BD4B5",
+      "#E6F5EC",
+      "#666666",
+      "#CCCCCC",
+      "#F8F8FB"
+    ],
+    "kpiStatus": {
+      "good": "#115A36",
+      "neutral": "#000000",
+      "bad": "#CE0000"
+    }
+  },
+  "light-blue": {
+    "name": "Digital Agency Dashboard Design Template Light Blue",
+    "dataColors": [
+      "#0055AD",
+      "#008BF2",
+      "#57B8FF",
+      "#C0E4FF",
+      "#F0F9FF",
+      "#FE3939",
+      "#FFBBBB",
+      "#F8F8FB"
+    ],
+    "kpiStatus": {
+      "good": "#0055AD",
+      "neutral": "#000000",
+      "bad": "#CE0000"
+    }
+  },
+  "orange": {
+    "name": "Digital Agency Dashboard Design Template Orange",
+    "dataColors": [
+      "#AC3E00",
+      "#FB5B01",
+      "#FF8D44",
+      "#FFC199",
+      "#FFEEE2",
+      "#666666",
+      "#CCCCCC",
+      "#F8F8FB"
+    ],
+    "kpiStatus": {
+      "good": "#AC3E00",
+      "neutral": "#000000",
+      "bad": "#850000"
+    }
+  },
+  "red": {
+    "name": "Digital Agency Dashboard Design Template Red",
+    "dataColors": [
+      "#CE0000",
+      "#FE3939",
+      "#FF7171",
+      "#FFBBBB",
+      "#FDEEEE",
+      "#666666",
+      "#CCCCCC",
+      "#F8F8FB"
+    ],
+    "kpiStatus": {
+      "good": "#CE0000",
+      "neutral": "#000000",
+      "bad": "#850000"
+    }
+  },
+  "solid-gray": {
+    "name": "Digital Agency Dashboard Design Template Solid Gray",
+    "dataColors": [
+      "#4D4D4D",
+      "#767676",
+      "#999999",
+      "#CCCCCC",
+      "#F2F2F2",
+      "#3460FB",
+      "#FE3939",
+      "#F8F8FB"
+    ],
+    "kpiStatus": {
+      "good": "#4D4D4D",
+      "neutral": "#000000",
+      "bad": "#CE0000"
+    }
+  }
+}

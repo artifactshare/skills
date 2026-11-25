@@ -1,0 +1,157 @@
+<main class="dads-dash">
+  <header class="dads-dash-header">
+    <div>
+      <span class="dads-badge dads-badge--primary">月次 KPI 定点モニター</span>
+      <h1>プロダクト活用・グロース進捗ダッシュボード（2026 年 11 月）</h1>
+    </div>
+    <div class="dads-dash-meta">
+      <span>集計期間: 2026-11-01 〜 2026-11-25</span>
+      <span>更新: 2026-11-25 18:00 JST</span>
+    </div>
+  </header>
+
+  <div class="dads-controls" role="group" aria-label="セグメント切替">
+    <span class="dads-control-label">表示セグメント</span>
+    <button type="button" class="dads-filter-btn is-active" aria-pressed="true" data-seg="all">全社合計</button>
+    <button type="button" class="dads-filter-btn" aria-pressed="false" data-seg="dev">開発・技術部門</button>
+    <button type="button" class="dads-filter-btn" aria-pressed="false" data-seg="biz">事業・CS 部門</button>
+  </div>
+
+  <section class="dads-kpi-grid" aria-label="主要指標">
+    <article class="dads-kpi-card dads-kpi-card--highlight">
+      <span class="dads-kpi-label">月間アクティブ投稿者数</span>
+      <div class="dads-kpi-value" data-kpi="posters">48<span class="dads-kpi-unit">人</span></div>
+      <span class="dads-kpi-delta dads-kpi-delta--up" data-delta="posters">前月比 +17.1% ▲</span>
+    </article>
+    <article class="dads-kpi-card">
+      <span class="dads-kpi-label">新規作成ドキュメント数</span>
+      <div class="dads-kpi-value" data-kpi="docs">312<span class="dads-kpi-unit">件</span></div>
+      <span class="dads-kpi-delta dads-kpi-delta--up" data-delta="docs">前月比 +9.5% ▲</span>
+    </article>
+    <article class="dads-kpi-card">
+      <span class="dads-kpi-label">同一 URL 更新率</span>
+      <div class="dads-kpi-value" data-kpi="rev">64.2<span class="dads-kpi-unit">%</span></div>
+      <span class="dads-kpi-delta dads-kpi-delta--up" data-delta="rev">前月比 +4.8pt ▲</span>
+    </article>
+    <article class="dads-kpi-card">
+      <span class="dads-kpi-label">未閲覧率（作成 7 日後）</span>
+      <div class="dads-kpi-value" data-kpi="unseen">11.4<span class="dads-kpi-unit">%</span></div>
+      <span class="dads-kpi-delta dads-kpi-delta--down" data-delta="unseen">前月比 +1.2pt ▲（要改善）</span>
+    </article>
+  </section>
+
+  <section class="dads-panel-grid">
+    <article class="dads-panel dads-panel--6">
+      <div class="dads-panel-head">
+        <h2>用途別 作成件数内訳</h2>
+        <span class="dads-panel-note">上位 5 カテゴリ（件数降順）</span>
+      </div>
+      <div class="dads-bars">
+        <div class="dads-bar-row">
+          <span class="dads-bar-label">設計・案の比較</span>
+          <div class="dads-bar-track"><div class="dads-bar-fill" style="width: 100%"></div></div>
+          <span class="dads-bar-val">118 件</span>
+        </div>
+        <div class="dads-bar-row">
+          <span class="dads-bar-label">KPI・分析レポート</span>
+          <div class="dads-bar-track"><div class="dads-bar-fill" style="width: 78%"></div></div>
+          <span class="dads-bar-val">92 件</span>
+        </div>
+        <div class="dads-bar-row">
+          <span class="dads-bar-label">社内ガイド・手順</span>
+          <div class="dads-bar-track"><div class="dads-bar-fill dads-bar-fill--secondary" style="width: 46%"></div></div>
+          <span class="dads-bar-val">54 件</span>
+        </div>
+        <div class="dads-bar-row">
+          <span class="dads-bar-label">UI モック・試作</span>
+          <div class="dads-bar-track"><div class="dads-bar-fill dads-bar-fill--secondary" style="width: 27%"></div></div>
+          <span class="dads-bar-val">32 件</span>
+        </div>
+        <div class="dads-bar-row">
+          <span class="dads-bar-label">議事録・その他</span>
+          <div class="dads-bar-track"><div class="dads-bar-fill dads-bar-fill--neutral" style="width: 14%"></div></div>
+          <span class="dads-bar-val">16 件</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="dads-panel dads-panel--6">
+      <div class="dads-panel-head">
+        <h2>月次 作成件数トレンド（原点 0 基準）</h2>
+        <span class="dads-panel-note">6〜11 月推移</span>
+      </div>
+      <svg class="dads-svg-chart" viewBox="0 0 520 190" role="img" aria-label="6月から11月の月次作成件数トレンド">
+        <line class="grid-line" x1="40" y1="20" x2="500" y2="20" />
+        <line class="grid-line" x1="40" y1="65" x2="500" y2="65" />
+        <line class="grid-line" x1="40" y1="110" x2="500" y2="110" />
+        <line class="grid-line" x1="40" y1="155" x2="500" y2="155" />
+        <text class="axis-label" x="32" y="24" text-anchor="end">360</text>
+        <text class="axis-label" x="32" y="69" text-anchor="end">240</text>
+        <text class="axis-label" x="32" y="114" text-anchor="end">120</text>
+        <text class="axis-label" x="32" y="159" text-anchor="end">0</text>
+        <polyline class="series-line-1" points="60,126 144,108 228,84 312,68 396,52 480,38" />
+        <circle cx="60" cy="126" r="4" fill="var(--dads-chart-1)" />
+        <circle cx="144" cy="108" r="4" fill="var(--dads-chart-1)" />
+        <circle cx="228" cy="84" r="4" fill="var(--dads-chart-1)" />
+        <circle cx="312" cy="68" r="4" fill="var(--dads-chart-1)" />
+        <circle cx="396" cy="52" r="4" fill="var(--dads-chart-1)" />
+        <circle cx="480" cy="38" r="4" fill="var(--dads-chart-1)" />
+        <text class="axis-label" x="60" y="176" text-anchor="middle">6月</text>
+        <text class="axis-label" x="144" y="176" text-anchor="middle">7月</text>
+        <text class="axis-label" x="228" y="176" text-anchor="middle">8月</text>
+        <text class="axis-label" x="312" y="176" text-anchor="middle">9月</text>
+        <text class="axis-label" x="396" y="176" text-anchor="middle">10月</text>
+        <text class="axis-label" x="480" y="176" text-anchor="middle">11月</text>
+      </svg>
+    </article>
+
+    <article class="dads-panel">
+      <div class="dads-panel-head">
+        <h2>閲覧上位ドキュメント</h2>
+        <span class="dads-panel-note">今月の累計閲覧数・更新回数</span>
+      </div>
+      <div class="dads-table-wrap">
+        <table class="dads-dash-table">
+          <thead>
+            <tr>
+              <th>タイトル</th>
+              <th>カテゴリ</th>
+              <th data-num>バージョン数</th>
+              <th data-num>累計閲覧数</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>全社 KPI 定点モニター</td>
+              <td>KPI・分析レポート</td>
+              <td data-num>v29</td>
+              <td data-num>248</td>
+            </tr>
+            <tr>
+              <td>1Password オンボーディングガイド</td>
+              <td>社内ガイド・手順</td>
+              <td data-num>v3</td>
+              <td data-num>192</td>
+            </tr>
+            <tr>
+              <td>Q4 開発ロードマップ</td>
+              <td>設計・案の比較</td>
+              <td data-num>v18</td>
+              <td data-num>164</td>
+            </tr>
+            <tr>
+              <td>新料金プラン比較案</td>
+              <td>設計・案の比較</td>
+              <td data-num>v12</td>
+              <td data-num>139</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </article>
+  </section>
+
+  <p class="dads-footnote">
+    出典：サンプル集計データ（デジタル庁「ダッシュボードデザインの実践ガイドブック」2026 年版 Green パレット準拠）
+  </p>
+</main>

@@ -1,0 +1,117 @@
+import assert from 'node:assert/strict';
+import { execFileSync } from 'node:child_process';
+import fs from 'node:fs';
+import os from 'node:os';
+import path from 'node:path';
+import test from 'node:test';
+import { fileURLToPath } from 'node:url';
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const rootDir = path.resolve(__dirname, '..');
+
+test('all 43 official DADS components are synced in vendor manifest', () => {
+  const manifest = JSON.parse(
+    fs.readFileSync(path.join(rootDir, 'vendor', 'dads-components', 'manifest.json'), 'utf8'),
+  );
+  assert.ok(manifest.length >= 41, `Expected >= 41 components, got ${manifest.length}`);
+  const names = new Set(manifest.map((c) => c.name));
+  for (const required of ['button', 'input-text', 'select', 'checkbox', 'table', 'notification-banner', 'accordion', 'tab']) {
+    assert.ok(names.has(required), `Missing required official component: ${required}`);
+  }
+});
+
+test('all 7 official 2026 dashboard themes are synced', () => {
+  const summary = JSON.parse(
+    fs.readFileSync(path.join(rootDir, 'vendor', 'policy-dashboard-themes', 'palettes.summary.json'), 'utf8'),
+  );
+  assert.deepEqual(
+    Object.keys(summary).sort(),
+    ['blue', 'cyan', 'green', 'light-blue', 'orange', 'red', 'solid-gray'],
+  );
+  assert.equal(summary.orange.kpiStatus.bad, '#850000');
+  assert.equal(summary.red.kpiStatus.bad, '#850000');
+  assert.equal(summary.blue.kpiStatus.good, '#0017C1');
+});
+
+test('standalone skill bundler works without repo parent directory and tree-shakes components', () => {
+  const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'dads-skill-portable-'));
+  try {
+    // Copy only skills/dads-mockup into an isolated temp dir to prove 100% portability
+    const isolatedSkillDir = path.join(tmpDir, 'dads-mockup');
+    fs.cpSync(path.join(rootDir, 'skills', 'dads-mockup'), isolatedSkillDir, { recursive: true });
+
+    const bodyPath = path.join(tmpDir, 'body.html');
+    const outPath = path.join(tmpDir, 'out.html');
+    const themePath = path.join(tmpDir, 'theme.css');
+
+    fs.writeFileSync(
+      bodyPath,
+      '<div class="dads-mock-shell"><button class="dads-button" data-type="solid-fill">保存</button></div>',
+    );
+    fs.writeFileSync(themePath, ':root { --brand-marker: 1; }');
+
+    execFileSync(
+      'node',
+      [
+        path.join(isolatedSkillDir, 'scripts', 'bundle.mjs'),
+        '--type',
+        'mockup',
+        '--palette',
+        'cyan',
+        '--theme',
+        themePath,
+        '--title',
+        'Portable Test',
+        '--input',
+        bodyPath,
+        '--output',
+        outPath,
+      ],
+      { stdio: 'pipe' },
+    );
+
+    const html = fs.readFileSync(outPath, 'utf8');
+    assert.match(html, /data-palette="cyan"/);
+    assert.match(html, /--color-primitive-blue-900: #0017c1/);
+    assert.match(html, /Official DADS component: button\/button\.css/);
+    assert.doesNotMatch(html, /Official DADS component: calendar\/calendar\.css/);
+    assert.match(html, /--brand-marker: 1/);
+    assert.match(html, /font-feature-settings: 'palt' 1/);
+  } finally {
+    fs.rmSync(tmpDir, { recursive: true, force: true });
+  }
+});
+
+test('doc bundler injects scroll-spy TOC runtime and supports all 7 palettes', () => {
+  const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'dads-doc-test-'));
+  try {
+    const bodyPath = path.join(tmpDir, 'body.html');
+    const outPath = path.join(tmpDir, 'out.html');
+    fs.writeFileSync(
+      bodyPath,
+      '<main class="dads-doc"><section class="dads-section"><h2>1. 概要</h2></section><section class="dads-section"><h2>2. 詳細</h2></section></main>',
+    );
+    execFileSync(
+      'node',
+      [
+        path.join(rootDir, 'skills', 'dads-doc', 'scripts', 'bundle.mjs'),
+        '--type',
+        'doc',
+        '--palette',
+        'orange',
+        '--title',
+        'Doc Test',
+        '--input',
+        bodyPath,
+        '--output',
+        outPath,
+      ],
+      { stdio: 'pipe' },
+    );
+    const html = fs.readFileSync(outPath, 'utf8');
+    assert.match(html, /IntersectionObserver/);
+    assert.match(html, /data-palette="orange"/);
+  } finally {
+    fs.rmSync(tmpDir, { recursive: true, force: true });
+  }
+});

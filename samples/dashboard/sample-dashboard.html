@@ -1,0 +1,1188 @@
+<!doctype html>
+<html lang="ja" data-palette="green">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>プロダクト活用・グロース進捗ダッシュボード</title>
+    <style>
+/* Official @digital-go-jp/design-tokens@2.1.0 (MIT) */
+/**
+ * Do not edit directly, this file was auto-generated.
+ */
+
+:root {
+  --color-primitive-blue-50: #e8f1fe;
+  --color-primitive-blue-100: #d9e6ff;
+  --color-primitive-blue-200: #c5d7fb;
+  --color-primitive-blue-300: #9db7f9;
+  --color-primitive-blue-400: #7096f8;
+  --color-primitive-blue-500: #4979f5;
+  --color-primitive-blue-600: #3460fb;
+  --color-primitive-blue-700: #264af4;
+  --color-primitive-blue-800: #0031d8;
+  --color-primitive-blue-900: #0017c1;
+  --color-primitive-blue-1000: #00118f;
+  --color-primitive-blue-1100: #000071;
+  --color-primitive-blue-1200: #000060;
+  --color-primitive-light-blue-50: #f0f9ff;
+  --color-primitive-light-blue-100: #dcf0ff;
+  --color-primitive-light-blue-200: #c0e4ff;
+  --color-primitive-light-blue-300: #97d3ff;
+  --color-primitive-light-blue-400: #57b8ff;
+  --color-primitive-light-blue-500: #39abff;
+  --color-primitive-light-blue-600: #008bf2;
+  --color-primitive-light-blue-700: #0877d7;
+  --color-primitive-light-blue-800: #0066be;
+  --color-primitive-light-blue-900: #0055ad;
+  --color-primitive-light-blue-1000: #00428c;
+  --color-primitive-light-blue-1100: #00316a;
+  --color-primitive-light-blue-1200: #00234b;
+  --color-primitive-cyan-50: #e9f7f9;
+  --color-primitive-cyan-100: #c8f8ff;
+  --color-primitive-cyan-200: #99f2ff;
+  --color-primitive-cyan-300: #79e2f2;
+  --color-primitive-cyan-400: #2bc8e4;
+  --color-primitive-cyan-500: #01b7d6;
+  --color-primitive-cyan-600: #00a3bf;
+  --color-primitive-cyan-700: #008da6;
+  --color-primitive-cyan-800: #008299;
+  --color-primitive-cyan-900: #006f83;
+  --color-primitive-cyan-1000: #006173;
+  --color-primitive-cyan-1100: #004c59;
+  --color-primitive-cyan-1200: #003741;
+  --color-primitive-green-50: #e6f5ec;
+  --color-primitive-green-100: #c2e5d1;
+  --color-primitive-green-200: #9bd4b5;
+  --color-primitive-green-300: #71c598;
+  --color-primitive-green-400: #51b883;
+  --color-primitive-green-500: #2cac6e;
+  --color-primitive-green-600: #259d63;
+  --color-primitive-green-700: #1d8b56;
+  --color-primitive-green-800: #197a4b;
+  --color-primitive-green-900: #115a36;
+  --color-primitive-green-1000: #0c472a;
+  --color-primitive-green-1100: #08351f;
+  --color-primitive-green-1200: #032213;
+  --color-primitive-lime-50: #ebfad9;
+  --color-primitive-lime-100: #d0f5a2;
+  --color-primitive-lime-200: #c0f354;
+  --color-primitive-lime-300: #ade830;
+  --color-primitive-lime-400: #9ddd15;
+  --color-primitive-lime-500: #8cc80c;
+  --color-primitive-lime-600: #7eb40d;
+  --color-primitive-lime-700: #6fa104;
+  --color-primitive-lime-800: #618e00;
+  --color-primitive-lime-900: #507500;
+  --color-primitive-lime-1000: #3e5a00;
+  --color-primitive-lime-1100: #2c4100;
+  --color-primitive-lime-1200: #1e2d00;
+  --color-primitive-yellow-50: #fbf5e0;
+  --color-primitive-yellow-100: #fff0b3;
+  --color-primitive-yellow-200: #ffe380;
+  --color-primitive-yellow-300: #ffd43d;
+  --color-primitive-yellow-400: #ffc700;
+  --color-primitive-yellow-500: #ebb700;
+  --color-primitive-yellow-600: #d2a400;
+  --color-primitive-yellow-700: #b78f00;
+  --color-primitive-yellow-800: #a58000;
+  --color-primitive-yellow-900: #927200;
+  --color-primitive-yellow-1000: #806300;
+  --color-primitive-yellow-1100: #6e5600;
+  --color-primitive-yellow-1200: #604b00;
+  --color-primitive-orange-50: #ffeee2;
+  --color-primitive-orange-100: #ffdfca;
+  --color-primitive-orange-200: #ffc199;
+  --color-primitive-orange-300: #ffa66d;
+  --color-primitive-orange-400: #ff8d44;
+  --color-primitive-orange-500: #ff7628;
+  --color-primitive-orange-600: #fb5b01;
+  --color-primitive-orange-700: #e25100;
+  --color-primitive-orange-800: #c74700;
+  --color-primitive-orange-900: #ac3e00;
+  --color-primitive-orange-1000: #8b3200;
+  --color-primitive-orange-1100: #6d2700;
+  --color-primitive-orange-1200: #541e00;
+  --color-primitive-red-50: #fdeeee;
+  --color-primitive-red-100: #ffdada;
+  --color-primitive-red-200: #ffbbbb;
+  --color-primitive-red-300: #ff9696;
+  --color-primitive-red-400: #ff7171;
+  --color-primitive-red-500: #ff5454;
+  --color-primitive-red-600: #fe3939;
+  --color-primitive-red-700: #fa0000;
+  --color-primitive-red-800: #ec0000;
+  --color-primitive-red-900: #ce0000;
+  --color-primitive-red-1000: #a90000;
+  --color-primitive-red-1100: #850000;
+  --color-primitive-red-1200: #620000;
+  --color-primitive-magenta-50: #f3e5f4;
+  --color-primitive-magenta-100: #ffd0ff;
+  --color-primitive-magenta-200: #ffaeff;
+  --color-primitive-magenta-300: #ff8eff;
+  --color-primitive-magenta-400: #f661f6;
+  --color-primitive-magenta-500: #f137f1;
+  --color-primitive-magenta-600: #db00db;
+  --color-primitive-magenta-700: #c000c0;
+  --color-primitive-magenta-800: #aa00aa;
+  --color-primitive-magenta-900: #8b008b;
+  --color-primitive-magenta-1000: #6c006c;
+  --color-primitive-magenta-1100: #500050;
+  --color-primitive-magenta-1200: #3b003b;
+  --color-primitive-purple-50: #f1eafa;
+  --color-primitive-purple-100: #ecddff;
+  --color-primitive-purple-200: #ddc2ff;
+  --color-primitive-purple-300: #cda6ff;
+  --color-primitive-purple-400: #bb87ff;
+  --color-primitive-purple-500: #a565f8;
+  --color-primitive-purple-600: #8843e1;
+  --color-primitive-purple-700: #6f23d0;
+  --color-primitive-purple-800: #5c10be;
+  --color-primitive-purple-900: #5109ad;
+  --color-primitive-purple-1000: #41048e;
+  --color-primitive-purple-1100: #30016c;
+  --color-primitive-purple-1200: #21004b;
+  --color-neutral-white: #ffffff;
+  --color-neutral-black: #000000;
+  --color-neutral-solid-gray-50: #f2f2f2;
+  --color-neutral-solid-gray-100: #e6e6e6;
+  --color-neutral-solid-gray-200: #cccccc;
+  --color-neutral-solid-gray-300: #b3b3b3;
+  --color-neutral-solid-gray-400: #999999;
+  --color-neutral-solid-gray-420: #949494;
+  --color-neutral-solid-gray-500: #7f7f7f;
+  --color-neutral-solid-gray-536: #767676;
+  --color-neutral-solid-gray-600: #666666;
+  --color-neutral-solid-gray-700: #4d4d4d;
+  --color-neutral-solid-gray-800: #333333;
+  --color-neutral-solid-gray-900: #1a1a1a;
+  --color-neutral-opacity-gray-50: rgba(0, 0, 0, 0.05);
+  --color-neutral-opacity-gray-100: rgba(0, 0, 0, 0.1);
+  --color-neutral-opacity-gray-200: rgba(0, 0, 0, 0.2);
+  --color-neutral-opacity-gray-300: rgba(0, 0, 0, 0.3);
+  --color-neutral-opacity-gray-400: rgba(0, 0, 0, 0.4);
+  --color-neutral-opacity-gray-420: rgba(0, 0, 0, 0.42);
+  --color-neutral-opacity-gray-500: rgba(0, 0, 0, 0.5);
+  --color-neutral-opacity-gray-536: rgba(0, 0, 0, 0.536);
+  --color-neutral-opacity-gray-600: rgba(0, 0, 0, 0.6);
+  --color-neutral-opacity-gray-700: rgba(0, 0, 0, 0.7);
+  --color-neutral-opacity-gray-800: rgba(0, 0, 0, 0.8);
+  --color-neutral-opacity-gray-900: rgba(0, 0, 0, 0.9);
+  --font-weight-400: 400;
+  --font-weight-700: 700;
+  --font-family-sans: 'Noto Sans JP', sans-serif;
+  --font-family-mono: 'Noto Sans Mono', monospace;
+  --font-size-14: 0.875rem;
+  --font-size-16: 1rem;
+  --font-size-17: 1.0625rem;
+  --font-size-18: 1.125rem;
+  --font-size-20: 1.25rem;
+  --font-size-22: 1.375rem;
+  --font-size-24: 1.5rem;
+  --font-size-26: 1.625rem;
+  --font-size-28: 1.75rem;
+  --font-size-32: 2rem;
+  --font-size-36: 2.25rem;
+  --font-size-45: 2.8125rem;
+  --font-size-48: 3rem;
+  --font-size-57: 3.5625rem;
+  --font-size-64: 4rem;
+  --line-height-100: 1;
+  --line-height-120: 1.2;
+  --line-height-130: 1.3;
+  --line-height-140: 1.4;
+  --line-height-150: 1.5;
+  --line-height-160: 1.6;
+  --line-height-170: 1.7;
+  --line-height-175: 1.75;
+  --border-radius-4: 0.25rem;
+  --border-radius-6: 0.375rem;
+  --border-radius-8: 0.5rem;
+  --border-radius-12: 0.75rem;
+  --border-radius-16: 1rem;
+  --border-radius-24: 1.5rem;
+  --border-radius-32: 2rem;
+  --border-radius-full: 624.9375rem;
+  --elevation-1: 0 2px 8px 1px rgba(0,0,0,0.1), 0 1px 5px 0 rgba(0,0,0,0.3);
+  --elevation-2: 0 2px 12px 2px rgba(0,0,0,0.1), 0 1px 6px 0 rgba(0,0,0,0.3);
+  --elevation-3: 0 4px 16px 3px rgba(0,0,0,0.1), 0 1px 6px 0 rgba(0,0,0,0.3);
+  --elevation-4: 0 6px 20px 4px rgba(0,0,0,0.1), 0 2px 6px 0 rgba(0,0,0,0.3);
+  --elevation-5: 0 8px 24px 5px rgba(0,0,0,0.1), 0 2px 10px 0 rgba(0,0,0,0.3);
+  --elevation-6: 0 10px 30px 6px rgba(0,0,0,0.1), 0 3px 12px 0 rgba(0,0,0,0.3);
+  --elevation-7: 0 12px 36px 7px rgba(0,0,0,0.1), 0 3px 14px 0 rgba(0,0,0,0.3);
+  --elevation-8: 0 14px 40px 7px rgba(0,0,0,0.1), 0 3px 16px 0 rgba(0,0,0,0.3);
+  --color-semantic-success-1: var(--color-primitive-green-600);
+  --color-semantic-success-2: var(--color-primitive-green-800);
+  --color-semantic-error-1: var(--color-primitive-red-800);
+  --color-semantic-error-2: var(--color-primitive-red-900);
+  --color-semantic-warning-yellow-1: var(--color-primitive-yellow-700);
+  --color-semantic-warning-yellow-2: var(--color-primitive-yellow-900);
+  --color-semantic-warning-orange-1: var(--color-primitive-orange-600);
+  --color-semantic-warning-orange-2: var(--color-primitive-orange-800);
+  --color-key-50: var(--color-primitive-blue-50);
+  --color-key-100: var(--color-primitive-blue-100);
+  --color-key-200: var(--color-primitive-blue-200);
+  --color-key-300: var(--color-primitive-blue-300);
+  --color-key-400: var(--color-primitive-blue-400);
+  --color-key-500: var(--color-primitive-blue-500);
+  --color-key-600: var(--color-primitive-blue-600);
+  --color-key-700: var(--color-primitive-blue-700);
+  --color-key-800: var(--color-primitive-blue-800);
+  --color-key-900: var(--color-primitive-blue-900);
+  --color-key-1000: var(--color-primitive-blue-1000);
+  --color-key-1100: var(--color-primitive-blue-1100);
+  --color-key-1200: var(--color-primitive-blue-1200);
+}
+
+/* ==========================================================================
+   DADS Semantic Layer, Official 7-Color Dashboard Palettes (2026),
+   Japanese Typography, and Official Dual Focus Ring
+   Requires: tokens.css (@digital-go-jp/design-tokens@2.1.0)
+   ========================================================================== */
+
+:root {
+  --dads-font-sans:
+    var(--font-family-sans), 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'BIZ UDPGothic',
+    'Yu Gothic', Meiryo, system-ui, -apple-system, sans-serif;
+  --dads-font-mono:
+    var(--font-family-mono), ui-monospace, 'SFMono-Regular', Menlo, Monaco, Consolas, monospace;
+
+  --dads-text: var(--color-neutral-solid-gray-800);
+  --dads-text-strong: var(--color-neutral-solid-gray-900);
+  --dads-text-muted: var(--color-neutral-solid-gray-600);
+  --dads-text-inverse: var(--color-neutral-white);
+
+  --dads-link: var(--color-primitive-blue-1000);
+  --dads-link-hover: var(--color-primitive-blue-900);
+  --dads-link-visited: var(--color-primitive-magenta-900);
+  --dads-link-active: var(--color-primitive-orange-800);
+
+  --dads-kpi-good: var(--color-primitive-blue-900);
+  --dads-kpi-bad: var(--color-primitive-red-900);
+  --dads-kpi-neutral: var(--color-neutral-black);
+
+  --dads-bg-page: #f8f8fb;
+  --dads-bg-surface: var(--color-neutral-white);
+  --dads-bg-control: var(--color-neutral-solid-gray-50);
+  --dads-bg-subtle: #f4f5f8;
+  --dads-border: var(--color-neutral-solid-gray-200);
+  --dads-border-strong: var(--color-neutral-solid-gray-420);
+
+  --dads-success: var(--color-semantic-success-2);
+  --dads-success-vivid: var(--color-semantic-success-1);
+  --dads-success-bg: var(--color-primitive-green-50);
+  --dads-success-border: var(--color-primitive-green-200);
+
+  --dads-warning: var(--color-primitive-yellow-1100);
+  --dads-warning-vivid: var(--color-semantic-warning-yellow-1);
+  --dads-warning-bg: var(--color-primitive-yellow-50);
+  --dads-warning-border: var(--color-primitive-yellow-300);
+
+  --dads-error: var(--color-semantic-error-2);
+  --dads-error-vivid: var(--color-semantic-error-1);
+  --dads-error-bg: var(--color-primitive-red-50);
+  --dads-error-border: var(--color-primitive-red-200);
+
+  --dads-chart-1: #0017c1;
+  --dads-chart-2: #3460fb;
+  --dads-chart-3: #7096f8;
+  --dads-chart-4: #c5d7fb;
+  --dads-chart-5: #e8f1fe;
+  --dads-chart-6: #fe3939;
+  --dads-chart-7: #ffbbbb;
+  --dads-chart-8: #f8f8fb;
+
+  --dads-chart-primary: var(--dads-chart-1);
+  --dads-chart-secondary: var(--dads-chart-3);
+  --dads-chart-tertiary: var(--dads-chart-4);
+  --dads-chart-neutral: var(--color-neutral-solid-gray-500);
+  --dads-chart-highlight: var(--dads-chart-6);
+}
+
+/* 7 Official Dashboard Palettes (digital-go-jp/policy-dashboard-assets 2026) */
+:root[data-palette='blue'] {
+  --color-key-50: var(--color-primitive-blue-50);
+  --color-key-100: var(--color-primitive-blue-100);
+  --color-key-200: var(--color-primitive-blue-200);
+  --color-key-300: var(--color-primitive-blue-300);
+  --color-key-400: var(--color-primitive-blue-400);
+  --color-key-500: var(--color-primitive-blue-500);
+  --color-key-600: var(--color-primitive-blue-600);
+  --color-key-700: var(--color-primitive-blue-700);
+  --color-key-800: var(--color-primitive-blue-800);
+  --color-key-900: var(--color-primitive-blue-900);
+  --color-key-1000: var(--color-primitive-blue-1000);
+  --color-key-1100: var(--color-primitive-blue-1100);
+  --color-key-1200: var(--color-primitive-blue-1200);
+  --dads-chart-1: #0017c1;
+  --dads-chart-2: #3460fb;
+  --dads-chart-3: #7096f8;
+  --dads-chart-4: #c5d7fb;
+  --dads-chart-5: #e8f1fe;
+  --dads-chart-6: #fe3939;
+  --dads-chart-7: #ffbbbb;
+  --dads-chart-8: #f8f8fb;
+  --dads-kpi-good: #0017c1;
+  --dads-kpi-bad: #ce0000;
+}
+
+:root[data-palette='light-blue'] {
+  --color-key-50: var(--color-primitive-light-blue-50);
+  --color-key-100: var(--color-primitive-light-blue-100);
+  --color-key-200: var(--color-primitive-light-blue-200);
+  --color-key-300: var(--color-primitive-light-blue-300);
+  --color-key-400: var(--color-primitive-light-blue-400);
+  --color-key-500: var(--color-primitive-light-blue-500);
+  --color-key-600: var(--color-primitive-light-blue-600);
+  --color-key-700: var(--color-primitive-light-blue-700);
+  --color-key-800: var(--color-primitive-light-blue-800);
+  --color-key-900: var(--color-primitive-light-blue-900);
+  --color-key-1000: var(--color-primitive-light-blue-1000);
+  --color-key-1100: var(--color-primitive-light-blue-1100);
+  --color-key-1200: var(--color-primitive-light-blue-1200);
+  --dads-chart-1: #0055ad;
+  --dads-chart-2: #008bf2;
+  --dads-chart-3: #57b8ff;
+  --dads-chart-4: #c0e4ff;
+  --dads-chart-5: #f0f9ff;
+  --dads-chart-6: #fe3939;
+  --dads-chart-7: #ffbbbb;
+  --dads-chart-8: #f8f8fb;
+  --dads-kpi-good: #0055ad;
+  --dads-kpi-bad: #ce0000;
+}
+
+:root[data-palette='cyan'] {
+  --color-key-50: var(--color-primitive-cyan-50);
+  --color-key-100: var(--color-primitive-cyan-100);
+  --color-key-200: var(--color-primitive-cyan-200);
+  --color-key-300: var(--color-primitive-cyan-300);
+  --color-key-400: var(--color-primitive-cyan-400);
+  --color-key-500: var(--color-primitive-cyan-500);
+  --color-key-600: var(--color-primitive-cyan-600);
+  --color-key-700: var(--color-primitive-cyan-700);
+  --color-key-800: var(--color-primitive-cyan-800);
+  --color-key-900: var(--color-primitive-cyan-900);
+  --color-key-1000: var(--color-primitive-cyan-1000);
+  --color-key-1100: var(--color-primitive-cyan-1100);
+  --color-key-1200: var(--color-primitive-cyan-1200);
+  --dads-chart-1: #006f83;
+  --dads-chart-2: #00a3bf;
+  --dads-chart-3: #2bc8e4;
+  --dads-chart-4: #99f2ff;
+  --dads-chart-5: #e9f7f9;
+  --dads-chart-6: #666666;
+  --dads-chart-7: #cccccc;
+  --dads-chart-8: #f8f8fb;
+  --dads-kpi-good: #006f83;
+  --dads-kpi-bad: #ce0000;
+}
+
+:root[data-palette='green'] {
+  --color-key-50: var(--color-primitive-green-50);
+  --color-key-100: var(--color-primitive-green-100);
+  --color-key-200: var(--color-primitive-green-200);
+  --color-key-300: var(--color-primitive-green-300);
+  --color-key-400: var(--color-primitive-green-400);
+  --color-key-500: var(--color-primitive-green-500);
+  --color-key-600: var(--color-primitive-green-600);
+  --color-key-700: var(--color-primitive-green-700);
+  --color-key-800: var(--color-primitive-green-800);
+  --color-key-900: var(--color-primitive-green-900);
+  --color-key-1000: var(--color-primitive-green-1000);
+  --color-key-1100: var(--color-primitive-green-1100);
+  --color-key-1200: var(--color-primitive-green-1200);
+  --dads-chart-1: #115a36;
+  --dads-chart-2: #259d63;
+  --dads-chart-3: #51b883;
+  --dads-chart-4: #9bd4b5;
+  --dads-chart-5: #e6f5ec;
+  --dads-chart-6: #666666;
+  --dads-chart-7: #cccccc;
+  --dads-chart-8: #f8f8fb;
+  --dads-kpi-good: #115a36;
+  --dads-kpi-bad: #ce0000;
+}
+
+:root[data-palette='orange'] {
+  --color-key-50: var(--color-primitive-orange-50);
+  --color-key-100: var(--color-primitive-orange-100);
+  --color-key-200: var(--color-primitive-orange-200);
+  --color-key-300: var(--color-primitive-orange-300);
+  --color-key-400: var(--color-primitive-orange-400);
+  --color-key-500: var(--color-primitive-orange-500);
+  --color-key-600: var(--color-primitive-orange-600);
+  --color-key-700: var(--color-primitive-orange-700);
+  --color-key-800: var(--color-primitive-orange-800);
+  --color-key-900: var(--color-primitive-orange-900);
+  --color-key-1000: var(--color-primitive-orange-1000);
+  --color-key-1100: var(--color-primitive-orange-1100);
+  --color-key-1200: var(--color-primitive-orange-1200);
+  --dads-chart-1: #ac3e00;
+  --dads-chart-2: #fb5b01;
+  --dads-chart-3: #ff8d44;
+  --dads-chart-4: #ffc199;
+  --dads-chart-5: #ffeee2;
+  --dads-chart-6: #666666;
+  --dads-chart-7: #cccccc;
+  --dads-chart-8: #f8f8fb;
+  --dads-kpi-good: #ac3e00;
+  --dads-kpi-bad: #850000;
+}
+
+:root[data-palette='red'] {
+  --color-key-50: var(--color-primitive-red-50);
+  --color-key-100: var(--color-primitive-red-100);
+  --color-key-200: var(--color-primitive-red-200);
+  --color-key-300: var(--color-primitive-red-300);
+  --color-key-400: var(--color-primitive-red-400);
+  --color-key-500: var(--color-primitive-red-500);
+  --color-key-600: var(--color-primitive-red-600);
+  --color-key-700: var(--color-primitive-red-700);
+  --color-key-800: var(--color-primitive-red-800);
+  --color-key-900: var(--color-primitive-red-900);
+  --color-key-1000: var(--color-primitive-red-1000);
+  --color-key-1100: var(--color-primitive-red-1100);
+  --color-key-1200: var(--color-primitive-red-1200);
+  --dads-chart-1: #ce0000;
+  --dads-chart-2: #fe3939;
+  --dads-chart-3: #ff7171;
+  --dads-chart-4: #ffbbbb;
+  --dads-chart-5: #fdeeee;
+  --dads-chart-6: #666666;
+  --dads-chart-7: #cccccc;
+  --dads-chart-8: #f8f8fb;
+  --dads-kpi-good: #ce0000;
+  --dads-kpi-bad: #850000;
+}
+
+:root[data-palette='solid-gray'] {
+  --color-key-50: var(--color-neutral-solid-gray-50);
+  --color-key-100: var(--color-neutral-solid-gray-100);
+  --color-key-200: var(--color-neutral-solid-gray-200);
+  --color-key-300: var(--color-neutral-solid-gray-300);
+  --color-key-400: var(--color-neutral-solid-gray-400);
+  --color-key-500: var(--color-neutral-solid-gray-500);
+  --color-key-600: var(--color-neutral-solid-gray-600);
+  --color-key-700: var(--color-neutral-solid-gray-700);
+  --color-key-800: var(--color-neutral-solid-gray-800);
+  --color-key-900: var(--color-neutral-solid-gray-900);
+  --color-key-1000: var(--color-neutral-solid-gray-900);
+  --color-key-1100: var(--color-neutral-black);
+  --color-key-1200: var(--color-neutral-black);
+  --dads-chart-1: #4d4d4d;
+  --dads-chart-2: #767676;
+  --dads-chart-3: #999999;
+  --dads-chart-4: #cccccc;
+  --dads-chart-5: #f2f2f2;
+  --dads-chart-6: #3460fb;
+  --dads-chart-7: #fe3939;
+  --dads-chart-8: #f8f8fb;
+  --dads-kpi-good: #4d4d4d;
+  --dads-kpi-bad: #ce0000;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: var(--dads-font-sans);
+  color: var(--dads-text);
+  background: var(--dads-bg-page);
+  font-size: var(--font-size-16);
+  line-height: var(--line-height-170);
+  letter-spacing: 0.02em;
+  font-feature-settings: 'palt' 1;
+  line-break: strict;
+  word-break: auto-phrase;
+  text-autospace: normal;
+}
+
+a {
+  color: var(--dads-link);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+a:visited {
+  color: var(--dads-link-visited);
+}
+
+a:hover {
+  color: var(--dads-link-hover);
+  text-decoration-thickness: 3px;
+}
+
+a:active {
+  color: var(--dads-link-active);
+  text-decoration-thickness: 1px;
+}
+
+a:focus-visible,
+button:focus-visible,
+summary:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+[tabindex]:focus-visible {
+  outline: 4px solid var(--color-neutral-black);
+  outline-offset: 2px;
+  border-radius: var(--border-radius-4);
+  box-shadow: 0 0 0 2px var(--color-primitive-yellow-300);
+}
+
+a:focus-visible,
+summary:focus-visible {
+  background-color: var(--color-primitive-yellow-300);
+  color: var(--color-neutral-black);
+}
+
+code,
+pre {
+  font-family: var(--dads-font-mono);
+  font-feature-settings: normal;
+  word-break: normal;
+  text-autospace: no-autospace;
+}
+
+.num,
+td[data-num],
+th[data-num],
+table :is(td, th)[data-num] {
+  font-feature-settings: normal;
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+  word-break: normal;
+}
+
+/* Shorthand DADS Chip Badge (8px official radius) */
+.dads-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 8px;
+  border-radius: var(--border-radius-8);
+  font-size: var(--font-size-14);
+  font-weight: var(--font-weight-700);
+  line-height: var(--line-height-130);
+  border: 1px solid var(--color-neutral-solid-gray-700);
+  background: var(--color-neutral-solid-gray-50);
+  color: var(--dads-text-strong);
+  white-space: nowrap;
+}
+
+.dads-badge--primary {
+  background: var(--color-key-50);
+  border-color: var(--color-key-700);
+  color: var(--color-key-900);
+}
+
+.dads-badge--success {
+  background: var(--dads-success-bg);
+  border-color: var(--dads-success);
+  color: var(--dads-success);
+}
+
+.dads-badge--warning {
+  background: var(--dads-warning-bg);
+  border-color: var(--dads-warning);
+  color: var(--dads-warning);
+}
+
+.dads-badge--error {
+  background: var(--dads-error-bg);
+  border-color: var(--dads-error-vivid);
+  color: var(--dads-error);
+}
+
+
+/* ==========================================================================
+   dads-dashboard: Digital Agency Dashboard Practice Guidebook (2026 JSON)
+   - Page background:      #FFFFFF
+   - Visual/Card surface:  #F8F8FB (borderless, radius 12px)
+   - Control/Slicer area:  #F1F1F4 (items #FFFFFF, outline #949494)
+   - KPI value:            36px #000000, good = --dads-kpi-good, bad = --dads-kpi-bad
+   - Table:                header #F1F1F4, cells #FFFFFF, grid #E6E6E6
+   - Charts:               Horizontal bar, Vertical column, Stacked bar, SVG Line
+   ========================================================================== */
+
+body {
+  background: var(--color-neutral-white);
+}
+
+.dads-dash {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 24px 24px 56px;
+}
+
+.dads-dash-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+  padding-bottom: 16px;
+  margin-bottom: 20px;
+  border-bottom: 2px solid var(--color-key-900);
+}
+
+.dads-dash-header h1 {
+  margin: 6px 0 0;
+  font-size: clamp(var(--font-size-20), 2.4vw, var(--font-size-26));
+  line-height: var(--line-height-130);
+  font-weight: var(--font-weight-700);
+  color: var(--color-neutral-black);
+}
+
+.dads-dash-meta {
+  font-size: var(--font-size-14);
+  color: #626264;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+}
+
+.dads-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+  background: #f1f1f4;
+  padding: 12px 16px;
+  border-radius: var(--border-radius-12);
+  margin-bottom: 20px;
+}
+
+.dads-control-label {
+  font-size: var(--font-size-14);
+  font-weight: var(--font-weight-700);
+  color: var(--color-neutral-black);
+  margin-right: 4px;
+}
+
+.dads-filter-btn {
+  appearance: none;
+  border: 1px solid var(--color-neutral-solid-gray-420);
+  background: var(--color-neutral-white);
+  color: var(--color-neutral-black);
+  font-family: inherit;
+  font-size: var(--font-size-14);
+  font-weight: var(--font-weight-700);
+  padding: 6px 14px;
+  border-radius: var(--border-radius-6);
+  cursor: pointer;
+}
+
+.dads-filter-btn[aria-pressed='true'],
+.dads-filter-btn.is-active {
+  background: var(--color-key-900);
+  border-color: var(--color-key-900);
+  color: var(--color-neutral-white);
+}
+
+.dads-kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.dads-kpi-card {
+  background: #f8f8fb;
+  border-radius: var(--border-radius-12);
+  padding: 18px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.dads-kpi-card--highlight {
+  background: var(--color-key-50);
+}
+
+.dads-kpi-label {
+  font-size: var(--font-size-14);
+  font-weight: var(--font-weight-700);
+  color: var(--color-neutral-black);
+}
+
+.dads-kpi-value {
+  font-size: var(--font-size-36);
+  font-weight: var(--font-weight-700);
+  line-height: var(--line-height-120);
+  color: var(--color-neutral-black);
+  font-variant-numeric: tabular-nums;
+}
+
+.dads-kpi-unit {
+  font-size: var(--font-size-16);
+  font-weight: var(--font-weight-700);
+  color: #626264;
+  margin-left: 4px;
+}
+
+.dads-kpi-delta {
+  font-size: var(--font-size-14);
+  font-weight: var(--font-weight-700);
+  font-variant-numeric: tabular-nums;
+}
+
+.dads-kpi-delta--up {
+  color: var(--dads-kpi-good);
+}
+
+.dads-kpi-delta--down {
+  color: var(--dads-kpi-bad);
+}
+
+.dads-kpi-delta--flat {
+  color: #626264;
+}
+
+.dads-panel-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.dads-panel {
+  grid-column: span 12;
+  background: #f8f8fb;
+  border-radius: var(--border-radius-12);
+  padding: 20px 22px;
+}
+
+.dads-panel--6 {
+  grid-column: span 6;
+}
+
+.dads-panel--7 {
+  grid-column: span 7;
+}
+
+.dads-panel--5 {
+  grid-column: span 5;
+}
+
+.dads-panel-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.dads-panel-head h2 {
+  margin: 0;
+  font-size: var(--font-size-18);
+  line-height: var(--line-height-140);
+  font-weight: var(--font-weight-700);
+  color: var(--color-neutral-black);
+}
+
+.dads-panel-note {
+  font-size: var(--font-size-14);
+  color: #626264;
+}
+
+/* 1. Horizontal Bar Chart */
+.dads-bars {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.dads-bar-row {
+  display: grid;
+  grid-template-columns: 150px 1fr 80px;
+  align-items: center;
+  gap: 12px;
+  font-size: var(--font-size-14);
+}
+
+.dads-bar-label {
+  font-weight: var(--font-weight-700);
+  color: var(--color-neutral-black);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.dads-bar-track {
+  height: 16px;
+  background: var(--color-neutral-solid-gray-100);
+  border-radius: var(--border-radius-4);
+  overflow: hidden;
+}
+
+.dads-bar-fill {
+  height: 100%;
+  background: var(--dads-chart-1);
+  border-radius: var(--border-radius-4);
+}
+
+.dads-bar-fill--secondary {
+  background: var(--dads-chart-3);
+}
+
+.dads-bar-fill--neutral {
+  background: var(--dads-chart-neutral);
+}
+
+.dads-bar-fill--highlight {
+  background: var(--dads-chart-6);
+}
+
+.dads-bar-val {
+  font-weight: var(--font-weight-700);
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+  color: var(--color-neutral-black);
+}
+
+/* 2. Stacked 100% Bar Chart */
+.dads-stacked-bar {
+  display: flex;
+  height: 24px;
+  border-radius: var(--border-radius-4);
+  overflow: hidden;
+  background: var(--color-neutral-solid-gray-100);
+}
+
+.dads-stacked-seg {
+  height: 100%;
+}
+
+.dads-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 18px;
+  margin-top: 12px;
+  font-size: var(--font-size-14);
+  color: var(--color-neutral-black);
+}
+
+.dads-legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.dads-legend-swatch {
+  width: 12px;
+  height: 12px;
+  border-radius: 2px;
+  display: inline-block;
+}
+
+/* 3. SVG Line / Column Chart Wrapper */
+.dads-svg-chart {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.dads-svg-chart .grid-line {
+  stroke: #e6e6e6;
+  stroke-width: 1;
+}
+
+.dads-svg-chart .axis-label {
+  fill: var(--color-neutral-black);
+  font-size: 11px;
+  font-family: var(--dads-font-sans);
+}
+
+.dads-svg-chart .series-line-1 {
+  fill: none;
+  stroke: var(--dads-chart-1);
+  stroke-width: 2.5;
+}
+
+.dads-svg-chart .series-line-2 {
+  fill: none;
+  stroke: var(--dads-chart-3);
+  stroke-width: 2;
+  stroke-dasharray: 5 4;
+}
+
+/* Official tableEx styling */
+.dads-table-wrap {
+  overflow-x: auto;
+  border-radius: var(--border-radius-6);
+}
+
+.dads-dash-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--font-size-14);
+  background: var(--color-neutral-white);
+}
+
+.dads-dash-table th,
+.dads-dash-table td {
+  padding: 10px 12px;
+  border: 1px solid var(--color-neutral-solid-gray-100);
+  text-align: left;
+  color: var(--color-neutral-black);
+}
+
+.dads-dash-table thead th {
+  background: #f1f1f4;
+  font-weight: var(--font-weight-700);
+  white-space: nowrap;
+}
+
+.dads-footnote {
+  font-size: var(--font-size-14);
+  color: #626264;
+  margin-top: 12px;
+}
+
+@media (max-width: 900px) {
+  .dads-panel--6,
+  .dads-panel--7,
+  .dads-panel--5 {
+    grid-column: span 12;
+  }
+}
+
+@media print {
+  body {
+    background: var(--color-neutral-white);
+  }
+  .dads-controls {
+    display: none;
+  }
+  .dads-panel,
+  .dads-kpi-card {
+    break-inside: avoid;
+  }
+}
+
+
+    </style>
+  </head>
+  <body>
+<main class="dads-dash">
+  <header class="dads-dash-header">
+    <div>
+      <span class="dads-badge dads-badge--primary">月次 KPI 定点モニター</span>
+      <h1>プロダクト活用・グロース進捗ダッシュボード（2026 年 11 月）</h1>
+    </div>
+    <div class="dads-dash-meta">
+      <span>集計期間: 2026-11-01 〜 2026-11-25</span>
+      <span>更新: 2026-11-25 18:00 JST</span>
+    </div>
+  </header>
+
+  <div class="dads-controls" role="group" aria-label="セグメント切替">
+    <span class="dads-control-label">表示セグメント</span>
+    <button type="button" class="dads-filter-btn is-active" aria-pressed="true" data-seg="all">全社合計</button>
+    <button type="button" class="dads-filter-btn" aria-pressed="false" data-seg="dev">開発・技術部門</button>
+    <button type="button" class="dads-filter-btn" aria-pressed="false" data-seg="biz">事業・CS 部門</button>
+  </div>
+
+  <section class="dads-kpi-grid" aria-label="主要指標">
+    <article class="dads-kpi-card dads-kpi-card--highlight">
+      <span class="dads-kpi-label">月間アクティブ投稿者数</span>
+      <div class="dads-kpi-value" data-kpi="posters">48<span class="dads-kpi-unit">人</span></div>
+      <span class="dads-kpi-delta dads-kpi-delta--up" data-delta="posters">前月比 +17.1% ▲</span>
+    </article>
+    <article class="dads-kpi-card">
+      <span class="dads-kpi-label">新規作成ドキュメント数</span>
+      <div class="dads-kpi-value" data-kpi="docs">312<span class="dads-kpi-unit">件</span></div>
+      <span class="dads-kpi-delta dads-kpi-delta--up" data-delta="docs">前月比 +9.5% ▲</span>
+    </article>
+    <article class="dads-kpi-card">
+      <span class="dads-kpi-label">同一 URL 更新率</span>
+      <div class="dads-kpi-value" data-kpi="rev">64.2<span class="dads-kpi-unit">%</span></div>
+      <span class="dads-kpi-delta dads-kpi-delta--up" data-delta="rev">前月比 +4.8pt ▲</span>
+    </article>
+    <article class="dads-kpi-card">
+      <span class="dads-kpi-label">未閲覧率（作成 7 日後）</span>
+      <div class="dads-kpi-value" data-kpi="unseen">11.4<span class="dads-kpi-unit">%</span></div>
+      <span class="dads-kpi-delta dads-kpi-delta--down" data-delta="unseen">前月比 +1.2pt ▲（要改善）</span>
+    </article>
+  </section>
+
+  <section class="dads-panel-grid">
+    <article class="dads-panel dads-panel--6">
+      <div class="dads-panel-head">
+        <h2>用途別 作成件数内訳</h2>
+        <span class="dads-panel-note">上位 5 カテゴリ（件数降順）</span>
+      </div>
+      <div class="dads-bars">
+        <div class="dads-bar-row">
+          <span class="dads-bar-label">設計・案の比較</span>
+          <div class="dads-bar-track"><div class="dads-bar-fill" style="width: 100%"></div></div>
+          <span class="dads-bar-val">118 件</span>
+        </div>
+        <div class="dads-bar-row">
+          <span class="dads-bar-label">KPI・分析レポート</span>
+          <div class="dads-bar-track"><div class="dads-bar-fill" style="width: 78%"></div></div>
+          <span class="dads-bar-val">92 件</span>
+        </div>
+        <div class="dads-bar-row">
+          <span class="dads-bar-label">社内ガイド・手順</span>
+          <div class="dads-bar-track"><div class="dads-bar-fill dads-bar-fill--secondary" style="width: 46%"></div></div>
+          <span class="dads-bar-val">54 件</span>
+        </div>
+        <div class="dads-bar-row">
+          <span class="dads-bar-label">UI モック・試作</span>
+          <div class="dads-bar-track"><div class="dads-bar-fill dads-bar-fill--secondary" style="width: 27%"></div></div>
+          <span class="dads-bar-val">32 件</span>
+        </div>
+        <div class="dads-bar-row">
+          <span class="dads-bar-label">議事録・その他</span>
+          <div class="dads-bar-track"><div class="dads-bar-fill dads-bar-fill--neutral" style="width: 14%"></div></div>
+          <span class="dads-bar-val">16 件</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="dads-panel dads-panel--6">
+      <div class="dads-panel-head">
+        <h2>月次 作成件数トレンド（原点 0 基準）</h2>
+        <span class="dads-panel-note">6〜11 月推移</span>
+      </div>
+      <svg class="dads-svg-chart" viewBox="0 0 520 190" role="img" aria-label="6月から11月の月次作成件数トレンド">
+        <line class="grid-line" x1="40" y1="20" x2="500" y2="20" />
+        <line class="grid-line" x1="40" y1="65" x2="500" y2="65" />
+        <line class="grid-line" x1="40" y1="110" x2="500" y2="110" />
+        <line class="grid-line" x1="40" y1="155" x2="500" y2="155" />
+        <text class="axis-label" x="32" y="24" text-anchor="end">360</text>
+        <text class="axis-label" x="32" y="69" text-anchor="end">240</text>
+        <text class="axis-label" x="32" y="114" text-anchor="end">120</text>
+        <text class="axis-label" x="32" y="159" text-anchor="end">0</text>
+        <polyline class="series-line-1" points="60,126 144,108 228,84 312,68 396,52 480,38" />
+        <circle cx="60" cy="126" r="4" fill="var(--dads-chart-1)" />
+        <circle cx="144" cy="108" r="4" fill="var(--dads-chart-1)" />
+        <circle cx="228" cy="84" r="4" fill="var(--dads-chart-1)" />
+        <circle cx="312" cy="68" r="4" fill="var(--dads-chart-1)" />
+        <circle cx="396" cy="52" r="4" fill="var(--dads-chart-1)" />
+        <circle cx="480" cy="38" r="4" fill="var(--dads-chart-1)" />
+        <text class="axis-label" x="60" y="176" text-anchor="middle">6月</text>
+        <text class="axis-label" x="144" y="176" text-anchor="middle">7月</text>
+        <text class="axis-label" x="228" y="176" text-anchor="middle">8月</text>
+        <text class="axis-label" x="312" y="176" text-anchor="middle">9月</text>
+        <text class="axis-label" x="396" y="176" text-anchor="middle">10月</text>
+        <text class="axis-label" x="480" y="176" text-anchor="middle">11月</text>
+      </svg>
+    </article>
+
+    <article class="dads-panel">
+      <div class="dads-panel-head">
+        <h2>閲覧上位ドキュメント</h2>
+        <span class="dads-panel-note">今月の累計閲覧数・更新回数</span>
+      </div>
+      <div class="dads-table-wrap">
+        <table class="dads-dash-table">
+          <thead>
+            <tr>
+              <th>タイトル</th>
+              <th>カテゴリ</th>
+              <th data-num>バージョン数</th>
+              <th data-num>累計閲覧数</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>全社 KPI 定点モニター</td>
+              <td>KPI・分析レポート</td>
+              <td data-num>v29</td>
+              <td data-num>248</td>
+            </tr>
+            <tr>
+              <td>1Password オンボーディングガイド</td>
+              <td>社内ガイド・手順</td>
+              <td data-num>v3</td>
+              <td data-num>192</td>
+            </tr>
+            <tr>
+              <td>Q4 開発ロードマップ</td>
+              <td>設計・案の比較</td>
+              <td data-num>v18</td>
+              <td data-num>164</td>
+            </tr>
+            <tr>
+              <td>新料金プラン比較案</td>
+              <td>設計・案の比較</td>
+              <td data-num>v12</td>
+              <td data-num>139</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </article>
+  </section>
+
+  <p class="dads-footnote">
+    出典：サンプル集計データ（デジタル庁「ダッシュボードデザインの実践ガイドブック」2026 年版 Green パレット準拠）
+  </p>
+</main>
+
+    <script>
+(() => {
+  const data = {
+    all: {
+      posters: ['48', '前月比 +17.1% ▲'],
+      docs: ['312', '前月比 +9.5% ▲'],
+      rev: ['64.2', '前月比 +4.8pt ▲'],
+      unseen: ['11.4', '前月比 +1.2pt ▲（要改善）'],
+    },
+    dev: {
+      posters: ['21', '前月比 +23.5% ▲'],
+      docs: ['168', '前月比 +12.0% ▲'],
+      rev: ['71.4', '前月比 +6.1pt ▲'],
+      unseen: ['8.3', '前月比 -1.5pt ▼（改善）'],
+    },
+    biz: {
+      posters: ['27', '前月比 +12.5% ▲'],
+      docs: ['144', '前月比 +6.7% ▲'],
+      rev: ['55.6', '前月比 +3.2pt ▲'],
+      unseen: ['15.0', '前月比 +3.4pt ▲（要改善）'],
+    },
+  };
+
+  const buttons = document.querySelectorAll('[data-seg]');
+  buttons.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const seg = btn.getAttribute('data-seg');
+      const row = data[seg];
+      if (!row) return;
+      buttons.forEach((b) => {
+        const active = b === btn;
+        b.classList.toggle('is-active', active);
+        b.setAttribute('aria-pressed', active ? 'true' : 'false');
+      });
+      Object.entries(row).forEach(([key, [val, delta]]) => {
+        const valEl = document.querySelector(`[data-kpi="${key}"]`);
+        const deltaEl = document.querySelector(`[data-delta="${key}"]`);
+        if (valEl) {
+          const unit = valEl.querySelector('.dads-kpi-unit')?.outerHTML || '';
+          valEl.innerHTML = `${val}${unit}`;
+        }
+        if (deltaEl) deltaEl.textContent = delta;
+      });
+    });
+  });
+})();
+
+    </script>
+  </body>
+</html>

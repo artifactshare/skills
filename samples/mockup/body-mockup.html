@@ -1,0 +1,220 @@
+<div class="dads-mock-shell">
+  <header class="dads-mock-topbar">
+    <div class="dads-mock-brand">
+      <span>社内 AI ツール・予算申請ポータル</span>
+      <span class="dads-badge dads-badge--primary">UI モック（操作可能）</span>
+    </div>
+    <p class="dads-mock-banner-note">Digital Agency Design System 公式フォームコンポーネント構成</p>
+  </header>
+
+  <main class="dads-mock-main">
+    <div class="dads-mock-page-head">
+      <h1>利用申請・承認管理</h1>
+      <span class="dads-badge dads-badge--success" data-mock-count>登録済み 3 件</span>
+    </div>
+
+    <div
+      class="dads-notification-banner"
+      data-style="standard"
+      data-type="info-1"
+      id="mock-feedback"
+      role="status"
+      aria-live="polite"
+      hidden
+      style="margin-bottom: 20px"
+    >
+      <h2 class="dads-notification-banner__heading">
+        <svg class="dads-notification-banner__icon" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="12" cy="12" r="10" fill="currentcolor" />
+          <path d="M11 7h2v6h-2zm0 8h2v2h-2z" fill="#ffffff" />
+        </svg>
+        <span class="dads-notification-banner__heading-text" id="mock-feedback-text"></span>
+      </h2>
+    </div>
+
+    <div class="dads-mock-tabs" role="tablist" aria-label="画面切替">
+      <button
+        type="button"
+        class="dads-mock-tab"
+        role="tab"
+        aria-selected="true"
+        aria-controls="panel-form"
+        id="tab-form"
+      >
+        新規申請フォーム
+      </button>
+      <button
+        type="button"
+        class="dads-mock-tab"
+        role="tab"
+        aria-selected="false"
+        aria-controls="panel-list"
+        id="tab-list"
+      >
+        申請一覧（承認待ち・完了）
+      </button>
+    </div>
+
+    <section class="dads-mock-tabpanel" id="panel-form" role="tabpanel" aria-labelledby="tab-form">
+      <form class="dads-mock-panel" id="mock-request-form" novalidate>
+        <div class="dads-mock-form-grid">
+          <div class="dads-form-control-label" data-size="md">
+            <label class="dads-form-control-label__label" for="req-tool">
+              利用希望ツール名
+              <span class="dads-form-control-label__requirement" data-required="true">※必須</span>
+            </label>
+            <p class="dads-form-control-label__support-text">例：Claude Team / Artifact Share Team</p>
+            <span class="dads-input-text">
+              <input
+                class="dads-input-text__input"
+                id="req-tool"
+                name="tool"
+                type="text"
+                data-size="md"
+                placeholder="ツール名を入力"
+                required
+              />
+            </span>
+          </div>
+
+          <div class="dads-form-control-label" data-size="md">
+            <label class="dads-form-control-label__label" for="req-dept">
+              申請部署
+              <span class="dads-form-control-label__requirement" data-required="true">※必須</span>
+            </label>
+            <p class="dads-form-control-label__support-text">予算負担元となる部署を選択</p>
+            <span class="dads-select">
+              <span class="dads-select__control">
+                <select class="dads-select__select" id="req-dept" name="dept" data-size="md">
+                  <option value="プロダクト開発部">プロダクト開発部</option>
+                  <option value="グロース・マーケ部">グロース・マーケ部</option>
+                  <option value="CS・オペレーション部">CS・オペレーション部</option>
+                  <option value="コーポレート管理部">コーポレート管理部</option>
+                </select>
+                <svg class="dads-select__chevron" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M12 17.1 3 8l1.4-1.4 7.6 7.6 7.6-7.6L21 8z" fill="currentcolor" />
+                </svg>
+              </span>
+            </span>
+          </div>
+
+          <div class="dads-form-control-label" data-size="md">
+            <label class="dads-form-control-label__label" for="req-budget">
+              月額見込み（税込・円）
+              <span class="dads-form-control-label__requirement" data-required="true">※必須</span>
+            </label>
+            <p class="dads-form-control-label__support-text">月 5,000 円以下は上長承認のみで即時決裁</p>
+            <span class="dads-input-text">
+              <input
+                class="dads-input-text__input"
+                id="req-budget"
+                name="budget"
+                type="number"
+                data-size="md"
+                value="4950"
+                min="0"
+                required
+              />
+            </span>
+          </div>
+
+          <div class="dads-form-control-label" data-size="md">
+            <label class="dads-form-control-label__label" for="req-owner">
+              申請者名
+              <span class="dads-form-control-label__requirement" data-required="true">※必須</span>
+            </label>
+            <p class="dads-form-control-label__support-text">社内アカウント氏名</p>
+            <span class="dads-input-text">
+              <input
+                class="dads-input-text__input"
+                id="req-owner"
+                name="owner"
+                type="text"
+                data-size="md"
+                value="山田 太郎"
+                required
+              />
+            </span>
+          </div>
+
+          <div class="dads-form-control-label dads-mock-form-full" data-size="md">
+            <label class="dads-form-control-label__label" for="req-purpose">
+              利用目的・期待する効果
+            </label>
+            <p class="dads-form-control-label__support-text">対象業務と削減見込み工数などを簡潔に記入</p>
+            <span class="dads-textarea">
+              <textarea
+                class="dads-textarea__textarea"
+                id="req-purpose"
+                name="purpose"
+                rows="4"
+                placeholder="例：AI が作成した分析レポートと UI モックを社内限定 URL で共有し、確認工数を削減する。"
+              ></textarea>
+            </span>
+          </div>
+
+          <div class="dads-mock-form-full">
+            <label class="dads-checkbox" data-size="md">
+              <span class="dads-checkbox__checkbox">
+                <input class="dads-checkbox__input" type="checkbox" id="req-policy" checked />
+              </span>
+              <span class="dads-checkbox__label">
+                社外秘データ入力ルールおよび学習オプトアウト設定を確認済み
+              </span>
+            </label>
+          </div>
+        </div>
+
+        <div class="dads-mock-actions">
+          <button type="reset" class="dads-button" data-size="md" data-type="outline">
+            入力をクリア
+          </button>
+          <button type="submit" class="dads-button" data-size="md" data-type="solid-fill">
+            申請を登録する
+          </button>
+        </div>
+      </form>
+    </section>
+
+    <section class="dads-mock-tabpanel" id="panel-list" role="tabpanel" aria-labelledby="tab-list" hidden>
+      <div class="dads-mock-panel">
+        <div class="dads-table" data-size="dense" data-row-hover-highlight style="width: 100%">
+          <table class="dads-table__table" style="width: 100%" data-cell-border="bottom">
+            <thead>
+              <tr>
+                <th class="dads-table__col-header">ツール名</th>
+                <th class="dads-table__col-header">申請部署</th>
+                <th class="dads-table__col-header">申請者</th>
+                <th class="dads-table__col-header" data-num>月額（税込）</th>
+                <th class="dads-table__col-header">ステータス</th>
+              </tr>
+            </thead>
+            <tbody id="mock-list-body">
+              <tr>
+                <td>Artifact Share Team</td>
+                <td>プロダクト開発部</td>
+                <td>佐藤 健</td>
+                <td data-num>¥4,950</td>
+                <td><span class="dads-badge dads-badge--success">承認済み</span></td>
+              </tr>
+              <tr>
+                <td>Claude Team（5 席追加）</td>
+                <td>グロース・マーケ部</td>
+                <td>鈴木 花子</td>
+                <td data-num>¥22,000</td>
+                <td><span class="dads-badge dads-badge--warning">決裁待ち</span></td>
+              </tr>
+              <tr>
+                <td>Linear Standard</td>
+                <td>プロダクト開発部</td>
+                <td>高橋 誠</td>
+                <td data-num>¥14,400</td>
+                <td><span class="dads-badge dads-badge--success">承認済み</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+  </main>
+</div>

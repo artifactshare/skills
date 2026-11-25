@@ -1,0 +1,16 @@
+{
+  "name": "dads-skills",
+  "version": "1.0.0",
+  "description": "Official Digital Agency Design System (DADS) & Dashboard Practice Guidebook Agent Skills for generating accessible, unslop single-file HTML documents, dashboards, slides, and interactive UI mockups.",
+  "author": {
+    "name": "Artifact Share",
+    "url": "https://artifactshare.com"
+  },
+  "license": "MIT",
+  "skills": [
+    "skills/dads-doc",
+    "skills/dads-dashboard",
+    "skills/dads-slides",
+    "skills/dads-mockup"
+  ]
+}
