@@ -260,11 +260,15 @@ body { background: var(--color-neutral-white); overflow: hidden; }
 .showcase-slide-surface .dads-slide-nav { position: static; }
 
 @media (max-width: 768px) {
-  body { overflow: auto; }
-  .showcase-shell { height: auto !important; min-height: 100dvh; overflow: visible !important; }
+  html, body { max-width: 100%; overflow-x: clip; }
+  body { overflow-y: auto; }
+  .showcase-shell { height: auto !important; min-height: 100dvh; width: 100%; max-width: 100%; overflow: visible !important; }
+  #showcase-stage,
+  .showcase-stage-body,
+  [data-demo-panel] { min-width: 0; max-width: 100%; }
   .showcase-stage-body { overflow-y: visible !important; }
-  .showcase-header { padding: 8px 12px !important; gap: 8px; flex-wrap: nowrap !important; }
-  .showcase-header .dads-mock-brand { font-size: var(--font-size-14) !important; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .showcase-header { width: 100%; max-width: 100%; min-width: 0; box-sizing: border-box; padding: 8px 12px !important; gap: 8px; flex-wrap: nowrap !important; }
+  .showcase-header .dads-mock-brand { min-width: 0; font-size: var(--font-size-14) !important; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
   .showcase-brand-badge,
   .showcase-install-label,
   .showcase-install-code,
@@ -275,6 +279,10 @@ body { background: var(--color-neutral-white); overflow: hidden; }
     position: sticky;
     top: 0;
     z-index: 30;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
     padding: 6px 12px !important;
     gap: 6px !important;
     flex-direction: column;
@@ -282,6 +290,9 @@ body { background: var(--color-neutral-white); overflow: hidden; }
   }
   .showcase-demo-row,
   .showcase-palette-row {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
     flex-wrap: nowrap !important;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
@@ -294,6 +305,13 @@ body { background: var(--color-neutral-white); overflow: hidden; }
   .showcase-demo-row .dads-button { white-space: nowrap; flex-shrink: 0; }
   .showcase-slide-surface { min-height: calc(100dvh - 130px); }
   .showcase-slide-surface .dads-deck { padding: 12px; min-height: 360px; }
+  .showcase-slide-surface .dads-slide { aspect-ratio: auto; height: auto; min-height: 300px; padding: 24px 20px; overflow: visible; }
+  .showcase-slide-surface .dads-slide--title h1 { font-size: 24px; }
+  .showcase-slide-surface .dads-slide-nav { padding: 8px 12px; gap: 8px; justify-content: flex-end; }
+  .showcase-slide-surface .dads-slide-nav-hint { display: none; }
+  .showcase-slide-surface [data-slide-counter] { white-space: nowrap; flex-shrink: 0; }
+  .dads-doc-layout, .dads-doc, .dads-dash, .dads-mock-main { max-width: 100%; min-width: 0; box-sizing: border-box; }
+  .dads-section, .dads-dash-panel { overflow-x: auto; }
 }
 `,
 ].join('\n\n');
