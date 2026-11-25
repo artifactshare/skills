@@ -303,13 +303,9 @@ body { background: var(--color-neutral-white); overflow: hidden; }
   .showcase-palette-row::-webkit-scrollbar { display: none; }
   .showcase-demo-group { flex-wrap: nowrap !important; flex-shrink: 0; }
   .showcase-demo-row .dads-button { white-space: nowrap; flex-shrink: 0; }
-  .showcase-slide-surface { min-height: calc(100dvh - 130px); }
-  .showcase-slide-surface .dads-deck { padding: 12px; min-height: 360px; }
-  .showcase-slide-surface .dads-slide { aspect-ratio: auto; height: auto; min-height: 300px; padding: 24px 20px; overflow: visible; }
-  .showcase-slide-surface .dads-slide--title h1 { font-size: 24px; }
-  .showcase-slide-surface .dads-slide-nav { padding: 8px 12px; gap: 8px; justify-content: flex-end; }
-  .showcase-slide-surface .dads-slide-nav-hint { display: none; }
-  .showcase-slide-surface [data-slide-counter] { white-space: nowrap; flex-shrink: 0; }
+  .showcase-slide-surface { min-height: calc(100dvh - 118px); }
+  .showcase-slide-surface .dads-deck { padding: 14px 12px; min-height: 0; align-items: flex-start; }
+  .showcase-slide-surface .dads-slide-nav { position: sticky; bottom: 0; z-index: 20; }
   .dads-doc-layout, .dads-doc, .dads-dash, .dads-mock-main { max-width: 100%; min-width: 0; box-sizing: border-box; }
   .dads-section, .dads-dash-panel { overflow-x: auto; }
 }
