@@ -954,9 +954,15 @@ body {
     </style>
   </head>
   <body>
-<div class="dads-mock-shell">
-  <header class="dads-mock-topbar">
-    <div class="dads-mock-brand">
+<div
+  class="dads-mock-shell"
+  style="height: 100dvh; overflow: hidden; display: flex; flex-direction: column; background: var(--color-neutral-white)"
+>
+  <header
+    class="dads-mock-topbar"
+    style="padding: 10px 20px; border-bottom: 1px solid var(--color-neutral-solid-gray-200); flex-shrink: 0"
+  >
+    <div class="dads-mock-brand" style="font-size: var(--font-size-16)">
       <span>Artifact Share Agent Skills</span>
       <span class="dads-badge dads-badge--primary">DADS 完全準拠パック</span>
     </div>
@@ -969,7 +975,7 @@ body {
         style="
           background: var(--color-neutral-solid-gray-50);
           border: 1px solid var(--color-neutral-solid-gray-200);
-          padding: 6px 12px;
+          padding: 4px 10px;
           border-radius: var(--border-radius-8);
           font-size: var(--font-size-14);
           color: var(--color-neutral-solid-gray-900);
@@ -979,7 +985,7 @@ body {
       <button
         type="button"
         class="dads-button"
-        data-size="sm"
+        data-size="xs"
         data-type="solid-fill"
         id="copy-install-btn"
       >
@@ -987,7 +993,7 @@ body {
       </button>
       <a
         class="dads-button"
-        data-size="sm"
+        data-size="xs"
         data-type="outline"
         href="https://github.com/artifactshare/skills"
         target="_blank"
@@ -998,121 +1004,107 @@ body {
     </div>
   </header>
 
-  <main class="dads-mock-main" style="max-width: 1280px">
-    <div class="dads-mock-page-head" style="margin-bottom: 16px">
-      <div style="flex: 1 1 620px">
-        <h1>デジタル庁デザインシステム準拠 HTML ライブショーケース</h1>
-        <p class="dads-mock-banner-note" style="margin-top: 6px">
-          公式トークン全量（v2.1.0）・公式 HTML コンポーネント全 43 種・2026 年版ダッシュボード 7 色テーマを単一 HTML へ自動バンドル。下のタブで 4 種類の実物をそのまま操作できます。
-        </p>
+  <div
+    style="
+      flex-shrink: 0;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px 16px;
+      background: #f1f1f4;
+      padding: 8px 20px;
+      border-bottom: 1px solid var(--color-neutral-solid-gray-200);
+    "
+  >
+    <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px 16px" role="group" aria-label="デモ切替">
+      <div style="display: inline-flex; flex-wrap: wrap; align-items: center; gap: 6px">
+        <span style="font-size: var(--font-size-14); font-weight: 700; color: var(--color-neutral-solid-gray-600)">ビジネス:</span>
+        <button type="button" class="dads-button" data-size="xs" data-type="solid-fill" data-demo="dashboard" data-file="./dashboard.html">
+          KPI ダッシュボード
+        </button>
+        <button type="button" class="dads-button" data-size="xs" data-type="outline" data-demo="policy-guide" data-file="./policy-guide.html">
+          社内ルール・制度ガイド
+        </button>
+        <button type="button" class="dads-button" data-size="xs" data-type="outline" data-demo="biz-slides" data-file="./biz-slides.html">
+          社内 MTG スライド
+        </button>
       </div>
+      <div style="display: inline-flex; flex-wrap: wrap; align-items: center; gap: 6px">
+        <span style="font-size: var(--font-size-14); font-weight: 700; color: var(--color-neutral-solid-gray-600)">開発:</span>
+        <button type="button" class="dads-button" data-size="xs" data-type="outline" data-demo="pr-review" data-file="./pr-review.html">
+          PR レビューガイド
+        </button>
+        <button type="button" class="dads-button" data-size="xs" data-type="outline" data-demo="mockup" data-file="./mockup.html">
+          動く業務 UI モック
+        </button>
+        <button type="button" class="dads-button" data-size="xs" data-type="outline" data-demo="slides" data-file="./slides.html">
+          技術発表スライド
+        </button>
+      </div>
+    </div>
+
+    <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 6px">
+      <span style="font-size: var(--font-size-14); font-weight: 700; color: var(--color-neutral-black); margin-right: 2px">
+        7 色:
+      </span>
+      <button type="button" class="dads-badge dads-badge--primary" data-switch-palette="blue" style="cursor: pointer">Blue</button>
+      <button type="button" class="dads-badge" data-switch-palette="light-blue" style="cursor: pointer">Light Blue</button>
+      <button type="button" class="dads-badge" data-switch-palette="cyan" style="cursor: pointer">Cyan</button>
+      <button type="button" class="dads-badge" data-switch-palette="green" style="cursor: pointer">Green</button>
+      <button type="button" class="dads-badge" data-switch-palette="orange" style="cursor: pointer">Orange</button>
+      <button type="button" class="dads-badge" data-switch-palette="red" style="cursor: pointer">Red</button>
+      <button type="button" class="dads-badge" data-switch-palette="solid-gray" style="cursor: pointer">Gray</button>
       <button
         type="button"
         id="fullscreen-btn"
         class="dads-button"
-        data-size="sm"
+        data-size="xs"
         data-type="outline"
+        style="margin-left: 6px"
       >
-        全画面で見る
+        全画面
       </button>
     </div>
+  </div>
 
+  <div
+    id="showcase-stage"
+    style="flex: 1 1 auto; min-height: 0; display: flex; flex-direction: column; background: var(--color-neutral-white)"
+  >
     <div
+      id="showcase-fs-bar"
+      hidden
       style="
+        flex-shrink: 0;
         display: flex;
-        flex-wrap: wrap;
         align-items: center;
         justify-content: space-between;
-        gap: 12px;
-        background: #f1f1f4;
-        padding: 10px 16px;
-        border-radius: var(--border-radius-12);
-        margin-bottom: 16px;
+        padding: 8px 16px;
+        background: var(--color-neutral-solid-gray-900);
+        color: var(--color-neutral-white);
+        font-size: var(--font-size-14);
       "
     >
-      <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px" role="group" aria-label="デモ切替">
-        <div style="display: inline-flex; flex-wrap: wrap; align-items: center; gap: 6px">
-          <span style="font-size: var(--font-size-14); font-weight: 700; color: var(--color-neutral-solid-gray-600)">ビジネス:</span>
-          <button type="button" class="dads-button" data-size="xs" data-type="solid-fill" data-demo="dashboard" data-file="./dashboard.html">
-            KPI ダッシュボード
-          </button>
-          <button type="button" class="dads-button" data-size="xs" data-type="outline" data-demo="policy-guide" data-file="./policy-guide.html">
-            社内ルール・制度ガイド
-          </button>
-          <button type="button" class="dads-button" data-size="xs" data-type="outline" data-demo="biz-slides" data-file="./biz-slides.html">
-            社内 MTG スライド
-          </button>
-        </div>
-        <div style="display: inline-flex; flex-wrap: wrap; align-items: center; gap: 6px">
-          <span style="font-size: var(--font-size-14); font-weight: 700; color: var(--color-neutral-solid-gray-600)">開発:</span>
-          <button type="button" class="dads-button" data-size="xs" data-type="outline" data-demo="pr-review" data-file="./pr-review.html">
-            PR レビューガイド
-          </button>
-          <button type="button" class="dads-button" data-size="xs" data-type="outline" data-demo="mockup" data-file="./mockup.html">
-            動く業務 UI モック
-          </button>
-          <button type="button" class="dads-button" data-size="xs" data-type="outline" data-demo="slides" data-file="./slides.html">
-            技術発表スライド
-          </button>
-        </div>
-      </div>
-
-      <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 6px" role="group" aria-label="7色パレット切替">
-        <span style="font-size: var(--font-size-14); font-weight: 700; color: var(--color-neutral-black); margin-right: 4px">
-          公式 7 色切替:
-        </span>
-        <button type="button" class="dads-badge dads-badge--primary" data-switch-palette="blue" style="cursor: pointer">Blue</button>
-        <button type="button" class="dads-badge" data-switch-palette="light-blue" style="cursor: pointer">Light Blue</button>
-        <button type="button" class="dads-badge" data-switch-palette="cyan" style="cursor: pointer">Cyan</button>
-        <button type="button" class="dads-badge" data-switch-palette="green" style="cursor: pointer">Green</button>
-        <button type="button" class="dads-badge" data-switch-palette="orange" style="cursor: pointer">Orange</button>
-        <button type="button" class="dads-badge" data-switch-palette="red" style="cursor: pointer">Red</button>
-        <button type="button" class="dads-badge" data-switch-palette="solid-gray" style="cursor: pointer">Gray</button>
-      </div>
-    </div>
-
-    <div
-      id="showcase-stage"
-      style="
-        border: 1px solid var(--color-neutral-solid-gray-200);
-        border-radius: var(--border-radius-12);
-        overflow: hidden;
-        background: var(--color-neutral-white);
-      "
-    >
-      <div
-        id="showcase-fs-bar"
-        hidden
-        style="
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-          padding: 8px 16px;
-          background: var(--color-neutral-solid-gray-900);
-          color: var(--color-neutral-white);
-          font-size: var(--font-size-14);
-        "
+      <span>全画面プレビュー（Esc キーで終了）</span>
+      <button
+        type="button"
+        id="fullscreen-exit-btn"
+        class="dads-button"
+        data-size="xs"
+        data-type="outline"
+        style="background: #ffffff; color: #000000"
       >
-        <span id="showcase-fs-title">全画面プレビュー（Esc キーで終了）</span>
-        <button
-          type="button"
-          id="fullscreen-exit-btn"
-          class="dads-button"
-          data-size="xs"
-          data-type="outline"
-          style="background: #ffffff; color: #000000"
-        >
-          全画面を閉じる
-        </button>
-      </div>
-      <iframe
-        id="showcase-frame"
-        src="./dashboard.html"
-        title="DADS Agent Skills ライブプレビュー"
-        style="width: 100%; height: 760px; border: 0; display: block"
-      ></iframe>
+        全画面を閉じる
+      </button>
     </div>
-  </main>
+    <iframe
+      id="showcase-frame"
+      src="./dashboard.html"
+      title="DADS Agent Skills ライブプレビュー"
+      style="width: 100%; height: 100%; flex: 1 1 auto; border: 0; display: block"
+    ></iframe>
+  </div>
 </div>
 
     <script>
@@ -1172,27 +1164,13 @@ window.addEventListener('message', (e) => { if (e.data && e.data.type === 'dads:
       stage.style.position = 'fixed';
       stage.style.inset = '0';
       stage.style.zIndex = '9999';
-      stage.style.borderRadius = '0';
-      stage.style.border = '0';
-      stage.style.display = 'flex';
-      stage.style.flexDirection = 'column';
       fsBar.hidden = false;
-      frame.style.height = '100%';
-      frame.style.flex = '1';
-      document.body.style.overflow = 'hidden';
       fsExitBtn?.focus();
     } else {
       stage.style.position = '';
       stage.style.inset = '';
       stage.style.zIndex = '';
-      stage.style.borderRadius = 'var(--border-radius-12)';
-      stage.style.border = '1px solid var(--color-neutral-solid-gray-200)';
-      stage.style.display = '';
-      stage.style.flexDirection = '';
       fsBar.hidden = true;
-      frame.style.height = '760px';
-      frame.style.flex = '';
-      document.body.style.overflow = '';
       fsBtn?.focus();
     }
   };

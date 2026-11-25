@@ -31,27 +31,13 @@
       stage.style.position = 'fixed';
       stage.style.inset = '0';
       stage.style.zIndex = '9999';
-      stage.style.borderRadius = '0';
-      stage.style.border = '0';
-      stage.style.display = 'flex';
-      stage.style.flexDirection = 'column';
       fsBar.hidden = false;
-      frame.style.height = '100%';
-      frame.style.flex = '1';
-      document.body.style.overflow = 'hidden';
       fsExitBtn?.focus();
     } else {
       stage.style.position = '';
       stage.style.inset = '';
       stage.style.zIndex = '';
-      stage.style.borderRadius = 'var(--border-radius-12)';
-      stage.style.border = '1px solid var(--color-neutral-solid-gray-200)';
-      stage.style.display = '';
-      stage.style.flexDirection = '';
       fsBar.hidden = true;
-      frame.style.height = '760px';
-      frame.style.flex = '';
-      document.body.style.overflow = '';
       fsBtn?.focus();
     }
   };
