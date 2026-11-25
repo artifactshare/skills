@@ -5,6 +5,11 @@
 
 AI 特有の装飾過多（AI スロップ）を構造的に排除し、そのまま会議・レビュー・全社共有に出せる日本語のドキュメント・ダッシュボード・スライド・動く UI モックをゼロ依存の単一 HTML として生成します。
 
+## ライブデモ（Artifact Share で公開中）
+
+- **DADS Agent Skills ライブショーケース**：https://c3t9kij22u.artifactshare.link/
+  - ビジネス向け 3 本（KPI ダッシュボード / 社内ルール・制度ガイド / 社内 MTG スライド）＋開発向け 3 本（PR レビューガイド / 動く業務 UI モック / 技術発表スライド）を 1 画面で操作し、公式 7 色パレットをリアルタイムに切り替えられます。
+
 ## インストール
 
 ### `npx skills`（Claude Code / Codex / Cursor / Antigravity 等）
