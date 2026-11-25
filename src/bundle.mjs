@@ -399,7 +399,7 @@ function main() {
   }
 
   const scripts = [
-    `window.addEventListener('message', (e) => { if (e.data && e.data.type === 'dads:set-palette' && typeof e.data.palette === 'string') { document.documentElement.setAttribute('data-palette', e.data.palette); } });`,
+    `(() => { const p = new URLSearchParams(location.search).get('palette'); if (p && ['blue','light-blue','cyan','green','orange','red','solid-gray'].includes(p)) { document.documentElement.setAttribute('data-palette', p); } })();`,
   ];
   if (args.type === 'doc') scripts.push(DOC_TOC_RUNTIME_JS);
   if (args.type === 'slides') scripts.push(SLIDE_RUNTIME_JS);

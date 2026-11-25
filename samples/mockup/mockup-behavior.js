@@ -8,10 +8,17 @@
 
   if (!form || !tbody) return;
 
+  const makeCell = (text, isNum = false) => {
+    const td = document.createElement('td');
+    td.textContent = text;
+    if (isNum) td.setAttribute('data-num', '');
+    return td;
+  };
+
   form.addEventListener('submit', (e) => {
     e.preventDefault();
     const tool = document.getElementById('req-tool')?.value.trim();
-    const dept = document.getElementById('req-dept')?.value;
+    const dept = document.getElementById('req-dept')?.value || '';
     const budget = Number(document.getElementById('req-budget')?.value || 0);
     const owner = document.getElementById('req-owner')?.value.trim();
 
@@ -23,17 +30,19 @@
     }
 
     const tr = document.createElement('tr');
+    tr.appendChild(makeCell(tool));
+    tr.appendChild(makeCell(dept));
+    tr.appendChild(makeCell(owner));
+    tr.appendChild(makeCell(`¥${budget.toLocaleString('ja-JP')}`, true));
+
+    const statusTd = document.createElement('td');
+    const badge = document.createElement('span');
     const autoApprove = budget <= 5000;
-    const statusBadge = autoApprove
-      ? '<span class="dads-badge dads-badge--success">少額枠・即時承認</span>'
-      : '<span class="dads-badge dads-badge--warning">決裁待ち</span>';
-    tr.innerHTML = `
-      <td>${tool.replaceAll('<', '&lt;')}</td>
-      <td>${dept}</td>
-      <td>${owner.replaceAll('<', '&lt;')}</td>
-      <td data-num>¥${budget.toLocaleString('ja-JP')}</td>
-      <td>${statusBadge}</td>
-    `;
+    badge.className = autoApprove ? 'dads-badge dads-badge--success' : 'dads-badge dads-badge--warning';
+    badge.textContent = autoApprove ? '少額枠・即時承認' : '決裁待ち';
+    statusTd.appendChild(badge);
+    tr.appendChild(statusTd);
+
     tbody.prepend(tr);
 
     if (countBadge) {

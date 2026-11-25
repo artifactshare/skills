@@ -9,19 +9,26 @@
   const copyBtn = document.getElementById('copy-install-btn');
   const installCmd = document.getElementById('install-cmd');
 
+  let currentFile = './dashboard.html';
   let currentPalette = 'blue';
   let isExpanded = false;
 
+  const loadFrame = () => {
+    if (!frame) return;
+    frame.setAttribute('src', `${currentFile}?palette=${encodeURIComponent(currentPalette)}`);
+  };
+
   const applyPaletteToFrame = () => {
-    frame?.contentWindow?.postMessage({ type: 'dads:set-palette', palette: currentPalette }, '*');
     try {
       const docEl = frame?.contentDocument?.documentElement;
       if (docEl) {
         docEl.setAttribute('data-palette', currentPalette);
+        return;
       }
     } catch {
-      // cross-origin or file:// fallback handled by postMessage
+      // fallback to query parameter reload when contentDocument is inaccessible
     }
+    loadFrame();
   };
 
   const setExpanded = (expand) => {
@@ -50,16 +57,15 @@
     }
   });
 
-  frame?.addEventListener('load', applyPaletteToFrame);
-
   demoBtns.forEach((btn) => {
     btn.addEventListener('click', () => {
       const file = btn.getAttribute('data-file');
-      if (!file || !frame) return;
+      if (!file) return;
+      currentFile = file;
       demoBtns.forEach((b) => {
         b.setAttribute('data-type', b === btn ? 'solid-fill' : 'outline');
       });
-      frame.setAttribute('src', file);
+      loadFrame();
     });
   });
 

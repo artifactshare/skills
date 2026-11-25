@@ -35,8 +35,9 @@
         const valEl = document.querySelector(`[data-kpi="${key}"]`);
         const deltaEl = document.querySelector(`[data-delta="${key}"]`);
         if (valEl) {
-          const unit = valEl.querySelector('.dads-kpi-unit')?.outerHTML || '';
-          valEl.innerHTML = `${val}${unit}`;
+          const unitEl = valEl.querySelector('.dads-kpi-unit');
+          valEl.textContent = val;
+          if (unitEl) valEl.appendChild(unitEl);
         }
         if (deltaEl) deltaEl.textContent = delta;
       });
