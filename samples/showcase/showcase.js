@@ -9,7 +9,7 @@
   const copyBtn = document.getElementById('copy-install-btn');
   const installCmd = document.getElementById('install-cmd');
 
-  let currentPalette = 'green';
+  let currentPalette = 'blue';
   let isExpanded = false;
 
   const applyPaletteToFrame = () => {
