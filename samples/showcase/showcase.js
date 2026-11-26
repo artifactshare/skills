@@ -12,6 +12,12 @@
   const installDialog = document.getElementById('install-dialog');
   const openInstallBtn = document.getElementById('open-install-btn');
   const closeInstallBtn = document.getElementById('close-install-btn');
+  const aboutDialog = document.getElementById('about-dialog');
+  const openAboutBtn = document.getElementById('open-about-btn');
+  const closeAboutBtn = document.getElementById('close-about-btn');
+  const aboutToInstallBtn = document.getElementById('about-to-install-btn');
+  const contextBar = document.getElementById('showcase-context-bar');
+  const closeContextBtn = document.getElementById('close-context-btn');
 
   let activeDemo = 'dashboard';
   let isExpanded = false;
@@ -88,6 +94,24 @@
     if (e.target === installDialog) {
       installDialog.close();
     }
+  });
+  openAboutBtn?.addEventListener('click', () => {
+    aboutDialog?.showModal();
+  });
+  closeAboutBtn?.addEventListener('click', () => {
+    aboutDialog?.close();
+  });
+  aboutDialog?.addEventListener('click', (e) => {
+    if (e.target === aboutDialog) {
+      aboutDialog.close();
+    }
+  });
+  aboutToInstallBtn?.addEventListener('click', () => {
+    aboutDialog?.close();
+    installDialog?.showModal();
+  });
+  closeContextBtn?.addEventListener('click', () => {
+    if (contextBar) contextBar.hidden = true;
   });
 
   copyBtn?.addEventListener('click', async () => {

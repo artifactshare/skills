@@ -282,6 +282,68 @@ const combinedBody = `<div
     id="showcase-stage"
     style="flex: 1 1 auto; min-height: 0; display: flex; flex-direction: column; background: var(--color-neutral-white)"
   >
+    <div id="showcase-context-bar" class="showcase-context-bar">
+      <p class="showcase-context-text">
+        <strong>AI に「DADS で〜」と頼むだけで作れる HTML サンプル集</strong>
+        <span class="showcase-context-sub">（無料 OSS・Claude / Copilot / Gemini 対応・独立プロジェクト）</span>
+      </p>
+      <div class="showcase-context-actions">
+        <button type="button" class="dads-button" data-size="xs" data-type="outline" id="open-about-btn">これは何？</button>
+        <button type="button" class="dads-button" data-size="xs" data-type="text" id="close-context-btn" aria-label="案内を閉じる" style="min-width: auto; padding: 4px 8px">×</button>
+      </div>
+    </div>
+
+    <dialog id="about-dialog" class="showcase-dialog" aria-labelledby="about-dialog-title">
+      <div class="showcase-dialog-head">
+        <div>
+          <h2 id="about-dialog-title" style="margin: 0; font-size: var(--font-size-20); color: var(--color-neutral-black)">
+            Artifact Share Agent Skills — DADS 完全準拠パックとは
+          </h2>
+          <p style="margin: 4px 0 0; font-size: var(--font-size-14); color: var(--color-neutral-solid-gray-600)">
+            AI が作る資料を、そのまま会議・全社共有に出せる品質に揃える無料 OSS スキル集です。
+          </p>
+        </div>
+        <button type="button" class="dads-button" data-size="xs" data-type="outline" id="close-about-btn" aria-label="閉じる">
+          閉じる
+        </button>
+      </div>
+
+      <div class="showcase-dialog-body">
+        <section class="showcase-dialog-card">
+          <h3 style="margin: 0 0 8px; font-size: var(--font-size-16); color: var(--color-neutral-black)">
+            このデモで見られるもの
+          </h3>
+          <p style="margin: 0 0 8px; font-size: var(--font-size-14); color: var(--color-neutral-solid-gray-700); line-height: 1.6">
+            画面上の 6 つのサンプル（KPI ダッシュボード、社内ルール、社内 MTG スライド、PR レビューガイド、動く UI モック、技術発表スライド）は、すべてこのスキルを使って生成したゼロ依存の単一 HTML です。上部のボタンから公式 7 色パレットもリアルタイムに切り替えられます。
+          </p>
+          <ul style="margin: 0; padding-left: 18px; font-size: var(--font-size-14); color: var(--color-neutral-solid-gray-700); line-height: 1.6">
+            <li><strong>AI 特有の派手な装飾を排除</strong>: デジタル庁デザインシステム公式トークンと全 43 コンポーネントに準拠</li>
+            <li><strong>単一 HTML で完結</strong>: Power BI 向けに公開されている 2026 年版 7 色ダッシュボード指針も HTML としてそのまま利用可能</li>
+            <li><strong>CLI も Web AI も対応</strong>: Claude Code / Codex / GitHub Copilot / Cursor / Gemini / Microsoft 365 Copilot / Claude.ai で利用可能</li>
+            <li><strong>そのまま URL 共有</strong>: このライブショーケース自体も、生成した HTML を <a href="https://artifactshare.com" target="_blank" rel="noopener">Artifact Share</a> でリンク共有しています</li>
+          </ul>
+        </section>
+
+        <section class="showcase-dialog-card">
+          <h3 style="margin: 0 0 6px; font-size: var(--font-size-14); color: var(--color-neutral-black)">
+            謝辞・ライセンス・免責事項
+          </h3>
+          <p style="margin: 0; font-size: var(--font-size-14); color: var(--color-neutral-solid-gray-700); line-height: 1.6">
+            デジタル庁がオープンに公開されている公式デザイントークン（MIT）、HTML コンポーネント全 43 種（MIT）、および「ダッシュボードデザインの実践ガイドブック」資産に深く敬意と感謝を表し、各ライセンスに従って同梱・利用しています。本プロジェクトは Artifact Share が公開する独立したオープンソースプロジェクトであり、デジタル庁の公式提供・推奨物ではありません。
+          </p>
+        </section>
+
+        <div style="display: flex; justify-content: flex-end; gap: 8px; flex-wrap: wrap">
+          <a class="dads-button" data-size="xs" data-type="outline" href="https://github.com/artifactshare/skills" target="_blank" rel="noopener">
+            GitHub を見る
+          </a>
+          <button type="button" class="dads-button" data-size="xs" data-type="solid-fill" id="about-to-install-btn">
+            導入方法を見る
+          </button>
+        </div>
+      </div>
+    </dialog>
+
     <div
       id="showcase-fs-bar"
       hidden
@@ -328,6 +390,33 @@ body { background: var(--color-neutral-white); overflow: hidden; }
 .showcase-slide-surface .dads-slide { width: min(100%, 1040px); }
 .showcase-slide-surface .dads-slide-progress-bar { position: static; }
 .showcase-slide-surface .dads-slide-nav { position: static; }
+.showcase-context-bar {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px 12px;
+  padding: 6px 20px;
+  background: var(--color-key-50);
+  border-bottom: 1px solid var(--color-key-200);
+  font-size: var(--font-size-14);
+  color: var(--color-neutral-solid-gray-900);
+}
+.showcase-context-bar[hidden] { display: none !important; }
+.showcase-context-text {
+  margin: 0;
+  min-width: 0;
+  line-height: 1.45;
+}
+.showcase-context-sub {
+  color: var(--color-neutral-solid-gray-700);
+}
+.showcase-context-actions {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+}
 .showcase-dialog {
   width: min(640px, calc(100vw - 24px));
   max-height: calc(100dvh - 32px);
@@ -427,6 +516,9 @@ body { background: var(--color-neutral-white); overflow: hidden; }
   .showcase-palette-row::-webkit-scrollbar { display: none; }
   .showcase-demo-group { flex-wrap: nowrap !important; flex-shrink: 0; }
   .showcase-demo-row .dads-button { white-space: nowrap; flex-shrink: 0; }
+  .showcase-context-bar { padding: 6px 12px; gap: 6px; width: 100%; max-width: 100%; box-sizing: border-box; }
+  .showcase-context-text { font-size: 12px; }
+  .showcase-context-sub { display: none; }
   .showcase-slide-surface { min-height: calc(100dvh - 118px); }
   .showcase-slide-surface .dads-deck { padding: 14px 12px; min-height: 0; align-items: flex-start; }
   .showcase-slide-surface .dads-slide-nav { position: sticky; bottom: 0; z-index: 20; }
