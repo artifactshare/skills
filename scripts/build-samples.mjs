@@ -192,7 +192,7 @@ const combinedBody = `<div
           <span class="dads-badge">スクリプトなし・40KB</span>
         </div>
         <p style="margin: 0 0 10px; font-size: var(--font-size-14); color: var(--color-neutral-solid-gray-700)">
-          gemini.google.com（Skills / Gems）・Gemini in Chrome・Microsoft 365 Copilot / Copilot Studio・Claude.ai 対応。
+          gemini.google.com（Skills / Gems）・Gemini in Chrome・Claude.ai 対応。
         </p>
         <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px">
           <a
@@ -217,8 +217,7 @@ const combinedBody = `<div
           </a>
         </div>
         <ul style="margin: 0; padding-left: 18px; font-size: var(--font-size-14); color: var(--color-neutral-solid-gray-700); line-height: 1.6">
-          <li><strong>Gemini</strong>: 左メニュー「カスタマイズ」→「Skills」から .zip をアップロード（Gems は展開して指示・知識に添付）</li>
-          <li><strong>Microsoft 365 Copilot</strong>: エージェント設定の Skills から .zip をアップロード</li>
+          <li><strong>Gemini</strong>: 左メニュー「カスタマイズ」→「Skills」から .zip をアップロード（Canvas で即プレビュー可能。Gems は展開して指示・知識に添付）</li>
           <li><strong>Claude.ai</strong>: Projects または Skills にアップロード</li>
         </ul>
       </section>
@@ -285,7 +284,7 @@ const combinedBody = `<div
     <div id="showcase-context-bar" class="showcase-context-bar">
       <p class="showcase-context-text">
         <strong>AI に「DADS で〜」と頼むだけで作れる HTML サンプル集</strong>
-        <span class="showcase-context-sub">（無料 OSS・Claude / Copilot / Gemini 対応・独立プロジェクト）</span>
+        <span class="showcase-context-sub">（無料 OSS・Claude / Codex / Gemini 等対応・独立プロジェクト）</span>
       </p>
       <div class="showcase-context-actions">
         <button type="button" class="dads-button" data-size="xs" data-type="outline" id="open-about-btn">これは何？</button>
@@ -319,7 +318,7 @@ const combinedBody = `<div
           <ul style="margin: 0; padding-left: 18px; font-size: var(--font-size-14); color: var(--color-neutral-solid-gray-700); line-height: 1.6">
             <li><strong>AI 特有の派手な装飾を排除</strong>: デジタル庁デザインシステム公式トークンと全 43 コンポーネントに準拠</li>
             <li><strong>単一 HTML で完結</strong>: Power BI 向けに公開されている 2026 年版 7 色ダッシュボード指針も HTML としてそのまま利用可能</li>
-            <li><strong>CLI も Web AI も対応</strong>: Claude Code / Codex / GitHub Copilot / Cursor / Gemini / Microsoft 365 Copilot / Claude.ai で利用可能</li>
+            <li><strong>CLI も Web AI も対応</strong>: Claude Code / Codex / GitHub Copilot / Cursor / Gemini / Claude.ai で利用可能</li>
             <li><strong>そのまま URL 共有</strong>: このライブショーケース自体も、生成した HTML を <a href="https://artifactshare.com" target="_blank" rel="noopener">Artifact Share</a> でリンク共有しています</li>
           </ul>
         </section>

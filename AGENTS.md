@@ -10,7 +10,7 @@ Every skill pack in this repository must work in both environments:
 1. **Local AI Tools** (Claude Code, Codex, GitHub Copilot, Cursor, Gemini CLI, Antigravity):
    - Installed via `npx skills add artifactshare/skills` or `/plugin marketplace add artifactshare/skills`.
    - Lives in `skills/<skill-name>/` as a self-contained directory (never rely on files outside `skills/<skill-name>/` at runtime).
-2. **Web / Cloud AI** (`gemini.google.com` Skills & Gems, Gemini in Chrome, Microsoft 365 Copilot / Copilot Studio, Claude.ai):
+2. **Web / Cloud AI** (`gemini.google.com` Skills & Gems, Gemini in Chrome, Claude.ai):
    - Generated via `npm run build:web` into `dist/web-skills/*.zip` and attached to GitHub Releases.
    - Each `.zip` must have `SKILL.md` (exact uppercase) at the archive root, zero executable scripts (`.js`/`.mjs`/`.py`/`.sh`), and zero OS metadata (`.DS_Store`, `__MACOSX`).
 

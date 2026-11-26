@@ -1,8 +1,7 @@
 #!/usr/bin/env node
 /**
  * Build script-free Web / Cloud AI skill packages (.zip) under dist/web-skills/
- * for gemini.google.com (Skills & Gems), Gemini in Chrome, Microsoft 365 Copilot /
- * Copilot Studio, and Claude.ai.
+ * for gemini.google.com (Skills & Gems), Gemini in Chrome, and Claude.ai.
  *
  * Each .zip has:
  *   - SKILL.md at the archive root (uppercase, YAML frontmatter)
@@ -28,7 +27,7 @@ const WEB_SKILLS = [
     title: 'DADS ドキュメント（Web AI 版）',
     components: 'accordion,button,notification-banner,table',
     description:
-      'デジタル庁デザインシステム（DADS）公式トークン準拠の日本語 HTML ドキュメント（技術検討書・PR レビューガイド・社内規定・議事録）を単一 HTML で生成する。スクリプト不要の Web AI（Gemini / Microsoft 365 Copilot / Claude.ai）向け。',
+      'デジタル庁デザインシステム（DADS）公式トークン準拠の日本語 HTML ドキュメント（技術検討書・PR レビューガイド・社内規定・議事録）を単一 HTML で生成する。スクリプト不要の Web AI（Gemini / Claude.ai）向け。',
     usage: '技術検討レポート、PR 内容説明、社内ガイドライン、議事録、調査報告書',
     bodyGuide: `\`\`\`html
 <main class="dads-doc">
@@ -57,7 +56,7 @@ const WEB_SKILLS = [
     title: 'DADS KPI ダッシュボード（Web AI 版）',
     components: 'button,table',
     description:
-      'デジタル庁「ダッシュボードデザインの実践ガイドブック」2026 年版公式 7 色テーマ準拠の KPI ダッシュボードを単一 HTML で生成する。スクリプト不要の Web AI（Gemini / Microsoft 365 Copilot / Claude.ai）向け。',
+      'デジタル庁「ダッシュボードデザインの実践ガイドブック」2026 年版公式 7 色テーマ準拠の KPI ダッシュボードを単一 HTML で生成する。スクリプト不要の Web AI（Gemini / Claude.ai）向け。',
     usage: '月次 KPI 定点モニター、売上・利用状況レポート、施策効果分析ダッシュボード',
     bodyGuide: `\`\`\`html
 <main class="dads-dash">
@@ -92,7 +91,7 @@ const WEB_SKILLS = [
     title: 'DADS プレゼンスライド（Web AI 版）',
     components: 'table',
     description:
-      'デジタル庁デザインシステム（DADS）準拠の 16:9 HTML スライド（キーボード操作・スマホ 1 カラム対応・1 枚 1 ページ PDF 印刷対応）を単一 HTML で生成する。スクリプト不要の Web AI（Gemini / Microsoft 365 Copilot / Claude.ai）向け。',
+      'デジタル庁デザインシステム（DADS）準拠の 16:9 HTML スライド（キーボード操作・スマホ 1 カラム対応・1 枚 1 ページ PDF 印刷対応）を単一 HTML で生成する。スクリプト不要の Web AI（Gemini / Claude.ai）向け。',
     usage: '経営会議・定例 MTG 資料、技術発表スライド、提案書、振り返り資料',
     bodyGuide: `\`\`\`html
 <div class="dads-deck" role="region" aria-label="スライド">
@@ -129,7 +128,7 @@ const WEB_SKILLS = [
     title: 'DADS 業務 UI モック（Web AI 版）',
     components: 'button,checkbox,form-control-label,input-text,notification-banner,select,table,textarea',
     description:
-      'デジタル庁デザインシステム（DADS）公式フォーム・ボタン・テーブル・通知バナー準拠の操作可能な業務 UI モックアップを単一 HTML で生成する。スクリプト不要の Web AI（Gemini / Microsoft 365 Copilot / Claude.ai）向け。',
+      'デジタル庁デザインシステム（DADS）公式フォーム・ボタン・テーブル・通知バナー準拠の操作可能な業務 UI モックアップを単一 HTML で生成する。スクリプト不要の Web AI（Gemini / Claude.ai）向け。',
     usage: '申請フォーム、管理画面プロトタイプ、承認ワークフロー UI モック',
     bodyGuide: `\`\`\`html
 <div class="dads-mock-shell">
@@ -291,7 +290,7 @@ function buildSingleSkillMd(skill) {
 name: ${skill.id}
 description: ${skill.description}
 license: MIT
-compatibility: gemini, gemini-in-chrome, m365-copilot, copilot-studio, claude-web
+compatibility: gemini, gemini-in-chrome, claude-web
 ---
 
 # ${skill.title}
@@ -318,7 +317,7 @@ function buildAllInOneSkillMd() {
 name: dads-design-pack
 description: デジタル庁デザインシステム（DADS）完全準拠の単一 HTML（ドキュメント・KPI ダッシュボード・16:9 スライド・業務 UI モック）を生成するオールインワンパック。DADS・デジタル庁デザインシステム・社内資料・ダッシュボード・スライド・UI モック作成の依頼で使用する。
 license: MIT
-compatibility: gemini, gemini-in-chrome, m365-copilot, copilot-studio, claude-web
+compatibility: gemini, gemini-in-chrome, claude-web
 ---
 
 # デジタル庁デザインシステム（DADS）完全準拠パック（Web / クラウド AI 版）

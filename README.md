@@ -30,7 +30,7 @@ npx skills add artifactshare/skills@dads-mockup
 - **Claude Code Plugin Marketplace**：`/plugin marketplace add artifactshare/skills`
 - **GitHub Copilot（VS Code / Visual Studio / JetBrains / CLI）**：`.github/skills/`・`~/.copilot/skills/`・`.claude/skills/`・`.agents/skills/` に対応しているため、上記 `npx skills add` でそのまま利用できます。
 
-### 2. Web / クラウド AI（`gemini.google.com` / Microsoft 365 Copilot / Gemini in Chrome / Claude.ai）
+### 2. Web / クラウド AI（`gemini.google.com` / Gemini in Chrome / Claude.ai）
 
 ローカルの Node.js を実行できない Web / クラウド AI 向けに、**スクリプト不要（`.js` ゼロ）・Markdown テンプレート同梱の `.zip` パッケージ** を [GitHub Releases](https://github.com/artifactshare/skills/releases/latest) で配布しています。
 
@@ -42,7 +42,6 @@ npx skills add artifactshare/skills@dads-mockup
 | **`gemini.google.com`（Skills）** | 左メニュー「カスタマイズ（Customize）」→「Skills」→「作成 / アップロード」から `.zip` をアップロード。チャットで `/` や `@`、または「DADS で〜」と呼び出し（生成 HTML は **Canvas** で即プレビュー可能）。 |
 | **`gemini.google.com`（Gems）** | `.zip` を展開し、`SKILL.md` を「指示」に貼り、`references/*.md` を「知識」に添付して保存。**Google Drive 経由で共有リンクを発行**すれば社内全員がインストール不要で利用できます。 |
 | **Gemini in Chrome** | `chrome://skills` から展開したフォルダをインポート（実行スクリプトを含まないため制限に抵触しません）。 |
-| **Microsoft 365 Copilot / Copilot Studio** | エージェント設定の Skills から `.zip` パッケージをアップロードして利用できます。 |
 | **Claude.ai（Web）** | Projects のカスタム指示・ナレッジ、または Skills に `.zip` / 展開ファイルをアップロードして利用できます。 |
 
 ## 同梱スキル一覧
