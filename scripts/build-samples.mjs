@@ -153,7 +153,7 @@ const combinedBody = `<div
   <dialog id="install-dialog" class="showcase-dialog" aria-labelledby="install-dialog-title">
     <div class="showcase-dialog-head">
       <div>
-        <h2 id="install-dialog-title" style="margin: 0; font-size: var(--font-size-20); color: var(--color-neutral-black)">
+        <h2 id="install-dialog-title" style="margin: 0; font-size: var(--font-size-22); color: var(--color-neutral-black)">
           DADS スキルの導入方法
         </h2>
         <p style="margin: 4px 0 0; font-size: var(--font-size-14); color: var(--color-neutral-solid-gray-600)">
@@ -168,9 +168,9 @@ const combinedBody = `<div
     <div class="showcase-dialog-body">
       <section class="showcase-dialog-card">
         <div style="display: flex; align-items: center; justify-content: space-between; gap: 8px; flex-wrap: wrap; margin-bottom: 8px">
-          <h3 style="margin: 0; font-size: var(--font-size-16); color: var(--color-neutral-black)">
+          <p style="margin: 0; font-size: var(--font-size-16); font-weight: 700; color: var(--color-neutral-black)">
             1. ローカル AI ツール（コマンド導入）
-          </h3>
+          </p>
           <span class="dads-badge dads-badge--primary">推奨</span>
         </div>
         <p style="margin: 0 0 10px; font-size: var(--font-size-14); color: var(--color-neutral-solid-gray-700)">
@@ -186,9 +186,9 @@ const combinedBody = `<div
 
       <section class="showcase-dialog-card">
         <div style="display: flex; align-items: center; justify-content: space-between; gap: 8px; flex-wrap: wrap; margin-bottom: 8px">
-          <h3 style="margin: 0; font-size: var(--font-size-16); color: var(--color-neutral-black)">
+          <p style="margin: 0; font-size: var(--font-size-16); font-weight: 700; color: var(--color-neutral-black)">
             2. Web / クラウド AI（.zip アップロード）
-          </h3>
+          </p>
           <span class="dads-badge">スクリプトなし・40KB</span>
         </div>
         <p style="margin: 0 0 10px; font-size: var(--font-size-14); color: var(--color-neutral-solid-gray-700)">
@@ -224,9 +224,9 @@ const combinedBody = `<div
       </section>
 
       <section class="showcase-dialog-card" style="background: var(--color-key-50); border-color: var(--color-key-200)">
-        <h3 style="margin: 0 0 6px; font-size: var(--font-size-14); color: var(--color-key-900)">
+        <p style="margin: 0 0 6px; font-size: var(--font-size-14); font-weight: 700; color: var(--color-key-900)">
           導入後の頼み方（例）
-        </h3>
+        </p>
         <ul style="margin: 0; padding-left: 18px; font-size: var(--font-size-14); color: var(--color-neutral-solid-gray-800); line-height: 1.6">
           <li>「この議事録を DADS でドキュメントにして」</li>
           <li>「この CSV から DADS で KPI ダッシュボードを作って」</li>
@@ -296,7 +296,7 @@ const combinedBody = `<div
     <dialog id="about-dialog" class="showcase-dialog" aria-labelledby="about-dialog-title">
       <div class="showcase-dialog-head">
         <div>
-          <h2 id="about-dialog-title" style="margin: 0; font-size: var(--font-size-20); color: var(--color-neutral-black)">
+          <h2 id="about-dialog-title" style="margin: 0; font-size: var(--font-size-22); color: var(--color-neutral-black)">
             Artifact Share Agent Skills — DADS 完全準拠パックとは
           </h2>
           <p style="margin: 4px 0 0; font-size: var(--font-size-14); color: var(--color-neutral-solid-gray-600)">
@@ -310,9 +310,9 @@ const combinedBody = `<div
 
       <div class="showcase-dialog-body">
         <section class="showcase-dialog-card">
-          <h3 style="margin: 0 0 8px; font-size: var(--font-size-16); color: var(--color-neutral-black)">
+          <p style="margin: 0 0 8px; font-size: var(--font-size-16); font-weight: 700; color: var(--color-neutral-black)">
             このデモで見られるもの
-          </h3>
+          </p>
           <p style="margin: 0 0 8px; font-size: var(--font-size-14); color: var(--color-neutral-solid-gray-700); line-height: 1.6">
             画面上の 6 つのサンプル（KPI ダッシュボード、社内ルール、社内 MTG スライド、PR レビューガイド、動く UI モック、技術発表スライド）は、すべてこのスキルを使って生成したゼロ依存の単一 HTML です。上部のボタンから公式 7 色パレットもリアルタイムに切り替えられます。
           </p>
@@ -325,9 +325,9 @@ const combinedBody = `<div
         </section>
 
         <section class="showcase-dialog-card">
-          <h3 style="margin: 0 0 6px; font-size: var(--font-size-14); color: var(--color-neutral-black)">
+          <p style="margin: 0 0 6px; font-size: var(--font-size-14); font-weight: 700; color: var(--color-neutral-black)">
             謝辞・ライセンス・免責事項
-          </h3>
+          </p>
           <p style="margin: 0; font-size: var(--font-size-14); color: var(--color-neutral-solid-gray-700); line-height: 1.6">
             デジタル庁がオープンに公開されている公式デザイントークン（MIT）、HTML コンポーネント全 43 種（MIT）、および「ダッシュボードデザインの実践ガイドブック」資産に深く敬意と感謝を表し、各ライセンスに従って同梱・利用しています。本プロジェクトは Artifact Share が公開する独立したオープンソースプロジェクトであり、デジタル庁の公式提供・推奨物ではありません。
           </p>
@@ -384,7 +384,7 @@ const showcaseThemeCss = [
     .replace(/width:\s*100vw;\s*height:\s*100vh;/, 'width: 100%; min-height: calc(100dvh - 180px);'),
   `
 body { background: var(--color-neutral-white); overflow: hidden; }
-.showcase-doc-surface { background: #f8f8fb; min-height: 100%; }
+.showcase-doc-surface { background: #f8f8fb; min-height: 100%; padding: 8px; box-sizing: border-box; }
 .showcase-slide-surface { background: var(--color-neutral-solid-gray-900); min-height: 100%; display: flex; flex-direction: column; }
 .showcase-slide-surface .dads-deck { flex: 1; padding: 24px; height: auto; }
 .showcase-slide-surface .dads-slide { width: min(100%, 1040px); }
