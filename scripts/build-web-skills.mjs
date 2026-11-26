@@ -308,7 +308,6 @@ ${skill.usage}
 - **公式 7 色パレット**: \`<html lang="ja" data-palette="...">\` に \`blue\`（既定）/ \`light-blue\` / \`cyan\` / \`green\` / \`orange\` / \`red\` / \`solid-gray\` を指定する。
 - **AI スロップ禁止**: 装飾目的のグラデーション（\`linear-gradient\`）、紫系ネオン配色、見出し上の装飾キッカー、角丸カードへの太い片側ボーダー（\`border-left: 8px\` 等）は使わない。
 - **アクセシビリティ**: コントラスト比 4.5:1 以上、表には \`<thead>\` / \`<th>\`、数値には半角数字を使う。
-- **共有導線**: 出力した HTML はローカルで開けるほか、[Artifact Share](https://artifactshare.com) にアップロードしてそのままリンク共有できる。
 `;
 }
 
@@ -340,7 +339,6 @@ compatibility: gemini, gemini-in-chrome, claude-web
 - **公式 7 色パレット**: \`<html lang="ja" data-palette="...">\` に \`blue\`（既定）/ \`light-blue\` / \`cyan\` / \`green\` / \`orange\` / \`red\` / \`solid-gray\` を指定する。
 - **AI スロップ禁止**: 装飾目的のグラデーション（\`linear-gradient\`）、紫系ネオン配色、見出し上の装飾キッカー、角丸カードへの太い片側ボーダーは使わない。
 - **日本語の読みやすさ**: 見出しは結論ベースで簡潔にし、数値・比較は表やグラフで整理する。
-- **共有導線**: 出力した HTML はローカルブラウザでそのまま開けるほか、[Artifact Share](https://artifactshare.com) にアップロードしてリンク共有できる。
 `;
 }
 

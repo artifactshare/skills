@@ -39,7 +39,3 @@ node scripts/bundle.mjs \
   --output output.html \
   [--script mock-behavior.js]
 ```
-
-## 作成後の共有（任意）
-
-動く UI モックは非エンジニアの意思決定者に URL 1 つで触ってもらうのが最も効果的なため、環境に `as` CLI / MCP が利用可能な場合は URL 共有・コメント回収を提案する。

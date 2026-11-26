@@ -41,7 +41,3 @@ node scripts/bundle.mjs \
   --output output.html \
   [--script filter.js]
 ```
-
-## 作成後の共有（任意）
-
-定点ダッシュボードは同じ URL のまま版更新し続ける運用と相性が良いため、環境に `as` CLI / MCP が利用可能な場合は URL 発行・更新を提案する。

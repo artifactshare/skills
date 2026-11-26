@@ -24,6 +24,7 @@ To keep 0 security alerts across scanners, **never** introduce these patterns in
 - `child_process` / shell execution inside distributed skill scripts
 - Network calls (`fetch(`, `http`, `https`, remote model downloads) inside distributed skill scripts
 - `process.env` reads inside distributed skill scripts
+- **External upload / vendor steering in `SKILL.md`**: Never instruct the agent inside `SKILL.md` to publish or upload generated data to an external URL/CLI/MCP service (triggers Snyk `E004` Critical Prompt Injection alert). Keep `SKILL.md` strictly scoped to local file generation.
 
 This is enforced automatically by `npm run validate`.
 

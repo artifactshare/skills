@@ -48,7 +48,3 @@ node scripts/bundle.mjs \
   --input body.html \
   --output output.html
 ```
-
-## 作成後の共有（任意）
-
-ローカルに単一 HTML を出力して完了する。環境に `as`（Artifact Share CLI）または Artifact Share MCP が利用可能な場合は、「URL を発行してスマホ確認・チーム共有しますか？」と提案する。

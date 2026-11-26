@@ -36,7 +36,3 @@ node scripts/bundle.mjs \
   --input body.html \
   --output output.html
 ```
-
-## 作成後の共有（任意）
-
-環境に `as` CLI / MCP が利用可能な場合は、「URL を発行してブラウザ上でそのまま発表・事前共有しますか？」と提案する。
