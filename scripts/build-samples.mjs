@@ -138,7 +138,7 @@ const combinedBody = `<div
   >
     <div class="dads-mock-brand" style="font-size: var(--font-size-16)">
       <span>Artifact Share Agent Skills</span>
-      <span class="dads-badge dads-badge--primary showcase-brand-badge">DADS 完全準拠パック</span>
+      <span class="dads-badge dads-badge--primary showcase-brand-badge">デジタル庁デザインシステム準拠</span>
     </div>
     <div class="showcase-header-actions" style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap">
       <button type="button" class="dads-button" data-size="xs" data-type="solid-fill" id="open-install-btn">
@@ -154,10 +154,10 @@ const combinedBody = `<div
     <div class="showcase-dialog-head">
       <div>
         <h2 id="install-dialog-title" style="margin: 0; font-size: var(--font-size-22); color: var(--color-neutral-black)">
-          DADS スキルの導入方法
+          スキルの導入方法
         </h2>
         <p style="margin: 4px 0 0; font-size: var(--font-size-14); color: var(--color-neutral-solid-gray-600)">
-          お使いの AI ツールに合わせて、コマンドまたは .zip で導入できます。
+          お使いの AI ツールに合わせて選んでください。すべて無料です。
         </p>
       </div>
       <button type="button" class="dads-button" data-size="xs" data-type="outline" id="close-install-btn" aria-label="閉じる">
@@ -167,14 +167,11 @@ const combinedBody = `<div
 
     <div class="showcase-dialog-body">
       <section class="showcase-dialog-card">
-        <div style="display: flex; align-items: center; justify-content: space-between; gap: 8px; flex-wrap: wrap; margin-bottom: 8px">
-          <p style="margin: 0; font-size: var(--font-size-16); font-weight: 700; color: var(--color-neutral-black)">
-            1. ローカル AI ツール（コマンド導入）
-          </p>
-          <span class="dads-badge dads-badge--primary">推奨</span>
-        </div>
+        <p style="margin: 0 0 6px; font-size: var(--font-size-16); font-weight: 700; color: var(--color-neutral-black)">
+          Claude Code / Codex / Cursor / GitHub Copilot / Gemini CLI
+        </p>
         <p style="margin: 0 0 10px; font-size: var(--font-size-14); color: var(--color-neutral-solid-gray-700)">
-          Claude Code / Codex / GitHub Copilot / Cursor / Gemini CLI / Antigravity 対応。AI ツールに実行を頼み、再起動すると使えます。
+          以下のコマンドを AI ツールに実行してもらい、再起動すると使えるようになります。
         </p>
         <div class="showcase-cmd-row">
           <code id="install-cmd" class="showcase-cmd-box">npx skills add artifactshare/skills</code>
@@ -185,14 +182,11 @@ const combinedBody = `<div
       </section>
 
       <section class="showcase-dialog-card">
-        <div style="display: flex; align-items: center; justify-content: space-between; gap: 8px; flex-wrap: wrap; margin-bottom: 8px">
-          <p style="margin: 0; font-size: var(--font-size-16); font-weight: 700; color: var(--color-neutral-black)">
-            2. Web / クラウド AI（.zip アップロード）
-          </p>
-          <span class="dads-badge">スクリプトなし・40KB</span>
-        </div>
+        <p style="margin: 0 0 6px; font-size: var(--font-size-16); font-weight: 700; color: var(--color-neutral-black)">
+          Gemini / Claude.ai（Web 版）
+        </p>
         <p style="margin: 0 0 10px; font-size: var(--font-size-14); color: var(--color-neutral-solid-gray-700)">
-          gemini.google.com（Skills / Gems）・Gemini in Chrome・Claude.ai 対応。
+          パッケージをダウンロードしてアップロードするだけで使えます。
         </p>
         <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px">
           <a
@@ -203,7 +197,7 @@ const combinedBody = `<div
             target="_blank"
             rel="noopener"
           >
-            4 種全部入り .zip をダウンロード
+            スキルパック (.zip) をダウンロード
           </a>
           <a
             class="dads-button"
@@ -213,18 +207,18 @@ const combinedBody = `<div
             target="_blank"
             rel="noopener"
           >
-            個別版を見る
+            個別に選ぶ
           </a>
         </div>
         <ul style="margin: 0; padding-left: 18px; font-size: var(--font-size-14); color: var(--color-neutral-solid-gray-700); line-height: 1.6">
-          <li><strong>Gemini</strong>: 左メニュー「カスタマイズ」→「Skills」から .zip をアップロード（Canvas で即プレビュー可能。Gems は展開して指示・知識に添付）</li>
-          <li><strong>Claude.ai</strong>: Projects または Skills にアップロード</li>
+          <li><strong>Gemini</strong>: 左メニュー「カスタマイズ」から「Skills」を開き、.zip をアップロードします。生成した HTML は Canvas でそのまま確認できます。</li>
+          <li><strong>Claude.ai</strong>: Projects または Skills にアップロードします。</li>
         </ul>
       </section>
 
       <section class="showcase-dialog-card" style="background: var(--color-key-50); border-color: var(--color-key-200)">
         <p style="margin: 0 0 6px; font-size: var(--font-size-14); font-weight: 700; color: var(--color-key-900)">
-          導入後の頼み方（例）
+          使い方の例
         </p>
         <ul style="margin: 0; padding-left: 18px; font-size: var(--font-size-14); color: var(--color-neutral-solid-gray-800); line-height: 1.6">
           <li>「この議事録を DADS でドキュメントにして」</li>
@@ -265,7 +259,7 @@ const combinedBody = `<div
     </div>
 
     <div class="showcase-palette-row" style="display: flex; flex-wrap: wrap; align-items: center; gap: 6px">
-      <span style="font-size: var(--font-size-14); font-weight: 700; color: var(--color-neutral-black); margin-right: 2px; flex-shrink: 0">7 色:</span>
+      <span style="font-size: var(--font-size-14); font-weight: 700; color: var(--color-neutral-black); margin-right: 2px; flex-shrink: 0">配色:</span>
       <button type="button" class="dads-badge dads-badge--primary" data-switch-palette="blue" style="cursor: pointer; flex-shrink: 0">Blue</button>
       <button type="button" class="dads-badge" data-switch-palette="light-blue" style="cursor: pointer; flex-shrink: 0">Light Blue</button>
       <button type="button" class="dads-badge" data-switch-palette="cyan" style="cursor: pointer; flex-shrink: 0">Cyan</button>
@@ -283,8 +277,7 @@ const combinedBody = `<div
   >
     <div id="showcase-context-bar" class="showcase-context-bar">
       <p class="showcase-context-text">
-        <strong>AI に「DADS で〜」と頼むだけで作れる HTML サンプル集</strong>
-        <span class="showcase-context-sub">（無料 OSS・Claude / Codex / Gemini 等対応・独立プロジェクト）</span>
+        <strong>デジタル庁デザインシステム準拠の資料を、AI に頼むだけで作れる無料スキルのサンプルです</strong>
       </p>
       <div class="showcase-context-actions">
         <button type="button" class="dads-button" data-size="xs" data-type="outline" id="open-about-btn">これは何？</button>
@@ -296,10 +289,10 @@ const combinedBody = `<div
       <div class="showcase-dialog-head">
         <div>
           <h2 id="about-dialog-title" style="margin: 0; font-size: var(--font-size-22); color: var(--color-neutral-black)">
-            Artifact Share Agent Skills — DADS 完全準拠パックとは
+            デジタル庁デザインシステム（DADS）スキルパック
           </h2>
           <p style="margin: 4px 0 0; font-size: var(--font-size-14); color: var(--color-neutral-solid-gray-600)">
-            AI が作る資料を、そのまま会議・全社共有に出せる品質に揃える無料 OSS スキル集です。
+            AI が作る資料を、そのまま会議や社内共有に出せる見た目へ揃える無料スキルです。
           </p>
         </div>
         <button type="button" class="dads-button" data-size="xs" data-type="outline" id="close-about-btn" aria-label="閉じる">
@@ -310,31 +303,28 @@ const combinedBody = `<div
       <div class="showcase-dialog-body">
         <section class="showcase-dialog-card">
           <p style="margin: 0 0 8px; font-size: var(--font-size-16); font-weight: 700; color: var(--color-neutral-black)">
-            このデモで見られるもの
+            できること
           </p>
-          <p style="margin: 0 0 8px; font-size: var(--font-size-14); color: var(--color-neutral-solid-gray-700); line-height: 1.6">
-            画面上の 6 つのサンプル（KPI ダッシュボード、社内ルール、社内 MTG スライド、PR レビューガイド、動く UI モック、技術発表スライド）は、すべてこのスキルを使って生成したゼロ依存の単一 HTML です。上部のボタンから公式 7 色パレットもリアルタイムに切り替えられます。
+          <p style="margin: 0 0 10px; font-size: var(--font-size-14); color: var(--color-neutral-solid-gray-700); line-height: 1.6">
+            AI に日本語で頼むだけで、ドキュメント・KPI ダッシュボード・スライド・業務 UI モックを 1 つの HTML ファイルとして生成します。画面上の 6 つのタブはすべてこのスキルで作った実物です。
           </p>
-          <ul style="margin: 0; padding-left: 18px; font-size: var(--font-size-14); color: var(--color-neutral-solid-gray-700); line-height: 1.6">
-            <li><strong>AI 特有の派手な装飾を排除</strong>: デジタル庁デザインシステム公式トークンと全 43 コンポーネントに準拠</li>
-            <li><strong>単一 HTML で完結</strong>: Power BI 向けに公開されている 2026 年版 7 色ダッシュボード指針も HTML としてそのまま利用可能</li>
-            <li><strong>CLI も Web AI も対応</strong>: Claude Code / Codex / GitHub Copilot / Cursor / Gemini / Claude.ai で利用可能</li>
-            <li><strong>そのまま URL 共有</strong>: このライブショーケース自体も、生成した HTML を <a href="https://artifactshare.com" target="_blank" rel="noopener">Artifact Share</a> でリンク共有しています</li>
-          </ul>
+          <p style="margin: 0; font-size: var(--font-size-14); color: var(--color-neutral-solid-gray-700); line-height: 1.6">
+            作った HTML はブラウザでそのまま開けるほか、<a href="https://artifactshare.com" target="_blank" rel="noopener">Artifact Share</a> に上げれば URL でチーム共有できます。このデモページ自体も同じ仕組みで公開しています。
+          </p>
         </section>
 
         <section class="showcase-dialog-card">
           <p style="margin: 0 0 6px; font-size: var(--font-size-14); font-weight: 700; color: var(--color-neutral-black)">
-            謝辞・ライセンス・免責事項
+            出典とライセンス
           </p>
           <p style="margin: 0; font-size: var(--font-size-14); color: var(--color-neutral-solid-gray-700); line-height: 1.6">
-            デジタル庁がオープンに公開されている公式デザイントークン（MIT）、HTML コンポーネント全 43 種（MIT）、および「ダッシュボードデザインの実践ガイドブック」資産に深く敬意と感謝を表し、各ライセンスに従って同梱・利用しています。本プロジェクトは Artifact Share が公開する独立したオープンソースプロジェクトであり、デジタル庁の公式提供・推奨物ではありません。
+            デジタル庁が公開している公式デザイントークン、HTML コンポーネント全 43 種、および「ダッシュボードデザインの実践ガイドブック」の公開資産を各ライセンス（MIT 等）に従って利用しています。Artifact Share が公開する独立した OSS であり、デジタル庁の公式提供物ではありません。
           </p>
         </section>
 
         <div style="display: flex; justify-content: flex-end; gap: 8px; flex-wrap: wrap">
           <a class="dads-button" data-size="xs" data-type="outline" href="https://github.com/artifactshare/skills" target="_blank" rel="noopener">
-            GitHub を見る
+            GitHub
           </a>
           <button type="button" class="dads-button" data-size="xs" data-type="solid-fill" id="about-to-install-btn">
             導入方法を見る
