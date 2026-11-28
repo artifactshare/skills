@@ -54,39 +54,111 @@
 
   <section class="dads-panel-grid">
     <article class="dads-panel dads-panel--6">
-      <div class="dads-chart" data-chart="hbar" style="margin: 0; padding: 0; border: 0; background: transparent">
-        <script type="application/json">
-        {
-          "title": "獲得チャネル別 新規契約社数",
-          "subtitle": "2026 年 11 月実績（件数降順）",
-          "unit": "社",
-          "items": [
-            { "label": "検索・記事経由", "value": 24, "highlight": true },
-            { "label": "パートナー紹介", "value": 16, "highlight": true },
-            { "label": "共催ウェビナー", "value": 11 },
-            { "label": "インサイドセールス", "value": 8 },
-            { "label": "展示会・イベント", "value": 5 }
-          ]
-        }
-        </script>
+      <div data-seg-panel="all">
+        <div class="dads-chart" data-chart="hbar" style="margin: 0; padding: 0; border: 0; background: transparent">
+          <script type="application/json">
+          {
+            "title": "獲得チャネル別 新規契約社数（全社合計）",
+            "subtitle": "2026 年 11 月実績（計 64 社・件数降順）",
+            "unit": "社",
+            "items": [
+              { "label": "検索・記事経由", "value": 24, "highlight": true },
+              { "label": "パートナー紹介", "value": 16, "highlight": true },
+              { "label": "共催ウェビナー", "value": 11 },
+              { "label": "インサイドセールス", "value": 8 },
+              { "label": "展示会・イベント", "value": 5 }
+            ]
+          }
+          </script>
+        </div>
+      </div>
+      <div data-seg-panel="ent" hidden>
+        <div class="dads-chart" data-chart="hbar" style="margin: 0; padding: 0; border: 0; background: transparent">
+          <script type="application/json">
+          {
+            "title": "獲得チャネル別 新規契約社数（エンタープライズ）",
+            "subtitle": "2026 年 11 月実績（計 18 社・パートナー紹介が主力）",
+            "unit": "社",
+            "items": [
+              { "label": "パートナー紹介", "value": 8, "highlight": true },
+              { "label": "インサイドセールス", "value": 5, "highlight": true },
+              { "label": "展示会・イベント", "value": 3 },
+              { "label": "共催ウェビナー", "value": 1 },
+              { "label": "検索・記事経由", "value": 1 }
+            ]
+          }
+          </script>
+        </div>
+      </div>
+      <div data-seg-panel="smb" hidden>
+        <div class="dads-chart" data-chart="hbar" style="margin: 0; padding: 0; border: 0; background: transparent">
+          <script type="application/json">
+          {
+            "title": "獲得チャネル別 新規契約社数（SMB・セルフサーブ）",
+            "subtitle": "2026 年 11 月実績（計 46 社・検索流入が過半）",
+            "unit": "社",
+            "items": [
+              { "label": "検索・記事経由", "value": 23, "highlight": true },
+              { "label": "共催ウェビナー", "value": 10, "highlight": true },
+              { "label": "パートナー紹介", "value": 8 },
+              { "label": "インサイドセールス", "value": 3 },
+              { "label": "展示会・イベント", "value": 2 }
+            ]
+          }
+          </script>
+        </div>
       </div>
     </article>
 
     <article class="dads-panel dads-panel--6">
-      <div class="dads-chart" data-chart="line" style="margin: 0; padding: 0; border: 0; background: transparent">
-        <script type="application/json">
-        {
-          "title": "セグメント別 MRR 推移（原点 0 基準）",
-          "subtitle": "6〜11 月推移＋エンタープライズ目標ライン",
-          "unit": "万円",
-          "labels": ["6月", "7月", "8月", "9月", "10月", "11月"],
-          "series": [
-            { "name": "エンタープライズ", "values": [1960, 2140, 2310, 2490, 2645, 2940] },
-            { "name": "SMB・セルフサーブ", "values": [1460, 1540, 1600, 1690, 1800, 1880] }
-          ],
-          "target": { "value": 3000, "label": "ENT 年内目標 3,000万円" }
-        }
-        </script>
+      <div data-seg-panel="all">
+        <div class="dads-chart" data-chart="line" style="margin: 0; padding: 0; border: 0; background: transparent">
+          <script type="application/json">
+          {
+            "title": "セグメント別 MRR 推移（原点 0 基準）",
+            "subtitle": "6〜11 月推移＋エンタープライズ目標ライン",
+            "unit": "万円",
+            "labels": ["6月", "7月", "8月", "9月", "10月", "11月"],
+            "series": [
+              { "name": "エンタープライズ", "values": [1960, 2140, 2310, 2490, 2645, 2940] },
+              { "name": "SMB・セルフサーブ", "values": [1460, 1540, 1600, 1690, 1800, 1880] }
+            ],
+            "target": { "value": 3000, "label": "ENT 年内目標 3,000万円" }
+          }
+          </script>
+        </div>
+      </div>
+      <div data-seg-panel="ent" hidden>
+        <div class="dads-chart" data-chart="line" style="margin: 0; padding: 0; border: 0; background: transparent">
+          <script type="application/json">
+          {
+            "title": "エンタープライズ MRR 推移（原点 0 基準）",
+            "subtitle": "6〜11 月実績・年内目標 3,000 万円まであと 60 万円",
+            "unit": "万円",
+            "labels": ["6月", "7月", "8月", "9月", "10月", "11月"],
+            "series": [
+              { "name": "エンタープライズ", "values": [1960, 2140, 2310, 2490, 2645, 2940] }
+            ],
+            "target": { "value": 3000, "label": "年内目標 3,000万円" }
+          }
+          </script>
+        </div>
+      </div>
+      <div data-seg-panel="smb" hidden>
+        <div class="dads-chart" data-chart="line" style="margin: 0; padding: 0; border: 0; background: transparent">
+          <script type="application/json">
+          {
+            "title": "SMB・セルフサーブ MRR 推移（原点 0 基準）",
+            "subtitle": "6〜11 月実績・商談化率回復で 2,000 万円到達を狙う",
+            "unit": "万円",
+            "labels": ["6月", "7月", "8月", "9月", "10月", "11月"],
+            "series": [
+              { "name": "SMB・セルフサーブ", "values": [1460, 1540, 1600, 1690, 1800, 1880] }
+            ],
+            "target": { "value": 2000, "label": "年内目標 2,000万円" }
+          }
+          </script>
+        </div>
       </div>
     </article>
 
@@ -145,25 +217,25 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
+            <tr data-seg-row="ent">
               <td>北日本ロジスティクス株式会社（物流）</td>
               <td>新規受注</td>
               <td>Enterprise（300 席）</td>
               <td data-num>¥480,000</td>
             </tr>
-            <tr>
+            <tr data-seg-row="ent">
               <td>青葉マニュファクチャリング（製造）</td>
               <td>アップセル</td>
               <td>Enterprise（200 席）</td>
               <td data-num>¥340,000</td>
             </tr>
-            <tr>
+            <tr data-seg-row="smb">
               <td>みらいメディカルグループ（医療）</td>
               <td>新規受注</td>
               <td>Business（120 席）</td>
               <td data-num>¥192,000</td>
             </tr>
-            <tr>
+            <tr data-seg-row="smb">
               <td>中央リテールシステムズ（小売）</td>
               <td>新規受注</td>
               <td>Business（90 席）</td>

@@ -41,6 +41,12 @@
         }
         if (deltaEl) deltaEl.textContent = delta;
       });
+      document.querySelectorAll('[data-seg-panel]').forEach((panel) => {
+        panel.hidden = panel.getAttribute('data-seg-panel') !== seg;
+      });
+      document.querySelectorAll('[data-seg-row]').forEach((tr) => {
+        tr.hidden = seg !== 'all' && tr.getAttribute('data-seg-row') !== seg;
+      });
     });
   });
 })();
