@@ -9,21 +9,30 @@
       <h2>Q4 は利用定着が進んだ一方、新規流入の鈍化が最大の課題</h2>
     </div>
     <div class="dads-slide-body">
-      <div class="dads-slide-cols dads-slide-cols--3">
-        <div class="dads-slide-card dads-slide-card--accent">
-          <h3>継続利用ワークスペース</h3>
-          <div class="dads-slide-stat">64.2%</div>
-          <p>同一 URL での更新率が前四半期比 +8.4pt 上昇。導入済みチームの定着は好調。</p>
+      <div class="dads-slide-cols">
+        <div class="dads-chart" data-chart="line" style="margin: 0">
+          <script type="application/json">
+          {
+            "title": "月間新規ワークスペース登録数",
+            "unit": "社",
+            "labels": ["6月", "7月", "8月", "9月", "10月", "11月"],
+            "series": [
+              { "name": "新規登録", "values": [38, 49, 62, 74, 84, 68] }
+            ],
+            "target": { "value": 100, "label": "Q1 目標 100社/月" }
+          }
+          </script>
         </div>
-        <div class="dads-slide-card">
-          <h3>月間新規登録</h3>
-          <div class="dads-slide-stat">68 件</div>
-          <p>10 月ピーク（84 件）から 11 月は減速。既存の紹介・記事チャネルが天井に近い。</p>
-        </div>
-        <div class="dads-slide-card">
-          <h3>有料転換率</h3>
-          <div class="dads-slide-stat">0.5%</div>
-          <p>Free プランで十分足りるため、チーム導入へ引き上げる決定打が不足している。</p>
+        <div style="display: flex; flex-direction: column; gap: 12px">
+          <div class="dads-slide-card dads-slide-card--accent">
+            <h3>継続利用ワークスペース（更新率）</h3>
+            <div class="dads-slide-stat">64.2%</div>
+            <p>同一 URL 更新率が前四半期比 +8.4pt。導入済みチームの定着は好調。</p>
+          </div>
+          <div class="dads-slide-card">
+            <h3>課題：既存チャネルの天井</h3>
+            <p>10 月ピーク（84 社）から 11 月は 68 社へ減速。紹介・記事以外の新規導線が必要。</p>
+          </div>
         </div>
       </div>
     </div>
@@ -35,21 +44,31 @@
 
   <section class="dads-slide">
     <div class="dads-slide-head">
-      <h2>Q1 は「作成ツール配布」と「チーム標準テーマ」の 2 軸で突破する</h2>
+      <h2>Q1 は「作成ツール配布」で流入を作り「チーム標準テーマ」で転換する</h2>
     </div>
     <div class="dads-slide-body">
-      <div class="dads-slide-cols">
-        <div class="dads-slide-card dads-slide-card--accent">
-          <h3>施策 1：無料作成スキルの OSS 公開（新規獲得）</h3>
-          <p>
-            共有の前段である「資料作成フェーズ」に入り込む。デジタル庁デザインシステム準拠の無料スキルを配布し、実物デモ URL から新規流入を生む。
-          </p>
+      <div class="dads-compare" style="margin: 0">
+        <div class="dads-compare-pane" data-kind="before">
+          <div class="dads-compare-head">
+            <h4 class="dads-compare-title">これまで（共有フェーズ待ち）</h4>
+            <span class="dads-badge">Before</span>
+          </div>
+          <ul class="dads-compare-list">
+            <li>HTML を自分で作れる一部エンジニアしか流入しない</li>
+            <li>Free プランで十分足り、Team へ上げる動機が弱い</li>
+            <li>共有 URL を見ても「自分も作りたい」に直結しにくい</li>
+          </ul>
         </div>
-        <div class="dads-slide-card">
-          <h3>施策 2：プロジェクト標準テーマ機能（有料転換）</h3>
-          <p>
-            自社カラー・ロゴを 1 回設定すれば全員の AI 成果物が統一される仕組みを提供し、Free から Team プランへ上げる明確な理由を作る。
-          </p>
+        <div class="dads-compare-pane" data-kind="after">
+          <div class="dads-compare-head">
+            <h4 class="dads-compare-title">Q1 施策（作成フェーズから獲得）</h4>
+            <span class="dads-badge dads-badge--primary">After</span>
+          </div>
+          <ul class="dads-compare-list">
+            <li class="is-highlight">無料の DADS HTML 生成スキルを OSS 配布し新規層を獲得</li>
+            <li class="is-highlight">実物ショーケース URL 自体を共有デモとして拡散</li>
+            <li class="is-highlight">自社テーマ統一機能で Team プラン転換の理由を作る</li>
+          </ul>
         </div>
       </div>
     </div>
@@ -61,35 +80,27 @@
 
   <section class="dads-slide">
     <div class="dads-slide-head">
-      <h2>3 か月の実行計画と撤退・投資判断ゲート</h2>
+      <h2>工数対効果の高い「OSS スキル公開」と「PR 図解」から即時着手する</h2>
     </div>
     <div class="dads-slide-body">
-      <table style="width: 100%; border-collapse: collapse; font-size: 16px">
-        <thead>
-          <tr style="background: var(--color-neutral-solid-gray-100)">
-            <th style="padding: 12px; text-align: left; border-bottom: 2px solid var(--color-neutral-solid-gray-500)">時期</th>
-            <th style="padding: 12px; text-align: left; border-bottom: 2px solid var(--color-neutral-solid-gray-500)">マイルストーン</th>
-            <th style="padding: 12px; text-align: left; border-bottom: 2px solid var(--color-neutral-solid-gray-500)">判断基準（KPI）</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td style="padding: 12px; border-bottom: 1px solid var(--color-neutral-solid-gray-200)"><strong>12 月</strong></td>
-            <td style="padding: 12px; border-bottom: 1px solid var(--color-neutral-solid-gray-200)">OSS スキル公開・ライブショーケース発信</td>
-            <td style="padding: 12px; border-bottom: 1px solid var(--color-neutral-solid-gray-200)">ショーケース経由の新規 WS +30 件 / 社外利用報告</td>
-          </tr>
-          <tr style="background: var(--color-key-50)">
-            <td style="padding: 12px; border-bottom: 1px solid var(--color-neutral-solid-gray-200)"><strong>1 月</strong></td>
-            <td style="padding: 12px; border-bottom: 1px solid var(--color-neutral-solid-gray-200)">既存顧客での実務運用・CLI 連携改善</td>
-            <td style="padding: 12px; border-bottom: 1px solid var(--color-neutral-solid-gray-200)">初回投稿率 50% 以上・継続利用フィードバック回収</td>
-          </tr>
-          <tr>
-            <td style="padding: 12px; border-bottom: 1px solid var(--color-neutral-solid-gray-200)"><strong>2 月</strong></td>
-            <td style="padding: 12px; border-bottom: 1px solid var(--color-neutral-solid-gray-200)">プロジェクト標準テーマの Team プラン提供</td>
-            <td style="padding: 12px; border-bottom: 1px solid var(--color-neutral-solid-gray-200)">社外 Team 契約 2 件以上の新規獲得</td>
-          </tr>
-        </tbody>
-      </table>
+      <div class="dads-chart" data-chart="scatter" style="margin: 0">
+        <script type="application/json">
+        {
+          "title": "Q1 候補施策の優先度マトリクス",
+          "xLabel": "実装工数（小 → 大）",
+          "yLabel": "新規獲得・転換インパクト（小 → 大）",
+          "xMax": 10,
+          "yMax": 10,
+          "quadrants": ["大型投資（2月〜）", "最優先（12月即着手）", "見送り", "クイックウィン"],
+          "points": [
+            { "label": "DADS スキル OSS 公開", "x": 2.2, "y": 9.0, "highlight": true },
+            { "label": "PR 図解テンプレート", "x": 3.0, "y": 8.2, "highlight": true },
+            { "label": "チーム標準テーマ", "x": 7.2, "y": 8.5 },
+            { "label": "管理ログ CSV 出力", "x": 6.4, "y": 3.5 }
+          ]
+        }
+        </script>
+      </div>
     </div>
     <footer class="dads-slide-foot">
       <span>Q4 事業振り返りと Q1 重点施策のご提案</span>
@@ -99,17 +110,31 @@
 
   <section class="dads-slide">
     <div class="dads-slide-head">
-      <h2>本日の会議で承認いただきたい事項（2 点）</h2>
+      <h2>本日の会議で承認いただきたい事項と 3 か月ゲート</h2>
     </div>
     <div class="dads-slide-body">
-      <div class="dads-slide-cols">
-        <div class="dads-slide-card dads-slide-card--accent">
-          <h3>1. 12 月の OSS 公開・発信の承認</h3>
-          <p>MIT ライセンスでの公開と、ライブショーケース URL の一般公開（顧客固有データを含まない汎用サンプル構成）。</p>
+      <div class="dads-flow" style="margin: 0 0 14px">
+        <div class="dads-flow-step" data-status="added">
+          <div class="dads-flow-step-head">
+            <h4 class="dads-flow-step-title">12 月：OSS 公開・発信</h4>
+            <span class="dads-badge dads-badge--primary">承認事項 1</span>
+          </div>
+          <p class="dads-flow-step-desc">目標：ショーケース経由 WS +30 社</p>
         </div>
-        <div class="dads-slide-card">
-          <h3>2. 1 月以降の本体開発優先度</h3>
-          <p>12 月の反応および先行導入チームでの実務評価を確認したうえで、1 月初旬に本体テーマ機能の着手可否を最終判断する。</p>
+        <div class="dads-flow-arrow" aria-hidden="true">→</div>
+        <div class="dads-flow-step">
+          <div class="dads-flow-step-head">
+            <h4 class="dads-flow-step-title">1 月：先行導入ヒアリング</h4>
+          </div>
+          <p class="dads-flow-step-desc">目標：初回投稿率 50% 以上</p>
+        </div>
+        <div class="dads-flow-arrow" aria-hidden="true">→</div>
+        <div class="dads-flow-step" data-status="changed">
+          <div class="dads-flow-step-head">
+            <h4 class="dads-flow-step-title">2 月：Team テーマ機能</h4>
+            <span class="dads-badge dads-badge--warning">承認事項 2</span>
+          </div>
+          <p class="dads-flow-step-desc">目標：社外 Team 契約 +2 社以上</p>
         </div>
       </div>
     </div>

@@ -1193,6 +1193,14 @@ table :is(td, th)[data-num] {
   white-space: nowrap;
 }
 
+/* ---------- Slide compactness ---------- */
+.dads-slide .dads-chart {
+  padding: 12px 14px;
+}
+.dads-slide .dads-chart-svg {
+  max-height: 270px;
+}
+
 /* ---------- Responsive (<= 768px / Mobile 390px) ---------- */
 @media (max-width: 768px) {
   .dads-compare,
@@ -1685,6 +1693,19 @@ pre {
           </div>
           <p class="dads-flow-step-desc">指数バックオフで最大 5 回再試行、超過時は DLQ へ退避</p>
         </div>
+      </div>
+    </div>
+
+    <div class="dads-seq" role="group" aria-label="重複 Webhook 受信時のシーケンス">
+      <div class="dads-seq-actors">
+        <div class="dads-seq-actor">Stripe</div>
+        <div class="dads-seq-actor">Webhook API</div>
+        <div class="dads-seq-actor">Database</div>
+      </div>
+      <div class="dads-seq-rows">
+        <div class="dads-seq-row"><span class="dads-seq-path">Stripe → API</span><span class="dads-seq-msg">POST /webhooks/stripe（同一 event_id の再送）</span></div>
+        <div class="dads-seq-row" data-tone="key"><span class="dads-seq-path">API → DB</span><span class="dads-seq-msg">INSERT OR IGNORE webhook_events → 既存ロック検知</span></div>
+        <div class="dads-seq-row"><span class="dads-seq-path">API → Stripe</span><span class="dads-seq-msg">HTTP 200 OK（売上レコード二重登録をスキップ）</span></div>
       </div>
     </div>
 

@@ -22,87 +22,111 @@
       <span class="dads-kpi-label">月間アクティブ投稿者数</span>
       <div class="dads-kpi-value" data-kpi="posters">48<span class="dads-kpi-unit">人</span></div>
       <span class="dads-kpi-delta dads-kpi-delta--up" data-delta="posters">前月比 +17.1% ▲</span>
+      <div class="dads-chart dads-chart--inline" data-chart="sparkline">
+        <script type="application/json">{"values":[24,29,33,38,41,48],"ariaLabel":"月間アクティブ投稿者数の 6 か月推移"}</script>
+      </div>
     </article>
     <article class="dads-kpi-card">
       <span class="dads-kpi-label">新規作成ドキュメント数</span>
       <div class="dads-kpi-value" data-kpi="docs">312<span class="dads-kpi-unit">件</span></div>
       <span class="dads-kpi-delta dads-kpi-delta--up" data-delta="docs">前月比 +9.5% ▲</span>
+      <div class="dads-chart dads-chart--inline" data-chart="sparkline">
+        <script type="application/json">{"values":[142,176,214,248,285,312],"ariaLabel":"新規作成ドキュメント数の 6 か月推移"}</script>
+      </div>
     </article>
     <article class="dads-kpi-card">
       <span class="dads-kpi-label">同一 URL 更新率</span>
       <div class="dads-kpi-value" data-kpi="rev">64.2<span class="dads-kpi-unit">%</span></div>
       <span class="dads-kpi-delta dads-kpi-delta--up" data-delta="rev">前月比 +4.8pt ▲</span>
+      <div class="dads-chart dads-chart--inline" data-chart="sparkline">
+        <script type="application/json">{"values":[48,51,55,58,59.4,64.2],"ariaLabel":"同一 URL 更新率の 6 か月推移"}</script>
+      </div>
     </article>
     <article class="dads-kpi-card">
       <span class="dads-kpi-label">未閲覧率（作成 7 日後）</span>
       <div class="dads-kpi-value" data-kpi="unseen">11.4<span class="dads-kpi-unit">%</span></div>
       <span class="dads-kpi-delta dads-kpi-delta--down" data-delta="unseen">前月比 +1.2pt ▲（要改善）</span>
+      <div class="dads-chart dads-chart--inline" data-chart="sparkline">
+        <script type="application/json">{"values":[14.2,12.8,11.5,10.9,10.2,11.4],"ariaLabel":"未閲覧率の 6 か月推移"}</script>
+      </div>
     </article>
   </section>
 
   <section class="dads-panel-grid">
     <article class="dads-panel dads-panel--6">
-      <div class="dads-panel-head">
-        <h2>用途別 作成件数内訳</h2>
-        <span class="dads-panel-note">上位 5 カテゴリ（件数降順）</span>
-      </div>
-      <div class="dads-bars">
-        <div class="dads-bar-row">
-          <span class="dads-bar-label">設計・案の比較</span>
-          <div class="dads-bar-track"><div class="dads-bar-fill" style="width: 100%"></div></div>
-          <span class="dads-bar-val">118 件</span>
-        </div>
-        <div class="dads-bar-row">
-          <span class="dads-bar-label">KPI・分析レポート</span>
-          <div class="dads-bar-track"><div class="dads-bar-fill" style="width: 78%"></div></div>
-          <span class="dads-bar-val">92 件</span>
-        </div>
-        <div class="dads-bar-row">
-          <span class="dads-bar-label">社内ガイド・手順</span>
-          <div class="dads-bar-track"><div class="dads-bar-fill dads-bar-fill--secondary" style="width: 46%"></div></div>
-          <span class="dads-bar-val">54 件</span>
-        </div>
-        <div class="dads-bar-row">
-          <span class="dads-bar-label">UI モック・試作</span>
-          <div class="dads-bar-track"><div class="dads-bar-fill dads-bar-fill--secondary" style="width: 27%"></div></div>
-          <span class="dads-bar-val">32 件</span>
-        </div>
-        <div class="dads-bar-row">
-          <span class="dads-bar-label">議事録・その他</span>
-          <div class="dads-bar-track"><div class="dads-bar-fill dads-bar-fill--neutral" style="width: 14%"></div></div>
-          <span class="dads-bar-val">16 件</span>
-        </div>
+      <div class="dads-chart" data-chart="hbar" style="margin: 0; padding: 0; border: 0; background: transparent">
+        <script type="application/json">
+        {
+          "title": "用途別 作成件数内訳",
+          "subtitle": "上位 5 カテゴリ（件数降順）",
+          "unit": "件",
+          "items": [
+            { "label": "設計・PR レビュー", "value": 118, "highlight": true },
+            { "label": "KPI・分析レポート", "value": 92, "highlight": true },
+            { "label": "社内ガイド・手順", "value": 54 },
+            { "label": "UI モック・試作", "value": 32 },
+            { "label": "議事録・その他", "value": 16 }
+          ]
+        }
+        </script>
       </div>
     </article>
 
     <article class="dads-panel dads-panel--6">
-      <div class="dads-panel-head">
-        <h2>月次 作成件数トレンド（原点 0 基準）</h2>
-        <span class="dads-panel-note">6〜11 月推移</span>
+      <div class="dads-chart" data-chart="line" style="margin: 0; padding: 0; border: 0; background: transparent">
+        <script type="application/json">
+        {
+          "title": "部門別 作成件数トレンド（原点 0 基準）",
+          "subtitle": "6〜11 月推移＋月次目標ライン",
+          "unit": "件",
+          "labels": ["6月", "7月", "8月", "9月", "10月", "11月"],
+          "series": [
+            { "name": "開発・技術部門", "values": [88, 108, 134, 152, 174, 192] },
+            { "name": "事業・CS 部門", "values": [54, 68, 80, 96, 111, 120] }
+          ],
+          "target": { "value": 180, "label": "開発部門 Q4 目標 180件" }
+        }
+        </script>
       </div>
-      <svg class="dads-svg-chart" viewBox="0 0 520 190" role="img" aria-label="6月から11月の月次作成件数トレンド">
-        <line class="grid-line" x1="40" y1="20" x2="500" y2="20" />
-        <line class="grid-line" x1="40" y1="65" x2="500" y2="65" />
-        <line class="grid-line" x1="40" y1="110" x2="500" y2="110" />
-        <line class="grid-line" x1="40" y1="155" x2="500" y2="155" />
-        <text class="axis-label" x="32" y="24" text-anchor="end">360</text>
-        <text class="axis-label" x="32" y="69" text-anchor="end">240</text>
-        <text class="axis-label" x="32" y="114" text-anchor="end">120</text>
-        <text class="axis-label" x="32" y="159" text-anchor="end">0</text>
-        <polyline class="series-line-1" points="60,126 144,108 228,84 312,68 396,52 480,38" />
-        <circle cx="60" cy="126" r="4" fill="var(--dads-chart-1)" />
-        <circle cx="144" cy="108" r="4" fill="var(--dads-chart-1)" />
-        <circle cx="228" cy="84" r="4" fill="var(--dads-chart-1)" />
-        <circle cx="312" cy="68" r="4" fill="var(--dads-chart-1)" />
-        <circle cx="396" cy="52" r="4" fill="var(--dads-chart-1)" />
-        <circle cx="480" cy="38" r="4" fill="var(--dads-chart-1)" />
-        <text class="axis-label" x="60" y="176" text-anchor="middle">6月</text>
-        <text class="axis-label" x="144" y="176" text-anchor="middle">7月</text>
-        <text class="axis-label" x="228" y="176" text-anchor="middle">8月</text>
-        <text class="axis-label" x="312" y="176" text-anchor="middle">9月</text>
-        <text class="axis-label" x="396" y="176" text-anchor="middle">10月</text>
-        <text class="axis-label" x="480" y="176" text-anchor="middle">11月</text>
-      </svg>
+    </article>
+
+    <article class="dads-panel dads-panel--6">
+      <div class="dads-chart" data-chart="stacked" style="margin: 0; padding: 0; border: 0; background: transparent">
+        <script type="application/json">
+        {
+          "title": "作成元 AI ツール別の構成比推移",
+          "subtitle": "どの AI で作っても同一ワークスペースへ集約",
+          "seriesNames": ["Claude Code", "Codex", "Cursor", "Gemini / Web"],
+          "rows": [
+            { "label": "2026 Q2", "values": [48, 18, 22, 12] },
+            { "label": "2026 Q3", "values": [42, 26, 18, 14] },
+            { "label": "2026 Q4", "values": [36, 30, 17, 17] }
+          ]
+        }
+        </script>
+      </div>
+    </article>
+
+    <article class="dads-panel dads-panel--6">
+      <div class="dads-chart" data-chart="scatter" style="margin: 0; padding: 0; border: 0; background: transparent">
+        <script type="application/json">
+        {
+          "title": "Q1 改善施策の優先度マトリクス",
+          "subtitle": "横軸：実装工数 / 縦軸：定着インパクト",
+          "xLabel": "実装工数（小 → 大）",
+          "yLabel": "定着インパクト（小 → 大）",
+          "xMax": 10,
+          "yMax": 10,
+          "quadrants": ["大型投資", "最優先（即着手）", "後回し", "クイックウィン"],
+          "points": [
+            { "label": "PR 図解テンプレ", "x": 2.4, "y": 8.8, "highlight": true },
+            { "label": "Slack 未閲覧通知", "x": 3.2, "y": 7.6, "highlight": true },
+            { "label": "自社テーマ統一", "x": 6.8, "y": 8.4 },
+            { "label": "権限一括管理", "x": 7.5, "y": 4.2 }
+          ]
+        }
+        </script>
+      </div>
     </article>
 
     <article class="dads-panel">
@@ -128,6 +152,12 @@
               <td data-num>248</td>
             </tr>
             <tr>
+              <td>PR #418 決済 Webhook レビューガイド</td>
+              <td>設計・PR レビュー</td>
+              <td data-num>v4</td>
+              <td data-num>214</td>
+            </tr>
+            <tr>
               <td>1Password オンボーディングガイド</td>
               <td>社内ガイド・手順</td>
               <td data-num>v3</td>
@@ -135,15 +165,9 @@
             </tr>
             <tr>
               <td>Q4 開発ロードマップ</td>
-              <td>設計・案の比較</td>
+              <td>設計・PR レビュー</td>
               <td data-num>v18</td>
               <td data-num>164</td>
-            </tr>
-            <tr>
-              <td>新料金プラン比較案</td>
-              <td>設計・案の比較</td>
-              <td data-num>v12</td>
-              <td data-num>139</td>
             </tr>
           </tbody>
         </table>

@@ -6,7 +6,7 @@
     </div>
     <h1>生成 AI ツール利用ガイドライン</h1>
     <p class="dads-doc-lead">
-      業務で生成 AI ツールを安全かつ効果的に活用するための承認済みツール一覧、データ入力ルール、申請手順、よくある質問をまとめました。
+      業務で生成 AI ツールを安全かつ効果的に活用するための判断基準、承認済みツール一覧、申請フロー、よくある質問をまとめました。
     </p>
     <dl class="dads-meta-grid">
       <div><dt>施行日</dt><dd>2026-11-01</dd></div>
@@ -17,24 +17,95 @@
   </header>
 
   <section class="dads-section">
-    <h2>1. 基本方針（まず守る 3 原則）</h2>
-    <div class="dads-callout">
-      <p class="dads-callout-title">業務活用を積極的に推奨します（法人契約ツールのみ利用可）</p>
-      <p>
-        学習オプトアウトが契約上保証された法人アカウントに限り、社内資料の作成・調査・コーディング支援への積極的な活用を推奨します。
-        一方、個人アカウント（無料版含む）への業務データ入力は禁止です。
-      </p>
-    </div>
-    <div class="dads-callout dads-callout--error">
-      <p class="dads-callout-title">入力禁止データ（法人契約ツールでも入力不可）</p>
-      <p>
-        顧客の個人情報（氏名・住所・電話番号・メールアドレス等）、クレジットカード情報、未公表の決算数値、システムの本番認証情報（API キー・パスワード）は、いかなる AI ツールにも入力しないでください。
-      </p>
+    <h2>1. 判断基準（使ってよい範囲 / 禁止事項）</h2>
+    <div class="dads-compare">
+      <div class="dads-compare-pane" data-kind="after">
+        <div class="dads-compare-head">
+          <h4 class="dads-compare-title">推奨・許可（法人契約ツール）</h4>
+          <span class="dads-badge dads-badge--success">OK</span>
+        </div>
+        <ul class="dads-compare-list">
+          <li class="is-highlight">社内資料・議事録・仕様書の下書きと図解化</li>
+          <li class="is-highlight">ソースコード生成・PR レビュー補助・テスト作成</li>
+          <li>公開情報の調査・翻訳・データ集計（匿名化済み）</li>
+        </ul>
+      </div>
+      <div class="dads-compare-pane" data-kind="before">
+        <div class="dads-compare-head">
+          <h4 class="dads-compare-title">禁止（法人ツールでも不可）</h4>
+          <span class="dads-badge dads-badge--error">NG</span>
+        </div>
+        <ul class="dads-compare-list">
+          <li>個人アカウント・無料版 AI への業務データ入力</li>
+          <li>顧客の個人情報（氏名・住所・連絡先・決済情報）</li>
+          <li>未公表の決算数値・本番 API キー・パスワード</li>
+        </ul>
+      </div>
     </div>
   </section>
 
   <section class="dads-section">
-    <h2>2. 承認済みツールとデータ区分</h2>
+    <h2>2. 新規ツール利用申請の承認フロー</h2>
+    <div class="dads-flow" role="group" aria-label="AI ツール申請承認フロー">
+      <div class="dads-flow-step">
+        <div class="dads-flow-step-head">
+          <h4 class="dads-flow-step-title">1. ポータル申請</h4>
+        </div>
+        <p class="dads-flow-step-desc">ツール名・部署・月額見込みを入力</p>
+      </div>
+      <div class="dads-flow-arrow" aria-hidden="true">→</div>
+      <div class="dads-flow-step" data-status="added">
+        <div class="dads-flow-step-head">
+          <h4 class="dads-flow-step-title">2. 金額・契約判定</h4>
+          <span class="dads-badge dads-badge--primary">自動分岐</span>
+        </div>
+        <p class="dads-flow-step-desc">承認済みリストと月額 5,000 円基準を確認</p>
+      </div>
+      <div class="dads-flow-arrow" aria-hidden="true">→</div>
+      <div class="dads-flow-step">
+        <div class="dads-flow-step-head">
+          <h4 class="dads-flow-step-title">3. SSO 付与・利用開始</h4>
+          <span class="dads-badge dads-badge--success">最短当日</span>
+        </div>
+        <p class="dads-flow-step-desc">社内 Google アカウントでログイン</p>
+      </div>
+      <div class="dads-flow-branch">
+        <div class="dads-flow-step" data-status="added">
+          <div class="dads-flow-step-head">
+            <h4 class="dads-flow-step-title">ルート A：承認済み ＆ 月 5,000 円以下</h4>
+            <span class="dads-badge dads-badge--success">1 営業日</span>
+          </div>
+          <p class="dads-flow-step-desc">上長承認のみで即時決裁・情シスより招待送付</p>
+        </div>
+        <div class="dads-flow-step" data-status="changed">
+          <div class="dads-flow-step-head">
+            <h4 class="dads-flow-step-title">ルート B：未承認ツール 又は 月 5,001 円以上</h4>
+            <span class="dads-badge dads-badge--warning">3 営業日</span>
+          </div>
+          <p class="dads-flow-step-desc">情シス・法務が学習オプトアウト条件と保管先を審査</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="dads-section">
+    <h2>3. 承認済みツールと部門別導入状況</h2>
+    <div class="dads-chart" data-chart="stacked">
+      <script type="application/json">
+      {
+        "title": "部門別 承認済み AI ツールの導入状況（2026 年 11 月時点）",
+        "subtitle": "全社員 240 名対象・情シス棚卸し結果",
+        "seriesNames": ["日常利用（週 3 回以上）", "試用中", "未導入"],
+        "rows": [
+          { "label": "プロダクト開発部", "values": [84, 12, 4] },
+          { "label": "グロース・マーケ部", "values": [68, 22, 10] },
+          { "label": "CS・オペレーション部", "values": [52, 30, 18] },
+          { "label": "コーポレート管理部", "values": [41, 34, 25] }
+        ]
+      }
+      </script>
+    </div>
+
     <div class="dads-table-wrap">
       <table class="dads-doc-table">
         <thead>
@@ -73,15 +144,6 @@
         </tbody>
       </table>
     </div>
-  </section>
-
-  <section class="dads-section">
-    <h2>3. 利用開始・新規ツール導入の手順</h2>
-    <ol class="dads-steps">
-      <li><strong>利用申請ポータルから申請</strong>：希望ツール・部署・月額見込みを入力して送信する（月 5,000 円以下は上長承認のみで即時決裁）。</li>
-      <li><strong>SSO 連携・アカウント有効化</strong>：承認後 1 営業日以内に情シスより招待メールが届くため、社内 Google アカウントでログインする。</li>
-      <li><strong>成果物の共有・確認</strong>：AI が作成した社内資料やレポートは、リンク露出を防ぐため社内限定ワークスペース上で共有し、最終責任者が内容を確認する。</li>
-    </ol>
   </section>
 
   <section class="dads-section">
@@ -131,6 +193,6 @@
 
   <footer class="dads-doc-footer">
     <span>社内規程番号：IT-AI-2026-04</span>
-    <span>dads-doc / Digital Agency Design System 準拠</span>
+    <span>dads / DADS Design Tokens &amp; Visual Components</span>
   </footer>
 </main>

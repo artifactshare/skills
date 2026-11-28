@@ -81,6 +81,19 @@
       </div>
     </div>
 
+    <div class="dads-seq" role="group" aria-label="重複 Webhook 受信時のシーケンス">
+      <div class="dads-seq-actors">
+        <div class="dads-seq-actor">Stripe</div>
+        <div class="dads-seq-actor">Webhook API</div>
+        <div class="dads-seq-actor">Database</div>
+      </div>
+      <div class="dads-seq-rows">
+        <div class="dads-seq-row"><span class="dads-seq-path">Stripe → API</span><span class="dads-seq-msg">POST /webhooks/stripe（同一 event_id の再送）</span></div>
+        <div class="dads-seq-row" data-tone="key"><span class="dads-seq-path">API → DB</span><span class="dads-seq-msg">INSERT OR IGNORE webhook_events → 既存ロック検知</span></div>
+        <div class="dads-seq-row"><span class="dads-seq-path">API → Stripe</span><span class="dads-seq-msg">HTTP 200 OK（売上レコード二重登録をスキップ）</span></div>
+      </div>
+    </div>
+
     <div class="dads-compare">
       <div class="dads-compare-pane" data-kind="before">
         <div class="dads-compare-head">

@@ -1,12 +1,12 @@
 <main class="dads-deck" aria-label="技術発表スライド">
   <section class="dads-slide dads-slide--cover is-active">
     <h1>AI エージェントが作る社内資料を、<br />デザインシステムで統一する</h1>
-    <p class="dads-slide-sub">デジタル庁デザインシステム × 単一 HTML バンドルによる実務ワークフロー（2026-11-25）</p>
+    <p class="dads-slide-sub">デジタル庁デザインシステム × 単一 HTML バンドルによる実務ワークフロー（2026-11-28）</p>
   </section>
 
   <section class="dads-slide">
     <div class="dads-slide-head">
-      <h2>AI に HTML 資料を作らせると、毎回「見た目」と「共有」で詰まる</h2>
+      <h2>AI に HTML 資料を作らせると、毎回「見た目」「図解」「共有」で詰まる</h2>
     </div>
     <div class="dads-slide-body">
       <div class="dads-slide-cols dads-slide-cols--3">
@@ -15,12 +15,12 @@
           <p>紫グラデや派手な装飾など AI 特有の見た目が混ざり、そのまま社内会議に出しづらい。</p>
         </div>
         <div class="dads-slide-card">
-          <h3>CSS でトークン消費</h3>
-          <p>毎回 400 行以上のスタイルを書き直すため、生成が遅く、修正時にレイアウトが崩れる。</p>
+          <h3>図解とグラフが崩れる</h3>
+          <p>AI に生の SVG 座標を手計算させると、軸ズレや日本語のはみ出しが高確率で起きる。</p>
         </div>
         <div class="dads-slide-card">
-          <h3>共有先が決まらない</h3>
-          <p>ローカル HTML のまま埋もれるか、テキストだけ貼り直して表現力が失われる。</p>
+          <h3>CSS でトークン消費</h3>
+          <p>毎回 400 行以上のスタイルを書き直すため生成が遅く、スマホ対応も抜け落ちる。</p>
         </div>
       </div>
     </div>
@@ -32,17 +32,31 @@
 
   <section class="dads-slide">
     <div class="dads-slide-head">
-      <h2>AI には「本文構造」だけを書かせ、公式 DADS 資産を自動バンドルする</h2>
+      <h2>AI には「本文＋宣言的 JSON」だけを書かせ、DADS 資産と SVG を自動生成する</h2>
     </div>
     <div class="dads-slide-body">
-      <div class="dads-slide-cols">
-        <div class="dads-slide-card">
-          <h3>Before：毎回ゼロから生成</h3>
-          <p>プロンプトで配色・余白・印刷対応を毎回指示しても、担当者やモデルによって品質がバラつく。</p>
+      <div class="dads-compare" style="margin: 0">
+        <div class="dads-compare-pane" data-kind="before">
+          <div class="dads-compare-head">
+            <h4 class="dads-compare-title">Before：毎回ゼロから CSS・SVG 生成</h4>
+            <span class="dads-badge">従来</span>
+          </div>
+          <ul class="dads-compare-list">
+            <li>モデルや担当者ごとに配色・余白・印刷対応がバラつく</li>
+            <li>グラフの SVG 座標がズレて手直しが発生する</li>
+            <li>スタイル記述だけで出力トークンの大半を消費する</li>
+          </ul>
         </div>
-        <div class="dads-slide-card dads-slide-card--accent">
-          <h3>After：DADS スキル＋ツリーシェイク</h3>
-          <p>公式トークン全量と 43 コンポーネントから使用分だけを自動抽出し、ゼロ依存の単一 HTML へ結合する。</p>
+        <div class="dads-compare-pane" data-kind="after">
+          <div class="dads-compare-head">
+            <h4 class="dads-compare-title">After：dads スキル＋自動バンドル</h4>
+            <span class="dads-badge dads-badge--primary">新方式</span>
+          </div>
+          <ul class="dads-compare-list">
+            <li class="is-highlight">43 コンポーネントから使用分だけを自動ツリーシェイク</li>
+            <li class="is-highlight">JSON 宣言から 7 種の精密 SVG グラフをビルド時生成</li>
+            <li class="is-highlight">処理フロー・影響マップ・ミニ Diff もゼロ依存 CSS で統一</li>
+          </ul>
         </div>
       </div>
     </div>
@@ -54,17 +68,38 @@
 
   <section class="dads-slide">
     <div class="dads-slide-head">
-      <h2>1 つのスキル（dads）で 4 種類の資料・UI モックを網羅</h2>
+      <h2>生成から単一 HTML 化・社内共有まで 4 ステップで完結する</h2>
     </div>
     <div class="dads-slide-body">
-      <div class="dads-slide-cols">
-        <div class="dads-slide-card">
-          <h3>doc / slides</h3>
-          <p>技術検討、PR 説明、社内マニュアル、議事録（スクロール連動目次付き）と 16:9 発表スライド。</p>
+      <div class="dads-flow" style="margin: 0">
+        <div class="dads-flow-step">
+          <div class="dads-flow-step-head">
+            <h4 class="dads-flow-step-title">1. 本文 HTML 記述</h4>
+          </div>
+          <p class="dads-flow-step-desc">AI は見出し・図解・グラフ JSON のみ出力</p>
         </div>
-        <div class="dads-slide-card dads-slide-card--accent">
-          <h3>dashboard / mockup</h3>
-          <p>7 色パレットの KPI ダッシュボードと、フォーム全 43 種を使った操作可能な業務画面 UI モック。</p>
+        <div class="dads-flow-arrow" aria-hidden="true">→</div>
+        <div class="dads-flow-step" data-status="added">
+          <div class="dads-flow-step-head">
+            <h4 class="dads-flow-step-title">2. bundle.mjs 結合</h4>
+            <span class="dads-badge dads-badge--primary">自動</span>
+          </div>
+          <p class="dads-flow-step-desc">DADS CSS 抽出＋SVG チャート展開＋目次生成</p>
+        </div>
+        <div class="dads-flow-arrow" aria-hidden="true">→</div>
+        <div class="dads-flow-step">
+          <div class="dads-flow-step-head">
+            <h4 class="dads-flow-step-title">3. 単一 HTML 出力</h4>
+          </div>
+          <p class="dads-flow-step-desc">ゼロ依存・スマホ 390px・PDF 印刷対応</p>
+        </div>
+        <div class="dads-flow-arrow" aria-hidden="true">→</div>
+        <div class="dads-flow-step" data-status="added">
+          <div class="dads-flow-step-head">
+            <h4 class="dads-flow-step-title">4. 1 本の URL で共有</h4>
+            <span class="dads-badge dads-badge--success">更新可</span>
+          </div>
+          <p class="dads-flow-step-desc">Artifact Share で社内限定共有・同じ URL で更新</p>
         </div>
       </div>
     </div>
@@ -76,19 +111,22 @@
 
   <section class="dads-slide">
     <div class="dads-slide-head">
-      <h2>1 回のテーマ設定で、チーム全員の AI 成果物を同じ品質に揃える</h2>
+      <h2>導入後は生成トークン数を 65% 削減し、手直し回数も 1/4 に減少</h2>
     </div>
     <div class="dads-slide-body">
-      <div class="dads-slide-cols">
-        <div class="dads-slide-card dads-slide-card--accent">
-          <h3>7 色パレット＋自社テーマ</h3>
-          <div class="dads-slide-stat">43 Components</div>
-          <p>デジタル庁公式トークンを土台に、プロジェクト単位のカラーとルールで全員の資料品質を底上げする。</p>
-        </div>
-        <div class="dads-slide-card">
-          <h3>同じ URL で育て続ける</h3>
-          <p>生成した単一 HTML はローカルでも動き、Artifact Share と繋げばデプロイなしで社内共有・バージョン更新できる。</p>
-        </div>
+      <div class="dads-chart" data-chart="bar" style="margin: 0">
+        <script type="application/json">
+        {
+          "title": "資料 1 本あたりの生成コスト・手直し比較（社内検証 20 件平均）",
+          "unit": "",
+          "labels": ["AI 出力行数（行）", "手直し往復回数（×10）", "生成所要時間（秒）"],
+          "series": [
+            { "name": "従来（ゼロから生成）", "values": [520, 42, 68] },
+            { "name": "dads スキル利用", "values": [180, 10, 22] }
+          ],
+          "note": "手直し往復回数はグラフ比較のため 10 倍表記（従来 4.2 回 → 導入後 1.0 回）。"
+        }
+        </script>
       </div>
     </div>
     <footer class="dads-slide-foot">

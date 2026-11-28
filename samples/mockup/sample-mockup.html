@@ -1193,6 +1193,14 @@ table :is(td, th)[data-num] {
   white-space: nowrap;
 }
 
+/* ---------- Slide compactness ---------- */
+.dads-slide .dads-chart {
+  padding: 12px 14px;
+}
+.dads-slide .dads-chart-svg {
+  max-height: 270px;
+}
+
 /* ---------- Responsive (<= 768px / Mobile 390px) ---------- */
 @media (max-width: 768px) {
   .dads-compare,
@@ -2798,6 +2806,30 @@ body {
       <span class="dads-badge dads-badge--success" data-mock-count>登録済み 3 件</span>
     </div>
 
+    <div class="dads-flow" role="group" aria-label="申請から承認までの流れ" style="margin-top: 0; margin-bottom: 16px">
+      <div class="dads-flow-step" data-status="added">
+        <div class="dads-flow-step-head">
+          <h4 class="dads-flow-step-title">1. 申請入力</h4>
+          <span class="dads-badge dads-badge--primary">現在ステップ</span>
+        </div>
+        <p class="dads-flow-step-desc">ツール名・部署・月額を登録</p>
+      </div>
+      <div class="dads-flow-arrow" aria-hidden="true">→</div>
+      <div class="dads-flow-step">
+        <div class="dads-flow-step-head">
+          <h4 class="dads-flow-step-title">2. 自動決裁判定</h4>
+        </div>
+        <p class="dads-flow-step-desc">5,000 円以下は上長承認のみ</p>
+      </div>
+      <div class="dads-flow-arrow" aria-hidden="true">→</div>
+      <div class="dads-flow-step">
+        <div class="dads-flow-step-head">
+          <h4 class="dads-flow-step-title">3. SSO 付与完了</h4>
+        </div>
+        <p class="dads-flow-step-desc">一覧のステータスが承認済みに更新</p>
+      </div>
+    </div>
+
     <div
       class="dads-notification-banner"
       data-style="standard"
@@ -2962,6 +2994,23 @@ body {
     </section>
 
     <section class="dads-mock-tabpanel" id="panel-list" role="tabpanel" aria-labelledby="tab-list" hidden>
+      <div class="dads-chart" data-chart="hbar" style="margin-top: 0"><div class="dads-chart-head"><h3 class="dads-chart-title">部署別 AI ツール月額予算（承認済み＋申請中）</h3></div><div class="dads-chart-svg-wrap"><svg class="dads-chart-svg" viewBox="0 0 600 144" role="img" aria-label="部署別 AI ツール月額予算（承認済み＋申請中）">
+        <text x="138" y="22" text-anchor="end" font-size="12.5" font-weight="700" fill="#1a1a1c">グロース・マーケ部</text>
+        <rect x="148" y="10" width="360" height="18" rx="4" fill="#e8e8ee" />
+        <rect x="148" y="10" width="360.0" height="18" rx="4" fill="var(--dads-chart-1)" />
+        <text x="516" y="23" font-size="12.5" font-weight="700" fill="#1a1a1c">22,000円</text>
+        <text x="138" y="56" text-anchor="end" font-size="12.5" font-weight="700" fill="#1a1a1c">プロダクト開発部</text>
+        <rect x="148" y="44" width="360" height="18" rx="4" fill="#e8e8ee" />
+        <rect x="148" y="44" width="316.6" height="18" rx="4" fill="var(--dads-chart-1)" />
+        <text x="516" y="57" font-size="12.5" font-weight="700" fill="#1a1a1c">19,350円</text>
+        <text x="138" y="90" text-anchor="end" font-size="12.5" font-weight="500" fill="#1a1a1c">CS・オペレーション部</text>
+        <rect x="148" y="78" width="360" height="18" rx="4" fill="#e8e8ee" />
+        <rect x="148" y="78" width="144.0" height="18" rx="4" fill="var(--dads-chart-2)" />
+        <text x="516" y="91" font-size="12.5" font-weight="700" fill="#1a1a1c">8,800円</text>
+        <text x="138" y="124" text-anchor="end" font-size="12.5" font-weight="500" fill="#1a1a1c">コーポレート管理部</text>
+        <rect x="148" y="112" width="360" height="18" rx="4" fill="#e8e8ee" />
+        <rect x="148" y="112" width="81.0" height="18" rx="4" fill="var(--dads-chart-2)" />
+        <text x="516" y="125" font-size="12.5" font-weight="700" fill="#1a1a1c">4,950円</text></svg></div></div>
       <div class="dads-mock-panel">
         <div class="dads-table" data-size="dense" data-row-hover-highlight style="width: 100%">
           <table class="dads-table__table" style="width: 100%" data-cell-border="bottom">
