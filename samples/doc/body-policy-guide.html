@@ -6,7 +6,7 @@
     </div>
     <h1>生成 AI ツール利用ガイドライン</h1>
     <p class="dads-doc-lead">
-      業務で生成 AI ツールを安全かつ効果的に活用するための判断基準、承認済みツール一覧、申請フロー、よくある質問をまとめました。
+      業務で生成 AI ツールを安全かつ効果的に活用するための判断基準、承認済みツール一覧、申請フロー、よくある質問をまとめました。迷った場合はまず第 1 章の許可・禁止リストを確認してください。
     </p>
     <dl class="dads-meta-grid">
       <div><dt>施行日</dt><dd>2026-11-01</dd></div>
@@ -18,6 +18,9 @@
 
   <section class="dads-section">
     <h2>1. 判断基準（使ってよい範囲 / 禁止事項）</h2>
+    <p>
+      当社では、学習オプトアウトが契約で保証された<strong>法人契約ツール</strong>に限り、日常業務での積極的な活用を推奨しています。一方、個人情報や未公表の機密情報はツール種別を問わず入力禁止です。
+    </p>
     <div class="dads-compare">
       <div class="dads-compare-pane" data-kind="after">
         <div class="dads-compare-head">
@@ -25,9 +28,9 @@
           <span class="dads-badge dads-badge--success">OK</span>
         </div>
         <ul class="dads-compare-list">
-          <li class="is-highlight">社内資料・議事録・仕様書の下書きと図解化</li>
+          <li class="is-highlight">社内資料・議事録・仕様書の下書きと要約</li>
           <li class="is-highlight">ソースコード生成・PR レビュー補助・テスト作成</li>
-          <li>公開情報の調査・翻訳・データ集計（匿名化済み）</li>
+          <li>公開情報の調査・翻訳・匿名化済みデータの集計</li>
         </ul>
       </div>
       <div class="dads-compare-pane" data-kind="before">
@@ -46,6 +49,9 @@
 
   <section class="dads-section">
     <h2>2. 新規ツール利用申請の承認フロー</h2>
+    <p>
+      承認済みツールかつ月額 5,000 円以下のプランは、上長承認のみで最短当日にアカウントを発行します。リストにない新規ツールや高額プランは、情シス・法務で学習オプトアウト条件を確認のうえ 3 営業日以内に回答します。
+    </p>
     <div class="dads-flow" role="group" aria-label="AI ツール申請承認フロー">
       <div class="dads-flow-step">
         <div class="dads-flow-step-head">
@@ -90,6 +96,9 @@
 
   <section class="dads-section">
     <h2>3. 承認済みツールと部門別導入状況</h2>
+    <p>
+      2026 年 11 月時点の棚卸しでは、全社員 240 名のうち約 65% が週 3 回以上いずれかの法人 AI ツールを業務利用しています。CS・管理部門向けには来月から活用勉強会を順次開催予定です。
+    </p>
     <div class="dads-chart" data-chart="stacked">
       <script type="application/json">
       {
@@ -98,14 +107,17 @@
         "seriesNames": ["日常利用（週 3 回以上）", "試用中", "未導入"],
         "rows": [
           { "label": "プロダクト開発部", "values": [84, 12, 4] },
-          { "label": "グロース・マーケ部", "values": [68, 22, 10] },
-          { "label": "CS・オペレーション部", "values": [52, 30, 18] },
+          { "label": "営業・マーケ部", "values": [68, 22, 10] },
+          { "label": "CS・サポート部", "values": [52, 30, 18] },
           { "label": "コーポレート管理部", "values": [41, 34, 25] }
         ]
       }
       </script>
     </div>
 
+    <p>
+      現在、情報システム部でセキュリティ審査を通過し、社内利用を許可しているツールは以下の通りです。リストにないツールを業務利用したい場合は、必ず事前に申請してください。
+    </p>
     <div class="dads-table-wrap">
       <table class="dads-doc-table">
         <thead>
@@ -130,10 +142,10 @@
             <td>入社時自動付与</td>
           </tr>
           <tr>
-            <td><strong>Artifact Share（社内共有）</strong></td>
-            <td>全社員</td>
-            <td><span class="dads-badge dads-badge--success">可（ワークスペース限定）</span></td>
-            <td>Google SSO で即時ログイン</td>
+            <td><strong>GitHub Copilot Enterprise</strong></td>
+            <td>開発・QA 部門</td>
+            <td><span class="dads-badge dads-badge--success">可（社内リポ限定）</span></td>
+            <td>ポータルから申請（即時発行）</td>
           </tr>
           <tr>
             <td><strong>個人契約・無料版 AI サービス</strong></td>
@@ -148,6 +160,9 @@
 
   <section class="dads-section">
     <h2>4. よくある質問（FAQ）</h2>
+    <p>
+      現場から多く寄せられる質問をまとめました。個別案件で判断に迷う場合は、データ種別と利用予定ツールを添えて <code>#it-ai-support</code> までご相談ください。
+    </p>
     <details class="dads-accordion">
       <summary class="dads-accordion__summary">
         <span class="dads-accordion__icon" aria-hidden="true">
@@ -193,6 +208,6 @@
 
   <footer class="dads-doc-footer">
     <span>社内規程番号：IT-AI-2026-04</span>
-    <span>dads / DADS Design Tokens &amp; Visual Components</span>
+    <span>情報システム部・法務部</span>
   </footer>
 </main>

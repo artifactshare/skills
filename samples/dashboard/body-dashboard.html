@@ -1,53 +1,53 @@
 <main class="dads-dash">
   <header class="dads-dash-header">
     <div>
-      <h1>プロダクト活用・グロース進捗ダッシュボード（2026 年 11 月）</h1>
+      <h1>法人向け SaaS 事業 月次 KPI ダッシュボード（2026 年 11 月）</h1>
     </div>
     <div class="dads-dash-meta">
-      <span class="dads-badge dads-badge--primary">月次 KPI 定点モニター</span>
+      <span class="dads-badge dads-badge--primary">月次経営レポート</span>
       <span>集計期間: 2026-11-01 〜 2026-11-25</span>
       <span>更新: 2026-11-25 18:00 JST</span>
     </div>
   </header>
 
-  <div class="dads-controls" role="group" aria-label="セグメント切替">
-    <span class="dads-control-label">表示セグメント</span>
+  <div class="dads-controls" role="group" aria-label="事業セグメント切替">
+    <span class="dads-control-label">事業セグメント</span>
     <button type="button" class="dads-filter-btn is-active" aria-pressed="true" data-seg="all">全社合計</button>
-    <button type="button" class="dads-filter-btn" aria-pressed="false" data-seg="dev">開発・技術部門</button>
-    <button type="button" class="dads-filter-btn" aria-pressed="false" data-seg="biz">事業・CS 部門</button>
+    <button type="button" class="dads-filter-btn" aria-pressed="false" data-seg="ent">エンタープライズ</button>
+    <button type="button" class="dads-filter-btn" aria-pressed="false" data-seg="smb">SMB・セルフサーブ</button>
   </div>
 
   <section class="dads-kpi-grid" aria-label="主要指標">
     <article class="dads-kpi-card dads-kpi-card--highlight">
-      <span class="dads-kpi-label">月間アクティブ投稿者数</span>
-      <div class="dads-kpi-value" data-kpi="posters">48<span class="dads-kpi-unit">人</span></div>
-      <span class="dads-kpi-delta dads-kpi-delta--up" data-delta="posters">前月比 +17.1% ▲</span>
+      <span class="dads-kpi-label">月次経常収益（MRR）</span>
+      <div class="dads-kpi-value" data-kpi="mrr">4,820<span class="dads-kpi-unit">万円</span></div>
+      <span class="dads-kpi-delta dads-kpi-delta--up" data-delta="mrr">前月比 +8.4% ▲</span>
       <div class="dads-chart dads-chart--inline" data-chart="sparkline">
-        <script type="application/json">{"values":[24,29,33,38,41,48],"ariaLabel":"月間アクティブ投稿者数の 6 か月推移"}</script>
+        <script type="application/json">{"values":[3420,3680,3910,4180,4445,4820],"ariaLabel":"MRR の 6 か月推移"}</script>
       </div>
     </article>
     <article class="dads-kpi-card">
-      <span class="dads-kpi-label">新規作成ドキュメント数</span>
-      <div class="dads-kpi-value" data-kpi="docs">312<span class="dads-kpi-unit">件</span></div>
-      <span class="dads-kpi-delta dads-kpi-delta--up" data-delta="docs">前月比 +9.5% ▲</span>
+      <span class="dads-kpi-label">新規契約社数</span>
+      <div class="dads-kpi-value" data-kpi="deals">64<span class="dads-kpi-unit">社</span></div>
+      <span class="dads-kpi-delta dads-kpi-delta--up" data-delta="deals">前月比 +14.3% ▲</span>
       <div class="dads-chart dads-chart--inline" data-chart="sparkline">
-        <script type="application/json">{"values":[142,176,214,248,285,312],"ariaLabel":"新規作成ドキュメント数の 6 か月推移"}</script>
+        <script type="application/json">{"values":[41,45,52,49,56,64],"ariaLabel":"新規契約社数の 6 か月推移"}</script>
       </div>
     </article>
     <article class="dads-kpi-card">
-      <span class="dads-kpi-label">同一 URL 更新率</span>
-      <div class="dads-kpi-value" data-kpi="rev">64.2<span class="dads-kpi-unit">%</span></div>
-      <span class="dads-kpi-delta dads-kpi-delta--up" data-delta="rev">前月比 +4.8pt ▲</span>
+      <span class="dads-kpi-label">月次解約率（チャーン）</span>
+      <div class="dads-kpi-value" data-kpi="churn">1.2<span class="dads-kpi-unit">%</span></div>
+      <span class="dads-kpi-delta dads-kpi-delta--up" data-delta="churn">前月比 -0.3pt ▼（改善）</span>
       <div class="dads-chart dads-chart--inline" data-chart="sparkline">
-        <script type="application/json">{"values":[48,51,55,58,59.4,64.2],"ariaLabel":"同一 URL 更新率の 6 か月推移"}</script>
+        <script type="application/json">{"values":[2.1,1.9,1.8,1.6,1.5,1.2],"ariaLabel":"月次解約率の 6 か月推移"}</script>
       </div>
     </article>
     <article class="dads-kpi-card">
-      <span class="dads-kpi-label">未閲覧率（作成 7 日後）</span>
-      <div class="dads-kpi-value" data-kpi="unseen">11.4<span class="dads-kpi-unit">%</span></div>
-      <span class="dads-kpi-delta dads-kpi-delta--down" data-delta="unseen">前月比 +1.2pt ▲（要改善）</span>
+      <span class="dads-kpi-label">リード → 商談化率</span>
+      <div class="dads-kpi-value" data-kpi="sql">28.4<span class="dads-kpi-unit">%</span></div>
+      <span class="dads-kpi-delta dads-kpi-delta--down" data-delta="sql">前月比 -1.8pt ▼（要対策）</span>
       <div class="dads-chart dads-chart--inline" data-chart="sparkline">
-        <script type="application/json">{"values":[14.2,12.8,11.5,10.9,10.2,11.4],"ariaLabel":"未閲覧率の 6 か月推移"}</script>
+        <script type="application/json">{"values":[31.2,30.8,31.5,30.4,30.2,28.4],"ariaLabel":"商談化率の 6 か月推移"}</script>
       </div>
     </article>
   </section>
@@ -57,15 +57,15 @@
       <div class="dads-chart" data-chart="hbar" style="margin: 0; padding: 0; border: 0; background: transparent">
         <script type="application/json">
         {
-          "title": "用途別 作成件数内訳",
-          "subtitle": "上位 5 カテゴリ（件数降順）",
-          "unit": "件",
+          "title": "獲得チャネル別 新規契約社数",
+          "subtitle": "2026 年 11 月実績（件数降順）",
+          "unit": "社",
           "items": [
-            { "label": "設計・PR レビュー", "value": 118, "highlight": true },
-            { "label": "KPI・分析レポート", "value": 92, "highlight": true },
-            { "label": "社内ガイド・手順", "value": 54 },
-            { "label": "UI モック・試作", "value": 32 },
-            { "label": "議事録・その他", "value": 16 }
+            { "label": "検索・記事経由", "value": 24, "highlight": true },
+            { "label": "パートナー紹介", "value": 16, "highlight": true },
+            { "label": "共催ウェビナー", "value": 11 },
+            { "label": "インサイドセールス", "value": 8 },
+            { "label": "展示会・イベント", "value": 5 }
           ]
         }
         </script>
@@ -76,15 +76,15 @@
       <div class="dads-chart" data-chart="line" style="margin: 0; padding: 0; border: 0; background: transparent">
         <script type="application/json">
         {
-          "title": "部門別 作成件数トレンド（原点 0 基準）",
-          "subtitle": "6〜11 月推移＋月次目標ライン",
-          "unit": "件",
+          "title": "セグメント別 MRR 推移（原点 0 基準）",
+          "subtitle": "6〜11 月推移＋エンタープライズ目標ライン",
+          "unit": "万円",
           "labels": ["6月", "7月", "8月", "9月", "10月", "11月"],
           "series": [
-            { "name": "開発・技術部門", "values": [88, 108, 134, 152, 174, 192] },
-            { "name": "事業・CS 部門", "values": [54, 68, 80, 96, 111, 120] }
+            { "name": "エンタープライズ", "values": [1960, 2140, 2310, 2490, 2645, 2940] },
+            { "name": "SMB・セルフサーブ", "values": [1460, 1540, 1600, 1690, 1800, 1880] }
           ],
-          "target": { "value": 180, "label": "開発部門 Q4 目標 180件" }
+          "target": { "value": 3000, "label": "ENT 年内目標 3,000万円" }
         }
         </script>
       </div>
@@ -94,13 +94,13 @@
       <div class="dads-chart" data-chart="stacked" style="margin: 0; padding: 0; border: 0; background: transparent">
         <script type="application/json">
         {
-          "title": "作成元 AI ツール別の構成比推移",
-          "subtitle": "どの AI で作っても同一ワークスペースへ集約",
-          "seriesNames": ["Claude Code", "Codex", "Cursor", "Gemini / Web"],
+          "title": "契約プラン別の売上構成比推移",
+          "subtitle": "Enterprise 比率が Q2 24% → Q4 36% へ拡大",
+          "seriesNames": ["Enterprise", "Business", "Starter"],
           "rows": [
-            { "label": "2026 Q2", "values": [48, 18, 22, 12] },
-            { "label": "2026 Q3", "values": [42, 26, 18, 14] },
-            { "label": "2026 Q4", "values": [36, 30, 17, 17] }
+            { "label": "2026 Q2", "values": [24, 44, 32] },
+            { "label": "2026 Q3", "values": [30, 43, 27] },
+            { "label": "2026 Q4", "values": [36, 42, 22] }
           ]
         }
         </script>
@@ -111,18 +111,18 @@
       <div class="dads-chart" data-chart="scatter" style="margin: 0; padding: 0; border: 0; background: transparent">
         <script type="application/json">
         {
-          "title": "Q1 改善施策の優先度マトリクス",
-          "subtitle": "横軸：実装工数 / 縦軸：定着インパクト",
-          "xLabel": "実装工数（小 → 大）",
-          "yLabel": "定着インパクト（小 → 大）",
+          "title": "Q1 事業改善施策の優先度マトリクス",
+          "subtitle": "横軸：実装・運用工数 / 縦軸：MRR インパクト",
+          "xLabel": "工数（小 → 大）",
+          "yLabel": "MRR インパクト（小 → 大）",
           "xMax": 10,
           "yMax": 10,
-          "quadrants": ["大型投資", "最優先（即着手）", "後回し", "クイックウィン"],
+          "quadrants": ["中長期投資", "最優先（即着手）", "優先度低", "クイックウィン"],
           "points": [
-            { "label": "PR 図解テンプレ", "x": 2.4, "y": 8.8, "highlight": true },
-            { "label": "Slack 未閲覧通知", "x": 3.2, "y": 7.6, "highlight": true },
-            { "label": "自社テーマ統一", "x": 6.8, "y": 8.4 },
-            { "label": "権限一括管理", "x": 7.5, "y": 4.2 }
+            { "label": "初回 14 日オンボ自動化", "x": 2.6, "y": 8.8, "highlight": true },
+            { "label": "業種別提案テンプレ整備", "x": 3.0, "y": 7.4, "highlight": true },
+            { "label": "会計ソフト API 連携", "x": 7.4, "y": 8.6 },
+            { "label": "年払い割引の改定", "x": 6.2, "y": 4.2 }
           ]
         }
         </script>
@@ -131,43 +131,43 @@
 
     <article class="dads-panel">
       <div class="dads-panel-head">
-        <h2>閲覧上位ドキュメント</h2>
-        <span class="dads-panel-note">今月の累計閲覧数・更新回数</span>
+        <h2>今月の主要受注・アップセル案件</h2>
+        <span class="dads-panel-note">月額単価上位 4 社（架空サンプル）</span>
       </div>
       <div class="dads-table-wrap">
         <table class="dads-dash-table">
           <thead>
             <tr>
-              <th>タイトル</th>
-              <th>カテゴリ</th>
-              <th data-num>バージョン数</th>
-              <th data-num>累計閲覧数</th>
+              <th>顧客名（業種）</th>
+              <th>区分</th>
+              <th>契約プラン</th>
+              <th data-num>月額単価</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td>全社 KPI 定点モニター</td>
-              <td>KPI・分析レポート</td>
-              <td data-num>v29</td>
-              <td data-num>248</td>
+              <td>北日本ロジスティクス株式会社（物流）</td>
+              <td>新規受注</td>
+              <td>Enterprise（300 席）</td>
+              <td data-num>¥480,000</td>
             </tr>
             <tr>
-              <td>PR #418 決済 Webhook レビューガイド</td>
-              <td>設計・PR レビュー</td>
-              <td data-num>v4</td>
-              <td data-num>214</td>
+              <td>青葉マニュファクチャリング（製造）</td>
+              <td>アップセル</td>
+              <td>Enterprise（200 席）</td>
+              <td data-num>¥340,000</td>
             </tr>
             <tr>
-              <td>1Password オンボーディングガイド</td>
-              <td>社内ガイド・手順</td>
-              <td data-num>v3</td>
-              <td data-num>192</td>
+              <td>みらいメディカルグループ（医療）</td>
+              <td>新規受注</td>
+              <td>Business（120 席）</td>
+              <td data-num>¥192,000</td>
             </tr>
             <tr>
-              <td>Q4 開発ロードマップ</td>
-              <td>設計・PR レビュー</td>
-              <td data-num>v18</td>
-              <td data-num>164</td>
+              <td>中央リテールシステムズ（小売）</td>
+              <td>新規受注</td>
+              <td>Business（90 席）</td>
+              <td data-num>¥144,000</td>
             </tr>
           </tbody>
         </table>
@@ -176,6 +176,6 @@
   </section>
 
   <p class="dads-footnote">
-    出典：サンプル集計データ（デジタル庁「ダッシュボードデザインの実践ガイドブック」2026 年版 7 色パレット準拠）
+    出典：サンプル集計データ（デジタル庁「ダッシュボードデザインの実践ガイドブック」2026 年版 7 色パレット構成）
   </p>
 </main>

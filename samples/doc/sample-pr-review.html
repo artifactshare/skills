@@ -1621,7 +1621,7 @@ pre {
     </div>
     <h1>決済 Webhook リトライと冪等性キーの導入</h1>
     <p class="dads-doc-lead">
-      外部決済プロバイダからの重複通知による二重計上を防ぐため、冪等性キーによる排他制御と指数バックオフのリトライ処理を追加しました。レビュアーが 3 分で要所を確認できるよう、処理フロー・影響範囲・重要差分を図解しています。
+      外部決済プロバイダからの重複通知による二重計上を防ぐため、冪等性キーによる排他制御と指数バックオフのリトライ処理を追加しました。レビュアーが 3 分で要所を確認できるよう、処理フロー・影響範囲・重要差分を整理しています。
     </p>
     <dl class="dads-meta-grid">
       <div><dt>PR / ブランチ</dt><dd><code>#418</code> / <code>feat/webhook-idempotency</code></dd></div>
@@ -1633,6 +1633,9 @@ pre {
 
   <section class="dads-section">
     <h2>1. 30 秒サマリ（レビュー判断ポイント）</h2>
+    <p>
+      全 34 ファイルのうち 30 ファイルは型生成とテスト追従です。ビジネスロジックに関わる<strong>核となる 4 ファイル</strong>（マイグレーション 1 件・冪等性ガード 2 件・ワーカー設定 1 件）を優先的にご確認ください。
+    </p>
     <div class="dads-review-meta">
       <div class="dads-review-card" data-tone="key">
         <span class="dads-review-card-label">変更意図</span>
@@ -1653,7 +1656,10 @@ pre {
   </section>
 
   <section class="dads-section">
-    <h2>2. 新しい処理フローと分岐</h2>
+    <h2>2. 新しい処理フローと重複時の挙動</h2>
+    <p>
+      Webhook 受信直後に <code>(provider, event_id)</code> の複合 UNIQUE 制約で冪等性ロックを取得します。すでに処理済みのイベントは再計上せず即座に HTTP 200 を返し、一時的な DB 障害時のみ指数バックオフで自動再試行します。
+    </p>
     <div class="dads-flow" role="group" aria-label="Webhook 冪等処理フロー">
       <div class="dads-flow-step">
         <div class="dads-flow-step-head">
@@ -1696,6 +1702,9 @@ pre {
       </div>
     </div>
 
+    <p>
+      決済プロバイダから同一イベントが再送された場合の、Stripe・Webhook API・Database 間のやり取りは以下の順序で処理されます。
+    </p>
     <div class="dads-seq" role="group" aria-label="重複 Webhook 受信時のシーケンス">
       <div class="dads-seq-actors">
         <div class="dads-seq-actor">Stripe</div>
@@ -1709,6 +1718,9 @@ pre {
       </div>
     </div>
 
+    <p>
+      今回の変更による主なエッジケースの挙動差を、変更前・変更後で対比しています。
+    </p>
     <div class="dads-compare">
       <div class="dads-compare-pane" data-kind="before">
         <div class="dads-compare-head">
@@ -1737,6 +1749,9 @@ pre {
 
   <section class="dads-section">
     <h2>3. 影響範囲マップと重要コード差分</h2>
+    <p>
+      変更は決済 Webhook の受信ルート・新規冪等性サービス・新規マイグレーションテーブルに閉じています。既存のチェックアウト画面や <code>invoices</code> テーブルの定義には一切手を入れていません。
+    </p>
     <div class="dads-arch" role="group" aria-label="レイヤー別影響範囲マップ">
       <div class="dads-arch-layer">
         <div class="dads-arch-layer-name">Edge / Routes</div>
@@ -1762,6 +1777,9 @@ pre {
       </div>
     </div>
 
+    <p>
+      Webhook ハンドラ本体の変更は以下の 4 行追加のみです。ロック取得失敗時は例外を投げず、重複フラグ付きで正常応答します。
+    </p>
     <div class="dads-diff">
       <div class="dads-diff-head">
         <span>routes/webhooks/stripe.ts（核心部分の差分）</span>
@@ -1776,6 +1794,9 @@ pre {
 
   <section class="dads-section">
     <h2>4. 変更ファイル内訳と性能比較</h2>
+    <p>
+      PR 全体では 34 ファイルに差分がありますが、56%（19 件）は自動生成された型定義とテストフィクスチャです。人的レビューが必要なコア実装は全体の 12%（4 件）に収まっています。
+    </p>
     <div class="dads-chart" data-chart="donut"><div class="dads-chart-head"><h3 class="dads-chart-title">変更 34 ファイルの分類内訳</h3><span class="dads-chart-sub">レビュー最優先はコア実装 4 ファイル</span></div><div class="dads-chart-donut-layout">
     <svg class="dads-chart-svg" viewBox="0 0 180 180" style="max-width:180px;margin:0 auto" role="img" aria-label="変更 34 ファイルの分類内訳">
       <circle cx="90" cy="90" r="64" fill="none" stroke="#e8e8ee" stroke-width="24" />
@@ -1786,6 +1807,9 @@ pre {
     <ul class="dads-chart-donut-list"><li class="dads-chart-donut-row"><span class="dads-chart-legend-item"><span class="dads-chart-swatch" style="background:var(--dads-chart-1)"></span><span>型生成・フィクスチャ追従（CI 確認）</span></span><span class="dads-chart-donut-val">19件 (56%)</span></li><li class="dads-chart-donut-row"><span class="dads-chart-legend-item"><span class="dads-chart-swatch" style="background:var(--dads-chart-2)"></span><span>結合・障害注入テスト</span></span><span class="dads-chart-donut-val">11件 (32%)</span></li><li class="dads-chart-donut-row"><span class="dads-chart-legend-item"><span class="dads-chart-swatch" style="background:var(--dads-chart-3)"></span><span>コア実装（最優先レビュー）</span></span><span class="dads-chart-donut-val">4件 (12%)</span></li></ul>
   </div></div>
 
+    <p>
+      ステージング環境での負荷試験（1,000 req）では、初回処理のオーバーヘッドは +8ms に留まる一方、重複イベント受信時はロック判定のみで返却できるため P95 レイテンシが約 1/10（248ms → 26ms）に短縮されました。
+    </p>
     <div class="dads-chart" data-chart="bar"><div class="dads-chart-head"><h3 class="dads-chart-title">Webhook 処理 P95 レイテンシ比較（負荷試験 1,000 req）</h3><span class="dads-chart-sub">重複イベントはロック判定のみで即時 200 返却</span></div><div class="dads-chart-svg-wrap"><svg class="dads-chart-svg" viewBox="0 0 580 240" role="img" aria-label="Webhook 処理 P95 レイテンシ比較（負荷試験 1,000 req）"><line x1="48" y1="206.0" x2="564" y2="206.0" stroke="#e0e0e6" stroke-width="1" />
         <text x="40" y="210.0" text-anchor="end" font-size="11" fill="#626266">0</text><line x1="48" y1="160.5" x2="564" y2="160.5" stroke="#e0e0e6" stroke-width="1" />
         <text x="40" y="164.5" text-anchor="end" font-size="11" fill="#626266">250</text><line x1="48" y1="115.0" x2="564" y2="115.0" stroke="#e0e0e6" stroke-width="1" />
@@ -1802,6 +1826,9 @@ pre {
 
   <section class="dads-section">
     <h2>5. リスク・レビュー確認ステップ</h2>
+    <p>
+      マージ前に確認いただきたいエッジケースが 1 点あります。以下の確認事項と 3 ステップに沿ってレビューをお願いします。
+    </p>
     <div class="dads-callout dads-callout--warning">
       <p class="dads-callout-title">確認してほしいエッジケース：処理中クラッシュ時の再実行</p>
       <p>
@@ -1817,8 +1844,8 @@ pre {
   </section>
 
   <footer class="dads-doc-footer">
-    <span>PR #418 Review Brief — Generated by dads skill</span>
-    <span>DADS Design Tokens &amp; Visual Components</span>
+    <span>PR #418 Review Brief — Billing Backend Team</span>
+    <span>2026-11-25</span>
   </footer>
 </main>
 

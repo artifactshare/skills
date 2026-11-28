@@ -1,136 +1,136 @@
-<main class="dads-deck" aria-label="技術発表スライド">
+<main class="dads-deck" aria-label="技術発表スライド：イベント駆動基盤の冪等化と障害復旧設計">
   <section class="dads-slide dads-slide--cover is-active">
-    <h1>AI エージェントが作る社内資料を、<br />デザインシステムで統一する</h1>
-    <p class="dads-slide-sub">デジタル庁デザインシステム × 単一 HTML バンドルによる実務ワークフロー（2026-11-28）</p>
+    <h1>イベント駆動基盤の冪等化と<br />自動障害復旧の設計パターン</h1>
+    <p class="dads-slide-sub">社内 Tech Talk｜プラットフォーム基盤チーム（2026-11-28）</p>
   </section>
 
   <section class="dads-slide">
     <div class="dads-slide-head">
-      <h2>AI に HTML 資料を作らせると、毎回「見た目」「図解」「共有」で詰まる</h2>
+      <h2>非同期イベント処理で本番インシデントになる原因は 3 パターンに集約される</h2>
     </div>
     <div class="dads-slide-body">
       <div class="dads-slide-cols dads-slide-cols--3">
         <div class="dads-slide-card">
-          <h3>デザインがブレる</h3>
-          <p>紫グラデや派手な装飾など AI 特有の見た目が混ざり、そのまま社内会議に出しづらい。</p>
+          <h3>1. 重複配信による二重計上</h3>
+          <p>ネットワーク瞬断でプロバイダが同じ Webhook を 2 回送り、決済や在庫更新が二重実行される。</p>
         </div>
         <div class="dads-slide-card">
-          <h3>図解とグラフが崩れる</h3>
-          <p>AI に生の SVG 座標を手計算させると、軸ズレや日本語のはみ出しが高確率で起きる。</p>
+          <h3>2. 一時障害でのデータ欠損</h3>
+          <p>DB メンテや瞬間的な接続枯渇で即 500 応答し、再送上限を超えてイベントがロストする。</p>
         </div>
         <div class="dads-slide-card">
-          <h3>CSS でトークン消費</h3>
-          <p>毎回 400 行以上のスタイルを書き直すため生成が遅く、スマホ対応も抜け落ちる。</p>
+          <h3>3. 異常データの詰まり</h3>
+          <p>不正ペイロード 1 件が無限リトライを繰り返し、後続の正常イベントまでキュー滞留させる。</p>
         </div>
       </div>
     </div>
     <footer class="dads-slide-foot">
-      <span>AI エージェントが作る社内資料をデザインシステムで統一する</span>
+      <span>イベント駆動基盤の冪等化と自動障害復旧の設計パターン</span>
       <span>2</span>
     </footer>
   </section>
 
   <section class="dads-slide">
     <div class="dads-slide-head">
-      <h2>AI には「本文＋宣言的 JSON」だけを書かせ、DADS 資産と SVG を自動生成する</h2>
+      <h2>「DB 制約の冪等性キー」と「指数バックオフ＋DLQ」で無停止復旧へ移行した</h2>
     </div>
     <div class="dads-slide-body">
       <div class="dads-compare" style="margin: 0">
         <div class="dads-compare-pane" data-kind="before">
           <div class="dads-compare-head">
-            <h4 class="dads-compare-title">Before：毎回ゼロから CSS・SVG 生成</h4>
-            <span class="dads-badge">従来</span>
+            <h4 class="dads-compare-title">旧アーキテクチャ（同期処理）</h4>
+            <span class="dads-badge">Before</span>
           </div>
           <ul class="dads-compare-list">
-            <li>モデルや担当者ごとに配色・余白・印刷対応がバラつく</li>
-            <li>グラフの SVG 座標がズレて手直しが発生する</li>
-            <li>スタイル記述だけで出力トークンの大半を消費する</li>
+            <li>リクエスト内で直接 DB 更新し、重複チェックなし</li>
+            <li>エラー時は即 500 返却、障害ログから手動で再実行</li>
+            <li>ピーク時の DB 遅延がそのまま Webhook タイムアウトに直結</li>
           </ul>
         </div>
         <div class="dads-compare-pane" data-kind="after">
           <div class="dads-compare-head">
-            <h4 class="dads-compare-title">After：dads スキル＋自動バンドル</h4>
-            <span class="dads-badge dads-badge--primary">新方式</span>
+            <h4 class="dads-compare-title">新アーキテクチャ（冪等＋非同期）</h4>
+            <span class="dads-badge dads-badge--primary">After</span>
           </div>
           <ul class="dads-compare-list">
-            <li class="is-highlight">43 コンポーネントから使用分だけを自動ツリーシェイク</li>
-            <li class="is-highlight">JSON 宣言から 7 種の精密 SVG グラフをビルド時生成</li>
-            <li class="is-highlight">処理フロー・影響マップ・ミニ Diff もゼロ依存 CSS で統一</li>
+            <li class="is-highlight">(provider, event_id) の UNIQUE 制約で重複を完全に排除</li>
+            <li class="is-highlight">キュー経由＋最大 5 回の指数バックオフで一時障害を自動復旧</li>
+            <li class="is-highlight">上限超過は DLQ へ自動隔離し、正常イベントへの影響を遮断</li>
           </ul>
         </div>
       </div>
     </div>
     <footer class="dads-slide-foot">
-      <span>AI エージェントが作る社内資料をデザインシステムで統一する</span>
+      <span>イベント駆動基盤の冪等化と自動障害復旧の設計パターン</span>
       <span>3</span>
     </footer>
   </section>
 
   <section class="dads-slide">
     <div class="dads-slide-head">
-      <h2>生成から単一 HTML 化・社内共有まで 4 ステップで完結する</h2>
+      <h2>受信・排他・非同期実行・隔離の 4 段階で責務を分離する</h2>
     </div>
     <div class="dads-slide-body">
       <div class="dads-flow" style="margin: 0">
         <div class="dads-flow-step">
           <div class="dads-flow-step-head">
-            <h4 class="dads-flow-step-title">1. 本文 HTML 記述</h4>
+            <h4 class="dads-flow-step-title">1. 署名検証・受付</h4>
           </div>
-          <p class="dads-flow-step-desc">AI は見出し・図解・グラフ JSON のみ出力</p>
+          <p class="dads-flow-step-desc">HMAC 検証し即座にキューへ投入</p>
         </div>
         <div class="dads-flow-arrow" aria-hidden="true">→</div>
         <div class="dads-flow-step" data-status="added">
           <div class="dads-flow-step-head">
-            <h4 class="dads-flow-step-title">2. bundle.mjs 結合</h4>
-            <span class="dads-badge dads-badge--primary">自動</span>
+            <h4 class="dads-flow-step-title">2. 冪等性ロック</h4>
+            <span class="dads-badge dads-badge--primary">DB 制約</span>
           </div>
-          <p class="dads-flow-step-desc">DADS CSS 抽出＋SVG チャート展開＋目次生成</p>
+          <p class="dads-flow-step-desc">処理済みキーならスキップして 200 応答</p>
         </div>
         <div class="dads-flow-arrow" aria-hidden="true">→</div>
         <div class="dads-flow-step">
           <div class="dads-flow-step-head">
-            <h4 class="dads-flow-step-title">3. 単一 HTML 出力</h4>
+            <h4 class="dads-flow-step-title">3. 業務トランザクション</h4>
           </div>
-          <p class="dads-flow-step-desc">ゼロ依存・スマホ 390px・PDF 印刷対応</p>
+          <p class="dads-flow-step-desc">売上確定とステータス完了を同一 TX で更新</p>
         </div>
         <div class="dads-flow-arrow" aria-hidden="true">→</div>
-        <div class="dads-flow-step" data-status="added">
+        <div class="dads-flow-step" data-status="changed">
           <div class="dads-flow-step-head">
-            <h4 class="dads-flow-step-title">4. 1 本の URL で共有</h4>
-            <span class="dads-badge dads-badge--success">更新可</span>
+            <h4 class="dads-flow-step-title">4. 自動リトライ / DLQ</h4>
+            <span class="dads-badge dads-badge--warning">隔離</span>
           </div>
-          <p class="dads-flow-step-desc">Artifact Share で社内限定共有・同じ URL で更新</p>
+          <p class="dads-flow-step-desc">5 回超過時は DLQ 退避＋オンコール通知</p>
         </div>
       </div>
     </div>
     <footer class="dads-slide-foot">
-      <span>AI エージェントが作る社内資料をデザインシステムで統一する</span>
+      <span>イベント駆動基盤の冪等化と自動障害復旧の設計パターン</span>
       <span>4</span>
     </footer>
   </section>
 
   <section class="dads-slide">
     <div class="dads-slide-head">
-      <h2>導入後は生成トークン数を 65% 削減し、手直し回数も 1/4 に減少</h2>
+      <h2>導入後 3 か月で手動リカバリ件数は 0 件、夜間アラートは 84% 削減</h2>
     </div>
     <div class="dads-slide-body">
       <div class="dads-chart" data-chart="bar" style="margin: 0">
         <script type="application/json">
         {
-          "title": "資料 1 本あたりの生成コスト・手直し比較（社内検証 20 件平均）",
+          "title": "基盤刷新前後の運用指標比較（四半期累計）",
           "unit": "",
-          "labels": ["AI 出力行数（行）", "手直し往復回数（×10）", "生成所要時間（秒）"],
+          "labels": ["手動リカバリ件数", "夜間オンコール回数", "重複データ修正工数（時間）"],
           "series": [
-            { "name": "従来（ゼロから生成）", "values": [520, 42, 68] },
-            { "name": "dads スキル利用", "values": [180, 10, 22] }
+            { "name": "刷新前（Q2）", "values": [14, 19, 32] },
+            { "name": "刷新後（Q4）", "values": [0, 3, 0] }
           ],
-          "note": "手直し往復回数はグラフ比較のため 10 倍表記（従来 4.2 回 → 導入後 1.0 回）。"
+          "note": "対象：決済・請求・通知の 3 マイクロサービス（月間約 480 万イベント処理）。"
         }
         </script>
       </div>
     </div>
     <footer class="dads-slide-foot">
-      <span>AI エージェントが作る社内資料をデザインシステムで統一する</span>
+      <span>イベント駆動基盤の冪等化と自動障害復旧の設計パターン</span>
       <span>5</span>
     </footer>
   </section>
