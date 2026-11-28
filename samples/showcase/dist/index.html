@@ -4231,6 +4231,7 @@ body { background: var(--color-neutral-white); overflow: hidden; }
       <div class="showcase-demo-group" style="display: inline-flex; flex-wrap: wrap; align-items: center; gap: 6px">
         <span class="showcase-group-label" style="font-size: var(--font-size-14); font-weight: 700; color: var(--color-neutral-solid-gray-600)">ビジネス:</span>
         <button type="button" class="dads-button" data-size="xs" data-type="solid-fill" data-demo="dashboard">KPI ダッシュボード</button>
+        <button type="button" class="dads-button" data-size="xs" data-type="outline" data-demo="minutes">議事録・決定事項</button>
         <button type="button" class="dads-button" data-size="xs" data-type="outline" data-demo="policy-guide">社内ルール・制度ガイド</button>
         <button type="button" class="dads-button" data-size="xs" data-type="outline" data-demo="biz-slides">社内 MTG スライド</button>
       </div>
@@ -4290,7 +4291,7 @@ body { background: var(--color-neutral-white); overflow: hidden; }
             できること
           </p>
           <p style="margin: 0 0 10px; font-size: var(--font-size-14); color: var(--color-neutral-solid-gray-700); line-height: 1.6">
-            AI に日本語で頼むだけで、ドキュメント・KPI ダッシュボード・スライド・業務 UI モックを 1 つの HTML ファイルとして生成します。画面上の 6 つのタブはすべてこのスキルで作った実物です。
+            AI に日本語で頼むだけで、ドキュメント・KPI ダッシュボード・スライド・業務 UI モックを 1 つの HTML ファイルとして生成します。画面上の 7 つのタブはすべてこのスキルで作った実物です。
           </p>
           <p style="margin: 0; font-size: var(--font-size-14); color: var(--color-neutral-solid-gray-700); line-height: 1.6">
             作った HTML はブラウザでそのまま開けるほか、<a href="https://artifactshare.com" target="_blank" rel="noopener">Artifact Share</a> に上げれば URL でチーム共有できます。このデモページ自体も同じ仕組みで公開しています。
@@ -4571,6 +4572,188 @@ body { background: var(--color-neutral-white); overflow: hidden; }
   <p class="dads-footnote">
     出典：サンプル集計データ（デジタル庁「ダッシュボードデザインの実践ガイドブック」2026 年版 7 色パレット構成）
   </p>
+</main>
+</div>
+      <div data-demo-panel="minutes" class="showcase-doc-surface" hidden><main class="dads-doc">
+  <header class="dads-doc-header">
+    <div class="dads-doc-kicker">
+      <span class="dads-badge dads-badge--primary">議事録・決定事項</span>
+      <span class="dads-badge dads-badge--success">合意済み・アクション確定</span>
+    </div>
+    <h1>Q1 オンボーディング改善プロジェクト キックオフ議事録</h1>
+    <p class="dads-doc-lead">
+      SMB 向け初回 14 日間の初期設定完了率を 62% → 85% へ引き上げるため、自動化スコープ・運用フロー・12 月末までの担当分担を合意しました。欠席メンバーは第 1 章の決定事項と第 5 章のアクション表をご確認ください。
+    </p>
+    <dl class="dads-meta-grid">
+      <div><dt>開催日時</dt><dd>2026-11-27（金）14:00 〜 15:00</dd></div>
+      <div><dt>参加者</dt><dd>佐藤（CS）・鈴木（PdM）・高橋（開発）・田中（営業）</dd></div>
+      <div><dt>進行 / 記録</dt><dd>鈴木（PdM） / 佐藤（CS）</dd></div>
+      <div><dt>次回定例</dt><dd>2026-12-04（金）14:00（進捗確認）</dd></div>
+    </dl>
+  </header>
+
+  <section class="dads-section">
+    <h2>1. 本日の決定事項（30 秒サマリ）</h2>
+    <p>
+      12 月末のリリースを最優先とし、新規画面の開発ではなく既存のメール配信基盤とガイドページの組み合わせでスモールスタートする方針で全会一致しました。
+    </p>
+    <div class="dads-callout dads-callout--success">
+      <p class="dads-callout-title">合意した 3 つの決定事項</p>
+      <p>
+        ① <strong>初回 14 日間のステップ配信（Day 0 / Day 3 / Day 7 / Day 12）</strong>を 12/20 までに稼働させる。<br />
+        ② <strong>Day 7 時点で初期設定が未完了の顧客のみ</strong> CS 担当へ Slack 通知し、個別フォローを集中させる。<br />
+        ③ アプリ内のインタラクティブチュートリアル開発は Q2 以降へ見送り、まず効果測定を先行する。
+      </p>
+    </div>
+  </section>
+
+  <section class="dads-section">
+    <h2>2. 合意した新オンボーディングフロー</h2>
+    <p>
+      これまで全社一律で行っていた初回キックオフ MTG と手動メール送付をやめ、Day 7 の完了状況に応じて自動継続と個別フォローへ分岐する運用に切り替えます。
+    </p>
+    <div class="dads-flow" role="group" aria-label="新オンボーディングフロー">
+      <div class="dads-flow-step">
+        <div class="dads-flow-step-head">
+          <h4 class="dads-flow-step-title">Day 0：契約締結</h4>
+        </div>
+        <p class="dads-flow-step-desc">管理画面の初期設定ガイド URL を自動送付</p>
+      </div>
+      <div class="dads-flow-arrow" aria-hidden="true">→</div>
+      <div class="dads-flow-step" data-status="added">
+        <div class="dads-flow-step-head">
+          <h4 class="dads-flow-step-title">Day 3：手順リマインド</h4>
+          <span class="dads-badge dads-badge--primary">自動配信</span>
+        </div>
+        <p class="dads-flow-step-desc">未設定項目（SSO / 請求先）のみ案内</p>
+      </div>
+      <div class="dads-flow-arrow" aria-hidden="true">→</div>
+      <div class="dads-flow-step" data-status="changed">
+        <div class="dads-flow-step-head">
+          <h4 class="dads-flow-step-title">Day 7：進捗自動判定</h4>
+          <span class="dads-badge dads-badge--warning">分岐点</span>
+        </div>
+        <p class="dads-flow-step-desc">必須 3 項目の設定完了率を夜間バッチで判定</p>
+      </div>
+      <div class="dads-flow-branch">
+        <div class="dads-flow-step" data-status="added">
+          <div class="dads-flow-step-head">
+            <h4 class="dads-flow-step-title">ルート A：完了済み（目標 85%）</h4>
+            <span class="dads-badge dads-badge--success">セルフ完結</span>
+          </div>
+          <p class="dads-flow-step-desc">活用事例メールを配信し、定常運用フェーズへ移行</p>
+        </div>
+        <div class="dads-flow-step" data-status="changed">
+          <div class="dads-flow-step-head">
+            <h4 class="dads-flow-step-title">ルート B：未完了・滞留</h4>
+            <span class="dads-badge dads-badge--warning">CS 介入</span>
+          </div>
+          <p class="dads-flow-step-desc">担当 CS へ Slack 通知し、15 分の設定支援 MTG を提案</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="dads-section">
+    <h2>3. 議論の経緯（採用案と見送り案の比較）</h2>
+    <p>
+      会議では「アプリ内チュートリアルを作り込む案」も挙がりましたが、開発工数が 6 週間かかるため、2 週間で検証できる外部ガイド＋ステップ配信案を優先採用しました。
+    </p>
+    <div class="dads-compare">
+      <div class="dads-compare-pane" data-kind="after">
+        <div class="dads-compare-head">
+          <h4 class="dads-compare-title">採用：ガイドページ＋ステップ配信</h4>
+          <span class="dads-badge dads-badge--success">採用（12 月）</span>
+        </div>
+        <ul class="dads-compare-list">
+          <li class="is-highlight">実装工数 2 週間で 12/20 に本番投入できる</li>
+          <li class="is-highlight">文面や手順の改訂を CS 側で即日反映できる</li>
+          <li>Day 7 の離脱ポイントをデータで計測してから次手を打てる</li>
+        </ul>
+      </div>
+      <div class="dads-compare-pane" data-kind="before">
+        <div class="dads-compare-head">
+          <h4 class="dads-compare-title">見送り：アプリ内チュートリアル新規開発</h4>
+          <span class="dads-badge">Q2 以降検討</span>
+        </div>
+        <ul class="dads-compare-list">
+          <li>フロントエンド改修と E2E テストで約 6 週間かかる</li>
+          <li>UI 変更のたびに追従メンテナンスが発生する</li>
+          <li>どの項目で詰まっているかの仮説検証が先送りになる</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="dads-section">
+    <h2>4. 未決論点・持ち帰り事項</h2>
+    <p>
+      以下の 2 点は関係部署との確認が必要なため、次回 12/4 の定例までに各担当者が確認結果を共有することになりました。
+    </p>
+    <div class="dads-callout dads-callout--warning">
+      <p class="dads-callout-title">次回定例（12/4）までに確認する 2 点</p>
+      <p>
+        1. <strong>送信元ドメインの SPF/DKIM 設定</strong>：既存のマーケティング配信ドメインを使うか、CS 専用サブドメインを切るか情シスへ確認（担当：高橋）。<br />
+        2. <strong>代理店経由の顧客の扱い</strong>：パートナーが初期設定を代行する案件は Day 3 リマインドを除外すべきか営業チームとすり合わせ（担当：田中）。
+      </p>
+    </div>
+  </section>
+
+  <section class="dads-section">
+    <h2>5. アクションアイテム（担当者・期限）</h2>
+    <p>
+      12/20 の本番稼働に向けた直近 2 週間のタスク一覧です。ブロッカーが発生した場合は <code>#proj-onboarding-q1</code> で即座に共有します。
+    </p>
+    <div class="dads-table-wrap">
+      <table class="dads-doc-table">
+        <thead>
+          <tr>
+            <th>アクション内容</th>
+            <th>担当者</th>
+            <th>期限</th>
+            <th>ステータス</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Day 0 / Day 3 / Day 7 メール文面ドラフト作成</strong></td>
+            <td>佐藤（CS）</td>
+            <td>12/03（木）</td>
+            <td><span class="dads-badge dads-badge--primary">進行中</span></td>
+          </tr>
+          <tr>
+            <td><strong>必須 3 項目の設定完了判定バッチ実装</strong></td>
+            <td>高橋（開発）</td>
+            <td>12/09（水）</td>
+            <td><span class="dads-badge dads-badge--primary">進行中</span></td>
+          </tr>
+          <tr>
+            <td><strong>送信元ドメイン設定の情シス確認</strong></td>
+            <td>高橋（開発）</td>
+            <td>12/04（金）</td>
+            <td><span class="dads-badge dads-badge--warning">確認待ち</span></td>
+          </tr>
+          <tr>
+            <td><strong>代理店経由案件の除外ルール合意</strong></td>
+            <td>田中（営業）</td>
+            <td>12/04（金）</td>
+            <td><span class="dads-badge dads-badge--warning">確認待ち</span></td>
+          </tr>
+          <tr>
+            <td><strong>効果測定ダッシュボード指標の定義書作成</strong></td>
+            <td>鈴木（PdM）</td>
+            <td>12/07（月）</td>
+            <td><span class="dads-badge">未着手</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <footer class="dads-doc-footer">
+    <span>議事録 ID：MTG-2026-1127-ONB</span>
+    <span>オンボーディング改善プロジェクト</span>
+  </footer>
 </main>
 </div>
       <div data-demo-panel="policy-guide" class="showcase-doc-surface" hidden><main class="dads-doc">

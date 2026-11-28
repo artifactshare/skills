@@ -15,6 +15,7 @@ function bundle(skillName, args) {
 const docOut = path.join(rootDir, 'samples', 'doc', 'sample-doc.html');
 const prReviewOut = path.join(rootDir, 'samples', 'doc', 'sample-pr-review.html');
 const policyOut = path.join(rootDir, 'samples', 'doc', 'sample-policy-guide.html');
+const minutesOut = path.join(rootDir, 'samples', 'doc', 'sample-minutes.html');
 const dashOut = path.join(rootDir, 'samples', 'dashboard', 'sample-dashboard.html');
 const slidesOut = path.join(rootDir, 'samples', 'slides', 'sample-slides.html');
 const bizSlidesOut = path.join(rootDir, 'samples', 'slides', 'sample-biz-slides.html');
@@ -57,6 +58,19 @@ bundle('dads', [
   path.join(rootDir, 'samples', 'doc', 'body-policy-guide.html'),
   '--output',
   policyOut,
+]);
+
+bundle('dads', [
+  '--type',
+  'doc',
+  '--palette',
+  'blue',
+  '--title',
+  'Q1 オンボーディング改善プロジェクト キックオフ議事録',
+  '--input',
+  path.join(rootDir, 'samples', 'doc', 'body-minutes.html'),
+  '--output',
+  minutesOut,
 ]);
 
 bundle('dads', [
@@ -122,6 +136,7 @@ fs.mkdirSync(showcaseDist, { recursive: true });
 
 const read = (rel) => fs.readFileSync(path.join(rootDir, rel), 'utf8');
 const dashBody = read('samples/dashboard/body-dashboard.html');
+const minutesBody = read('samples/doc/body-minutes.html');
 const policyBody = read('samples/doc/body-policy-guide.html');
 const bizSlidesBody = read('samples/slides/body-biz-slides.html');
 const prReviewBody = read('samples/doc/body-pr-review.html');
@@ -237,6 +252,7 @@ const combinedBody = `<div
       <div class="showcase-demo-group" style="display: inline-flex; flex-wrap: wrap; align-items: center; gap: 6px">
         <span class="showcase-group-label" style="font-size: var(--font-size-14); font-weight: 700; color: var(--color-neutral-solid-gray-600)">ビジネス:</span>
         <button type="button" class="dads-button" data-size="xs" data-type="solid-fill" data-demo="dashboard">KPI ダッシュボード</button>
+        <button type="button" class="dads-button" data-size="xs" data-type="outline" data-demo="minutes">議事録・決定事項</button>
         <button type="button" class="dads-button" data-size="xs" data-type="outline" data-demo="policy-guide">社内ルール・制度ガイド</button>
         <button type="button" class="dads-button" data-size="xs" data-type="outline" data-demo="biz-slides">社内 MTG スライド</button>
       </div>
@@ -296,7 +312,7 @@ const combinedBody = `<div
             できること
           </p>
           <p style="margin: 0 0 10px; font-size: var(--font-size-14); color: var(--color-neutral-solid-gray-700); line-height: 1.6">
-            AI に日本語で頼むだけで、ドキュメント・KPI ダッシュボード・スライド・業務 UI モックを 1 つの HTML ファイルとして生成します。画面上の 6 つのタブはすべてこのスキルで作った実物です。
+            AI に日本語で頼むだけで、ドキュメント・KPI ダッシュボード・スライド・業務 UI モックを 1 つの HTML ファイルとして生成します。画面上の 7 つのタブはすべてこのスキルで作った実物です。
           </p>
           <p style="margin: 0; font-size: var(--font-size-14); color: var(--color-neutral-solid-gray-700); line-height: 1.6">
             作った HTML はブラウザでそのまま開けるほか、<a href="https://artifactshare.com" target="_blank" rel="noopener">Artifact Share</a> に上げれば URL でチーム共有できます。このデモページ自体も同じ仕組みで公開しています。
@@ -345,6 +361,7 @@ const combinedBody = `<div
 
     <div id="showcase-stage-body" class="showcase-stage-body" style="flex: 1 1 auto; min-height: 0; overflow-y: auto">
       <div data-demo-panel="dashboard">${dashBody}</div>
+      <div data-demo-panel="minutes" class="showcase-doc-surface" hidden>${minutesBody}</div>
       <div data-demo-panel="policy-guide" class="showcase-doc-surface" hidden>${policyBody}</div>
       <div data-demo-panel="biz-slides" class="showcase-slide-surface" hidden>${bizSlidesBody}</div>
       <div data-demo-panel="pr-review" class="showcase-doc-surface" hidden>${prReviewBody}</div>

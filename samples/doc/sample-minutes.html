@@ -1,0 +1,1922 @@
+<!doctype html>
+<html lang="ja" data-palette="blue">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Q1 オンボーディング改善プロジェクト キックオフ議事録</title>
+    <style>
+/* @digital-go-jp/design-tokens@2.1.0 (MIT) */
+/**
+ * Do not edit directly, this file was auto-generated.
+ */
+
+:root {
+  --color-primitive-blue-50: #e8f1fe;
+  --color-primitive-blue-100: #d9e6ff;
+  --color-primitive-blue-200: #c5d7fb;
+  --color-primitive-blue-300: #9db7f9;
+  --color-primitive-blue-400: #7096f8;
+  --color-primitive-blue-500: #4979f5;
+  --color-primitive-blue-600: #3460fb;
+  --color-primitive-blue-700: #264af4;
+  --color-primitive-blue-800: #0031d8;
+  --color-primitive-blue-900: #0017c1;
+  --color-primitive-blue-1000: #00118f;
+  --color-primitive-blue-1100: #000071;
+  --color-primitive-blue-1200: #000060;
+  --color-primitive-light-blue-50: #f0f9ff;
+  --color-primitive-light-blue-100: #dcf0ff;
+  --color-primitive-light-blue-200: #c0e4ff;
+  --color-primitive-light-blue-300: #97d3ff;
+  --color-primitive-light-blue-400: #57b8ff;
+  --color-primitive-light-blue-500: #39abff;
+  --color-primitive-light-blue-600: #008bf2;
+  --color-primitive-light-blue-700: #0877d7;
+  --color-primitive-light-blue-800: #0066be;
+  --color-primitive-light-blue-900: #0055ad;
+  --color-primitive-light-blue-1000: #00428c;
+  --color-primitive-light-blue-1100: #00316a;
+  --color-primitive-light-blue-1200: #00234b;
+  --color-primitive-cyan-50: #e9f7f9;
+  --color-primitive-cyan-100: #c8f8ff;
+  --color-primitive-cyan-200: #99f2ff;
+  --color-primitive-cyan-300: #79e2f2;
+  --color-primitive-cyan-400: #2bc8e4;
+  --color-primitive-cyan-500: #01b7d6;
+  --color-primitive-cyan-600: #00a3bf;
+  --color-primitive-cyan-700: #008da6;
+  --color-primitive-cyan-800: #008299;
+  --color-primitive-cyan-900: #006f83;
+  --color-primitive-cyan-1000: #006173;
+  --color-primitive-cyan-1100: #004c59;
+  --color-primitive-cyan-1200: #003741;
+  --color-primitive-green-50: #e6f5ec;
+  --color-primitive-green-100: #c2e5d1;
+  --color-primitive-green-200: #9bd4b5;
+  --color-primitive-green-300: #71c598;
+  --color-primitive-green-400: #51b883;
+  --color-primitive-green-500: #2cac6e;
+  --color-primitive-green-600: #259d63;
+  --color-primitive-green-700: #1d8b56;
+  --color-primitive-green-800: #197a4b;
+  --color-primitive-green-900: #115a36;
+  --color-primitive-green-1000: #0c472a;
+  --color-primitive-green-1100: #08351f;
+  --color-primitive-green-1200: #032213;
+  --color-primitive-lime-50: #ebfad9;
+  --color-primitive-lime-100: #d0f5a2;
+  --color-primitive-lime-200: #c0f354;
+  --color-primitive-lime-300: #ade830;
+  --color-primitive-lime-400: #9ddd15;
+  --color-primitive-lime-500: #8cc80c;
+  --color-primitive-lime-600: #7eb40d;
+  --color-primitive-lime-700: #6fa104;
+  --color-primitive-lime-800: #618e00;
+  --color-primitive-lime-900: #507500;
+  --color-primitive-lime-1000: #3e5a00;
+  --color-primitive-lime-1100: #2c4100;
+  --color-primitive-lime-1200: #1e2d00;
+  --color-primitive-yellow-50: #fbf5e0;
+  --color-primitive-yellow-100: #fff0b3;
+  --color-primitive-yellow-200: #ffe380;
+  --color-primitive-yellow-300: #ffd43d;
+  --color-primitive-yellow-400: #ffc700;
+  --color-primitive-yellow-500: #ebb700;
+  --color-primitive-yellow-600: #d2a400;
+  --color-primitive-yellow-700: #b78f00;
+  --color-primitive-yellow-800: #a58000;
+  --color-primitive-yellow-900: #927200;
+  --color-primitive-yellow-1000: #806300;
+  --color-primitive-yellow-1100: #6e5600;
+  --color-primitive-yellow-1200: #604b00;
+  --color-primitive-orange-50: #ffeee2;
+  --color-primitive-orange-100: #ffdfca;
+  --color-primitive-orange-200: #ffc199;
+  --color-primitive-orange-300: #ffa66d;
+  --color-primitive-orange-400: #ff8d44;
+  --color-primitive-orange-500: #ff7628;
+  --color-primitive-orange-600: #fb5b01;
+  --color-primitive-orange-700: #e25100;
+  --color-primitive-orange-800: #c74700;
+  --color-primitive-orange-900: #ac3e00;
+  --color-primitive-orange-1000: #8b3200;
+  --color-primitive-orange-1100: #6d2700;
+  --color-primitive-orange-1200: #541e00;
+  --color-primitive-red-50: #fdeeee;
+  --color-primitive-red-100: #ffdada;
+  --color-primitive-red-200: #ffbbbb;
+  --color-primitive-red-300: #ff9696;
+  --color-primitive-red-400: #ff7171;
+  --color-primitive-red-500: #ff5454;
+  --color-primitive-red-600: #fe3939;
+  --color-primitive-red-700: #fa0000;
+  --color-primitive-red-800: #ec0000;
+  --color-primitive-red-900: #ce0000;
+  --color-primitive-red-1000: #a90000;
+  --color-primitive-red-1100: #850000;
+  --color-primitive-red-1200: #620000;
+  --color-primitive-magenta-50: #f3e5f4;
+  --color-primitive-magenta-100: #ffd0ff;
+  --color-primitive-magenta-200: #ffaeff;
+  --color-primitive-magenta-300: #ff8eff;
+  --color-primitive-magenta-400: #f661f6;
+  --color-primitive-magenta-500: #f137f1;
+  --color-primitive-magenta-600: #db00db;
+  --color-primitive-magenta-700: #c000c0;
+  --color-primitive-magenta-800: #aa00aa;
+  --color-primitive-magenta-900: #8b008b;
+  --color-primitive-magenta-1000: #6c006c;
+  --color-primitive-magenta-1100: #500050;
+  --color-primitive-magenta-1200: #3b003b;
+  --color-primitive-purple-50: #f1eafa;
+  --color-primitive-purple-100: #ecddff;
+  --color-primitive-purple-200: #ddc2ff;
+  --color-primitive-purple-300: #cda6ff;
+  --color-primitive-purple-400: #bb87ff;
+  --color-primitive-purple-500: #a565f8;
+  --color-primitive-purple-600: #8843e1;
+  --color-primitive-purple-700: #6f23d0;
+  --color-primitive-purple-800: #5c10be;
+  --color-primitive-purple-900: #5109ad;
+  --color-primitive-purple-1000: #41048e;
+  --color-primitive-purple-1100: #30016c;
+  --color-primitive-purple-1200: #21004b;
+  --color-neutral-white: #ffffff;
+  --color-neutral-black: #000000;
+  --color-neutral-solid-gray-50: #f2f2f2;
+  --color-neutral-solid-gray-100: #e6e6e6;
+  --color-neutral-solid-gray-200: #cccccc;
+  --color-neutral-solid-gray-300: #b3b3b3;
+  --color-neutral-solid-gray-400: #999999;
+  --color-neutral-solid-gray-420: #949494;
+  --color-neutral-solid-gray-500: #7f7f7f;
+  --color-neutral-solid-gray-536: #767676;
+  --color-neutral-solid-gray-600: #666666;
+  --color-neutral-solid-gray-700: #4d4d4d;
+  --color-neutral-solid-gray-800: #333333;
+  --color-neutral-solid-gray-900: #1a1a1a;
+  --color-neutral-opacity-gray-50: rgba(0, 0, 0, 0.05);
+  --color-neutral-opacity-gray-100: rgba(0, 0, 0, 0.1);
+  --color-neutral-opacity-gray-200: rgba(0, 0, 0, 0.2);
+  --color-neutral-opacity-gray-300: rgba(0, 0, 0, 0.3);
+  --color-neutral-opacity-gray-400: rgba(0, 0, 0, 0.4);
+  --color-neutral-opacity-gray-420: rgba(0, 0, 0, 0.42);
+  --color-neutral-opacity-gray-500: rgba(0, 0, 0, 0.5);
+  --color-neutral-opacity-gray-536: rgba(0, 0, 0, 0.536);
+  --color-neutral-opacity-gray-600: rgba(0, 0, 0, 0.6);
+  --color-neutral-opacity-gray-700: rgba(0, 0, 0, 0.7);
+  --color-neutral-opacity-gray-800: rgba(0, 0, 0, 0.8);
+  --color-neutral-opacity-gray-900: rgba(0, 0, 0, 0.9);
+  --font-weight-400: 400;
+  --font-weight-700: 700;
+  --font-family-sans: 'Noto Sans JP', sans-serif;
+  --font-family-mono: 'Noto Sans Mono', monospace;
+  --font-size-14: 0.875rem;
+  --font-size-16: 1rem;
+  --font-size-17: 1.0625rem;
+  --font-size-18: 1.125rem;
+  --font-size-20: 1.25rem;
+  --font-size-22: 1.375rem;
+  --font-size-24: 1.5rem;
+  --font-size-26: 1.625rem;
+  --font-size-28: 1.75rem;
+  --font-size-32: 2rem;
+  --font-size-36: 2.25rem;
+  --font-size-45: 2.8125rem;
+  --font-size-48: 3rem;
+  --font-size-57: 3.5625rem;
+  --font-size-64: 4rem;
+  --line-height-100: 1;
+  --line-height-120: 1.2;
+  --line-height-130: 1.3;
+  --line-height-140: 1.4;
+  --line-height-150: 1.5;
+  --line-height-160: 1.6;
+  --line-height-170: 1.7;
+  --line-height-175: 1.75;
+  --border-radius-4: 0.25rem;
+  --border-radius-6: 0.375rem;
+  --border-radius-8: 0.5rem;
+  --border-radius-12: 0.75rem;
+  --border-radius-16: 1rem;
+  --border-radius-24: 1.5rem;
+  --border-radius-32: 2rem;
+  --border-radius-full: 624.9375rem;
+  --elevation-1: 0 2px 8px 1px rgba(0,0,0,0.1), 0 1px 5px 0 rgba(0,0,0,0.3);
+  --elevation-2: 0 2px 12px 2px rgba(0,0,0,0.1), 0 1px 6px 0 rgba(0,0,0,0.3);
+  --elevation-3: 0 4px 16px 3px rgba(0,0,0,0.1), 0 1px 6px 0 rgba(0,0,0,0.3);
+  --elevation-4: 0 6px 20px 4px rgba(0,0,0,0.1), 0 2px 6px 0 rgba(0,0,0,0.3);
+  --elevation-5: 0 8px 24px 5px rgba(0,0,0,0.1), 0 2px 10px 0 rgba(0,0,0,0.3);
+  --elevation-6: 0 10px 30px 6px rgba(0,0,0,0.1), 0 3px 12px 0 rgba(0,0,0,0.3);
+  --elevation-7: 0 12px 36px 7px rgba(0,0,0,0.1), 0 3px 14px 0 rgba(0,0,0,0.3);
+  --elevation-8: 0 14px 40px 7px rgba(0,0,0,0.1), 0 3px 16px 0 rgba(0,0,0,0.3);
+  --color-semantic-success-1: var(--color-primitive-green-600);
+  --color-semantic-success-2: var(--color-primitive-green-800);
+  --color-semantic-error-1: var(--color-primitive-red-800);
+  --color-semantic-error-2: var(--color-primitive-red-900);
+  --color-semantic-warning-yellow-1: var(--color-primitive-yellow-700);
+  --color-semantic-warning-yellow-2: var(--color-primitive-yellow-900);
+  --color-semantic-warning-orange-1: var(--color-primitive-orange-600);
+  --color-semantic-warning-orange-2: var(--color-primitive-orange-800);
+  --color-key-50: var(--color-primitive-blue-50);
+  --color-key-100: var(--color-primitive-blue-100);
+  --color-key-200: var(--color-primitive-blue-200);
+  --color-key-300: var(--color-primitive-blue-300);
+  --color-key-400: var(--color-primitive-blue-400);
+  --color-key-500: var(--color-primitive-blue-500);
+  --color-key-600: var(--color-primitive-blue-600);
+  --color-key-700: var(--color-primitive-blue-700);
+  --color-key-800: var(--color-primitive-blue-800);
+  --color-key-900: var(--color-primitive-blue-900);
+  --color-key-1000: var(--color-primitive-blue-1000);
+  --color-key-1100: var(--color-primitive-blue-1100);
+  --color-key-1200: var(--color-primitive-blue-1200);
+}
+
+/* ==========================================================================
+   DADS Semantic Layer, 7-Color Dashboard Palettes (2026),
+   Japanese Typography, and Dual Focus Ring
+   Requires: tokens.css (@digital-go-jp/design-tokens@2.1.0)
+   ========================================================================== */
+
+:root {
+  --dads-font-sans:
+    var(--font-family-sans), 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'BIZ UDPGothic',
+    'Yu Gothic', Meiryo, system-ui, -apple-system, sans-serif;
+  --dads-font-mono:
+    var(--font-family-mono), ui-monospace, 'SFMono-Regular', Menlo, Monaco, Consolas, monospace;
+
+  --dads-text: var(--color-neutral-solid-gray-800);
+  --dads-text-strong: var(--color-neutral-solid-gray-900);
+  --dads-text-muted: var(--color-neutral-solid-gray-600);
+  --dads-text-inverse: var(--color-neutral-white);
+
+  --dads-link: var(--color-primitive-blue-1000);
+  --dads-link-hover: var(--color-primitive-blue-900);
+  --dads-link-visited: var(--color-primitive-magenta-900);
+  --dads-link-active: var(--color-primitive-orange-800);
+
+  --dads-kpi-good: var(--color-primitive-blue-900);
+  --dads-kpi-bad: var(--color-primitive-red-900);
+  --dads-kpi-neutral: var(--color-neutral-black);
+
+  --dads-bg-page: #f8f8fb;
+  --dads-bg-surface: var(--color-neutral-white);
+  --dads-bg-control: var(--color-neutral-solid-gray-50);
+  --dads-bg-subtle: #f4f5f8;
+  --dads-border: var(--color-neutral-solid-gray-200);
+  --dads-border-strong: var(--color-neutral-solid-gray-420);
+
+  --dads-success: var(--color-semantic-success-2);
+  --dads-success-vivid: var(--color-semantic-success-1);
+  --dads-success-bg: var(--color-primitive-green-50);
+  --dads-success-border: var(--color-primitive-green-200);
+
+  --dads-warning: var(--color-primitive-yellow-1100);
+  --dads-warning-vivid: var(--color-semantic-warning-yellow-1);
+  --dads-warning-bg: var(--color-primitive-yellow-50);
+  --dads-warning-border: var(--color-primitive-yellow-300);
+
+  --dads-error: var(--color-semantic-error-2);
+  --dads-error-vivid: var(--color-semantic-error-1);
+  --dads-error-bg: var(--color-primitive-red-50);
+  --dads-error-border: var(--color-primitive-red-200);
+
+  --dads-chart-1: #0017c1;
+  --dads-chart-2: #3460fb;
+  --dads-chart-3: #7096f8;
+  --dads-chart-4: #c5d7fb;
+  --dads-chart-5: #e8f1fe;
+  --dads-chart-6: #fe3939;
+  --dads-chart-7: #ffbbbb;
+  --dads-chart-8: #f8f8fb;
+
+  --dads-chart-primary: var(--dads-chart-1);
+  --dads-chart-secondary: var(--dads-chart-3);
+  --dads-chart-tertiary: var(--dads-chart-4);
+  --dads-chart-neutral: var(--color-neutral-solid-gray-500);
+  --dads-chart-highlight: var(--dads-chart-6);
+}
+
+/* 7 Dashboard Palettes (digital-go-jp/policy-dashboard-assets 2026) */
+:root[data-palette='blue'] {
+  --color-key-50: var(--color-primitive-blue-50);
+  --color-key-100: var(--color-primitive-blue-100);
+  --color-key-200: var(--color-primitive-blue-200);
+  --color-key-300: var(--color-primitive-blue-300);
+  --color-key-400: var(--color-primitive-blue-400);
+  --color-key-500: var(--color-primitive-blue-500);
+  --color-key-600: var(--color-primitive-blue-600);
+  --color-key-700: var(--color-primitive-blue-700);
+  --color-key-800: var(--color-primitive-blue-800);
+  --color-key-900: var(--color-primitive-blue-900);
+  --color-key-1000: var(--color-primitive-blue-1000);
+  --color-key-1100: var(--color-primitive-blue-1100);
+  --color-key-1200: var(--color-primitive-blue-1200);
+  --dads-chart-1: #0017c1;
+  --dads-chart-2: #3460fb;
+  --dads-chart-3: #7096f8;
+  --dads-chart-4: #c5d7fb;
+  --dads-chart-5: #e8f1fe;
+  --dads-chart-6: #fe3939;
+  --dads-chart-7: #ffbbbb;
+  --dads-chart-8: #f8f8fb;
+  --dads-kpi-good: #0017c1;
+  --dads-kpi-bad: #ce0000;
+}
+
+:root[data-palette='light-blue'] {
+  --color-key-50: var(--color-primitive-light-blue-50);
+  --color-key-100: var(--color-primitive-light-blue-100);
+  --color-key-200: var(--color-primitive-light-blue-200);
+  --color-key-300: var(--color-primitive-light-blue-300);
+  --color-key-400: var(--color-primitive-light-blue-400);
+  --color-key-500: var(--color-primitive-light-blue-500);
+  --color-key-600: var(--color-primitive-light-blue-600);
+  --color-key-700: var(--color-primitive-light-blue-700);
+  --color-key-800: var(--color-primitive-light-blue-800);
+  --color-key-900: var(--color-primitive-light-blue-900);
+  --color-key-1000: var(--color-primitive-light-blue-1000);
+  --color-key-1100: var(--color-primitive-light-blue-1100);
+  --color-key-1200: var(--color-primitive-light-blue-1200);
+  --dads-chart-1: #0055ad;
+  --dads-chart-2: #008bf2;
+  --dads-chart-3: #57b8ff;
+  --dads-chart-4: #c0e4ff;
+  --dads-chart-5: #f0f9ff;
+  --dads-chart-6: #fe3939;
+  --dads-chart-7: #ffbbbb;
+  --dads-chart-8: #f8f8fb;
+  --dads-kpi-good: #0055ad;
+  --dads-kpi-bad: #ce0000;
+}
+
+:root[data-palette='cyan'] {
+  --color-key-50: var(--color-primitive-cyan-50);
+  --color-key-100: var(--color-primitive-cyan-100);
+  --color-key-200: var(--color-primitive-cyan-200);
+  --color-key-300: var(--color-primitive-cyan-300);
+  --color-key-400: var(--color-primitive-cyan-400);
+  --color-key-500: var(--color-primitive-cyan-500);
+  --color-key-600: var(--color-primitive-cyan-600);
+  --color-key-700: var(--color-primitive-cyan-700);
+  --color-key-800: var(--color-primitive-cyan-800);
+  --color-key-900: var(--color-primitive-cyan-900);
+  --color-key-1000: var(--color-primitive-cyan-1000);
+  --color-key-1100: var(--color-primitive-cyan-1100);
+  --color-key-1200: var(--color-primitive-cyan-1200);
+  --dads-chart-1: #006f83;
+  --dads-chart-2: #00a3bf;
+  --dads-chart-3: #2bc8e4;
+  --dads-chart-4: #99f2ff;
+  --dads-chart-5: #e9f7f9;
+  --dads-chart-6: #666666;
+  --dads-chart-7: #cccccc;
+  --dads-chart-8: #f8f8fb;
+  --dads-kpi-good: #006f83;
+  --dads-kpi-bad: #ce0000;
+}
+
+:root[data-palette='green'] {
+  --color-key-50: var(--color-primitive-green-50);
+  --color-key-100: var(--color-primitive-green-100);
+  --color-key-200: var(--color-primitive-green-200);
+  --color-key-300: var(--color-primitive-green-300);
+  --color-key-400: var(--color-primitive-green-400);
+  --color-key-500: var(--color-primitive-green-500);
+  --color-key-600: var(--color-primitive-green-600);
+  --color-key-700: var(--color-primitive-green-700);
+  --color-key-800: var(--color-primitive-green-800);
+  --color-key-900: var(--color-primitive-green-900);
+  --color-key-1000: var(--color-primitive-green-1000);
+  --color-key-1100: var(--color-primitive-green-1100);
+  --color-key-1200: var(--color-primitive-green-1200);
+  --dads-chart-1: #115a36;
+  --dads-chart-2: #259d63;
+  --dads-chart-3: #51b883;
+  --dads-chart-4: #9bd4b5;
+  --dads-chart-5: #e6f5ec;
+  --dads-chart-6: #666666;
+  --dads-chart-7: #cccccc;
+  --dads-chart-8: #f8f8fb;
+  --dads-kpi-good: #115a36;
+  --dads-kpi-bad: #ce0000;
+}
+
+:root[data-palette='orange'] {
+  --color-key-50: var(--color-primitive-orange-50);
+  --color-key-100: var(--color-primitive-orange-100);
+  --color-key-200: var(--color-primitive-orange-200);
+  --color-key-300: var(--color-primitive-orange-300);
+  --color-key-400: var(--color-primitive-orange-400);
+  --color-key-500: var(--color-primitive-orange-500);
+  --color-key-600: var(--color-primitive-orange-600);
+  --color-key-700: var(--color-primitive-orange-700);
+  --color-key-800: var(--color-primitive-orange-800);
+  --color-key-900: var(--color-primitive-orange-900);
+  --color-key-1000: var(--color-primitive-orange-1000);
+  --color-key-1100: var(--color-primitive-orange-1100);
+  --color-key-1200: var(--color-primitive-orange-1200);
+  --dads-chart-1: #ac3e00;
+  --dads-chart-2: #fb5b01;
+  --dads-chart-3: #ff8d44;
+  --dads-chart-4: #ffc199;
+  --dads-chart-5: #ffeee2;
+  --dads-chart-6: #666666;
+  --dads-chart-7: #cccccc;
+  --dads-chart-8: #f8f8fb;
+  --dads-kpi-good: #ac3e00;
+  --dads-kpi-bad: #850000;
+}
+
+:root[data-palette='red'] {
+  --color-key-50: var(--color-primitive-red-50);
+  --color-key-100: var(--color-primitive-red-100);
+  --color-key-200: var(--color-primitive-red-200);
+  --color-key-300: var(--color-primitive-red-300);
+  --color-key-400: var(--color-primitive-red-400);
+  --color-key-500: var(--color-primitive-red-500);
+  --color-key-600: var(--color-primitive-red-600);
+  --color-key-700: var(--color-primitive-red-700);
+  --color-key-800: var(--color-primitive-red-800);
+  --color-key-900: var(--color-primitive-red-900);
+  --color-key-1000: var(--color-primitive-red-1000);
+  --color-key-1100: var(--color-primitive-red-1100);
+  --color-key-1200: var(--color-primitive-red-1200);
+  --dads-chart-1: #ce0000;
+  --dads-chart-2: #fe3939;
+  --dads-chart-3: #ff7171;
+  --dads-chart-4: #ffbbbb;
+  --dads-chart-5: #fdeeee;
+  --dads-chart-6: #666666;
+  --dads-chart-7: #cccccc;
+  --dads-chart-8: #f8f8fb;
+  --dads-kpi-good: #ce0000;
+  --dads-kpi-bad: #850000;
+}
+
+:root[data-palette='solid-gray'] {
+  --color-key-50: var(--color-neutral-solid-gray-50);
+  --color-key-100: var(--color-neutral-solid-gray-100);
+  --color-key-200: var(--color-neutral-solid-gray-200);
+  --color-key-300: var(--color-neutral-solid-gray-300);
+  --color-key-400: var(--color-neutral-solid-gray-400);
+  --color-key-500: var(--color-neutral-solid-gray-500);
+  --color-key-600: var(--color-neutral-solid-gray-600);
+  --color-key-700: var(--color-neutral-solid-gray-700);
+  --color-key-800: var(--color-neutral-solid-gray-800);
+  --color-key-900: var(--color-neutral-solid-gray-900);
+  --color-key-1000: var(--color-neutral-solid-gray-900);
+  --color-key-1100: var(--color-neutral-black);
+  --color-key-1200: var(--color-neutral-black);
+  --dads-chart-1: #4d4d4d;
+  --dads-chart-2: #767676;
+  --dads-chart-3: #999999;
+  --dads-chart-4: #cccccc;
+  --dads-chart-5: #f2f2f2;
+  --dads-chart-6: #3460fb;
+  --dads-chart-7: #fe3939;
+  --dads-chart-8: #f8f8fb;
+  --dads-kpi-good: #4d4d4d;
+  --dads-kpi-bad: #ce0000;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: var(--dads-font-sans);
+  color: var(--dads-text);
+  background: var(--dads-bg-page);
+  font-size: var(--font-size-16);
+  line-height: var(--line-height-170);
+  letter-spacing: 0.02em;
+  font-feature-settings: 'palt' 1;
+  line-break: strict;
+  word-break: auto-phrase;
+  text-autospace: normal;
+}
+
+a {
+  color: var(--dads-link);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+a:visited {
+  color: var(--dads-link-visited);
+}
+
+a:hover {
+  color: var(--dads-link-hover);
+  text-decoration-thickness: 3px;
+}
+
+a:active {
+  color: var(--dads-link-active);
+  text-decoration-thickness: 1px;
+}
+
+a:focus-visible,
+button:focus-visible,
+summary:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+[tabindex]:focus-visible {
+  outline: 4px solid var(--color-neutral-black);
+  outline-offset: 2px;
+  border-radius: var(--border-radius-4);
+  box-shadow: 0 0 0 2px var(--color-primitive-yellow-300);
+}
+
+a:focus-visible,
+summary:focus-visible {
+  background-color: var(--color-primitive-yellow-300);
+  color: var(--color-neutral-black);
+}
+
+code,
+pre {
+  font-family: var(--dads-font-mono);
+  font-feature-settings: normal;
+  letter-spacing: 0;
+  word-break: normal;
+  text-autospace: no-autospace;
+}
+
+.num,
+td[data-num],
+th[data-num],
+table :is(td, th)[data-num] {
+  font-feature-settings: normal;
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+  word-break: normal;
+}
+
+/* Shorthand DADS Chip Badge (8px radius) */
+.dads-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 8px;
+  border-radius: var(--border-radius-8);
+  font-size: var(--font-size-14);
+  font-weight: var(--font-weight-700);
+  line-height: var(--line-height-130);
+  border: 1px solid var(--color-neutral-solid-gray-700);
+  background: var(--color-neutral-solid-gray-50);
+  color: var(--dads-text-strong);
+  white-space: nowrap;
+}
+
+.dads-badge--primary {
+  background: var(--color-key-50);
+  border-color: var(--color-key-700);
+  color: var(--color-key-900);
+}
+
+.dads-badge--success {
+  background: var(--dads-success-bg);
+  border-color: var(--dads-success);
+  color: var(--dads-success);
+}
+
+.dads-badge--warning {
+  background: var(--dads-warning-bg);
+  border-color: var(--dads-warning);
+  color: var(--dads-warning);
+}
+
+.dads-badge--error {
+  background: var(--dads-error-bg);
+  border-color: var(--dads-error-vivid);
+  color: var(--dads-error);
+}
+
+/* ==========================================================================
+   dads-viz.css: Shared Diagram, PR Review & Chart Components
+   Zero-dependency CSS + SVG visual grammar built on DADS tokens & 7 palettes.
+   ========================================================================== */
+
+/* ---------- 1. Review Decision Summary (.dads-review-meta) ---------- */
+.dads-review-meta {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 12px;
+  margin: 16px 0;
+}
+
+.dads-review-card {
+  background: #f8f8fb;
+  border: 1px solid var(--color-neutral-solid-gray-200);
+  border-radius: var(--border-radius-12);
+  padding: 14px 16px;
+  min-width: 0;
+}
+
+.dads-review-card[data-tone='key'] {
+  background: var(--color-key-50);
+  border-color: var(--color-key-200);
+}
+
+.dads-review-card[data-tone='warning'] {
+  background: var(--color-primitive-yellow-50, #fff8e1);
+  border-color: var(--color-primitive-yellow-400, #f5b400);
+}
+
+.dads-review-card[data-tone='danger'] {
+  background: var(--color-primitive-red-50, #fff1f1);
+  border-color: var(--color-primitive-red-300, #ff8f8f);
+}
+
+.dads-review-card-label {
+  display: block;
+  font-size: var(--font-size-12, 12px);
+  font-weight: 700;
+  color: var(--color-neutral-solid-gray-600);
+  margin-bottom: 6px;
+}
+
+.dads-review-card-value {
+  font-size: var(--font-size-16);
+  font-weight: 700;
+  color: var(--color-neutral-black);
+  line-height: 1.4;
+  margin: 0 0 4px;
+}
+
+.dads-review-card-note {
+  font-size: var(--font-size-14);
+  color: var(--color-neutral-solid-gray-700);
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* ---------- 2. Process Flow Diagram (.dads-flow) ---------- */
+.dads-flow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  gap: 10px;
+  margin: 16px 0;
+  padding: 16px;
+  background: #f8f8fb;
+  border-radius: var(--border-radius-12);
+  border: 1px solid var(--color-neutral-solid-gray-200);
+}
+
+.dads-flow-step {
+  flex: 1 1 150px;
+  min-width: 0;
+  background: var(--color-neutral-white);
+  border: 1.5px solid var(--color-neutral-solid-gray-300);
+  border-radius: var(--border-radius-8);
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.dads-flow-step[data-status='added'] {
+  border-color: var(--dads-chart-1);
+  background: var(--color-key-50);
+}
+
+.dads-flow-step[data-status='changed'] {
+  border-color: var(--color-primitive-orange-700, #c75b00);
+  background: var(--color-primitive-orange-50, #fff6eb);
+}
+
+.dads-flow-step[data-status='removed'] {
+  border-color: var(--color-primitive-red-600, #ce0000);
+  background: var(--color-primitive-red-50, #fff1f1);
+  border-style: dashed;
+}
+
+.dads-flow-step.is-active,
+.dads-arch-node.is-active {
+  border-color: var(--dads-chart-1);
+  box-shadow: 0 0 0 3px var(--color-key-200);
+}
+
+.dads-flow-step-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.dads-flow-step-title {
+  font-size: var(--font-size-14);
+  font-weight: 700;
+  color: var(--color-neutral-black);
+  margin: 0;
+}
+
+.dads-flow-step-desc {
+  font-size: 13px;
+  color: var(--color-neutral-solid-gray-700);
+  line-height: 1.5;
+  margin: 0;
+}
+
+.dads-flow-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-neutral-solid-gray-500);
+  font-weight: 700;
+  font-size: 16px;
+  padding: 0 2px;
+  flex-shrink: 0;
+}
+
+.dads-flow-branch {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 10px;
+  margin-top: 6px;
+  padding-top: 12px;
+  border-top: 1px dashed var(--color-neutral-solid-gray-300);
+}
+
+/* ---------- 3. Before / After Structural Compare (.dads-compare) ---------- */
+.dads-compare {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin: 16px 0;
+}
+
+.dads-compare-pane {
+  background: var(--color-neutral-white);
+  border: 1.5px solid var(--color-neutral-solid-gray-300);
+  border-radius: var(--border-radius-12);
+  padding: 16px;
+  min-width: 0;
+}
+
+.dads-compare-pane[data-kind='before'] {
+  background: #f8f8fb;
+}
+
+.dads-compare-pane[data-kind='after'] {
+  border-color: var(--dads-chart-1);
+  background: var(--color-key-50);
+}
+
+.dads-compare-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 10px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--color-neutral-solid-gray-200);
+}
+
+.dads-compare-title {
+  font-size: var(--font-size-16);
+  font-weight: 700;
+  color: var(--color-neutral-black);
+  margin: 0;
+}
+
+.dads-compare-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.dads-compare-list li {
+  font-size: var(--font-size-14);
+  line-height: 1.55;
+  padding: 8px 10px;
+  border-radius: var(--border-radius-8);
+  background: var(--color-neutral-white);
+  border: 1px solid var(--color-neutral-solid-gray-200);
+}
+
+.dads-compare-list li.is-highlight {
+  border-color: var(--dads-chart-1);
+  font-weight: 600;
+}
+
+/* ---------- 4. Architecture & Impact Layer Map (.dads-arch) ---------- */
+.dads-arch {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 16px 0;
+  padding: 16px;
+  background: #f8f8fb;
+  border: 1px solid var(--color-neutral-solid-gray-200);
+  border-radius: var(--border-radius-12);
+}
+
+.dads-arch-layer {
+  display: grid;
+  grid-template-columns: 140px minmax(0, 1fr);
+  gap: 12px;
+  align-items: center;
+  background: var(--color-neutral-white);
+  border: 1px solid var(--color-neutral-solid-gray-200);
+  border-radius: var(--border-radius-8);
+  padding: 12px 14px;
+}
+
+.dads-arch-layer-name {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--color-neutral-solid-gray-700);
+}
+
+.dads-arch-nodes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.dads-arch-node {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  border-radius: var(--border-radius-8);
+  border: 1px solid var(--color-neutral-solid-gray-300);
+  background: #f8f8fb;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-neutral-solid-gray-800);
+}
+
+.dads-arch-node[data-impact='touched'] {
+  border-color: var(--dads-chart-1);
+  background: var(--color-key-50);
+  color: var(--color-key-1000, var(--color-neutral-black));
+}
+
+.dads-arch-node[data-impact='new'] {
+  border-color: var(--dads-chart-1);
+  background: var(--dads-chart-1);
+  color: var(--color-neutral-white);
+}
+
+.dads-arch-node[data-impact='unchanged'] {
+  opacity: 0.72;
+}
+
+/* ---------- 5. Lightweight Sequence Diagram (.dads-seq) ---------- */
+.dads-seq {
+  margin: 16px 0;
+  padding: 16px;
+  background: #f8f8fb;
+  border: 1px solid var(--color-neutral-solid-gray-200);
+  border-radius: var(--border-radius-12);
+  overflow-x: auto;
+}
+
+.dads-seq-actors {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(120px, 1fr));
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.dads-seq-actor {
+  text-align: center;
+  padding: 8px 10px;
+  background: var(--color-neutral-white);
+  border: 1.5px solid var(--color-neutral-solid-gray-400);
+  border-radius: var(--border-radius-8);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--color-neutral-black);
+}
+
+.dads-seq-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.dads-seq-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 8px 12px;
+  background: var(--color-neutral-white);
+  border: 1px solid var(--color-neutral-solid-gray-200);
+  border-radius: var(--border-radius-8);
+  font-size: 13px;
+}
+
+.dads-seq-row[data-tone='key'] {
+  border-color: var(--dads-chart-1);
+  background: var(--color-key-50);
+}
+
+.dads-seq-path {
+  font-weight: 700;
+  color: var(--dads-chart-1);
+  white-space: nowrap;
+}
+
+.dads-seq-msg {
+  flex: 1 1 auto;
+  color: var(--color-neutral-solid-gray-900);
+  min-width: 0;
+}
+
+/* ---------- 6. Mini Code Diff Block (.dads-diff) ---------- */
+.dads-diff {
+  margin: 16px 0;
+  border: 1px solid var(--color-neutral-solid-gray-200);
+  border-radius: var(--border-radius-12);
+  overflow: hidden;
+  background: var(--color-neutral-white);
+}
+
+.dads-diff-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  flex-wrap: wrap;
+  padding: 10px 14px;
+  background: #f1f1f4;
+  border-bottom: 1px solid var(--color-neutral-solid-gray-200);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.dads-diff-stats {
+  display: inline-flex;
+  gap: 6px;
+  font-family: var(--font-family-mono);
+  font-size: 12px;
+}
+
+.dads-diff-stat-add {
+  color: #115a36;
+  background: #e6f5ec;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.dads-diff-stat-del {
+  color: #b40000;
+  background: #ffecec;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.dads-diff-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.dads-diff-pane {
+  min-width: 0;
+  overflow-x: auto;
+  padding: 12px 14px;
+  font-family: var(--font-family-mono);
+  font-size: 12.5px;
+  line-height: 1.6;
+  margin: 0;
+  background: var(--color-neutral-white);
+}
+
+.dads-diff-pane + .dads-diff-pane {
+  border-left: 1px solid var(--color-neutral-solid-gray-200);
+}
+
+.dads-diff-pane-label {
+  font-family: var(--font-family-sans);
+  font-size: 11.5px;
+  font-weight: 700;
+  color: var(--color-neutral-solid-gray-600);
+  margin-bottom: 6px;
+  display: block;
+}
+
+.dads-diff-line {
+  display: block;
+  padding: 1px 6px;
+  border-radius: 3px;
+  white-space: pre;
+}
+
+.dads-diff-line--del {
+  background: #ffecec;
+  color: #850000;
+}
+
+.dads-diff-line--add {
+  background: #e6f5ec;
+  color: #0e4a2c;
+}
+
+/* ---------- 7. Interactive Walkthrough (.dads-walkthrough) ---------- */
+.dads-walkthrough {
+  display: grid;
+  grid-template-columns: minmax(220px, 280px) minmax(0, 1fr);
+  gap: 14px;
+  margin: 16px 0;
+  align-items: start;
+}
+
+.dads-wt-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.dads-wt-step {
+  text-align: left;
+  width: 100%;
+  cursor: pointer;
+  padding: 10px 12px;
+  border-radius: var(--border-radius-8);
+  border: 1.5px solid var(--color-neutral-solid-gray-200);
+  background: var(--color-neutral-white);
+  font-family: inherit;
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: var(--color-neutral-solid-gray-900);
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+
+.dads-wt-step:hover {
+  border-color: var(--color-neutral-solid-gray-400);
+}
+
+.dads-wt-step.is-active {
+  border-color: var(--dads-chart-1);
+  background: var(--color-key-50);
+  font-weight: 600;
+}
+
+/* ---------- 8. Declarative SVG Charts (.dads-chart) ---------- */
+.dads-chart {
+  margin: 16px 0;
+  padding: 16px 18px;
+  background: #f8f8fb;
+  border-radius: var(--border-radius-12);
+  border: 1px solid var(--color-neutral-solid-gray-200);
+  min-width: 0;
+}
+
+.dads-chart--inline {
+  margin: 6px 0 0;
+  padding: 0;
+  background: transparent;
+  border: 0;
+}
+
+.dads-chart-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+
+.dads-chart-title {
+  font-size: var(--font-size-16);
+  font-weight: 700;
+  color: var(--color-neutral-black);
+  margin: 0;
+}
+
+.dads-chart-sub {
+  font-size: 12.5px;
+  color: var(--color-neutral-solid-gray-600);
+}
+
+.dads-chart-svg-wrap {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.dads-chart-svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  font-family: var(--font-family-sans);
+}
+
+.dads-chart-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 16px;
+  margin-top: 10px;
+  font-size: 12.5px;
+  color: var(--color-neutral-solid-gray-800);
+}
+
+.dads-chart-legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.dads-chart-swatch {
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+.dads-chart-note {
+  margin: 8px 0 0;
+  font-size: 12px;
+  color: var(--color-neutral-solid-gray-600);
+}
+
+.dads-chart-donut-layout {
+  display: grid;
+  grid-template-columns: 180px minmax(0, 1fr);
+  gap: 18px;
+  align-items: center;
+}
+
+.dads-chart-donut-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.dads-chart-donut-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  font-size: 13.5px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid var(--color-neutral-solid-gray-200);
+}
+
+.dads-chart-donut-row:last-child {
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+
+.dads-chart-donut-val {
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+/* ---------- Slide compactness ---------- */
+.dads-slide .dads-chart {
+  padding: 12px 14px;
+}
+.dads-slide .dads-chart-svg {
+  max-height: 270px;
+}
+
+/* ---------- Responsive (<= 768px / Mobile 390px) ---------- */
+@media (max-width: 768px) {
+  .dads-compare,
+  .dads-diff-grid,
+  .dads-walkthrough,
+  .dads-chart-donut-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .dads-diff-pane + .dads-diff-pane {
+    border-left: 0;
+    border-top: 1px solid var(--color-neutral-solid-gray-200);
+  }
+
+  .dads-arch-layer {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+
+  .dads-flow {
+    flex-direction: column;
+  }
+
+  .dads-flow-arrow {
+    transform: rotate(90deg);
+    padding: 2px 0;
+  }
+
+  .dads-seq-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+}
+
+
+/* ==========================================================================
+   dads-doc: Japanese Business & Technical Document Layout + Scroll-Spy TOC
+   ========================================================================== */
+
+.dads-doc-layout {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 40px 20px 80px;
+  display: grid;
+  grid-template-columns: minmax(0, 840px) 240px;
+  gap: 32px;
+  align-items: start;
+  justify-content: center;
+}
+
+.dads-doc-layout .dads-doc {
+  max-width: none;
+  margin: 0;
+  padding: 0;
+}
+
+.dads-doc {
+  max-width: 840px;
+  margin: 0 auto;
+  padding: 40px 20px 80px;
+}
+
+.dads-toc {
+  position: sticky;
+  top: 24px;
+  background: var(--dads-bg-surface);
+  border: 1px solid var(--dads-border);
+  border-radius: var(--border-radius-8);
+  padding: 16px;
+  font-size: var(--font-size-14);
+  line-height: var(--line-height-150);
+}
+
+.dads-toc-title {
+  margin: 0 0 10px;
+  font-size: var(--font-size-14);
+  font-weight: var(--font-weight-700);
+  color: var(--dads-text-strong);
+}
+
+.dads-toc-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.dads-toc-link {
+  display: block;
+  padding: 6px 10px;
+  border-radius: var(--border-radius-6);
+  color: var(--dads-text-muted);
+  text-decoration: none;
+  transition:
+    background-color 0.15s ease,
+    color 0.15s ease;
+}
+
+.dads-toc-link:hover {
+  background: var(--dads-bg-control);
+  color: var(--dads-text-strong);
+}
+
+.dads-toc-link.is-active {
+  background: var(--color-key-50);
+  color: var(--color-key-900);
+  font-weight: var(--font-weight-700);
+}
+
+.dads-toc-mobile {
+  display: none;
+  margin-bottom: 20px;
+  border: 1px solid var(--dads-border);
+  border-radius: var(--border-radius-8);
+  background: var(--dads-bg-surface);
+}
+
+.dads-toc-mobile > summary {
+  padding: 12px 16px;
+  font-weight: var(--font-weight-700);
+  color: var(--dads-text-strong);
+  cursor: pointer;
+}
+
+.dads-toc-mobile > div {
+  padding: 0 16px 14px;
+  border-top: 1px solid var(--dads-border);
+}
+
+.dads-section h2[id] {
+  scroll-margin-top: 24px;
+}
+
+.dads-doc-header {
+  background: var(--dads-bg-surface);
+  border: 1px solid var(--dads-border);
+  border-radius: var(--border-radius-12);
+  padding: 28px 32px;
+  margin-bottom: 28px;
+}
+
+.dads-doc-kicker {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.dads-doc-header h1 {
+  margin: 0 0 12px;
+  font-size: clamp(var(--font-size-22), 2.6vw, var(--font-size-28));
+  line-height: var(--line-height-140);
+  font-weight: var(--font-weight-700);
+  color: var(--dads-text-strong);
+}
+
+.dads-doc-lead {
+  margin: 0 0 18px;
+  color: var(--dads-text-muted);
+  font-size: var(--font-size-16);
+}
+
+.dads-meta-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 12px 16px;
+  padding-top: 16px;
+  border-top: 1px solid var(--dads-border);
+  margin: 0;
+  font-size: var(--font-size-14);
+}
+
+.dads-meta-grid dt {
+  color: var(--dads-text-muted);
+  font-weight: var(--font-weight-700);
+  margin-bottom: 2px;
+}
+
+.dads-meta-grid dd {
+  margin: 0;
+  color: var(--dads-text-strong);
+  font-weight: var(--font-weight-700);
+}
+
+.dads-section {
+  background: var(--dads-bg-surface);
+  border: 1px solid var(--dads-border);
+  border-radius: var(--border-radius-8);
+  padding: 24px 32px;
+  margin-bottom: 20px;
+}
+
+.dads-section h2 {
+  margin: 0 0 16px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--color-key-100);
+  font-size: var(--font-size-22);
+  line-height: var(--line-height-150);
+  font-weight: var(--font-weight-700);
+  color: var(--dads-text-strong);
+}
+
+.dads-section h3 {
+  margin: 24px 0 10px;
+  font-size: var(--font-size-18);
+  line-height: var(--line-height-150);
+  font-weight: var(--font-weight-700);
+  color: var(--dads-text-strong);
+}
+
+.dads-section p {
+  margin: 0 0 14px;
+}
+
+.dads-section ul,
+.dads-section ol {
+  margin: 0 0 14px;
+  padding-left: 1.4em;
+}
+
+.dads-section li {
+  margin-bottom: 6px;
+}
+
+/* DADS Standard Notification Banner (white bg + 3px border + 12px radius) */
+.dads-callout {
+  border: 3px solid var(--color-key-900);
+  background: var(--color-neutral-white);
+  border-radius: var(--border-radius-12);
+  padding: 18px 22px;
+  margin: 16px 0;
+}
+
+.dads-callout--success {
+  border-color: var(--dads-success);
+}
+
+.dads-callout--warning {
+  border-color: var(--dads-warning-vivid);
+}
+
+.dads-callout--error {
+  border-color: var(--dads-error-vivid);
+}
+
+.dads-callout-title {
+  font-weight: var(--font-weight-700);
+  font-size: var(--font-size-16);
+  margin: 0 0 6px;
+  color: var(--dads-text-strong);
+}
+
+.dads-callout p:last-child {
+  margin-bottom: 0;
+}
+
+.dads-table-wrap {
+  overflow-x: auto;
+  margin: 16px 0;
+}
+
+.dads-doc-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--font-size-14);
+  line-height: var(--line-height-160);
+}
+
+.dads-doc-table th,
+.dads-doc-table td {
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--color-neutral-solid-gray-420);
+  text-align: left;
+  vertical-align: top;
+}
+
+.dads-doc-table thead th {
+  background: var(--color-neutral-solid-gray-100);
+  color: var(--color-neutral-solid-gray-900);
+  font-weight: var(--font-weight-700);
+  border-bottom: 1px solid var(--color-neutral-solid-gray-500);
+  white-space: nowrap;
+}
+
+.dads-doc-table tbody tr:hover {
+  background: var(--dads-bg-subtle);
+}
+
+.dads-doc-table .is-recommended {
+  background: var(--color-key-50);
+}
+
+.dads-steps {
+  list-style: none;
+  padding: 0;
+  margin: 16px 0;
+  counter-reset: step;
+}
+
+.dads-steps > li {
+  counter-increment: step;
+  position: relative;
+  padding: 12px 16px 12px 54px;
+  border: 1px solid var(--dads-border);
+  border-radius: var(--border-radius-8);
+  margin-bottom: 10px;
+  background: var(--dads-bg-surface);
+}
+
+.dads-steps > li::before {
+  content: counter(step);
+  position: absolute;
+  left: 14px;
+  top: 12px;
+  width: 28px;
+  height: 28px;
+  border-radius: var(--border-radius-full);
+  background: var(--color-key-900);
+  color: var(--dads-text-inverse);
+  font-size: var(--font-size-14);
+  font-weight: var(--font-weight-700);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+pre {
+  background: var(--color-neutral-solid-gray-900);
+  color: var(--color-neutral-solid-gray-50);
+  padding: 14px 16px;
+  border-radius: var(--border-radius-8);
+  overflow-x: auto;
+  font-size: var(--font-size-14);
+  line-height: var(--line-height-160);
+}
+
+:not(pre) > code {
+  background: var(--dads-bg-control);
+  padding: 2px 6px;
+  border-radius: var(--border-radius-4);
+  font-size: 0.9em;
+}
+
+.dads-doc-footer {
+  margin-top: 28px;
+  padding-top: 16px;
+  border-top: 1px solid var(--dads-border);
+  font-size: var(--font-size-14);
+  color: var(--dads-text-muted);
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+@media (max-width: 1080px) {
+  .dads-doc-layout {
+    grid-template-columns: minmax(0, 840px);
+    padding: 24px 16px 64px;
+  }
+  .dads-toc {
+    display: none;
+  }
+  .dads-toc-mobile {
+    display: block;
+  }
+}
+
+@media (max-width: 640px) {
+  .dads-doc,
+  .dads-doc-layout {
+    padding: 16px 12px 48px;
+  }
+  .dads-doc-header,
+  .dads-section {
+    padding: 20px 16px;
+  }
+}
+
+@media print {
+  body {
+    background: var(--color-neutral-white);
+    font-size: 11pt;
+    line-height: var(--line-height-160);
+  }
+  .dads-doc,
+  .dads-doc-layout {
+    display: block;
+    max-width: none;
+    padding: 0;
+  }
+  .dads-toc,
+  .dads-toc-mobile {
+    display: none !important;
+  }
+  .dads-doc-header,
+  .dads-section {
+    border-color: var(--color-neutral-solid-gray-200);
+    box-shadow: none;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+}
+
+
+    </style>
+  </head>
+  <body>
+<main class="dads-doc">
+  <header class="dads-doc-header">
+    <div class="dads-doc-kicker">
+      <span class="dads-badge dads-badge--primary">議事録・決定事項</span>
+      <span class="dads-badge dads-badge--success">合意済み・アクション確定</span>
+    </div>
+    <h1>Q1 オンボーディング改善プロジェクト キックオフ議事録</h1>
+    <p class="dads-doc-lead">
+      SMB 向け初回 14 日間の初期設定完了率を 62% → 85% へ引き上げるため、自動化スコープ・運用フロー・12 月末までの担当分担を合意しました。欠席メンバーは第 1 章の決定事項と第 5 章のアクション表をご確認ください。
+    </p>
+    <dl class="dads-meta-grid">
+      <div><dt>開催日時</dt><dd>2026-11-27（金）14:00 〜 15:00</dd></div>
+      <div><dt>参加者</dt><dd>佐藤（CS）・鈴木（PdM）・高橋（開発）・田中（営業）</dd></div>
+      <div><dt>進行 / 記録</dt><dd>鈴木（PdM） / 佐藤（CS）</dd></div>
+      <div><dt>次回定例</dt><dd>2026-12-04（金）14:00（進捗確認）</dd></div>
+    </dl>
+  </header>
+
+  <section class="dads-section">
+    <h2>1. 本日の決定事項（30 秒サマリ）</h2>
+    <p>
+      12 月末のリリースを最優先とし、新規画面の開発ではなく既存のメール配信基盤とガイドページの組み合わせでスモールスタートする方針で全会一致しました。
+    </p>
+    <div class="dads-callout dads-callout--success">
+      <p class="dads-callout-title">合意した 3 つの決定事項</p>
+      <p>
+        ① <strong>初回 14 日間のステップ配信（Day 0 / Day 3 / Day 7 / Day 12）</strong>を 12/20 までに稼働させる。<br />
+        ② <strong>Day 7 時点で初期設定が未完了の顧客のみ</strong> CS 担当へ Slack 通知し、個別フォローを集中させる。<br />
+        ③ アプリ内のインタラクティブチュートリアル開発は Q2 以降へ見送り、まず効果測定を先行する。
+      </p>
+    </div>
+  </section>
+
+  <section class="dads-section">
+    <h2>2. 合意した新オンボーディングフロー</h2>
+    <p>
+      これまで全社一律で行っていた初回キックオフ MTG と手動メール送付をやめ、Day 7 の完了状況に応じて自動継続と個別フォローへ分岐する運用に切り替えます。
+    </p>
+    <div class="dads-flow" role="group" aria-label="新オンボーディングフロー">
+      <div class="dads-flow-step">
+        <div class="dads-flow-step-head">
+          <h4 class="dads-flow-step-title">Day 0：契約締結</h4>
+        </div>
+        <p class="dads-flow-step-desc">管理画面の初期設定ガイド URL を自動送付</p>
+      </div>
+      <div class="dads-flow-arrow" aria-hidden="true">→</div>
+      <div class="dads-flow-step" data-status="added">
+        <div class="dads-flow-step-head">
+          <h4 class="dads-flow-step-title">Day 3：手順リマインド</h4>
+          <span class="dads-badge dads-badge--primary">自動配信</span>
+        </div>
+        <p class="dads-flow-step-desc">未設定項目（SSO / 請求先）のみ案内</p>
+      </div>
+      <div class="dads-flow-arrow" aria-hidden="true">→</div>
+      <div class="dads-flow-step" data-status="changed">
+        <div class="dads-flow-step-head">
+          <h4 class="dads-flow-step-title">Day 7：進捗自動判定</h4>
+          <span class="dads-badge dads-badge--warning">分岐点</span>
+        </div>
+        <p class="dads-flow-step-desc">必須 3 項目の設定完了率を夜間バッチで判定</p>
+      </div>
+      <div class="dads-flow-branch">
+        <div class="dads-flow-step" data-status="added">
+          <div class="dads-flow-step-head">
+            <h4 class="dads-flow-step-title">ルート A：完了済み（目標 85%）</h4>
+            <span class="dads-badge dads-badge--success">セルフ完結</span>
+          </div>
+          <p class="dads-flow-step-desc">活用事例メールを配信し、定常運用フェーズへ移行</p>
+        </div>
+        <div class="dads-flow-step" data-status="changed">
+          <div class="dads-flow-step-head">
+            <h4 class="dads-flow-step-title">ルート B：未完了・滞留</h4>
+            <span class="dads-badge dads-badge--warning">CS 介入</span>
+          </div>
+          <p class="dads-flow-step-desc">担当 CS へ Slack 通知し、15 分の設定支援 MTG を提案</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="dads-section">
+    <h2>3. 議論の経緯（採用案と見送り案の比較）</h2>
+    <p>
+      会議では「アプリ内チュートリアルを作り込む案」も挙がりましたが、開発工数が 6 週間かかるため、2 週間で検証できる外部ガイド＋ステップ配信案を優先採用しました。
+    </p>
+    <div class="dads-compare">
+      <div class="dads-compare-pane" data-kind="after">
+        <div class="dads-compare-head">
+          <h4 class="dads-compare-title">採用：ガイドページ＋ステップ配信</h4>
+          <span class="dads-badge dads-badge--success">採用（12 月）</span>
+        </div>
+        <ul class="dads-compare-list">
+          <li class="is-highlight">実装工数 2 週間で 12/20 に本番投入できる</li>
+          <li class="is-highlight">文面や手順の改訂を CS 側で即日反映できる</li>
+          <li>Day 7 の離脱ポイントをデータで計測してから次手を打てる</li>
+        </ul>
+      </div>
+      <div class="dads-compare-pane" data-kind="before">
+        <div class="dads-compare-head">
+          <h4 class="dads-compare-title">見送り：アプリ内チュートリアル新規開発</h4>
+          <span class="dads-badge">Q2 以降検討</span>
+        </div>
+        <ul class="dads-compare-list">
+          <li>フロントエンド改修と E2E テストで約 6 週間かかる</li>
+          <li>UI 変更のたびに追従メンテナンスが発生する</li>
+          <li>どの項目で詰まっているかの仮説検証が先送りになる</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="dads-section">
+    <h2>4. 未決論点・持ち帰り事項</h2>
+    <p>
+      以下の 2 点は関係部署との確認が必要なため、次回 12/4 の定例までに各担当者が確認結果を共有することになりました。
+    </p>
+    <div class="dads-callout dads-callout--warning">
+      <p class="dads-callout-title">次回定例（12/4）までに確認する 2 点</p>
+      <p>
+        1. <strong>送信元ドメインの SPF/DKIM 設定</strong>：既存のマーケティング配信ドメインを使うか、CS 専用サブドメインを切るか情シスへ確認（担当：高橋）。<br />
+        2. <strong>代理店経由の顧客の扱い</strong>：パートナーが初期設定を代行する案件は Day 3 リマインドを除外すべきか営業チームとすり合わせ（担当：田中）。
+      </p>
+    </div>
+  </section>
+
+  <section class="dads-section">
+    <h2>5. アクションアイテム（担当者・期限）</h2>
+    <p>
+      12/20 の本番稼働に向けた直近 2 週間のタスク一覧です。ブロッカーが発生した場合は <code>#proj-onboarding-q1</code> で即座に共有します。
+    </p>
+    <div class="dads-table-wrap">
+      <table class="dads-doc-table">
+        <thead>
+          <tr>
+            <th>アクション内容</th>
+            <th>担当者</th>
+            <th>期限</th>
+            <th>ステータス</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Day 0 / Day 3 / Day 7 メール文面ドラフト作成</strong></td>
+            <td>佐藤（CS）</td>
+            <td>12/03（木）</td>
+            <td><span class="dads-badge dads-badge--primary">進行中</span></td>
+          </tr>
+          <tr>
+            <td><strong>必須 3 項目の設定完了判定バッチ実装</strong></td>
+            <td>高橋（開発）</td>
+            <td>12/09（水）</td>
+            <td><span class="dads-badge dads-badge--primary">進行中</span></td>
+          </tr>
+          <tr>
+            <td><strong>送信元ドメイン設定の情シス確認</strong></td>
+            <td>高橋（開発）</td>
+            <td>12/04（金）</td>
+            <td><span class="dads-badge dads-badge--warning">確認待ち</span></td>
+          </tr>
+          <tr>
+            <td><strong>代理店経由案件の除外ルール合意</strong></td>
+            <td>田中（営業）</td>
+            <td>12/04（金）</td>
+            <td><span class="dads-badge dads-badge--warning">確認待ち</span></td>
+          </tr>
+          <tr>
+            <td><strong>効果測定ダッシュボード指標の定義書作成</strong></td>
+            <td>鈴木（PdM）</td>
+            <td>12/07（月）</td>
+            <td><span class="dads-badge">未着手</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <footer class="dads-doc-footer">
+    <span>議事録 ID：MTG-2026-1127-ONB</span>
+    <span>オンボーディング改善プロジェクト</span>
+  </footer>
+</main>
+
+    <script>
+(() => { const p = new URLSearchParams(location.search).get('palette'); if (p && ['blue','light-blue','cyan','green','orange','red','solid-gray'].includes(p)) { document.documentElement.setAttribute('data-palette', p); } })();
+
+(() => {
+  const doc = document.querySelector('main.dads-doc');
+  if (!doc) return;
+  const headings = Array.from(doc.querySelectorAll('.dads-section > h2'));
+  if (headings.length < 2) return;
+
+  headings.forEach((h, i) => {
+    if (!h.id) h.id = 'section-' + (i + 1);
+  });
+
+  const buildList = () => {
+    const ul = document.createElement('ul');
+    ul.className = 'dads-toc-list';
+    headings.forEach((h) => {
+      const li = document.createElement('li');
+      const a = document.createElement('a');
+      a.className = 'dads-toc-link';
+      a.href = '#' + h.id;
+      a.textContent = h.textContent?.trim() || '';
+      a.dataset.tocTarget = h.id;
+      li.appendChild(a);
+      ul.appendChild(li);
+    });
+    return ul;
+  };
+
+  const wrapper = document.createElement('div');
+  wrapper.className = 'dads-doc-layout';
+  doc.parentNode.insertBefore(wrapper, doc);
+  wrapper.appendChild(doc);
+
+  const aside = document.createElement('aside');
+  aside.className = 'dads-toc';
+  aside.setAttribute('aria-label', '目次');
+  const title = document.createElement('p');
+  title.className = 'dads-toc-title';
+  title.textContent = '目次';
+  aside.appendChild(title);
+  aside.appendChild(buildList());
+  wrapper.appendChild(aside);
+
+  const mobile = document.createElement('details');
+  mobile.className = 'dads-toc-mobile';
+  const summary = document.createElement('summary');
+  summary.textContent = '目次を開く';
+  const mobileBody = document.createElement('div');
+  mobileBody.appendChild(buildList());
+  mobile.appendChild(summary);
+  mobile.appendChild(mobileBody);
+  const header = doc.querySelector('.dads-doc-header');
+  if (header) header.insertAdjacentElement('afterend', mobile);
+
+  const allLinks = Array.from(document.querySelectorAll('[data-toc-target]'));
+  const setActive = (id) => {
+    allLinks.forEach((a) => {
+      const active = a.dataset.tocTarget === id;
+      a.classList.toggle('is-active', active);
+      if (active) a.setAttribute('aria-current', 'location');
+      else a.removeAttribute('aria-current');
+    });
+  };
+
+  let clickLockUntil = 0;
+  allLinks.forEach((a) => {
+    a.addEventListener('click', () => {
+      const targetId = a.dataset.tocTarget;
+      if (!targetId) return;
+      clickLockUntil = Date.now() + 500;
+      setActive(targetId);
+      if (mobile.open) mobile.open = false;
+    });
+  });
+
+  const updateFromScroll = () => {
+    if (Date.now() < clickLockUntil) return;
+    const nearBottom = window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 8;
+    if (nearBottom) {
+      setActive(headings[headings.length - 1].id);
+      return;
+    }
+    let current = headings[0].id;
+    for (const h of headings) {
+      if (h.getBoundingClientRect().top <= 140) {
+        current = h.id;
+      } else {
+        break;
+      }
+    }
+    setActive(current);
+  };
+
+  let ticking = false;
+  window.addEventListener(
+    'scroll',
+    () => {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        ticking = false;
+        updateFromScroll();
+      });
+    },
+    { passive: true },
+  );
+  window.addEventListener('hashchange', () => {
+    const id = location.hash.replace(/^#/, '');
+    if (id && headings.some((h) => h.id === id)) {
+      clickLockUntil = Date.now() + 500;
+      setActive(id);
+    }
+  });
+
+  const initialHash = location.hash.replace(/^#/, '');
+  if (initialHash && headings.some((h) => h.id === initialHash)) {
+    setActive(initialHash);
+  } else {
+    updateFromScroll();
+  }
+})();
+    </script>
+  </body>
+</html>
