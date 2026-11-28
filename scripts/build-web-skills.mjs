@@ -313,22 +313,25 @@ ${skill.usage}
 
 function buildAllInOneSkillMd() {
   return `---
-name: dads-design-pack
-description: デジタル庁デザインシステム（DADS）完全準拠の単一 HTML（ドキュメント・KPI ダッシュボード・16:9 スライド・業務 UI モック）を生成するオールインワンパック。DADS・デジタル庁デザインシステム・社内資料・ダッシュボード・スライド・UI モック作成の依頼で使用する。
+name: dads
+description: デジタル庁デザインシステム（DADS）の公開 MIT アセットを使い、単一 HTML（ドキュメント・KPI ダッシュボード・16:9 スライド・業務 UI モック）を生成する独立サードパーティ製スキル（Web / クラウド AI 版）。
 license: MIT
 compatibility: gemini, gemini-in-chrome, claude-web
 ---
 
-# デジタル庁デザインシステム（DADS）完全準拠パック（Web / クラウド AI 版）
+# dads — DADS ベース単一 HTML 生成スキル（Web / クラウド AI 版）
 
-1 つのスキルで 4 種類の単一 HTML 資料を生成できます。ユーザーの依頼内容に合わせて、対応するテンプレートを \`references/\` から 1 つ選んでください。
+> Independent third-party skill maintained by Artifact Share (not affiliated with or endorsed by Japan's Digital Agency). Uses public MIT-licensed design tokens and component CSS from \`digital-go-jp\`.
+> 本スキルは Artifact Share が公開する独立したサードパーティ製スキルです（デジタル庁の公式提供物ではありません）。
 
-| 依頼内容 | 使用するテンプレート |
-|---|---|
-| 技術検討書、PR レビューガイド、社内ルール、議事録、報告書 | \`references/template-doc.md\` |
-| KPI ダッシュボード、月次レポート、数値モニター、グラフ分析 | \`references/template-dashboard.md\` |
-| 発表スライド、社内 MTG 資料、提案スライド（16:9・PDF 印刷対応） | \`references/template-slides.md\` |
-| 申請フォーム、管理画面、動く業務 UI モックアップ | \`references/template-mockup.md\` |
+1 つのスキルで 4 種類の単一 HTML 資料を生成できます。ユーザーの引数（\`doc\` / \`dashboard\` / \`slides\` / \`mockup\`）または依頼内容に合わせて、対応するテンプレートを \`references/\` から 1 つ選んでください。
+
+| 用途 | 依頼内容の例 | 使用するテンプレート |
+|---|---|---|
+| \`doc\` | 技術検討書、PR レビューガイド、社内ルール、議事録、報告書 | \`references/template-doc.md\` |
+| \`dashboard\` | KPI ダッシュボード、月次レポート、数値モニター、グラフ分析 | \`references/template-dashboard.md\` |
+| \`slides\` | 発表スライド、社内 MTG 資料、提案スライド（16:9・PDF 印刷対応） | \`references/template-slides.md\` |
+| \`mockup\` | 申請フォーム、管理画面、動く業務 UI モックアップ | \`references/template-mockup.md\` |
 
 ## 生成手順
 1. 上表から該当する \`references/template-*.md\` を 1 つ読み込む。
@@ -336,7 +339,7 @@ compatibility: gemini, gemini-in-chrome, claude-web
 3. Gemini の Canvas や Claude の Artifacts が使える場合は、そのままプレビュー可能な単一 HTML として出力する。
 
 ## デザイン・品質ルール（厳守）
-- **公式 7 色パレット**: \`<html lang="ja" data-palette="...">\` に \`blue\`（既定）/ \`light-blue\` / \`cyan\` / \`green\` / \`orange\` / \`red\` / \`solid-gray\` を指定する。
+- **7 色パレット**: \`<html lang="ja" data-palette="...">\` に \`blue\`（既定）/ \`light-blue\` / \`cyan\` / \`green\` / \`orange\` / \`red\` / \`solid-gray\` を指定する。
 - **AI スロップ禁止**: 装飾目的のグラデーション（\`linear-gradient\`）、紫系ネオン配色、見出し上の装飾キッカー、角丸カードへの太い片側ボーダーは使わない。
 - **日本語の読みやすさ**: 見出しは結論ベースで簡潔にし、数値・比較は表やグラフで整理する。
 `;
@@ -351,29 +354,17 @@ function main() {
   for (const skill of WEB_SKILLS) {
     const htmlShell = generateHtmlShell(skill);
     const templateMd = buildTemplateMarkdown(skill, htmlShell);
-    const skillMd = buildSingleSkillMd(skill);
-
-    const zipBuf = createZipBuffer([
-      { name: 'SKILL.md', content: skillMd },
-      { name: 'references/dads-template.md', content: templateMd },
-    ]);
-    const zipPath = path.join(outDir, `${skill.id}-web.zip`);
-    fs.writeFileSync(zipPath, zipBuf);
-    console.log(
-      `Built ${path.relative(rootDir, zipPath)} (${(zipBuf.length / 1024).toFixed(1)} KB, 2 files, 0 scripts)`,
-    );
-
     allInOneEntries.push({
       name: `references/template-${skill.type}.md`,
       content: templateMd,
     });
   }
 
-  const allZipBuf = createZipBuffer(allInOneEntries);
-  const allZipPath = path.join(outDir, 'dads-all-in-one-web.zip');
-  fs.writeFileSync(allZipPath, allZipBuf);
+  const zipBuf = createZipBuffer(allInOneEntries);
+  const zipPath = path.join(outDir, 'dads-web.zip');
+  fs.writeFileSync(zipPath, zipBuf);
   console.log(
-    `Built ${path.relative(rootDir, allZipPath)} (${(allZipBuf.length / 1024).toFixed(1)} KB, ${allInOneEntries.length} files, 0 scripts)`,
+    `Built ${path.relative(rootDir, zipPath)} (${(zipBuf.length / 1024).toFixed(1)} KB, ${allInOneEntries.length} files, 0 scripts)`,
   );
 }
 

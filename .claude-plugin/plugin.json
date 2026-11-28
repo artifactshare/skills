@@ -8,9 +8,6 @@
   },
   "license": "MIT",
   "skills": [
-    "skills/dads-doc",
-    "skills/dads-kpi-dashboard",
-    "skills/dads-slides",
-    "skills/dads-mockup"
+    "skills/dads"
   ]
 }

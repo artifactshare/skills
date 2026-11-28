@@ -190,7 +190,7 @@
   margin-bottom: 6px;
 }
 
-/* DADS Official Standard Notification Banner (white bg + 3px border + 12px radius) */
+/* DADS Standard Notification Banner (white bg + 3px border + 12px radius) */
 .dads-callout {
   border: 3px solid var(--color-key-900);
   background: var(--color-neutral-white);

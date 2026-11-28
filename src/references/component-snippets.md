@@ -1,7 +1,7 @@
-# Official DADS Component Minimal HTML Snippets
+# DADS Component Minimal HTML Snippets
 
 These snippets follow the exact DOM contracts required by `digital-go-jp/design-system-example-components-html`.
-Skipping required wrapper or icon elements (such as `.dads-notification-banner__icon` or `.dads-select__chevron`) will break the official CSS grid/layout.
+Skipping required wrapper or icon elements (such as `.dads-notification-banner__icon` or `.dads-select__chevron`) will break the CSS grid/layout.
 
 ## Notification Banner (`notification-banner`)
 
@@ -26,7 +26,7 @@ Always include `.dads-notification-banner__icon` as the first child of `.dads-no
 
 ## Select (`select`)
 
-Always wrap `<select>` in `.dads-select__control` and include `.dads-select__chevron` (official CSS sets `appearance: none`).
+Always wrap `<select>` in `.dads-select__control` and include `.dads-select__chevron` (DADS CSS sets `appearance: none`).
 
 ```html
 <div class="dads-form-control-label" data-size="md">
@@ -80,7 +80,7 @@ Always wrap `<select>` in `.dads-select__control` and include `.dads-select__che
 </label>
 ```
 
-## Official Table (`table`)
+## Table (`table`)
 
 Always wrap `.dads-table__table` inside `.dads-table`. Add `data-num` on numeric `th`/`td` cells for right-aligned `tabular-nums`.
 

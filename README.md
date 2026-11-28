@@ -12,7 +12,7 @@ AI 特有の装飾過多（AI スロップ）を構造的に排除し、その�
 
 ## インストール・対応ツール
 
-### 1. ローカル AI ツール（Claude Code / Codex / GitHub Copilot / Cursor / Gemini CLI / Antigravity）
+### 1. ローカル AI ツール（Claude Code / Codex / GitHub Copilot / Cursor / Antigravity）
 
 ```sh
 npx skills add artifactshare/skills
@@ -21,10 +21,7 @@ npx skills add artifactshare/skills
 特定のスキルだけ導入する場合：
 
 ```sh
-npx skills add artifactshare/skills@dads-doc
-npx skills add artifactshare/skills@dads-kpi-dashboard
-npx skills add artifactshare/skills@dads-slides
-npx skills add artifactshare/skills@dads-mockup
+npx skills add artifactshare/skills@dads
 ```
 
 - **Claude Code Plugin Marketplace**：`/plugin marketplace add artifactshare/skills`
@@ -32,26 +29,21 @@ npx skills add artifactshare/skills@dads-mockup
 
 ### 2. Web / クラウド AI（`gemini.google.com` / Gemini in Chrome / Claude.ai）
 
-ローカルの Node.js を実行できない Web / クラウド AI 向けに、**スクリプト不要（`.js` ゼロ）・Markdown テンプレート同梱の `.zip` パッケージ** を [GitHub Releases](https://github.com/artifactshare/skills/releases/latest) で配布しています。
-
-- **おすすめ（4 種全部入り）**：`dads-all-in-one-web.zip`（1 パックでドキュメント・ダッシュボード・スライド・UI モックのすべてを生成可能）
-- **個別版**：`dads-doc-web.zip` / `dads-kpi-dashboard-web.zip` / `dads-slides-web.zip` / `dads-mockup-web.zip`
+ローカルの Node.js を実行できない Web / クラウド AI 向けに、**スクリプト不要（`.js` ゼロ）・Markdown テンプレート同梱の `.zip` パッケージ（`dads-web.zip`）** を [GitHub Releases](https://github.com/artifactshare/skills/releases/latest) で配布しています。
+1 ファイルでドキュメント・KPI ダッシュボード・16:9 スライド・業務 UI モックの 4 種類すべてを生成できます。
 
 | サービス | 導入手順 |
 |---|---|
-| **`gemini.google.com`（Skills）** | 左メニュー「カスタマイズ（Customize）」→「Skills」→「作成 / アップロード」から `.zip` をアップロード。チャットで `/` や `@`、または「DADS で〜」と呼び出し（生成 HTML は **Canvas** で即プレビュー可能）。 |
-| **`gemini.google.com`（Gems）** | `.zip` を展開し、`SKILL.md` を「指示」に貼り、`references/*.md` を「知識」に添付して保存。**Google Drive 経由で共有リンクを発行**すれば社内全員がインストール不要で利用できます。 |
+| **`gemini.google.com`（Skills）** | 左メニュー「カスタマイズ（Customize）」→「Skills」→「作成 / アップロード」から `dads-web.zip` をアップロード。チャットで `/` や `@`、または「DADS で〜」と呼び出し（生成 HTML は **Canvas** で即プレビュー可能）。 |
+| **`gemini.google.com`（Gems）** | `dads-web.zip` を展開し、`SKILL.md` を「指示」に貼り、`references/*.md` を「知識」に添付して保存。**Google Drive 経由で共有リンクを発行**すれば社内全員がインストール不要で利用できます。 |
 | **Gemini in Chrome** | `chrome://skills` から展開したフォルダをインポート（実行スクリプトを含まないため制限に抵触しません）。 |
 | **Claude.ai（Web）** | Projects のカスタム指示・ナレッジ、または Skills に `.zip` / 展開ファイルをアップロードして利用できます。 |
 
 ## 同梱スキル一覧
 
-| スキル | 用途 | 主な機能 |
+| スキル | 引数 / モード | 用途・主な機能 |
 |---|---|---|
-| [`dads-doc`](skills/dads-doc/SKILL.md) | 技術検討レポート、PR 内容説明、社内ガイド、議事録 | スクロール連動目次自動生成、日本語文字組み（`palt` / `auto-phrase` / `text-autospace`）、A4 印刷最適化、公式 43 コンポーネント自動バンドル |
-| [`dads-kpi-dashboard`](skills/dads-kpi-dashboard/SKILL.md) | KPI 定点モニター、月次・日次分析、事業計画ダッシュボード | 公式 2026 年版 7 色パレット（白地 `#FFFFFF`＋ボーダーレス `#F8F8FB` パネル）、パレット別 KPI Good/Bad 配色、横棒・積み上げ棒・SVG 折れ線チャート |
-| [`dads-slides`](skills/dads-slides/SKILL.md) | 技術発表、社内共有会、方針説明スライド | ゼロ依存 16:9 固定比率、キーボード操作（`←` / `→` / `Space`）、URL ハッシュ同期、1 枚 1 ページ PDF 印刷 |
-| [`dads-mockup`](skills/dads-mockup/SKILL.md) | 業務画面プロトタイプ、申請フォーム、社内ツール UI モック | 公式 DADS フォーム・テーブル・ボタン・通知バナー全 43 種の自動ツリーシェイク・バンドル、インタラクティブタブ切替 |
+| [`dads`](skills/dads/SKILL.md) | `doc` / `dashboard` / `slides` / `mockup` | デジタル庁デザインシステム（DADS）公開 MIT アセットに基づく単一 HTML 生成。スクロール連動目次ドキュメント、7 色 KPI ダッシュボード、16:9 印刷対応スライド、全 43 コンポーネントによる動く業務 UI モックを 1 スキルで網羅。 |
 
 ## 特徴
 

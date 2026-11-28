@@ -311,7 +311,7 @@ body {
   stroke-dasharray: 5 4;
 }
 
-/* Official tableEx styling */
+/* DADS tableEx styling */
 .dads-table-wrap {
   overflow-x: auto;
   border-radius: var(--border-radius-6);

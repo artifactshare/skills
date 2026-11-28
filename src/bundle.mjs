@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * Portable DADS Single-File HTML Bundler (with Official 43-Component Tree-Shaking)
+ * Portable DADS Single-File HTML Bundler (with 43-Component Tree-Shaking)
  *
  * Works both inside a standalone installed skill directory (skills/<name>/scripts/bundle.mjs)
  * and from the repository source tree (src/bundle.mjs).
@@ -389,7 +389,7 @@ function main() {
     for (const cssFile of comp.css) {
       const full = path.join(componentsBaseDir, comp.name, cssFile);
       if (fs.existsSync(full)) {
-        componentCssBlocks.push(`/* Official DADS component: ${comp.name}/${cssFile} */\n${fs.readFileSync(full, 'utf8')}`);
+        componentCssBlocks.push(`/* DADS component: ${comp.name}/${cssFile} */\n${fs.readFileSync(full, 'utf8')}`);
       }
     }
   }
@@ -413,7 +413,7 @@ function main() {
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>${escapeHtml(args.title)}</title>
     <style>
-/* Official @digital-go-jp/design-tokens@2.1.0 (MIT) */
+/* @digital-go-jp/design-tokens@2.1.0 (MIT) */
 ${officialTokensCss}
 ${semanticCss}
 ${componentCssBlocks.join('\n\n')}

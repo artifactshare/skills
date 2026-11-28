@@ -20,7 +20,7 @@ const slidesOut = path.join(rootDir, 'samples', 'slides', 'sample-slides.html');
 const bizSlidesOut = path.join(rootDir, 'samples', 'slides', 'sample-biz-slides.html');
 const mockupOut = path.join(rootDir, 'samples', 'mockup', 'sample-mockup.html');
 
-bundle('dads-doc', [
+bundle('dads', [
   '--type',
   'doc',
   '--palette',
@@ -33,7 +33,7 @@ bundle('dads-doc', [
   docOut,
 ]);
 
-bundle('dads-doc', [
+bundle('dads', [
   '--type',
   'doc',
   '--palette',
@@ -46,7 +46,7 @@ bundle('dads-doc', [
   prReviewOut,
 ]);
 
-bundle('dads-doc', [
+bundle('dads', [
   '--type',
   'doc',
   '--palette',
@@ -59,7 +59,7 @@ bundle('dads-doc', [
   policyOut,
 ]);
 
-bundle('dads-kpi-dashboard', [
+bundle('dads', [
   '--type',
   'dashboard',
   '--palette',
@@ -74,7 +74,7 @@ bundle('dads-kpi-dashboard', [
   dashOut,
 ]);
 
-bundle('dads-slides', [
+bundle('dads', [
   '--type',
   'slides',
   '--palette',
@@ -87,7 +87,7 @@ bundle('dads-slides', [
   slidesOut,
 ]);
 
-bundle('dads-slides', [
+bundle('dads', [
   '--type',
   'slides',
   '--palette',
@@ -100,7 +100,7 @@ bundle('dads-slides', [
   bizSlidesOut,
 ]);
 
-bundle('dads-mockup', [
+bundle('dads', [
   '--type',
   'mockup',
   '--palette',
@@ -193,21 +193,11 @@ const combinedBody = `<div
             class="dads-button"
             data-size="xs"
             data-type="solid-fill"
-            href="https://github.com/artifactshare/skills/releases/latest/download/dads-all-in-one-web.zip"
+            href="https://github.com/artifactshare/skills/releases/latest/download/dads-web.zip"
             target="_blank"
             rel="noopener"
           >
-            スキルパック (.zip) をダウンロード
-          </a>
-          <a
-            class="dads-button"
-            data-size="xs"
-            data-type="outline"
-            href="https://github.com/artifactshare/skills/releases/latest"
-            target="_blank"
-            rel="noopener"
-          >
-            個別に選ぶ
+            スキルパック (dads-web.zip) をダウンロード
           </a>
         </div>
         <ul style="margin: 0; padding-left: 18px; font-size: var(--font-size-14); color: var(--color-neutral-solid-gray-700); line-height: 1.6">
@@ -532,7 +522,7 @@ try {
   fs.writeFileSync(tmpTheme, showcaseThemeCss, 'utf8');
   fs.writeFileSync(tmpJs, combinedJs, 'utf8');
 
-  bundle('dads-mockup', [
+  bundle('dads', [
     '--type',
     'mockup',
     '--palette',

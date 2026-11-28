@@ -18,10 +18,7 @@ const rootDir = path.resolve(__dirname, '..');
 const checkMode = process.argv.includes('--check');
 
 const SKILLS = [
-  { name: 'dads-doc', type: 'doc' },
-  { name: 'dads-kpi-dashboard', type: 'dashboard' },
-  { name: 'dads-slides', type: 'slides' },
-  { name: 'dads-mockup', type: 'mockup' },
+  { name: 'dads', types: ['doc', 'dashboard', 'slides', 'mockup'] },
 ];
 
 const drifts = [];
@@ -52,9 +49,9 @@ function syncText(content, destPath) {
 
 function generateCatalogMarkdown(manifest) {
   const lines = [
-    '# Official DADS Component Catalog (Auto-generated)',
+    '# DADS Component Catalog (Auto-generated)',
     '',
-    'Below are all 43 official components from `digital-go-jp/design-system-example-components-html` (MIT).',
+    'Below are all 43 components from `digital-go-jp/design-system-example-components-html` (MIT).',
     'Any `.dads-*` class used in your body HTML is automatically detected and tree-shaken into the single HTML output by `scripts/bundle.mjs`.',
     '',
     '| Component | Primary CSS Classes |',
@@ -114,10 +111,12 @@ function main() {
     syncFile(bundlerPath, path.join(skillDir, 'scripts', 'bundle.mjs'));
     syncFile(tokensPath, path.join(skillDir, 'assets', 'tokens.css'));
     syncFile(semanticPath, path.join(skillDir, 'assets', 'dads-semantic.css'));
-    syncFile(
-      path.join(rootDir, 'src', 'types', `${skill.type}.css`),
-      path.join(skillDir, 'assets', `type-${skill.type}.css`),
-    );
+    for (const type of skill.types) {
+      syncFile(
+        path.join(rootDir, 'src', 'types', `${type}.css`),
+        path.join(skillDir, 'assets', `type-${type}.css`),
+      );
+    }
     syncFile(manifestPath, path.join(skillDir, 'assets', 'components', 'manifest.json'));
     for (const comp of manifest) {
       for (const cssFile of comp.css) {

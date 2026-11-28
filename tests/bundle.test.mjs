@@ -36,9 +36,9 @@ test('all 7 official 2026 dashboard themes are synced', () => {
 test('standalone skill bundler works without repo parent directory and tree-shakes components', () => {
   const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'dads-skill-portable-'));
   try {
-    // Copy only skills/dads-mockup into an isolated temp dir to prove 100% portability
-    const isolatedSkillDir = path.join(tmpDir, 'dads-mockup');
-    fs.cpSync(path.join(rootDir, 'skills', 'dads-mockup'), isolatedSkillDir, { recursive: true });
+    // Copy only skills/dads into an isolated temp dir to prove 100% portability
+    const isolatedSkillDir = path.join(tmpDir, 'dads');
+    fs.cpSync(path.join(rootDir, 'skills', 'dads'), isolatedSkillDir, { recursive: true });
 
     const bodyPath = path.join(tmpDir, 'body.html');
     const outPath = path.join(tmpDir, 'out.html');
@@ -73,8 +73,8 @@ test('standalone skill bundler works without repo parent directory and tree-shak
     const html = fs.readFileSync(outPath, 'utf8');
     assert.match(html, /data-palette="cyan"/);
     assert.match(html, /--color-primitive-blue-900: #0017c1/);
-    assert.match(html, /Official DADS component: button\/button\.css/);
-    assert.doesNotMatch(html, /Official DADS component: calendar\/calendar\.css/);
+    assert.match(html, /DADS component: button\/button\.css/);
+    assert.doesNotMatch(html, /DADS component: calendar\/calendar\.css/);
     assert.match(html, /--brand-marker: 1/);
     assert.match(html, /font-feature-settings: 'palt' 1/);
   } finally {
@@ -94,7 +94,7 @@ test('doc bundler injects scroll-spy TOC runtime and supports all 7 palettes', (
     execFileSync(
       'node',
       [
-        path.join(rootDir, 'skills', 'dads-doc', 'scripts', 'bundle.mjs'),
+        path.join(rootDir, 'skills', 'dads', 'scripts', 'bundle.mjs'),
         '--type',
         'doc',
         '--palette',
@@ -119,13 +119,7 @@ test('doc bundler injects scroll-spy TOC runtime and supports all 7 palettes', (
 test('web skill builder produces valid script-free zip archives with root SKILL.md', () => {
   execFileSync('node', [path.join(rootDir, 'scripts', 'build-web-skills.mjs')], { stdio: 'pipe' });
   const webDir = path.join(rootDir, 'dist', 'web-skills');
-  const expected = [
-    'dads-all-in-one-web.zip',
-    'dads-doc-web.zip',
-    'dads-kpi-dashboard-web.zip',
-    'dads-slides-web.zip',
-    'dads-mockup-web.zip',
-  ];
+  const expected = ['dads-web.zip'];
   for (const zipName of expected) {
     const zipPath = path.join(webDir, zipName);
     assert.ok(fs.existsSync(zipPath), `Missing web zip: ${zipName}`);
