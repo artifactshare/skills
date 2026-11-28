@@ -1,13 +1,15 @@
 ---
 name: dads-slides
-description: デジタル庁デザインシステム（DADS）公式トークンと 7 色パレット、日本語文字組みに基づいた、ゼロ依存 16:9 HTML プレゼンテーションスライドを作成する。経営会議・事業部定例・企画提案などのビジネス社内 MTG 資料、技術発表、方針説明、プロジェクト振り返りのスライド作成時に使用する。
+description: デジタル庁デザインシステム（DADS）の公開トークンと 7 色パレット（MIT）、日本語文字組みに基づいた、ゼロ依存 16:9 HTML プレゼンテーションスライドを作成するサードパーティ製スキル。経営会議・事業部定例・企画提案などのビジネス社内 MTG 資料、技術発表、方針説明、プロジェクト振り返りのスライド作成時に使用する。
 license: MIT
 metadata:
   author: artifactshare
-  version: "1.0.0"
+  version: "1.0.1"
 ---
 
-# dads-slides — DADS 準拠 16:9 HTML スライド生成
+# dads-slides — DADS ベース 16:9 HTML スライド生成
+
+> 本スキルは Artifact Share が公開する独立したサードパーティ製スキルです（デジタル庁の公式提供物ではありません）。
 
 ## 目的
 
@@ -18,7 +20,7 @@ metadata:
 - **1 スライド 1 メッセージ**：見出し（`h2`）は体言止め（「背景」等）ではなく、**言い切りの主張文**にする。
 - **詰め込まない**：1 スライドあたり 2〜3 カラムの `.dads-slide-card` または簡潔な箇条書きに収める。
 - **根拠数値を大きく見せる**：重要数値は `.dads-slide-stat` を使う。
-- 追加の公式コンポーネントを使う場合は [Component Catalog](references/components-catalog.md) を参照する。
+- 追加の DADS コンポーネントを使う場合は [Component Catalog](references/components-catalog.md) を参照する。
 
 ## Anti-Slop ルール（禁止事項）
 
