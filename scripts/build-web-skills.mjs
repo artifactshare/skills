@@ -51,7 +51,7 @@ const WEB_SKILLS = [
 \`\`\``,
   },
   {
-    id: 'dads-dashboard',
+    id: 'dads-kpi-dashboard',
     type: 'dashboard',
     title: 'DADS KPI ダッシュボード（Web AI 版）',
     components: 'button,table',

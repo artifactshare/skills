@@ -59,7 +59,7 @@ bundle('dads-doc', [
   policyOut,
 ]);
 
-bundle('dads-dashboard', [
+bundle('dads-kpi-dashboard', [
   '--type',
   'dashboard',
   '--palette',

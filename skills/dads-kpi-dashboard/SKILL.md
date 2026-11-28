@@ -1,5 +1,5 @@
 ---
-name: dads-dashboard
+name: dads-kpi-dashboard
 description: デジタル庁「ダッシュボードデザインの実践ガイドブック」および 2026 年版公式 7 色テーマに完全準拠した、KPI・進捗・分析ダッシュボード（単一 HTML）を作成する。月次・日次レポート、事業計画・KPI 定点モニター、セグメント比較、データ可視化の作成時に使用する。
 license: MIT
 metadata:
@@ -7,7 +7,7 @@ metadata:
   version: "1.0.0"
 ---
 
-# dads-dashboard — デジタル庁ダッシュボードガイドライン完全準拠の HTML 生成
+# dads-kpi-dashboard — デジタル庁ダッシュボードガイドライン完全準拠の HTML 生成
 
 ## 目的
 

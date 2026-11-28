@@ -122,7 +122,7 @@ test('web skill builder produces valid script-free zip archives with root SKILL.
   const expected = [
     'dads-all-in-one-web.zip',
     'dads-doc-web.zip',
-    'dads-dashboard-web.zip',
+    'dads-kpi-dashboard-web.zip',
     'dads-slides-web.zip',
     'dads-mockup-web.zip',
   ];

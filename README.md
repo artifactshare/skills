@@ -22,7 +22,7 @@ npx skills add artifactshare/skills
 
 ```sh
 npx skills add artifactshare/skills@dads-doc
-npx skills add artifactshare/skills@dads-dashboard
+npx skills add artifactshare/skills@dads-kpi-dashboard
 npx skills add artifactshare/skills@dads-slides
 npx skills add artifactshare/skills@dads-mockup
 ```
@@ -35,7 +35,7 @@ npx skills add artifactshare/skills@dads-mockup
 ローカルの Node.js を実行できない Web / クラウド AI 向けに、**スクリプト不要（`.js` ゼロ）・Markdown テンプレート同梱の `.zip` パッケージ** を [GitHub Releases](https://github.com/artifactshare/skills/releases/latest) で配布しています。
 
 - **おすすめ（4 種全部入り）**：`dads-all-in-one-web.zip`（1 パックでドキュメント・ダッシュボード・スライド・UI モックのすべてを生成可能）
-- **個別版**：`dads-doc-web.zip` / `dads-dashboard-web.zip` / `dads-slides-web.zip` / `dads-mockup-web.zip`
+- **個別版**：`dads-doc-web.zip` / `dads-kpi-dashboard-web.zip` / `dads-slides-web.zip` / `dads-mockup-web.zip`
 
 | サービス | 導入手順 |
 |---|---|
@@ -49,7 +49,7 @@ npx skills add artifactshare/skills@dads-mockup
 | スキル | 用途 | 主な機能 |
 |---|---|---|
 | [`dads-doc`](skills/dads-doc/SKILL.md) | 技術検討レポート、PR 内容説明、社内ガイド、議事録 | スクロール連動目次自動生成、日本語文字組み（`palt` / `auto-phrase` / `text-autospace`）、A4 印刷最適化、公式 43 コンポーネント自動バンドル |
-| [`dads-dashboard`](skills/dads-dashboard/SKILL.md) | KPI 定点モニター、月次・日次分析、事業計画ダッシュボード | 公式 2026 年版 7 色パレット（白地 `#FFFFFF`＋ボーダーレス `#F8F8FB` パネル）、パレット別 KPI Good/Bad 配色、横棒・積み上げ棒・SVG 折れ線チャート |
+| [`dads-kpi-dashboard`](skills/dads-kpi-dashboard/SKILL.md) | KPI 定点モニター、月次・日次分析、事業計画ダッシュボード | 公式 2026 年版 7 色パレット（白地 `#FFFFFF`＋ボーダーレス `#F8F8FB` パネル）、パレット別 KPI Good/Bad 配色、横棒・積み上げ棒・SVG 折れ線チャート |
 | [`dads-slides`](skills/dads-slides/SKILL.md) | 技術発表、社内共有会、方針説明スライド | ゼロ依存 16:9 固定比率、キーボード操作（`←` / `→` / `Space`）、URL ハッシュ同期、1 枚 1 ページ PDF 印刷 |
 | [`dads-mockup`](skills/dads-mockup/SKILL.md) | 業務画面プロトタイプ、申請フォーム、社内ツール UI モック | 公式 DADS フォーム・テーブル・ボタン・通知バナー全 43 種の自動ツリーシェイク・バンドル、インタラクティブタブ切替 |
 

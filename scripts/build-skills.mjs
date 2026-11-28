@@ -19,7 +19,7 @@ const checkMode = process.argv.includes('--check');
 
 const SKILLS = [
   { name: 'dads-doc', type: 'doc' },
-  { name: 'dads-dashboard', type: 'dashboard' },
+  { name: 'dads-kpi-dashboard', type: 'dashboard' },
   { name: 'dads-slides', type: 'slides' },
   { name: 'dads-mockup', type: 'mockup' },
 ];
