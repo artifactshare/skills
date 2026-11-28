@@ -166,3 +166,49 @@ test('distributed skills and showcase runtime contain no security scanner trigge
     assert.doesNotMatch(html, /<iframe\b/i, 'Showcase must not contain <iframe> (blocked by Artifact Share CSP)');
   }
 });
+
+test('bundler expands all 7 declarative SVG chart types and includes dads-viz.css + walkthrough runtime', () => {
+  const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'dads-charts-test-'));
+  try {
+    const bodyPath = path.join(tmpDir, 'body.html');
+    const outPath = path.join(tmpDir, 'out.html');
+    fs.writeFileSync(
+      bodyPath,
+      `<main class="dads-doc">
+        <div class="dads-walkthrough"><button data-step="1">Step 1</button><div data-step-target="1">Target</div></div>
+        <div class="dads-chart" data-chart="hbar"><script type="application/json">{"title":"H","items":[{"label":"A","value":10,"highlight":true}]}</script></div>
+        <div class="dads-chart" data-chart="bar"><script type="application/json">{"title":"B","labels":["X"],"series":[{"name":"S1","values":[10]},{"name":"S2","values":[20]}]}</script></div>
+        <div class="dads-chart" data-chart="stacked"><script type="application/json">{"title":"ST","seriesNames":["A","B"],"rows":[{"label":"R1","values":[60,40]}]}</script></div>
+        <div class="dads-chart" data-chart="line"><script type="application/json">{"title":"L","labels":["1月","2月"],"series":[{"name":"実績","values":[10,20]}],"target":{"value":15}}</script></div>
+        <div class="dads-chart" data-chart="donut"><script type="application/json">{"title":"D","items":[{"label":"A","value":30},{"label":"B","value":70}]}</script></div>
+        <div class="dads-chart dads-chart--inline" data-chart="sparkline"><script type="application/json">{"values":[1,3,2,5]}</script></div>
+        <div class="dads-chart" data-chart="scatter"><script type="application/json">{"title":"SC","quadrants":["Q1","Q2","Q3","Q4"],"points":[{"label":"P1","x":4,"y":8,"highlight":true}]}</script></div>
+      </main>`,
+    );
+    execFileSync(
+      'node',
+      [
+        path.join(rootDir, 'skills', 'dads', 'scripts', 'bundle.mjs'),
+        '--type',
+        'doc',
+        '--palette',
+        'blue',
+        '--title',
+        'Charts Test',
+        '--input',
+        bodyPath,
+        '--output',
+        outPath,
+      ],
+      { stdio: 'pipe' },
+    );
+    const html = fs.readFileSync(outPath, 'utf8');
+    const svgCount = (html.match(/<svg class="dads-chart-svg"/g) || []).length;
+    assert.equal(svgCount, 7, `Expected 7 rendered SVG charts, got ${svgCount}`);
+    assert.doesNotMatch(html, /type="application\/json"/, 'Raw chart JSON scripts should be expanded into SVGs');
+    assert.match(html, /\.dads-flow\s*\{/, 'dads-viz.css should be bundled');
+    assert.match(html, /data-step-target/, 'walkthrough runtime should be injected');
+  } finally {
+    fs.rmSync(tmpDir, { recursive: true, force: true });
+  }
+});

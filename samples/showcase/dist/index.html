@@ -607,6 +607,627 @@ table :is(td, th)[data-num] {
   color: var(--dads-error);
 }
 
+/* ==========================================================================
+   dads-viz.css: Shared Diagram, PR Review & Chart Components
+   Zero-dependency CSS + SVG visual grammar built on DADS tokens & 7 palettes.
+   ========================================================================== */
+
+/* ---------- 1. Review Decision Summary (.dads-review-meta) ---------- */
+.dads-review-meta {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 12px;
+  margin: 16px 0;
+}
+
+.dads-review-card {
+  background: #f8f8fb;
+  border: 1px solid var(--color-neutral-solid-gray-200);
+  border-radius: var(--border-radius-12);
+  padding: 14px 16px;
+  min-width: 0;
+}
+
+.dads-review-card[data-tone='key'] {
+  background: var(--color-key-50);
+  border-color: var(--color-key-200);
+}
+
+.dads-review-card[data-tone='warning'] {
+  background: var(--color-primitive-yellow-50, #fff8e1);
+  border-color: var(--color-primitive-yellow-400, #f5b400);
+}
+
+.dads-review-card[data-tone='danger'] {
+  background: var(--color-primitive-red-50, #fff1f1);
+  border-color: var(--color-primitive-red-300, #ff8f8f);
+}
+
+.dads-review-card-label {
+  display: block;
+  font-size: var(--font-size-12, 12px);
+  font-weight: 700;
+  color: var(--color-neutral-solid-gray-600);
+  margin-bottom: 6px;
+}
+
+.dads-review-card-value {
+  font-size: var(--font-size-16);
+  font-weight: 700;
+  color: var(--color-neutral-black);
+  line-height: 1.4;
+  margin: 0 0 4px;
+}
+
+.dads-review-card-note {
+  font-size: var(--font-size-14);
+  color: var(--color-neutral-solid-gray-700);
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* ---------- 2. Process Flow Diagram (.dads-flow) ---------- */
+.dads-flow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  gap: 10px;
+  margin: 16px 0;
+  padding: 16px;
+  background: #f8f8fb;
+  border-radius: var(--border-radius-12);
+  border: 1px solid var(--color-neutral-solid-gray-200);
+}
+
+.dads-flow-step {
+  flex: 1 1 150px;
+  min-width: 0;
+  background: var(--color-neutral-white);
+  border: 1.5px solid var(--color-neutral-solid-gray-300);
+  border-radius: var(--border-radius-8);
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.dads-flow-step[data-status='added'] {
+  border-color: var(--dads-chart-1);
+  background: var(--color-key-50);
+}
+
+.dads-flow-step[data-status='changed'] {
+  border-color: var(--color-primitive-orange-700, #c75b00);
+  background: var(--color-primitive-orange-50, #fff6eb);
+}
+
+.dads-flow-step[data-status='removed'] {
+  border-color: var(--color-primitive-red-600, #ce0000);
+  background: var(--color-primitive-red-50, #fff1f1);
+  border-style: dashed;
+}
+
+.dads-flow-step.is-active,
+.dads-arch-node.is-active {
+  border-color: var(--dads-chart-1);
+  box-shadow: 0 0 0 3px var(--color-key-200);
+}
+
+.dads-flow-step-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.dads-flow-step-title {
+  font-size: var(--font-size-14);
+  font-weight: 700;
+  color: var(--color-neutral-black);
+  margin: 0;
+}
+
+.dads-flow-step-desc {
+  font-size: 13px;
+  color: var(--color-neutral-solid-gray-700);
+  line-height: 1.5;
+  margin: 0;
+}
+
+.dads-flow-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-neutral-solid-gray-500);
+  font-weight: 700;
+  font-size: 16px;
+  padding: 0 2px;
+  flex-shrink: 0;
+}
+
+.dads-flow-branch {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 10px;
+  margin-top: 6px;
+  padding-top: 12px;
+  border-top: 1px dashed var(--color-neutral-solid-gray-300);
+}
+
+/* ---------- 3. Before / After Structural Compare (.dads-compare) ---------- */
+.dads-compare {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin: 16px 0;
+}
+
+.dads-compare-pane {
+  background: var(--color-neutral-white);
+  border: 1.5px solid var(--color-neutral-solid-gray-300);
+  border-radius: var(--border-radius-12);
+  padding: 16px;
+  min-width: 0;
+}
+
+.dads-compare-pane[data-kind='before'] {
+  background: #f8f8fb;
+}
+
+.dads-compare-pane[data-kind='after'] {
+  border-color: var(--dads-chart-1);
+  background: var(--color-key-50);
+}
+
+.dads-compare-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 10px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--color-neutral-solid-gray-200);
+}
+
+.dads-compare-title {
+  font-size: var(--font-size-16);
+  font-weight: 700;
+  color: var(--color-neutral-black);
+  margin: 0;
+}
+
+.dads-compare-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.dads-compare-list li {
+  font-size: var(--font-size-14);
+  line-height: 1.55;
+  padding: 8px 10px;
+  border-radius: var(--border-radius-8);
+  background: var(--color-neutral-white);
+  border: 1px solid var(--color-neutral-solid-gray-200);
+}
+
+.dads-compare-list li.is-highlight {
+  border-color: var(--dads-chart-1);
+  font-weight: 600;
+}
+
+/* ---------- 4. Architecture & Impact Layer Map (.dads-arch) ---------- */
+.dads-arch {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 16px 0;
+  padding: 16px;
+  background: #f8f8fb;
+  border: 1px solid var(--color-neutral-solid-gray-200);
+  border-radius: var(--border-radius-12);
+}
+
+.dads-arch-layer {
+  display: grid;
+  grid-template-columns: 140px minmax(0, 1fr);
+  gap: 12px;
+  align-items: center;
+  background: var(--color-neutral-white);
+  border: 1px solid var(--color-neutral-solid-gray-200);
+  border-radius: var(--border-radius-8);
+  padding: 12px 14px;
+}
+
+.dads-arch-layer-name {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--color-neutral-solid-gray-700);
+}
+
+.dads-arch-nodes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.dads-arch-node {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  border-radius: var(--border-radius-8);
+  border: 1px solid var(--color-neutral-solid-gray-300);
+  background: #f8f8fb;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-neutral-solid-gray-800);
+}
+
+.dads-arch-node[data-impact='touched'] {
+  border-color: var(--dads-chart-1);
+  background: var(--color-key-50);
+  color: var(--color-key-1000, var(--color-neutral-black));
+}
+
+.dads-arch-node[data-impact='new'] {
+  border-color: var(--dads-chart-1);
+  background: var(--dads-chart-1);
+  color: var(--color-neutral-white);
+}
+
+.dads-arch-node[data-impact='unchanged'] {
+  opacity: 0.72;
+}
+
+/* ---------- 5. Lightweight Sequence Diagram (.dads-seq) ---------- */
+.dads-seq {
+  margin: 16px 0;
+  padding: 16px;
+  background: #f8f8fb;
+  border: 1px solid var(--color-neutral-solid-gray-200);
+  border-radius: var(--border-radius-12);
+  overflow-x: auto;
+}
+
+.dads-seq-actors {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(120px, 1fr));
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.dads-seq-actor {
+  text-align: center;
+  padding: 8px 10px;
+  background: var(--color-neutral-white);
+  border: 1.5px solid var(--color-neutral-solid-gray-400);
+  border-radius: var(--border-radius-8);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--color-neutral-black);
+}
+
+.dads-seq-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.dads-seq-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 8px 12px;
+  background: var(--color-neutral-white);
+  border: 1px solid var(--color-neutral-solid-gray-200);
+  border-radius: var(--border-radius-8);
+  font-size: 13px;
+}
+
+.dads-seq-row[data-tone='key'] {
+  border-color: var(--dads-chart-1);
+  background: var(--color-key-50);
+}
+
+.dads-seq-path {
+  font-weight: 700;
+  color: var(--dads-chart-1);
+  white-space: nowrap;
+}
+
+.dads-seq-msg {
+  flex: 1 1 auto;
+  color: var(--color-neutral-solid-gray-900);
+  min-width: 0;
+}
+
+/* ---------- 6. Mini Code Diff Block (.dads-diff) ---------- */
+.dads-diff {
+  margin: 16px 0;
+  border: 1px solid var(--color-neutral-solid-gray-200);
+  border-radius: var(--border-radius-12);
+  overflow: hidden;
+  background: var(--color-neutral-white);
+}
+
+.dads-diff-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  flex-wrap: wrap;
+  padding: 10px 14px;
+  background: #f1f1f4;
+  border-bottom: 1px solid var(--color-neutral-solid-gray-200);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.dads-diff-stats {
+  display: inline-flex;
+  gap: 6px;
+  font-family: var(--font-family-mono);
+  font-size: 12px;
+}
+
+.dads-diff-stat-add {
+  color: #115a36;
+  background: #e6f5ec;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.dads-diff-stat-del {
+  color: #b40000;
+  background: #ffecec;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.dads-diff-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.dads-diff-pane {
+  min-width: 0;
+  overflow-x: auto;
+  padding: 12px 14px;
+  font-family: var(--font-family-mono);
+  font-size: 12.5px;
+  line-height: 1.6;
+  margin: 0;
+  background: var(--color-neutral-white);
+}
+
+.dads-diff-pane + .dads-diff-pane {
+  border-left: 1px solid var(--color-neutral-solid-gray-200);
+}
+
+.dads-diff-pane-label {
+  font-family: var(--font-family-sans);
+  font-size: 11.5px;
+  font-weight: 700;
+  color: var(--color-neutral-solid-gray-600);
+  margin-bottom: 6px;
+  display: block;
+}
+
+.dads-diff-line {
+  display: block;
+  padding: 1px 6px;
+  border-radius: 3px;
+  white-space: pre;
+}
+
+.dads-diff-line--del {
+  background: #ffecec;
+  color: #850000;
+}
+
+.dads-diff-line--add {
+  background: #e6f5ec;
+  color: #0e4a2c;
+}
+
+/* ---------- 7. Interactive Walkthrough (.dads-walkthrough) ---------- */
+.dads-walkthrough {
+  display: grid;
+  grid-template-columns: minmax(220px, 280px) minmax(0, 1fr);
+  gap: 14px;
+  margin: 16px 0;
+  align-items: start;
+}
+
+.dads-wt-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.dads-wt-step {
+  text-align: left;
+  width: 100%;
+  cursor: pointer;
+  padding: 10px 12px;
+  border-radius: var(--border-radius-8);
+  border: 1.5px solid var(--color-neutral-solid-gray-200);
+  background: var(--color-neutral-white);
+  font-family: inherit;
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: var(--color-neutral-solid-gray-900);
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+
+.dads-wt-step:hover {
+  border-color: var(--color-neutral-solid-gray-400);
+}
+
+.dads-wt-step.is-active {
+  border-color: var(--dads-chart-1);
+  background: var(--color-key-50);
+  font-weight: 600;
+}
+
+/* ---------- 8. Declarative SVG Charts (.dads-chart) ---------- */
+.dads-chart {
+  margin: 16px 0;
+  padding: 16px 18px;
+  background: #f8f8fb;
+  border-radius: var(--border-radius-12);
+  border: 1px solid var(--color-neutral-solid-gray-200);
+  min-width: 0;
+}
+
+.dads-chart--inline {
+  margin: 6px 0 0;
+  padding: 0;
+  background: transparent;
+  border: 0;
+}
+
+.dads-chart-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+
+.dads-chart-title {
+  font-size: var(--font-size-16);
+  font-weight: 700;
+  color: var(--color-neutral-black);
+  margin: 0;
+}
+
+.dads-chart-sub {
+  font-size: 12.5px;
+  color: var(--color-neutral-solid-gray-600);
+}
+
+.dads-chart-svg-wrap {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.dads-chart-svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  font-family: var(--font-family-sans);
+}
+
+.dads-chart-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 16px;
+  margin-top: 10px;
+  font-size: 12.5px;
+  color: var(--color-neutral-solid-gray-800);
+}
+
+.dads-chart-legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.dads-chart-swatch {
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+.dads-chart-note {
+  margin: 8px 0 0;
+  font-size: 12px;
+  color: var(--color-neutral-solid-gray-600);
+}
+
+.dads-chart-donut-layout {
+  display: grid;
+  grid-template-columns: 180px minmax(0, 1fr);
+  gap: 18px;
+  align-items: center;
+}
+
+.dads-chart-donut-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.dads-chart-donut-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  font-size: 13.5px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid var(--color-neutral-solid-gray-200);
+}
+
+.dads-chart-donut-row:last-child {
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+
+.dads-chart-donut-val {
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+/* ---------- Responsive (<= 768px / Mobile 390px) ---------- */
+@media (max-width: 768px) {
+  .dads-compare,
+  .dads-diff-grid,
+  .dads-walkthrough,
+  .dads-chart-donut-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .dads-diff-pane + .dads-diff-pane {
+    border-left: 0;
+    border-top: 1px solid var(--color-neutral-solid-gray-200);
+  }
+
+  .dads-arch-layer {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+
+  .dads-flow {
+    flex-direction: column;
+  }
+
+  .dads-flow-arrow {
+    transform: rotate(90deg);
+    padding: 2px 0;
+  }
+
+  .dads-seq-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+}
+
 /* DADS component: accordion/accordion.css */
 .dads-accordion {
   --_icon-size: calc(20 / 16 * 1rem);
@@ -4146,7 +4767,7 @@ body { background: var(--color-neutral-white); overflow: hidden; }
     </div>
     <h1>決済 Webhook リトライと冪等性キーの導入</h1>
     <p class="dads-doc-lead">
-      外部決済プロバイダからの重複通知による二重計上を防ぐため、冪等性キーによる排他制御と指数バックオフのリトライ処理を追加しました。レビュアーが 3 分で要所を確認できるよう、影響範囲と優先確認ファイルを整理しています。
+      外部決済プロバイダからの重複通知による二重計上を防ぐため、冪等性キーによる排他制御と指数バックオフのリトライ処理を追加しました。レビュアーが 3 分で要所を確認できるよう、処理フロー・影響範囲・重要差分を図解しています。
     </p>
     <dl class="dads-meta-grid">
       <div><dt>PR / ブランチ</dt><dd><code>#418</code> / <code>feat/webhook-idempotency</code></dd></div>
@@ -4157,98 +4778,163 @@ body { background: var(--color-neutral-white); overflow: hidden; }
   </header>
 
   <section class="dads-section">
-    <h2>1. 30 秒サマリ（どこを重点的に見るか）</h2>
-    <div class="dads-callout">
-      <p class="dads-callout-title">レビュアーへの確認依頼：全 34 ファイル中、核となる 4 ファイルだけ先に確認してください</p>
-      <p>
-        変更ファイル数が多いのは型定義・テストフィクスチャ・生成コードの追従（26 ファイル）によるものです。
-        ビジネスロジックと障害時挙動に関わるのは <strong>マイグレーション（1 件）</strong>・<strong>冪等性ガード（2 件）</strong>・<strong>リトライ設定（1 件）</strong> の計 4 ファイルです。
-      </p>
+    <h2>1. 30 秒サマリ（レビュー判断ポイント）</h2>
+    <div class="dads-review-meta">
+      <div class="dads-review-card" data-tone="key">
+        <span class="dads-review-card-label">変更意図</span>
+        <p class="dads-review-card-value">二重計上ゼロ＋一時障害の自動復旧</p>
+        <p class="dads-review-card-note">核となる確認対象は 34 件中 4 ファイルのみ</p>
+      </div>
+      <div class="dads-review-card">
+        <span class="dads-review-card-label">影響範囲（Blast Radius）</span>
+        <p class="dads-review-card-value">決済 Webhook 経路のみ</p>
+        <p class="dads-review-card-note">認証・通常の課金 UI 経路には非干渉</p>
+      </div>
+      <div class="dads-review-card" data-tone="warning">
+        <span class="dads-review-card-label">後戻り可否</span>
+        <p class="dads-review-card-value">Two-way Door（即時切戻し可）</p>
+        <p class="dads-review-card-note">フラグ <code>ENABLE_WEBHOOK_IDEMPOTENCY=false</code> で旧経路へ復帰</p>
+      </div>
     </div>
   </section>
 
   <section class="dads-section">
-    <h2>2. 挙動の変化（Before / After）</h2>
-    <div class="dads-table-wrap">
-      <table class="dads-doc-table">
-        <thead>
-          <tr>
-            <th>シナリオ</th>
-            <th>変更前（Before）</th>
-            <th class="is-recommended">変更後（After）</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><strong>同一イベントの重複受信</strong></td>
-            <td>処理が 2 回走り、売上レコードが二重登録される</td>
-            <td class="is-recommended"><code>event_id</code> の UNIQUE 制約で 2 回目を安全にスキップ（HTTP 200 返却）</td>
-          </tr>
-          <tr>
-            <td><strong>一時的な DB タイムアウト</strong></td>
-            <td>即座に 500 応答し、手動再実行が必要</td>
-            <td class="is-recommended">最大 5 回まで指数バックオフで自動リトライ、超過時は DLQ へ退避</td>
-          </tr>
-          <tr>
-            <td><strong>署名検証エラー</strong></td>
-            <td>エラーログのみで監視アラートなし</td>
-            <td class="is-recommended">構造化ログ＋メトリクス加算（即時アラート対象）</td>
-          </tr>
-        </tbody>
-      </table>
+    <h2>2. 新しい処理フローと分岐</h2>
+    <div class="dads-flow" role="group" aria-label="Webhook 冪等処理フロー">
+      <div class="dads-flow-step">
+        <div class="dads-flow-step-head">
+          <h4 class="dads-flow-step-title">1. Webhook 受信</h4>
+          <span class="dads-badge">既存</span>
+        </div>
+        <p class="dads-flow-step-desc">署名検証し <code>event_id</code> を抽出</p>
+      </div>
+      <div class="dads-flow-arrow" aria-hidden="true">→</div>
+      <div class="dads-flow-step" data-status="added">
+        <div class="dads-flow-step-head">
+          <h4 class="dads-flow-step-title">2. 冪等性ロック取得</h4>
+          <span class="dads-badge dads-badge--primary">新規</span>
+        </div>
+        <p class="dads-flow-step-desc"><code>(provider, event_id)</code> の UNIQUE 制約で排他</p>
+      </div>
+      <div class="dads-flow-arrow" aria-hidden="true">→</div>
+      <div class="dads-flow-step" data-status="changed">
+        <div class="dads-flow-step-head">
+          <h4 class="dads-flow-step-title">3. 売上確定＆応答</h4>
+          <span class="dads-badge dads-badge--warning">変更</span>
+        </div>
+        <p class="dads-flow-step-desc">成功時は <code>completed</code> に更新して 200 返却</p>
+      </div>
+      <div class="dads-flow-branch">
+        <div class="dads-flow-step" data-status="added">
+          <div class="dads-flow-step-head">
+            <h4 class="dads-flow-step-title">分岐 A：重複イベント</h4>
+            <span class="dads-badge dads-badge--success">スキップ</span>
+          </div>
+          <p class="dads-flow-step-desc">処理済みなら再計上せず HTTP 200 を即時返却</p>
+        </div>
+        <div class="dads-flow-step" data-status="changed">
+          <div class="dads-flow-step-head">
+            <h4 class="dads-flow-step-title">分岐 B：DB タイムアウト等</h4>
+            <span class="dads-badge dads-badge--warning">自動再試行</span>
+          </div>
+          <p class="dads-flow-step-desc">指数バックオフで最大 5 回再試行、超過時は DLQ へ退避</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="dads-compare">
+      <div class="dads-compare-pane" data-kind="before">
+        <div class="dads-compare-head">
+          <h4 class="dads-compare-title">変更前（Before）</h4>
+          <span class="dads-badge">旧経路</span>
+        </div>
+        <ul class="dads-compare-list">
+          <li>同一イベントの重複受信で売上レコードが二重登録</li>
+          <li>一時的な DB タイムアウトで即 500、手動リカバリが必要</li>
+          <li>署名検証エラーはログ出力のみで監視アラートなし</li>
+        </ul>
+      </div>
+      <div class="dads-compare-pane" data-kind="after">
+        <div class="dads-compare-head">
+          <h4 class="dads-compare-title">変更後（After）</h4>
+          <span class="dads-badge dads-badge--primary">新経路</span>
+        </div>
+        <ul class="dads-compare-list">
+          <li class="is-highlight">UNIQUE 制約で 2 回目を安全にスキップし HTTP 200 返却</li>
+          <li class="is-highlight">最大 5 回の指数バックオフ＋DLQ 退避で手動介入を削減</li>
+          <li class="is-highlight">署名検証エラーを構造化ログ＋メトリクス加算で即時検知</li>
+        </ul>
+      </div>
     </div>
   </section>
 
   <section class="dads-section">
-    <h2>3. 変更ファイル分類とレビュー優先度</h2>
-    <div class="dads-table-wrap">
-      <table class="dads-doc-table">
-        <thead>
-          <tr>
-            <th>領域</th>
-            <th data-num>件数</th>
-            <th>対象ファイル</th>
-            <th>優先度</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><strong>DB マイグレーション</strong></td>
-            <td data-num>1</td>
-            <td><code>migrations/0042_webhook_idempotency.sql</code></td>
-            <td><span class="dads-badge dads-badge--error">最優先</span></td>
-          </tr>
-          <tr>
-            <td><strong>冪等性ガード・排他制御</strong></td>
-            <td data-num>2</td>
-            <td><code>services/billing/idempotency.ts</code>, <code>routes/webhooks/stripe.ts</code></td>
-            <td><span class="dads-badge dads-badge--error">最優先</span></td>
-          </tr>
-          <tr>
-            <td><strong>リトライ・DLQ 設定</strong></td>
-            <td data-num>1</td>
-            <td><code>workers/webhook-consumer.ts</code></td>
-            <td><span class="dads-badge dads-badge--warning">高</span></td>
-          </tr>
-          <tr>
-            <td><strong>結合テスト・障害注入テスト</strong></td>
-            <td data-num>11</td>
-            <td><code>tests/billing/webhook-*.test.ts</code></td>
-            <td><span class="dads-badge dads-badge--primary">中</span></td>
-          </tr>
-          <tr>
-            <td><strong>型生成・フィクスチャ追従</strong></td>
-            <td data-num>19</td>
-            <td><code>types/db.generated.ts</code>, <code>fixtures/*.json</code></td>
-            <td><span class="dads-badge dads-badge--success">CI 確認</span></td>
-          </tr>
-        </tbody>
-      </table>
+    <h2>3. 影響範囲マップと重要コード差分</h2>
+    <div class="dads-arch" role="group" aria-label="レイヤー別影響範囲マップ">
+      <div class="dads-arch-layer">
+        <div class="dads-arch-layer-name">Edge / Routes</div>
+        <div class="dads-arch-nodes">
+          <span class="dads-arch-node" data-impact="touched">routes/webhooks/stripe.ts（変更）</span>
+          <span class="dads-arch-node" data-impact="unchanged">routes/billing/checkout.ts</span>
+          <span class="dads-arch-node" data-impact="unchanged">routes/auth/session.ts</span>
+        </div>
+      </div>
+      <div class="dads-arch-layer">
+        <div class="dads-arch-layer-name">Domain / Worker</div>
+        <div class="dads-arch-nodes">
+          <span class="dads-arch-node" data-impact="new">services/billing/idempotency.ts（新規）</span>
+          <span class="dads-arch-node" data-impact="touched">workers/webhook-consumer.ts（変更）</span>
+        </div>
+      </div>
+      <div class="dads-arch-layer">
+        <div class="dads-arch-layer-name">Storage / Schema</div>
+        <div class="dads-arch-nodes">
+          <span class="dads-arch-node" data-impact="new">0042_webhook_idempotency.sql（新規）</span>
+          <span class="dads-arch-node" data-impact="unchanged">既存 invoices テーブル（変更なし）</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="dads-diff">
+      <div class="dads-diff-head">
+        <span>routes/webhooks/stripe.ts（核心部分の差分）</span>
+        <span class="dads-diff-stats"><span class="dads-diff-stat-add">+14</span><span class="dads-diff-stat-del">-3</span></span>
+      </div>
+      <div class="dads-diff-grid">
+        <pre class="dads-diff-pane"><span class="dads-diff-pane-label">Before</span><code class="dads-diff-line">const event = verifySignature(req)</code><code class="dads-diff-line dads-diff-line--del">- await recordPayment(db, event)</code><code class="dads-diff-line">return json({ ok: true })</code></pre>
+        <pre class="dads-diff-pane"><span class="dads-diff-pane-label">After</span><code class="dads-diff-line">const event = verifySignature(req)</code><code class="dads-diff-line dads-diff-line--add">+ const lock = await acquireIdempotency(db, 'stripe', event.id)</code><code class="dads-diff-line dads-diff-line--add">+ if (!lock.acquired) return json({ ok: true, duplicate: true })</code><code class="dads-diff-line dads-diff-line--add">+ await recordPayment(db, event)</code><code class="dads-diff-line dads-diff-line--add">+ await markCompleted(db, lock.id)</code><code class="dads-diff-line">return json({ ok: true })</code></pre>
+      </div>
     </div>
   </section>
 
   <section class="dads-section">
-    <h2>4. リスク・レビュー確認ステップ</h2>
+    <h2>4. 変更ファイル内訳と性能比較</h2>
+    <div class="dads-chart" data-chart="donut"><div class="dads-chart-head"><h3 class="dads-chart-title">変更 34 ファイルの分類内訳</h3><span class="dads-chart-sub">レビュー最優先はコア実装 4 ファイル</span></div><div class="dads-chart-donut-layout">
+    <svg class="dads-chart-svg" viewBox="0 0 180 180" style="max-width:180px;margin:0 auto" role="img" aria-label="変更 34 ファイルの分類内訳">
+      <circle cx="90" cy="90" r="64" fill="none" stroke="#e8e8ee" stroke-width="24" />
+      <circle cx="90" cy="90" r="64" fill="none" stroke="var(--dads-chart-1)" stroke-width="24" stroke-dasharray="224.72 177.41" stroke-dashoffset="0.00" transform="rotate(-90 90 90)" /><circle cx="90" cy="90" r="64" fill="none" stroke="var(--dads-chart-2)" stroke-width="24" stroke-dasharray="130.10 272.02" stroke-dashoffset="-224.72" transform="rotate(-90 90 90)" /><circle cx="90" cy="90" r="64" fill="none" stroke="var(--dads-chart-3)" stroke-width="24" stroke-dasharray="47.31 354.82" stroke-dashoffset="-354.82" transform="rotate(-90 90 90)" />
+      <text x="90" y="86" text-anchor="middle" font-size="11" fill="#626266">総ファイル</text>
+      <text x="90" y="106" text-anchor="middle" font-size="18" font-weight="700" fill="#1a1a1c">34件</text>
+    </svg>
+    <ul class="dads-chart-donut-list"><li class="dads-chart-donut-row"><span class="dads-chart-legend-item"><span class="dads-chart-swatch" style="background:var(--dads-chart-1)"></span><span>型生成・フィクスチャ追従（CI 確認）</span></span><span class="dads-chart-donut-val">19件 (56%)</span></li><li class="dads-chart-donut-row"><span class="dads-chart-legend-item"><span class="dads-chart-swatch" style="background:var(--dads-chart-2)"></span><span>結合・障害注入テスト</span></span><span class="dads-chart-donut-val">11件 (32%)</span></li><li class="dads-chart-donut-row"><span class="dads-chart-legend-item"><span class="dads-chart-swatch" style="background:var(--dads-chart-3)"></span><span>コア実装（最優先レビュー）</span></span><span class="dads-chart-donut-val">4件 (12%)</span></li></ul>
+  </div></div>
+
+    <div class="dads-chart" data-chart="bar"><div class="dads-chart-head"><h3 class="dads-chart-title">Webhook 処理 P95 レイテンシ比較（負荷試験 1,000 req）</h3><span class="dads-chart-sub">重複イベントはロック判定のみで即時 200 返却</span></div><div class="dads-chart-svg-wrap"><svg class="dads-chart-svg" viewBox="0 0 580 240" role="img" aria-label="Webhook 処理 P95 レイテンシ比較（負荷試験 1,000 req）"><line x1="48" y1="206.0" x2="564" y2="206.0" stroke="#e0e0e6" stroke-width="1" />
+        <text x="40" y="210.0" text-anchor="end" font-size="11" fill="#626266">0</text><line x1="48" y1="160.5" x2="564" y2="160.5" stroke="#e0e0e6" stroke-width="1" />
+        <text x="40" y="164.5" text-anchor="end" font-size="11" fill="#626266">250</text><line x1="48" y1="115.0" x2="564" y2="115.0" stroke="#e0e0e6" stroke-width="1" />
+        <text x="40" y="119.0" text-anchor="end" font-size="11" fill="#626266">500</text><line x1="48" y1="69.5" x2="564" y2="69.5" stroke="#e0e0e6" stroke-width="1" />
+        <text x="40" y="73.5" text-anchor="end" font-size="11" fill="#626266">750</text><line x1="48" y1="24.0" x2="564" y2="24.0" stroke="#e0e0e6" stroke-width="1" />
+        <text x="40" y="28.0" text-anchor="end" font-size="11" fill="#626266">1,000</text><rect x="91.0" y="183.4" width="42.0" height="22.6" rx="3" fill="var(--dads-chart-1)" />
+            <text x="112.0" y="178.4" text-anchor="middle" font-size="10.5" font-weight="700" fill="#1a1a1c">124</text><rect x="135.0" y="182.0" width="42.0" height="24.0" rx="3" fill="var(--dads-chart-2)" />
+            <text x="156.0" y="177.0" text-anchor="middle" font-size="10.5" font-weight="700" fill="#1a1a1c">132</text><text x="134.0" y="230" text-anchor="middle" font-size="11.5" fill="#4a4a4f">初回正常処理</text><rect x="263.0" y="160.9" width="42.0" height="45.1" rx="3" fill="var(--dads-chart-1)" />
+            <text x="284.0" y="155.9" text-anchor="middle" font-size="10.5" font-weight="700" fill="#1a1a1c">248</text><rect x="307.0" y="201.3" width="42.0" height="4.7" rx="3" fill="var(--dads-chart-2)" />
+            <text x="328.0" y="196.3" text-anchor="middle" font-size="10.5" font-weight="700" fill="#1a1a1c">26</text><text x="306.0" y="230" text-anchor="middle" font-size="11.5" fill="#4a4a4f">重複イベント受信</text><rect x="435.0" y="44.0" width="42.0" height="162.0" rx="3" fill="var(--dads-chart-1)" />
+            <text x="456.0" y="39.0" text-anchor="middle" font-size="10.5" font-weight="700" fill="#1a1a1c">890</text><rect x="479.0" y="167.8" width="42.0" height="38.2" rx="3" fill="var(--dads-chart-2)" />
+            <text x="500.0" y="162.8" text-anchor="middle" font-size="10.5" font-weight="700" fill="#1a1a1c">210</text><text x="478.0" y="230" text-anchor="middle" font-size="11.5" fill="#4a4a4f">DB 遅延後リトライ</text></svg></div><div class="dads-chart-legend"><span class="dads-chart-legend-item"><span class="dads-chart-swatch" style="background:var(--dads-chart-1)"></span><span>変更前</span></span><span class="dads-chart-legend-item"><span class="dads-chart-swatch" style="background:var(--dads-chart-2)"></span><span>変更後</span></span></div><p class="dads-chart-note">出典：ステージング環境 k6 負荷試験（2026-11-24 実行）。初回処理の +8ms は冪等性 INSERT 分。</p></div>
+  </section>
+
+  <section class="dads-section">
+    <h2>5. リスク・レビュー確認ステップ</h2>
     <div class="dads-callout dads-callout--warning">
       <p class="dads-callout-title">確認してほしいエッジケース：処理中クラッシュ時の再実行</p>
       <p>
@@ -4264,8 +4950,8 @@ body { background: var(--color-neutral-white); overflow: hidden; }
   </section>
 
   <footer class="dads-doc-footer">
-    <span>PR #418 Review Brief — Generated by dads-doc skill</span>
-    <span>Digital Agency Design System 準拠</span>
+    <span>PR #418 Review Brief — Generated by dads skill</span>
+    <span>DADS Design Tokens &amp; Visual Components</span>
   </footer>
 </main>
 </div>

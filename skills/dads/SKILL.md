@@ -23,7 +23,7 @@ metadata:
 | `slides` | 経営会議・定例スライド、技術発表、企画提案（16:9・PDF 印刷対応） | [references/slides.md](references/slides.md) |
 | `mockup` | 業務画面プロトタイプ、申請フォーム、管理画面の動く UI モック | [references/mockup.md](references/mockup.md) |
 
-追加の DADS コンポーネントを使う場合は [references/components-catalog.md](references/components-catalog.md) と [references/component-snippets.md](references/component-snippets.md) を参照する。
+追加の DADS コンポーネントを使う場合は [references/components-catalog.md](references/components-catalog.md) と [references/component-snippets.md](references/component-snippets.md) を、図解（フロー図・構成図・Before/After・シーケンス・PR Diff）や宣言的 SVG チャート（7 種）を使う場合は [references/diagrams-and-charts.md](references/diagrams-and-charts.md) を参照する。
 
 ## 2. 共通の設計・Anti-Slop ルール
 

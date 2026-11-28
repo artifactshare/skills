@@ -607,6 +607,627 @@ table :is(td, th)[data-num] {
   color: var(--dads-error);
 }
 
+/* ==========================================================================
+   dads-viz.css: Shared Diagram, PR Review & Chart Components
+   Zero-dependency CSS + SVG visual grammar built on DADS tokens & 7 palettes.
+   ========================================================================== */
+
+/* ---------- 1. Review Decision Summary (.dads-review-meta) ---------- */
+.dads-review-meta {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 12px;
+  margin: 16px 0;
+}
+
+.dads-review-card {
+  background: #f8f8fb;
+  border: 1px solid var(--color-neutral-solid-gray-200);
+  border-radius: var(--border-radius-12);
+  padding: 14px 16px;
+  min-width: 0;
+}
+
+.dads-review-card[data-tone='key'] {
+  background: var(--color-key-50);
+  border-color: var(--color-key-200);
+}
+
+.dads-review-card[data-tone='warning'] {
+  background: var(--color-primitive-yellow-50, #fff8e1);
+  border-color: var(--color-primitive-yellow-400, #f5b400);
+}
+
+.dads-review-card[data-tone='danger'] {
+  background: var(--color-primitive-red-50, #fff1f1);
+  border-color: var(--color-primitive-red-300, #ff8f8f);
+}
+
+.dads-review-card-label {
+  display: block;
+  font-size: var(--font-size-12, 12px);
+  font-weight: 700;
+  color: var(--color-neutral-solid-gray-600);
+  margin-bottom: 6px;
+}
+
+.dads-review-card-value {
+  font-size: var(--font-size-16);
+  font-weight: 700;
+  color: var(--color-neutral-black);
+  line-height: 1.4;
+  margin: 0 0 4px;
+}
+
+.dads-review-card-note {
+  font-size: var(--font-size-14);
+  color: var(--color-neutral-solid-gray-700);
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* ---------- 2. Process Flow Diagram (.dads-flow) ---------- */
+.dads-flow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  gap: 10px;
+  margin: 16px 0;
+  padding: 16px;
+  background: #f8f8fb;
+  border-radius: var(--border-radius-12);
+  border: 1px solid var(--color-neutral-solid-gray-200);
+}
+
+.dads-flow-step {
+  flex: 1 1 150px;
+  min-width: 0;
+  background: var(--color-neutral-white);
+  border: 1.5px solid var(--color-neutral-solid-gray-300);
+  border-radius: var(--border-radius-8);
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.dads-flow-step[data-status='added'] {
+  border-color: var(--dads-chart-1);
+  background: var(--color-key-50);
+}
+
+.dads-flow-step[data-status='changed'] {
+  border-color: var(--color-primitive-orange-700, #c75b00);
+  background: var(--color-primitive-orange-50, #fff6eb);
+}
+
+.dads-flow-step[data-status='removed'] {
+  border-color: var(--color-primitive-red-600, #ce0000);
+  background: var(--color-primitive-red-50, #fff1f1);
+  border-style: dashed;
+}
+
+.dads-flow-step.is-active,
+.dads-arch-node.is-active {
+  border-color: var(--dads-chart-1);
+  box-shadow: 0 0 0 3px var(--color-key-200);
+}
+
+.dads-flow-step-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.dads-flow-step-title {
+  font-size: var(--font-size-14);
+  font-weight: 700;
+  color: var(--color-neutral-black);
+  margin: 0;
+}
+
+.dads-flow-step-desc {
+  font-size: 13px;
+  color: var(--color-neutral-solid-gray-700);
+  line-height: 1.5;
+  margin: 0;
+}
+
+.dads-flow-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-neutral-solid-gray-500);
+  font-weight: 700;
+  font-size: 16px;
+  padding: 0 2px;
+  flex-shrink: 0;
+}
+
+.dads-flow-branch {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 10px;
+  margin-top: 6px;
+  padding-top: 12px;
+  border-top: 1px dashed var(--color-neutral-solid-gray-300);
+}
+
+/* ---------- 3. Before / After Structural Compare (.dads-compare) ---------- */
+.dads-compare {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin: 16px 0;
+}
+
+.dads-compare-pane {
+  background: var(--color-neutral-white);
+  border: 1.5px solid var(--color-neutral-solid-gray-300);
+  border-radius: var(--border-radius-12);
+  padding: 16px;
+  min-width: 0;
+}
+
+.dads-compare-pane[data-kind='before'] {
+  background: #f8f8fb;
+}
+
+.dads-compare-pane[data-kind='after'] {
+  border-color: var(--dads-chart-1);
+  background: var(--color-key-50);
+}
+
+.dads-compare-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 10px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--color-neutral-solid-gray-200);
+}
+
+.dads-compare-title {
+  font-size: var(--font-size-16);
+  font-weight: 700;
+  color: var(--color-neutral-black);
+  margin: 0;
+}
+
+.dads-compare-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.dads-compare-list li {
+  font-size: var(--font-size-14);
+  line-height: 1.55;
+  padding: 8px 10px;
+  border-radius: var(--border-radius-8);
+  background: var(--color-neutral-white);
+  border: 1px solid var(--color-neutral-solid-gray-200);
+}
+
+.dads-compare-list li.is-highlight {
+  border-color: var(--dads-chart-1);
+  font-weight: 600;
+}
+
+/* ---------- 4. Architecture & Impact Layer Map (.dads-arch) ---------- */
+.dads-arch {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 16px 0;
+  padding: 16px;
+  background: #f8f8fb;
+  border: 1px solid var(--color-neutral-solid-gray-200);
+  border-radius: var(--border-radius-12);
+}
+
+.dads-arch-layer {
+  display: grid;
+  grid-template-columns: 140px minmax(0, 1fr);
+  gap: 12px;
+  align-items: center;
+  background: var(--color-neutral-white);
+  border: 1px solid var(--color-neutral-solid-gray-200);
+  border-radius: var(--border-radius-8);
+  padding: 12px 14px;
+}
+
+.dads-arch-layer-name {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--color-neutral-solid-gray-700);
+}
+
+.dads-arch-nodes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.dads-arch-node {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  border-radius: var(--border-radius-8);
+  border: 1px solid var(--color-neutral-solid-gray-300);
+  background: #f8f8fb;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-neutral-solid-gray-800);
+}
+
+.dads-arch-node[data-impact='touched'] {
+  border-color: var(--dads-chart-1);
+  background: var(--color-key-50);
+  color: var(--color-key-1000, var(--color-neutral-black));
+}
+
+.dads-arch-node[data-impact='new'] {
+  border-color: var(--dads-chart-1);
+  background: var(--dads-chart-1);
+  color: var(--color-neutral-white);
+}
+
+.dads-arch-node[data-impact='unchanged'] {
+  opacity: 0.72;
+}
+
+/* ---------- 5. Lightweight Sequence Diagram (.dads-seq) ---------- */
+.dads-seq {
+  margin: 16px 0;
+  padding: 16px;
+  background: #f8f8fb;
+  border: 1px solid var(--color-neutral-solid-gray-200);
+  border-radius: var(--border-radius-12);
+  overflow-x: auto;
+}
+
+.dads-seq-actors {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(120px, 1fr));
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.dads-seq-actor {
+  text-align: center;
+  padding: 8px 10px;
+  background: var(--color-neutral-white);
+  border: 1.5px solid var(--color-neutral-solid-gray-400);
+  border-radius: var(--border-radius-8);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--color-neutral-black);
+}
+
+.dads-seq-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.dads-seq-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 8px 12px;
+  background: var(--color-neutral-white);
+  border: 1px solid var(--color-neutral-solid-gray-200);
+  border-radius: var(--border-radius-8);
+  font-size: 13px;
+}
+
+.dads-seq-row[data-tone='key'] {
+  border-color: var(--dads-chart-1);
+  background: var(--color-key-50);
+}
+
+.dads-seq-path {
+  font-weight: 700;
+  color: var(--dads-chart-1);
+  white-space: nowrap;
+}
+
+.dads-seq-msg {
+  flex: 1 1 auto;
+  color: var(--color-neutral-solid-gray-900);
+  min-width: 0;
+}
+
+/* ---------- 6. Mini Code Diff Block (.dads-diff) ---------- */
+.dads-diff {
+  margin: 16px 0;
+  border: 1px solid var(--color-neutral-solid-gray-200);
+  border-radius: var(--border-radius-12);
+  overflow: hidden;
+  background: var(--color-neutral-white);
+}
+
+.dads-diff-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  flex-wrap: wrap;
+  padding: 10px 14px;
+  background: #f1f1f4;
+  border-bottom: 1px solid var(--color-neutral-solid-gray-200);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.dads-diff-stats {
+  display: inline-flex;
+  gap: 6px;
+  font-family: var(--font-family-mono);
+  font-size: 12px;
+}
+
+.dads-diff-stat-add {
+  color: #115a36;
+  background: #e6f5ec;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.dads-diff-stat-del {
+  color: #b40000;
+  background: #ffecec;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.dads-diff-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.dads-diff-pane {
+  min-width: 0;
+  overflow-x: auto;
+  padding: 12px 14px;
+  font-family: var(--font-family-mono);
+  font-size: 12.5px;
+  line-height: 1.6;
+  margin: 0;
+  background: var(--color-neutral-white);
+}
+
+.dads-diff-pane + .dads-diff-pane {
+  border-left: 1px solid var(--color-neutral-solid-gray-200);
+}
+
+.dads-diff-pane-label {
+  font-family: var(--font-family-sans);
+  font-size: 11.5px;
+  font-weight: 700;
+  color: var(--color-neutral-solid-gray-600);
+  margin-bottom: 6px;
+  display: block;
+}
+
+.dads-diff-line {
+  display: block;
+  padding: 1px 6px;
+  border-radius: 3px;
+  white-space: pre;
+}
+
+.dads-diff-line--del {
+  background: #ffecec;
+  color: #850000;
+}
+
+.dads-diff-line--add {
+  background: #e6f5ec;
+  color: #0e4a2c;
+}
+
+/* ---------- 7. Interactive Walkthrough (.dads-walkthrough) ---------- */
+.dads-walkthrough {
+  display: grid;
+  grid-template-columns: minmax(220px, 280px) minmax(0, 1fr);
+  gap: 14px;
+  margin: 16px 0;
+  align-items: start;
+}
+
+.dads-wt-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.dads-wt-step {
+  text-align: left;
+  width: 100%;
+  cursor: pointer;
+  padding: 10px 12px;
+  border-radius: var(--border-radius-8);
+  border: 1.5px solid var(--color-neutral-solid-gray-200);
+  background: var(--color-neutral-white);
+  font-family: inherit;
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: var(--color-neutral-solid-gray-900);
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+
+.dads-wt-step:hover {
+  border-color: var(--color-neutral-solid-gray-400);
+}
+
+.dads-wt-step.is-active {
+  border-color: var(--dads-chart-1);
+  background: var(--color-key-50);
+  font-weight: 600;
+}
+
+/* ---------- 8. Declarative SVG Charts (.dads-chart) ---------- */
+.dads-chart {
+  margin: 16px 0;
+  padding: 16px 18px;
+  background: #f8f8fb;
+  border-radius: var(--border-radius-12);
+  border: 1px solid var(--color-neutral-solid-gray-200);
+  min-width: 0;
+}
+
+.dads-chart--inline {
+  margin: 6px 0 0;
+  padding: 0;
+  background: transparent;
+  border: 0;
+}
+
+.dads-chart-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+
+.dads-chart-title {
+  font-size: var(--font-size-16);
+  font-weight: 700;
+  color: var(--color-neutral-black);
+  margin: 0;
+}
+
+.dads-chart-sub {
+  font-size: 12.5px;
+  color: var(--color-neutral-solid-gray-600);
+}
+
+.dads-chart-svg-wrap {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.dads-chart-svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  font-family: var(--font-family-sans);
+}
+
+.dads-chart-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 16px;
+  margin-top: 10px;
+  font-size: 12.5px;
+  color: var(--color-neutral-solid-gray-800);
+}
+
+.dads-chart-legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.dads-chart-swatch {
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+.dads-chart-note {
+  margin: 8px 0 0;
+  font-size: 12px;
+  color: var(--color-neutral-solid-gray-600);
+}
+
+.dads-chart-donut-layout {
+  display: grid;
+  grid-template-columns: 180px minmax(0, 1fr);
+  gap: 18px;
+  align-items: center;
+}
+
+.dads-chart-donut-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.dads-chart-donut-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  font-size: 13.5px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid var(--color-neutral-solid-gray-200);
+}
+
+.dads-chart-donut-row:last-child {
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+
+.dads-chart-donut-val {
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+/* ---------- Responsive (<= 768px / Mobile 390px) ---------- */
+@media (max-width: 768px) {
+  .dads-compare,
+  .dads-diff-grid,
+  .dads-walkthrough,
+  .dads-chart-donut-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .dads-diff-pane + .dads-diff-pane {
+    border-left: 0;
+    border-top: 1px solid var(--color-neutral-solid-gray-200);
+  }
+
+  .dads-arch-layer {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+
+  .dads-flow {
+    flex-direction: column;
+  }
+
+  .dads-flow-arrow {
+    transform: rotate(90deg);
+    padding: 2px 0;
+  }
+
+  .dads-seq-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+}
+
 
 /* ==========================================================================
    dads-kpi-dashboard: Digital Agency Dashboard Practice Guidebook (2026 JSON)

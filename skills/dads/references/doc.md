@@ -17,6 +17,7 @@ DADS トークン・43 コンポーネントと日本語タイポグラフィ（
 ## レイアウト注意点
 
 - コールアウトは均一 `3px` 枠線＋白背景（`.dads-callout`）を使う。
+- PR 解説や設計書で図解（処理フロー・Before/After・影響範囲マップ・シーケンス・ミニ Diff）やグラフを入れる場合は [diagrams-and-charts.md](diagrams-and-charts.md) の共通パーツ・宣言的 SVG チャートを使う。
 - ルート要素は `<main class="dads-doc">...</main>` とする。
 
 ## バンドル例

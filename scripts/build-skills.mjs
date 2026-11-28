@@ -100,6 +100,7 @@ function validateSkillMd(skillDir, expectedName) {
 function main() {
   const tokensPath = path.join(rootDir, 'vendor', 'dads-design-tokens', 'dist', 'tokens.css');
   const semanticPath = path.join(rootDir, 'src', 'dads-semantic.css');
+  const vizPath = path.join(rootDir, 'src', 'dads-viz.css');
   const bundlerPath = path.join(rootDir, 'src', 'bundle.mjs');
   const componentsSrcDir = path.join(rootDir, 'vendor', 'dads-components');
   const manifestPath = path.join(componentsSrcDir, 'manifest.json');
@@ -111,6 +112,7 @@ function main() {
     syncFile(bundlerPath, path.join(skillDir, 'scripts', 'bundle.mjs'));
     syncFile(tokensPath, path.join(skillDir, 'assets', 'tokens.css'));
     syncFile(semanticPath, path.join(skillDir, 'assets', 'dads-semantic.css'));
+    syncFile(vizPath, path.join(skillDir, 'assets', 'dads-viz.css'));
     for (const type of skill.types) {
       syncFile(
         path.join(rootDir, 'src', 'types', `${type}.css`),
